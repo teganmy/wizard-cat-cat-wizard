@@ -5,8 +5,8 @@ Target aesthetics: Challenge, discovery
 In our game, you will:
 
 Photos:
-![Prototype 1](IMG_9199.jpg)
-![Prototype 2](IMG_9200.jpg)
+![Prototype 1](IMG_9199.JPG)
+![Prototype 2](IMG_9200.JPG)
 
 Itch.io usernames:
 Tegan - teganmy
