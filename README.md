@@ -10,4 +10,4 @@ Photos:
 
 Itch.io usernames:
 Tegan - teganmy
-Sophie - 
+Sophie - arcturus-the-star
