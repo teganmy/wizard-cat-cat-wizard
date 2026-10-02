@@ -47,6 +47,14 @@ player_right={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_2="player"
+2d_physics/layer_3="enemy"
+2d_physics/layer_4="player_hurt"
+2d_physics/layer_5="enemy_hurt"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
