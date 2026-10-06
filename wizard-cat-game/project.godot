@@ -15,10 +15,19 @@ run/main_scene="uid://be1g2jqyou40i"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Player="*uid://6t34451gxrtm"
+
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[gui]
+
+theme/custom="uid://cnlk2q7yx8tfd"
+theme/custom_font="uid://drylidqssa502"
 
 [input]
 
