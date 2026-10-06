@@ -1,9 +1,112 @@
 [gd_scene format=3 uid="uid://be1g2jqyou40i"]
 
-[ext_resource type="PackedScene" uid="uid://bmdae68la1t7d" path="res://main_menu.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dq2js0a13n6oc" path="res://components/button_tween.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://ho1q5y7xs8o7" path="res://assets/cat.png" id="2_h2yge"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1bvp3"]
+font_size = 50
+font_color = Color(0.99215686, 0.95686275, 0.8235294, 1)
 
 [node name="Main" type="Node2D" unique_id=1893129849]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=32101130]
+[node name="MenuLayer" type="CanvasLayer" parent="." unique_id=32101130]
 
-[node name="MainMenu" parent="CanvasLayer" unique_id=1637072399 instance=ExtResource("1_ig7tw")]
+[node name="MainMenu" type="Control" parent="MenuLayer" unique_id=622120077]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MenuLayer/MainMenu" unique_id=115762507]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -504.0
+offset_top = 40.0
+offset_right = 333.0
+offset_bottom = 123.0
+grow_horizontal = 2
+text = "Cat Wizard - Wizard Cat"
+label_settings = SubResource("LabelSettings_1bvp3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MenuLayer/MainMenu" unique_id=1700385085]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = -156.0
+offset_right = 471.0
+offset_bottom = 290.0
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="ButtonTween" type="Node" parent="MenuLayer/MainMenu/PanelContainer" unique_id=1869123090]
+script = ExtResource("1_0xm2m")
+metadata/_custom_type_script = "uid://dq2js0a13n6oc"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuLayer/MainMenu/PanelContainer" unique_id=1080793051]
+layout_mode = 2
+alignment = 1
+
+[node name="NewGameButton" type="Button" parent="MenuLayer/MainMenu/PanelContainer/VBoxContainer" unique_id=1482941788]
+layout_mode = 2
+size_flags_vertical = 0
+text = "New Game"
+
+[node name="ContinueButton" type="Button" parent="MenuLayer/MainMenu/PanelContainer/VBoxContainer" unique_id=2078129066]
+layout_mode = 2
+text = "Continue"
+
+[node name="LoadButton" type="Button" parent="MenuLayer/MainMenu/PanelContainer/VBoxContainer" unique_id=912717492]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Load"
+
+[node name="QuitButton" type="Button" parent="MenuLayer/MainMenu/PanelContainer/VBoxContainer" unique_id=631376314]
+layout_mode = 2
+text = "Quit"
+
+[node name="Background" type="CanvasLayer" parent="MenuLayer/MainMenu" unique_id=490247967]
+layer = -10
+
+[node name="ColorRect" type="ColorRect" parent="MenuLayer/MainMenu/Background" unique_id=700449190]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.63529414, 0.5647059, 0.7176471, 1)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="MenuLayer/MainMenu" unique_id=1170171024]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -472.0
+offset_right = -48.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("2_h2yge")
+
+[connection signal="mouse_entered" from="MenuLayer/MainMenu/PanelContainer/VBoxContainer/NewGameButton" to="MenuLayer/MainMenu/PanelContainer/ButtonTween" method="activate_button" binds= [NodePath("../VBoxContainer/NewGameButton")]]
+[connection signal="mouse_exited" from="MenuLayer/MainMenu/PanelContainer/VBoxContainer/NewGameButton" to="MenuLayer/MainMenu/PanelContainer/ButtonTween" method="deactivate_button" binds= [NodePath("../VBoxContainer/NewGameButton")]]
+[connection signal="mouse_entered" from="MenuLayer/MainMenu/PanelContainer/VBoxContainer/ContinueButton" to="MenuLayer/MainMenu/PanelContainer/ButtonTween" method="activate_button" binds= [NodePath("../VBoxContainer/ContinueButton")]]
+[connection signal="mouse_exited" from="MenuLayer/MainMenu/PanelContainer/VBoxContainer/ContinueButton" to="MenuLayer/MainMenu/PanelContainer/ButtonTween" method="deactivate_button" binds= [NodePath("../VBoxContainer/ContinueButton")]]
+[connection signal="mouse_entered" from="MenuLayer/MainMenu/PanelContainer/VBoxContainer/LoadButton" to="MenuLayer/MainMenu/PanelContainer/ButtonTween" method="activate_button" binds= [NodePath("../VBoxContainer/LoadButton")]]
+[connection signal="mouse_exited" from="MenuLayer/MainMenu/PanelContainer/VBoxContainer/LoadButton" to="MenuLayer/MainMenu/PanelContainer/ButtonTween" method="deactivate_button" binds= [NodePath("../VBoxContainer/LoadButton")]]
+[connection signal="mouse_entered" from="MenuLayer/MainMenu/PanelContainer/VBoxContainer/QuitButton" to="MenuLayer/MainMenu/PanelContainer/ButtonTween" method="activate_button" binds= [NodePath("../VBoxContainer/QuitButton")]]
+[connection signal="mouse_exited" from="MenuLayer/MainMenu/PanelContainer/VBoxContainer/QuitButton" to="MenuLayer/MainMenu/PanelContainer/ButtonTween" method="deactivate_button" binds= [NodePath("../VBoxContainer/QuitButton")]]
