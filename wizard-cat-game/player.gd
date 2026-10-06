@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed: float = 100
-@onready var shooter := $AreaShooter
+@onready var shooter := $Shooter
 @onready var sprite := $Sprite2D
 var last_dir: Vector2 = Vector2.ZERO
 

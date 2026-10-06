@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bbhvbmlbu1ne7"]
+
+[ext_resource type="Script" uid="uid://cec2qkk20ybsu" path="res://assets/life_container.gd" id="1_knk3d"]
+[ext_resource type="Script" uid="uid://cawfowwy7xfdn" path="res://assets/hud.gd" id="1_px13d"]
+[ext_resource type="Texture2D" uid="uid://cdhwe1jm0yer6" path="res://assets/wizard-cat.png" id="3_uj4j1"]
+
+[node name="HUD" type="MarginContainer" unique_id=1347274040]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_px13d")
+
+[node name="LifeContainer" type="HBoxContainer" parent="." unique_id=121664328]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_knk3d")
+life_sprite = ExtResource("3_uj4j1")

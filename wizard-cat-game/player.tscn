@@ -55,6 +55,7 @@ bullet = ExtResource("8_dw050")
 metadata/_custom_type_script = "uid://ds8lqx0juuem6"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=677666763]
+enabled = false
 
 [connection signal="changed" from="Health" to="." method="_on_health_changed"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]
