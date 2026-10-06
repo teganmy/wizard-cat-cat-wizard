@@ -4,6 +4,10 @@
 [ext_resource type="Script" uid="uid://cbd2g1myqnniy" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Script" uid="uid://bcc0owr08yuq5" path="res://components/health.gd" id="3_i3pqv"]
 [ext_resource type="Script" uid="uid://c88tvlaqfqme2" path="res://components/hurtbox.gd" id="4_hqtel"]
+[ext_resource type="Script" uid="uid://dk1yon6ea2oig" path="res://components/shooter.gd" id="5_sweqy"]
+[ext_resource type="PackedScene" uid="uid://bs3t3mggvtbl0" path="res://bullet.tscn" id="6_2hs0m"]
+[ext_resource type="Script" uid="uid://ds8lqx0juuem6" path="res://components/area_shooter.gd" id="7_1jxqw"]
+[ext_resource type="PackedScene" uid="uid://dvdc0giywjqia" path="res://area_bullet.tscn" id="8_dw050"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpvk7"]
 size = Vector2(32, 32)
@@ -38,6 +42,16 @@ metadata/_custom_type_script = "uid://c88tvlaqfqme2"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=804881075]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_2w8te")
+
+[node name="Shooter" type="Node2D" parent="." unique_id=88096364]
+script = ExtResource("5_sweqy")
+bullet = ExtResource("6_2hs0m")
+metadata/_custom_type_script = "uid://dk1yon6ea2oig"
+
+[node name="AreaShooter" type="Node2D" parent="." unique_id=27940226]
+script = ExtResource("7_1jxqw")
+bullet = ExtResource("8_dw050")
+metadata/_custom_type_script = "uid://ds8lqx0juuem6"
 
 [connection signal="changed" from="Health" to="." method="_on_health_changed"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]
