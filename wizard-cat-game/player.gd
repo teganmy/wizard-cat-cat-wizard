@@ -2,16 +2,22 @@ extends CharacterBody2D
 
 @export var speed: float = 100
 @onready var shooter := $AreaShooter
+@onready var sprite := $Sprite2D
 var last_dir: Vector2 = Vector2.ZERO
 
 
 func _physics_process(_delta: float) -> void:
 	var dir := Input.get_vector("player_left", "player_right", "player_up", "player_down")
 	if dir != last_dir:
-		get_tree().create_tween().set_trans(Tween.TRANS_QUAD).tween_property(self, "velocity", speed * dir, 0.25)
+		get_tree().create_tween().set_trans(Tween.TRANS_QUAD).tween_property(self, "velocity", speed * dir, 0.1)
 		last_dir = dir
 	if Input.is_action_just_pressed("fire"):
 		add_sibling(shooter.fire(get_global_mouse_position()))
+	if get_global_mouse_position().x < global_position.x:
+		sprite.flip_h = false
+	else:
+		sprite.flip_h = true
+		
 	move_and_slide()
 
 

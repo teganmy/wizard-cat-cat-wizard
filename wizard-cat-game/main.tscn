@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dq2js0a13n6oc" path="res://components/button_tween.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://hvo3h3pb28bc" path="res://main.gd" id="1_h2yge"]
-[ext_resource type="Texture2D" uid="uid://ho1q5y7xs8o7" path="res://assets/cat.png" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://cdhwe1jm0yer6" path="res://assets/wizard-cat.png" id="3_h2yge"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1bvp3"]
 font_size = 50
@@ -83,13 +83,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -640.0
+offset_left = -552.0
 offset_top = -472.0
-offset_right = -48.0
+offset_right = -120.0
 offset_bottom = -40.0
 grow_horizontal = 0
 grow_vertical = 0
-texture = ExtResource("2_h2yge")
+texture = ExtResource("3_h2yge")
 
 [node name="Background" type="CanvasLayer" parent="MenuLayer/MainMenu" unique_id=490247967]
 layer = -10
