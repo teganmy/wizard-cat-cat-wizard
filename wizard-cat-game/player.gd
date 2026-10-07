@@ -3,7 +3,9 @@ extends CharacterBody2D
 @export var speed: float = 100
 @onready var shooter := $Shooter
 @onready var sprite := $Sprite2D
+@onready var health := $Health
 var last_dir: Vector2 = Vector2.ZERO
+signal died
 
 
 func _physics_process(_delta: float) -> void:
@@ -25,5 +27,5 @@ func _on_health_changed(current: int) -> void:
 	print("Player health: ", current)
 
 func _on_health_died() -> void:
-	print("Player died")
-	queue_free()
+	health.heal(health.max_health)
+	died.emit()

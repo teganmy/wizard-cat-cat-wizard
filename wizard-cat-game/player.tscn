@@ -15,7 +15,7 @@ size = Vector2(32, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2w8te"]
 size = Vector2(28, 30)
 
-[node name="Player" type="CharacterBody2D" unique_id=705305627]
+[node name="Player" type="CharacterBody2D" unique_id=705305627 groups=["Player"]]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_onrkg")
