@@ -55,12 +55,14 @@ func _change_state(new_state: STATE) -> void:
 
 func _dodge() -> void:
 	hurtbox.monitoring = false
+	hurtbox.monitorable = false
 	dodge_dir = -global_position.direction_to(get_global_mouse_position())
 	get_tree().create_timer(0.1).timeout.connect(_end_dodge)
 
 func _end_dodge() -> void:
 	velocity = Vector2.ZERO
 	hurtbox.monitoring = true
+	hurtbox.monitorable = true
 	dodge_cooldown.start()
 	_change_state(STATE.IDLE)
 
