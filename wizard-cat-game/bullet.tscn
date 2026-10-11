@@ -25,7 +25,7 @@ texture = ExtResource("2_v8qja")
 shape = SubResource("CircleShape2D_gpvk7")
 
 [node name="Lifetime" type="Timer" parent="." unique_id=1453273292]
-wait_time = 10.0
+wait_time = 3.0
 one_shot = true
 autostart = true
 

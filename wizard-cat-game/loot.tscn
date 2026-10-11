@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cg7joxcmv8twv"]
+
+[ext_resource type="Script" uid="uid://d2gscfenmrqo2" path="res://loot.gd" id="1_e547a"]
+[ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="2_m0gsf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e547a"]
+bounce = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lfujy"]
+radius = 8.0
+
+[node name="Loot" type="RigidBody2D" unique_id=1259611938]
+collision_layer = 32
+physics_material_override = SubResource("PhysicsMaterial_e547a")
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_e547a")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1380986542]
+texture_filter = 1
+texture = ExtResource("2_m0gsf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=782363417]
+shape = SubResource("CircleShape2D_lfujy")

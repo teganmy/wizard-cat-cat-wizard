@@ -34,7 +34,7 @@ func _physics_process(_delta: float) -> void:
 			if Input.is_action_just_pressed("player_dodge"):
 				_change_state(STATE.DODGE)
 			if dir != last_dir:
-				get_tree().create_tween().set_trans(Tween.TRANS_QUAD).tween_property(self, "velocity", speed * dir, 0.1)
+				create_tween().set_trans(Tween.TRANS_QUAD).tween_property(self, "velocity", speed * dir, 0.1)
 				last_dir = dir
 		STATE.DODGE:
 			velocity = dodge_dir * dodge_speed
