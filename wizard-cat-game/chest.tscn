@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://3fdgsfs7b4ci"]
+
+[ext_resource type="Script" uid="uid://be7s45j5u322e" path="res://chest.gd" id="1_trlyu"]
+[ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="1_twpm2"]
+[ext_resource type="Script" uid="uid://c4u3dpkcjwe7p" path="res://components/lootable.gd" id="2_8uwsg"]
+[ext_resource type="PackedScene" uid="uid://cg7joxcmv8twv" path="res://loot.tscn" id="3_bp1or"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpvk7"]
+size = Vector2(32, 16)
+
+[node name="Chest" type="StaticBody2D" unique_id=1010634097]
+script = ExtResource("1_trlyu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=37528860]
+texture_filter = 1
+scale = Vector2(2, 1)
+texture = ExtResource("1_twpm2")
+
+[node name="Lootable" type="Node2D" parent="." unique_id=1438251120]
+script = ExtResource("2_8uwsg")
+loot = ExtResource("3_bp1or")
+amount = 10
+metadata/_custom_type_script = "uid://c4u3dpkcjwe7p"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1990976404]
+shape = SubResource("RectangleShape2D_gpvk7")
