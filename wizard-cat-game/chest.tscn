@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://be7s45j5u322e" path="res://chest.gd" id="1_trlyu"]
 [ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="1_twpm2"]
-[ext_resource type="Script" uid="uid://c4u3dpkcjwe7p" path="res://components/lootable.gd" id="2_8uwsg"]
-[ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://components/weighted_loot.gd" id="4_x7mpe"]
-[ext_resource type="Resource" uid="uid://bysyxfwpc5ro3" path="res://loot_types/reg_coin.tres" id="5_bv3sb"]
+[ext_resource type="Script" uid="uid://c4u3dpkcjwe7p" path="res://loot/lootable.gd" id="2_8uwsg"]
+[ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="4_x7mpe"]
+[ext_resource type="Resource" uid="uid://bysyxfwpc5ro3" path="res://loot/loot_types/reg_coin.tres" id="5_bv3sb"]
 
 [sub_resource type="Resource" id="Resource_bp1or"]
 script = ExtResource("4_x7mpe")
