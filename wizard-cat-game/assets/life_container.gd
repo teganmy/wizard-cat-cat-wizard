@@ -5,16 +5,15 @@ var hearts: Array[TextureRect] = []
 
 func change_hearts(new: int) -> void:
 	for heart in range(0, new):
-		hearts[heart].show()
+		hearts[heart].modulate = Color.WHITE
 	for heart in range(new, PlayerState.max_health):
-		hearts[heart].hide()
+		hearts[heart].modulate = Color.BLACK
 
 func change_max(new: int) -> void:
 	hearts.clear()
 	for _i in range(new):
 		var heart = TextureRect.new()
 		heart.texture = heart_texture
-		heart.hide()
 		hearts.push_back(heart)
 		add_child(heart)
 	change_hearts(PlayerState.current_health)
