@@ -8,12 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://bs3t3mggvtbl0" path="res://bullet.tscn" id="6_2hs0m"]
 [ext_resource type="Script" uid="uid://ds8lqx0juuem6" path="res://components/area_shooter.gd" id="7_1jxqw"]
 [ext_resource type="PackedScene" uid="uid://dvdc0giywjqia" path="res://area_bullet.tscn" id="8_dw050"]
+[ext_resource type="Script" uid="uid://cnhbys2pob6vi" path="res://components/pickup_area.gd" id="9_b26j0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpvk7"]
 size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2w8te"]
 size = Vector2(28, 30)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gpvk7"]
+radius = 114.35471
 
 [node name="Player" type="CharacterBody2D" unique_id=705305627 groups=["Player"]]
 collision_layer = 2
@@ -65,5 +69,14 @@ drag_bottom_margin = 0.3
 
 [node name="DodgeCooldown" type="Timer" parent="." unique_id=204651733]
 one_shot = true
+
+[node name="PickupArea" type="Area2D" parent="." unique_id=983108859]
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("9_b26j0")
+metadata/_custom_type_script = "uid://cnhbys2pob6vi"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" unique_id=209260760]
+shape = SubResource("CircleShape2D_gpvk7")
 
 [connection signal="died" from="Health" to="." method="_on_health_died"]

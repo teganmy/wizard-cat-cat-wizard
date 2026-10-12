@@ -14,14 +14,16 @@ signal died
 enum STATE {IDLE, MOVE, DODGE}
 var state: STATE = STATE.IDLE
 
-func _physics_process(_delta: float) -> void:
-	var dir := Input.get_vector("player_left", "player_right", "player_up", "player_down")
-	if Input.is_action_just_pressed("fire"):
-		add_sibling(shooter.fire(get_global_mouse_position()))
+func _process(_delta: float) -> void:
 	if get_global_mouse_position().x < global_position.x:
 		sprite.flip_h = false
 	else:
 		sprite.flip_h = true
+
+func _physics_process(_delta: float) -> void:
+	var dir := Input.get_vector("player_left", "player_right", "player_up", "player_down")
+	if Input.is_action_just_pressed("fire"):
+		add_sibling(shooter.fire(get_global_mouse_position()))
 	match state:
 		STATE.IDLE:
 			if dir != Vector2.ZERO:
