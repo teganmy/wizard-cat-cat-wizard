@@ -20,6 +20,7 @@ func is_grabbed() -> bool:
 func _ready() -> void:
 	value = type.value
 	sprite.texture = type.sprite
+	sprite.modulate = type.tint
 
 func _physics_process(_delta: float) -> void:
 	match state:
