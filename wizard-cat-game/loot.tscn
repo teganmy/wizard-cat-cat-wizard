@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cg7joxcmv8twv"]
 
-[ext_resource type="Script" uid="uid://d2gscfenmrqo2" path="res://loot.gd" id="1_e547a"]
-[ext_resource type="Resource" uid="uid://bysyxfwpc5ro3" path="res://loot_types/reg_coin.tres" id="2_l44s4"]
+[ext_resource type="Script" uid="uid://d2gscfenmrqo2" path="res://loot/loot.gd" id="1_e547a"]
+[ext_resource type="Resource" uid="uid://bysyxfwpc5ro3" path="res://loot/loot_types/reg_coin.tres" id="2_l44s4"]
 [ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="2_m0gsf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e547a"]
