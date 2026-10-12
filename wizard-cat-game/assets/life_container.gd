@@ -1,33 +1,26 @@
 extends HBoxContainer
 
 var hearts: Array[TextureRect] = []
-@export var texture: Texture2D
-var got_player: bool = false
-
-func _process(_delta: float) -> void:
-	if not got_player:
-		try_get_player()
+var max_health = 0
+var current_health = 0
+@export var heart_texture: Texture2D
 
 func change_hearts(new: int) -> void:
-	var heart_size := hearts.size()
-	if heart_size > new:
-		for _i in range(heart_size - new):
-			var heart = hearts.pop_back()
-			heart.queue_free()
-	elif heart_size < new:
-		for _i in range(new - heart_size):
-			var heart = TextureRect.new()
-			heart.texture = texture
-			add_child(heart)
-			hearts.push_back(heart)
+	pass
 
-func try_get_player() -> void:
-	var players = get_tree().get_nodes_in_group("Player")
-	if players.size() > 0:
-		var player = players[0]
-		if player:
-			player.health.changed.connect(change_hearts)
-			change_hearts(player.health.max_health)
-			got_player = true
-			return
-	return
+func change_max(new: int) -> void:
+	max_health = new
+	hearts.clear()
+	for _i in range(new):
+		var heart = TextureRect.new()
+		heart.texture = heart_texture
+		hearts.push_back(heart)
+		add_child(heart)
+	change_hearts(new)
+
+func _ready() -> void:
+	change_max(PlayerState.max_health)
+	PlayerState.max_health_changed.connect(_on_player_max_changed)
+
+func _on_player_max_changed(new: int) -> void:
+	change_max(new)

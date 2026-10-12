@@ -10,7 +10,7 @@ func generate_loot(location: Vector2 = Vector2.ZERO) -> void:
 		var new_loot = roll_loot()
 		new_loot.global_position = to_global(location)
 		if new_loot.has_method("apply_central_impulse"):
-			new_loot.apply_central_impulse(Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)) * 100)
+			new_loot.apply_central_impulse(Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)) * 75)
 		get_tree().current_scene.add_child(new_loot)
 
 func roll_loot() -> Loot:

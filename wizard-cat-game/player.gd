@@ -9,10 +9,16 @@ extends CharacterBody2D
 @onready var hurtbox := $Hurtbox
 var last_dir: Vector2 = Vector2.ZERO
 var dodge_dir: Vector2 = Vector2.ZERO
-signal died
 
 enum STATE {IDLE, MOVE, DODGE}
 var state: STATE = STATE.IDLE
+
+func _ready() -> void:
+	if not PlayerState.max_health:
+		PlayerState.set_max_health(health.max_health)
+	else:
+		health.set_max(PlayerState.max_health)
+	health.changed.connect(PlayerState.set_current_health)
 
 func _process(_delta: float) -> void:
 	if get_global_mouse_position().x < global_position.x:
@@ -68,6 +74,6 @@ func _end_dodge() -> void:
 	dodge_cooldown.start()
 	_change_state(STATE.IDLE)
 
-func _on_health_died() -> void:
-	health.heal(health.max_health)
-	died.emit()
+
+func _on_pickup_area_picked_up(value: int) -> void:
+	PlayerState.add_currency(value)
