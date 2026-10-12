@@ -14,12 +14,12 @@ func grab(new_follow: Node2D) -> void:
 	_change_state(STATE.GRABBED)
 	follow = new_follow
 
+func is_grabbed() -> bool:
+	return state == STATE.GRABBED
+
 func _ready() -> void:
 	value = type.value
 	sprite.texture = type.sprite
-	var tween := create_tween().set_loops(0).set_trans(Tween.TRANS_SINE)
-	tween.tween_property(sprite, "offset:y", 3, 0.75)
-	tween.tween_property(sprite, "offset:y", -3, 0.75)
 
 func _physics_process(_delta: float) -> void:
 	match state:
@@ -29,13 +29,6 @@ func _physics_process(_delta: float) -> void:
 				if (follow.global_position - global_position).abs() < Vector2(3, 3):
 					picked_up.emit(value)
 					queue_free()
-		STATE.IDLE:
-			pass
 
 func _change_state(new_state: STATE) -> void:
 	state = new_state
-	match state:
-		STATE.IDLE:
-			pass
-		STATE.GRABBED:
-			pass
