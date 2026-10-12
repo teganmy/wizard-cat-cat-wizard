@@ -2,8 +2,13 @@ class_name Lootable
 extends Node2D
 
 @export var loot_table: Array[WeightedLoot]
+var max_weight: float = 0
 var loot_scene: PackedScene = preload("res://loot.tscn")
 @export var amount: int = 1
+
+func _ready() -> void:
+	for i in loot_table:
+		max_weight += i.weight
 
 func generate_loot(location: Vector2 = Vector2.ZERO) -> void:
 	for _i in range(amount):
@@ -15,8 +20,10 @@ func generate_loot(location: Vector2 = Vector2.ZERO) -> void:
 
 func roll_loot() -> Loot:
 	var rand = randf()
+	var weight = 0
 	for loot in loot_table:
-		if rand <= loot.weight:
+		weight += loot.weight / max_weight
+		if rand <= weight:
 			var new_loot = loot_scene.instantiate()
 			new_loot.type = loot.type
 			return new_loot
