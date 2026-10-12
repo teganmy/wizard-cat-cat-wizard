@@ -18,6 +18,7 @@ func _ready() -> void:
 		PlayerState.set_max_health(health.max_health)
 	else:
 		health.set_max(PlayerState.max_health)
+	PlayerState.set_current_health(health.current)
 	health.changed.connect(PlayerState.set_current_health)
 
 func _process(_delta: float) -> void:
