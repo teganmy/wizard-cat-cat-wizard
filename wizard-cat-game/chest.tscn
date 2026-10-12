@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c4u3dpkcjwe7p" path="res://loot/lootable.gd" id="2_8uwsg"]
 [ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="4_x7mpe"]
 [ext_resource type="Resource" uid="uid://bysyxfwpc5ro3" path="res://loot/loot_types/reg_coin.tres" id="5_bv3sb"]
+[ext_resource type="Script" uid="uid://dxddfl5g0sgtd" path="res://components/interaction_area.gd" id="6_bv3sb"]
 
 [sub_resource type="Resource" id="Resource_bp1or"]
 script = ExtResource("4_x7mpe")
@@ -14,6 +15,9 @@ metadata/_custom_type_script = "uid://drq0y0x2llhhg"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpvk7"]
 size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2w8te"]
+size = Vector2(96, 80)
 
 [node name="Chest" type="StaticBody2D" unique_id=1010634097]
 script = ExtResource("1_trlyu")
@@ -31,3 +35,16 @@ metadata/_custom_type_script = "uid://c4u3dpkcjwe7p"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1990976404]
 shape = SubResource("RectangleShape2D_gpvk7")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=339077646]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("6_bv3sb")
+metadata/_custom_type_script = "uid://dxddfl5g0sgtd"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=132199877]
+shape = SubResource("RectangleShape2D_2w8te")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
+[connection signal="interact" from="InteractionArea" to="." method="_on_interaction_area_interact"]
