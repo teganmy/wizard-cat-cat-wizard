@@ -5,7 +5,7 @@ var opened: bool = false
 
 func _on_interaction_area_interact() -> void:
 	if not opened:
-		$Lootable.generate_loot()
+		$Lootable.generate_loot($SpawnMarker.position)
 		opened = true
 		sprite.modulate = Color.DARK_GRAY
 

@@ -21,7 +21,10 @@ func hurt(amount: int) -> void:
 func heal(amount:int) -> void:
 	_change_current(amount)
 
-func change_max(new_max: int) -> void:
+func heal_to_full() -> void:
+	_change_current(max_health)
+
+func set_max(new_max: int) -> void:
 	max_health = new_max
 	current = max_health
 	changed.emit(current)

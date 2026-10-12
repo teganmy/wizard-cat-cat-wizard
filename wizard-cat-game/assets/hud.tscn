@@ -1,11 +1,34 @@
 [gd_scene format=3 uid="uid://bbhvbmlbu1ne7"]
 
-[ext_resource type="Theme" uid="uid://cnlk2q7yx8tfd" path="res://assets/default_theme.tres" id="1_gudfk"]
 [ext_resource type="Script" uid="uid://cec2qkk20ybsu" path="res://assets/life_container.gd" id="1_knk3d"]
 [ext_resource type="Script" uid="uid://cawfowwy7xfdn" path="res://assets/hud.gd" id="1_px13d"]
 [ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="3_uj4j1"]
+[ext_resource type="FontFile" uid="uid://b0olbbjmcd3wj" path="res://SuperMagic-L3XVn.ttf" id="5_1m68m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gudfk"]
+bg_color = Color(0.5803922, 0.42745098, 0.42745098, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="Theme" id="Theme_1m68m"]
+default_font = ExtResource("5_1m68m")
+Label/styles/normal = SubResource("StyleBoxFlat_gudfk")
+
+[sub_resource type="LabelSettings" id="LabelSettings_gudfk"]
+font = ExtResource("5_1m68m")
+font_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1m68m"]
 content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
@@ -28,19 +51,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_gudfk")
+theme = SubResource("Theme_1m68m")
 script = ExtResource("1_px13d")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=932874024]
+[node name="MoneyLabel" type="Label" parent="." unique_id=2027048716]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "$0"
+label_settings = SubResource("LabelSettings_gudfk")
+
+[node name="LifePanel" type="PanelContainer" parent="." unique_id=932874024]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_gudfk")
+theme_override_styles/panel = SubResource("StyleBoxFlat_1m68m")
 
-[node name="LifeContainer" type="HBoxContainer" parent="PanelContainer" unique_id=121664328]
+[node name="LifeContainer" type="HBoxContainer" parent="LifePanel" unique_id=121664328]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_knk3d")
-texture = ExtResource("3_uj4j1")
+heart_texture = ExtResource("3_uj4j1")
