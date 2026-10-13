@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LootType" format=3 uid="uid://ld6uwxcbxknh"]
+
+[ext_resource type="Script" uid="uid://qiyo0f705gt" path="res://loot/loot_type.gd" id="1_eifg1"]
+[ext_resource type="Texture2D" uid="uid://bmo56qpstblub" path="res://assets/jewel.png" id="2_hsxjx"]
+
+[resource]
+script = ExtResource("1_eifg1")
+name = "Rare Coin"
+sprite = ExtResource("2_hsxjx")
+value = 2
+metadata/_custom_type_script = "uid://qiyo0f705gt"
