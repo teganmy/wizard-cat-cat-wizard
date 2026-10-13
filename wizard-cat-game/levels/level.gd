@@ -11,7 +11,6 @@ var enemy: Enemy
 func _ready() -> void:
 	var new_player = player_scene.instantiate()
 	new_player.position = spawn_point.position
-	new_player.died.connect(respawn_player)
 	new_player.add_to_group("player")
 	add_child(new_player)
 	new_player.health.died.connect(respawn_player)
@@ -20,10 +19,10 @@ func _ready() -> void:
 
 func respawn_player() -> void:
 	player.position = spawn_point.position
+	player.health.heal_to_full()
 	
 func spawn_enemy() -> void:
 	var spawn: Node2D = enemy_spawns.get_children().pick_random()
-
 	var new_enemy: Enemy = enemy_scene.instantiate()
 	new_enemy.died.connect(_on_enemy_died)
 	add_child(new_enemy)
