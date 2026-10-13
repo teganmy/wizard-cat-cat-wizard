@@ -21,9 +21,6 @@ tile_set = ExtResource("2_bt44k")
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1639797245]
 position = Vector2(544, 312)
 
-[node name="Chest" parent="." unique_id=1010634097 instance=ExtResource("6_btoec")]
-position = Vector2(176, 432)
-
 [node name="HUDLayer" type="CanvasLayer" parent="." unique_id=865870252]
 
 [node name="HUD" parent="HUDLayer" unique_id=675684008 instance=ExtResource("4_kx6l7")]
@@ -40,6 +37,9 @@ position = Vector2(998, -612)
 
 [node name="Spot3" type="Marker2D" parent="EnemySpawns" unique_id=1915152163]
 position = Vector2(840, 161)
+
+[node name="Chest" parent="." unique_id=1010634097 instance=ExtResource("6_btoec")]
+position = Vector2(176, 432)
 
 [node name="Chest2" parent="." unique_id=1818919196 instance=ExtResource("6_btoec")]
 position = Vector2(1136, -512)
