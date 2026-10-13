@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b0olbbjmcd3wj"
-path="res://.godot/imported/SuperMagic-L3XVn.ttf-1c1c0055d6194b76711138583e9dadee.fontdata"
+path="res://.godot/imported/SuperMagic-L3XVn.ttf-0f95d872a15aa3158cd21aee8d6a60a7.fontdata"
 
 [deps]
 
-source_file="res://SuperMagic-L3XVn.ttf"
-dest_files=["res://.godot/imported/SuperMagic-L3XVn.ttf-1c1c0055d6194b76711138583e9dadee.fontdata"]
+source_file="res://assets/SuperMagic-L3XVn.ttf"
+dest_files=["res://.godot/imported/SuperMagic-L3XVn.ttf-0f95d872a15aa3158cd21aee8d6a60a7.fontdata"]
 
 [params]
 

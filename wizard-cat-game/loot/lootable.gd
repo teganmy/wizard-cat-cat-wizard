@@ -3,7 +3,7 @@ extends Node2D
 
 @export var loot_table: Array[WeightedLoot]
 var max_weight: float = 0
-var loot_scene: PackedScene = preload("res://loot.tscn")
+var loot_scene: PackedScene = preload("res://loot/loot.tscn")
 @export var amount: int = 1
 
 func _ready() -> void:
