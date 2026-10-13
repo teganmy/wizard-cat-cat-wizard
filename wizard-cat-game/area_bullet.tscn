@@ -4,14 +4,8 @@
 [ext_resource type="Script" uid="uid://n8n43gwvlue2" path="res://area_bullet.gd" id="1_doy0o"]
 [ext_resource type="Script" uid="uid://un6ien2ktj74" path="res://components/hitbox.gd" id="3_1iwn5"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gpvk7"]
-radius = 8.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_1iwn5"]
-radius = 8.0
-
 [sub_resource type="Curve" id="Curve_1iwn5"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.8310811, 0.61797756), -1.2887639, -1.2887639, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.07432434, 1), 0.0, 0.15837343, 0, 0, Vector2(0.8310811, 0.61797756), -1.2887639, -1.2887639, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_1iwn5"]
@@ -24,15 +18,25 @@ spread = 60.0
 initial_velocity_min = 48.39
 initial_velocity_max = 48.39
 gravity = Vector3(0, 0, 0)
-damping_min = 11.828001
-damping_max = 26.882002
+damping_min = 18.28
+damping_max = 33.334003
 scale_min = 0.0
 scale_max = 5.38
 scale_curve = SubResource("CurveTexture_1iwn5")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gpvk7"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1iwn5"]
+radius = 8.0
+
 [node name="AreaBullet" type="Area2D" unique_id=1377176640]
 collision_layer = 0
 script = ExtResource("1_doy0o")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=297831709]
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_gpvk7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1953664605]
 texture_filter = 1
@@ -48,10 +52,6 @@ script = ExtResource("3_1iwn5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=723727561]
 shape = SubResource("CircleShape2D_1iwn5")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=297831709]
-amount = 10
-process_material = SubResource("ParticleProcessMaterial_gpvk7")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="landed" from="Hitbox" to="." method="_on_hitbox_landed"]

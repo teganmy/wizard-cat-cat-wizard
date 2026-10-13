@@ -17,8 +17,9 @@ func _on_hitbox_landed() -> void:
 	_clean_up.call_deferred()
 
 func _clean_up() -> void:
+	dir = Vector2.ZERO
 	$Sprite2D.hide()
 	particles.amount_ratio = 0.0
-	$Hitbox.monitorable = false
+	$Hitbox.monitoring = false
 	await get_tree().create_timer(2.0).timeout
 	queue_free()
