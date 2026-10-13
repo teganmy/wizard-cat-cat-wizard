@@ -8,5 +8,5 @@ script = ExtResource("1_t7jif")
 name = "Rare Coin"
 sprite = ExtResource("2_7nkfd")
 value = 2
-tint = Color(1, 0, 1, 1)
+tint = Color(1, 0.7053585, 0.98468286, 1)
 metadata/_custom_type_script = "uid://qiyo0f705gt"

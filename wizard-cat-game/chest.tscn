@@ -24,7 +24,7 @@ metadata/_custom_type_script = "uid://drq0y0x2llhhg"
 size = Vector2(32, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2w8te"]
-size = Vector2(96, 80)
+size = Vector2(68, 69)
 
 [node name="Chest" type="StaticBody2D" unique_id=1010634097]
 script = ExtResource("1_trlyu")
@@ -50,6 +50,7 @@ script = ExtResource("6_bv3sb")
 metadata/_custom_type_script = "uid://dxddfl5g0sgtd"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=132199877]
+position = Vector2(0, 23.5)
 shape = SubResource("RectangleShape2D_2w8te")
 
 [node name="SpawnMarker" type="Marker2D" parent="." unique_id=960260319]
