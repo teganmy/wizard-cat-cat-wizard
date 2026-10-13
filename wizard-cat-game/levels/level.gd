@@ -20,6 +20,7 @@ func _ready() -> void:
 func respawn_player() -> void:
 	player.position = spawn_point.position
 	player.health.heal_to_full()
+	PlayerState.set_currency(0)
 	
 func spawn_enemy() -> void:
 	var spawn: Node2D = enemy_spawns.get_children().pick_random()

@@ -49,6 +49,7 @@ func _on_health_changed(current: int) -> void:
 
 func _on_died() -> void:
 	died.emit()
+	$Lootable.generate_loot()
 	queue_free()
 
 

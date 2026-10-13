@@ -6,12 +6,28 @@
 [ext_resource type="Script" uid="uid://c88tvlaqfqme2" path="res://components/hurtbox.gd" id="3_iifgy"]
 [ext_resource type="Script" uid="uid://ds8lqx0juuem6" path="res://components/area_shooter.gd" id="5_epg4t"]
 [ext_resource type="PackedScene" uid="uid://dnd73vpkeno0f" path="res://enemy_area_bullet.tscn" id="6_3yqyl"]
+[ext_resource type="Script" uid="uid://c4u3dpkcjwe7p" path="res://loot/lootable.gd" id="7_dxifv"]
+[ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="8_pwjut"]
+[ext_resource type="Resource" uid="uid://bysyxfwpc5ro3" path="res://loot/loot_types/coin.tres" id="9_n0g06"]
+[ext_resource type="Resource" uid="uid://ld6uwxcbxknh" path="res://loot/loot_types/gem.tres" id="10_ar8e5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4gyqm"]
 radius = 14.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7gw0c"]
 radius = 14.0
+
+[sub_resource type="Resource" id="Resource_gpvk7"]
+script = ExtResource("8_pwjut")
+type = ExtResource("9_n0g06")
+weight = 0.9
+metadata/_custom_type_script = "uid://drq0y0x2llhhg"
+
+[sub_resource type="Resource" id="Resource_2w8te"]
+script = ExtResource("8_pwjut")
+type = ExtResource("10_ar8e5")
+weight = 0.1
+metadata/_custom_type_script = "uid://drq0y0x2llhhg"
 
 [node name="enemy" type="CharacterBody2D" unique_id=570259976 node_paths=PackedStringArray("health", "shooter")]
 collision_layer = 4
@@ -46,3 +62,9 @@ shape = SubResource("CircleShape2D_7gw0c")
 script = ExtResource("5_epg4t")
 bullet = ExtResource("6_3yqyl")
 metadata/_custom_type_script = "uid://ds8lqx0juuem6"
+
+[node name="Lootable" type="Node2D" parent="." unique_id=581927806]
+script = ExtResource("7_dxifv")
+loot_table = Array[ExtResource("8_pwjut")]([SubResource("Resource_gpvk7"), SubResource("Resource_2w8te")])
+amount = 3
+metadata/_custom_type_script = "uid://c4u3dpkcjwe7p"
