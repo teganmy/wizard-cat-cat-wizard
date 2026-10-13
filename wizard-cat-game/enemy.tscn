@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://ccs35van3ohn0"]
+
+[ext_resource type="Texture2D" uid="uid://dhtpiyohp7lug" path="res://assets/snail.png" id="1_7k104"]
+[ext_resource type="Script" uid="uid://cymfo04c1qinm" path="res://enemy.gd" id="1_iifgy"]
+[ext_resource type="Script" uid="uid://bcc0owr08yuq5" path="res://components/health.gd" id="2_qi2p4"]
+[ext_resource type="Script" uid="uid://c88tvlaqfqme2" path="res://components/hurtbox.gd" id="3_iifgy"]
+[ext_resource type="Script" uid="uid://ds8lqx0juuem6" path="res://components/area_shooter.gd" id="5_epg4t"]
+[ext_resource type="PackedScene" uid="uid://dnd73vpkeno0f" path="res://enemy_area_bullet.tscn" id="6_3yqyl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gyqm"]
+radius = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7gw0c"]
+radius = 14.0
+
+[node name="enemy" type="CharacterBody2D" unique_id=570259976 node_paths=PackedStringArray("health", "shooter")]
+collision_layer = 4
+script = ExtResource("1_iifgy")
+health = NodePath("Health")
+shooter = NodePath("AreaShooter")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2067645128]
+texture = ExtResource("1_7k104")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=55011735]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_4gyqm")
+
+[node name="Health" type="Node" parent="." unique_id=1320739586]
+script = ExtResource("2_qi2p4")
+max_health = 3
+metadata/_custom_type_script = "uid://bcc0owr08yuq5"
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1252714876 node_paths=PackedStringArray("health")]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("3_iifgy")
+health = NodePath("../Health")
+metadata/_custom_type_script = "uid://c88tvlaqfqme2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=337809357]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_7gw0c")
+
+[node name="AreaShooter" type="Node2D" parent="." unique_id=1718760392]
+script = ExtResource("5_epg4t")
+bullet = ExtResource("6_3yqyl")
+metadata/_custom_type_script = "uid://ds8lqx0juuem6"

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bsobkaqnjrnuk" path="res://levels/level.gd" id="1_jirdo"]
 [ext_resource type="TileSet" uid="uid://yeucsf3jvqss" path="res://assets/landscape_tileset.tres" id="2_bt44k"]
 [ext_resource type="PackedScene" uid="uid://6t34451gxrtm" path="res://player.tscn" id="3_bt44k"]
+[ext_resource type="PackedScene" uid="uid://ccs35van3ohn0" path="res://enemy.tscn" id="3_btoec"]
 [ext_resource type="Script" uid="uid://un6ien2ktj74" path="res://components/hitbox.gd" id="3_n46q3"]
 [ext_resource type="PackedScene" uid="uid://bbhvbmlbu1ne7" path="res://assets/hud.tscn" id="4_kx6l7"]
 
@@ -12,6 +13,7 @@ size = Vector2(48, 304)
 [node name="Level1" type="Node2D" unique_id=1118981851]
 script = ExtResource("1_jirdo")
 player_scene = ExtResource("3_bt44k")
+enemy_scene = ExtResource("3_btoec")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1786187615]
 texture_filter = 1
@@ -35,3 +37,14 @@ metadata/_edit_lock_ = true
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1639797245]
 position = Vector2(544, 312)
+
+[node name="EnemySpawns" type="Node2D" parent="." unique_id=466600468]
+
+[node name="Spot1" type="Marker2D" parent="EnemySpawns" unique_id=51334948]
+position = Vector2(72, 402)
+
+[node name="Spot2" type="Marker2D" parent="EnemySpawns" unique_id=126073822]
+position = Vector2(998, -612)
+
+[node name="Spot3" type="Marker2D" parent="EnemySpawns" unique_id=1915152163]
+position = Vector2(840, 161)

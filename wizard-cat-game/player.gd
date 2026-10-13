@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed: float = 100
 @export var dodge_speed: float = 500
-@onready var shooter := $Shooter
+@onready var shooter := $AreaShooter
 @onready var sprite := $Sprite2D
 @onready var health := $Health
 @onready var dodge_cooldown := $DodgeCooldown
