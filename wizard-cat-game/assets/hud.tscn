@@ -20,10 +20,30 @@ expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_quk1y"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.6901961, 0.8039216, 0.9019608, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.5803922, 0.42745098, 0.42745098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 10
+
 [sub_resource type="Theme" id="Theme_1m68m"]
 default_font = ExtResource("5_1m68m")
+default_font_size = 40
 HBoxContainer/constants/separation = 20
 Label/styles/normal = SubResource("StyleBoxFlat_gudfk")
+PopupPanel/styles/panel = SubResource("StyleBoxFlat_quk1y")
+RichTextLabel/constants/outline_size = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_gudfk"]
 font = ExtResource("5_1m68m")
@@ -50,7 +70,8 @@ expand_margin_top = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 5.0
 
-[node name="HUD" type="MarginContainer" unique_id=1347274040]
+[node name="HUD" type="Control" unique_id=1381849764]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -59,23 +80,69 @@ grow_vertical = 2
 theme = SubResource("Theme_1m68m")
 script = ExtResource("1_px13d")
 
-[node name="MoneyLabel" type="Label" parent="." unique_id=2027048716]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=414647905]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MoneyLabel" type="Label" parent="MarginContainer" unique_id=2027048716]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 text = "$0"
 label_settings = SubResource("LabelSettings_gudfk")
 
-[node name="LifePanel" type="PanelContainer" parent="." unique_id=932874024]
+[node name="LifePanel" type="PanelContainer" parent="MarginContainer" unique_id=932874024]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1m68m")
 
-[node name="LifeContainer" type="HBoxContainer" parent="LifePanel" unique_id=121664328]
+[node name="LifeContainer" type="HBoxContainer" parent="MarginContainer/LifePanel" unique_id=121664328]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_knk3d")
 heart_texture = ExtResource("3_uj4j1")
+
+[node name="PauseRect" type="ColorRect" parent="." unique_id=901214118]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.80784315)
+
+[node name="TutorialPopup" type="PopupPanel" parent="." unique_id=1060345629]
+process_mode = 3
+title = "Tutorial"
+size = Vector2i(320, 320)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TutorialPopup" unique_id=297986719]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "WASD to move
+Space to shoot
+Mouse to aim
+
+Click to close"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="popup_hide" from="TutorialPopup" to="." method="_on_tutorial_popup_popup_hide"]
