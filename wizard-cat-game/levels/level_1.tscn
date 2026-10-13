@@ -40,3 +40,15 @@ position = Vector2(998, -612)
 
 [node name="Spot3" type="Marker2D" parent="EnemySpawns" unique_id=1915152163]
 position = Vector2(840, 161)
+
+[node name="Chest2" parent="." unique_id=1818919196 instance=ExtResource("6_btoec")]
+position = Vector2(1136, -512)
+rotation = 1.5707964
+
+[node name="Chest3" parent="." unique_id=349961787 instance=ExtResource("6_btoec")]
+position = Vector2(1136, -600)
+rotation = 1.5707964
+
+[node name="Chest4" parent="." unique_id=2107708259 instance=ExtResource("6_btoec")]
+position = Vector2(1136, -424)
+rotation = 1.5707964
