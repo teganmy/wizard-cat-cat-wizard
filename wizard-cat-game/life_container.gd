@@ -8,6 +8,7 @@ func change_hearts(new: int) -> void:
 		hearts[heart].modulate = Color.WHITE
 	for heart in range(new, PlayerState.max_health):
 		hearts[heart].modulate = Color.BLACK
+		
 
 func change_max(new: int) -> void:
 	hearts.clear()
@@ -16,6 +17,8 @@ func change_max(new: int) -> void:
 		heart.texture = heart_texture
 		hearts.push_back(heart)
 		add_child(heart)
+		heart.offset_transform_enabled = true
+		heart.offset_transform_scale = Vector2(2.0,2.0)
 	change_hearts(PlayerState.current_health)
 
 func _ready() -> void:

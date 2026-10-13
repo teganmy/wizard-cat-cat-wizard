@@ -17,7 +17,7 @@ size = Vector2(32, 32)
 size = Vector2(28, 30)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gpvk7"]
-radius = 42.0
+radius = 56.142673
 
 [node name="Player" type="CharacterBody2D" unique_id=705305627 groups=["Player"]]
 collision_layer = 2

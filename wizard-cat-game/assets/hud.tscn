@@ -22,6 +22,7 @@ expand_margin_bottom = 2.0
 
 [sub_resource type="Theme" id="Theme_1m68m"]
 default_font = ExtResource("5_1m68m")
+HBoxContainer/constants/separation = 20
 Label/styles/normal = SubResource("StyleBoxFlat_gudfk")
 
 [sub_resource type="LabelSettings" id="LabelSettings_gudfk"]
@@ -44,8 +45,13 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 corner_detail = 10
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 
 [node name="HUD" type="MarginContainer" unique_id=1347274040]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
