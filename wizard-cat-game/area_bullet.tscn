@@ -2,8 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="1_1e8wp"]
 [ext_resource type="Script" uid="uid://n8n43gwvlue2" path="res://area_bullet.gd" id="1_doy0o"]
+[ext_resource type="Script" uid="uid://un6ien2ktj74" path="res://components/hitbox.gd" id="3_1iwn5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gpvk7"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1iwn5"]
 radius = 8.0
 
 [node name="AreaBullet" type="Area2D" unique_id=1377176640]
@@ -16,5 +20,13 @@ texture = ExtResource("1_1e8wp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=689570669]
 shape = SubResource("CircleShape2D_gpvk7")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1997511927]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("3_1iwn5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=723727561]
+shape = SubResource("CircleShape2D_1iwn5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
