@@ -43,9 +43,11 @@ texture_filter = 1
 texture = ExtResource("1_1e8wp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=689570669]
+visible = false
 shape = SubResource("CircleShape2D_gpvk7")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1997511927]
+visible = false
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_1iwn5")
