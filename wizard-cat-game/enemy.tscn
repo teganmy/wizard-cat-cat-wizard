@@ -59,6 +59,7 @@ position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_7gw0c")
 
 [node name="AreaShooter" type="Node2D" parent="." unique_id=1718760392]
+texture_filter = 1
 script = ExtResource("5_epg4t")
 bullet = ExtResource("6_3yqyl")
 metadata/_custom_type_script = "uid://ds8lqx0juuem6"
