@@ -44,6 +44,7 @@ point_count = 3
 curve = SubResource("Curve_xft04")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gpvk7"]
+lifetime_randomness = 0.1
 particle_flag_disable_z = true
 angle_min = -179.99998
 angle_max = 180.00002
@@ -57,7 +58,7 @@ gravity = Vector3(0, 0, 0)
 damping_min = 9.677
 damping_max = 50.000004
 damping_curve = SubResource("CurveTexture_xft04")
-scale_max = 11.75
+scale_max = 8.0
 scale_curve = SubResource("CurveTexture_5m5ta")
 
 [node name="Vase" type="StaticBody2D" unique_id=900897999]
