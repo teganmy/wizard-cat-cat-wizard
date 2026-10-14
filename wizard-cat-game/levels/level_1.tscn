@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bbhvbmlbu1ne7" path="res://assets/hud.tscn" id="4_kx6l7"]
 [ext_resource type="PackedScene" uid="uid://3fdgsfs7b4ci" path="res://chest.tscn" id="6_btoec"]
 [ext_resource type="PackedScene" uid="uid://bva015hvaya2e" path="res://vase.tscn" id="7_gwceb"]
+[ext_resource type="PackedScene" uid="uid://c177gv4dscm8q" path="res://door.tscn" id="8_l53as"]
 
 [node name="Level1" type="Node2D" unique_id=1118981851]
 script = ExtResource("1_jirdo")
@@ -55,3 +56,6 @@ rotation = 1.5707964
 
 [node name="Vase" parent="." unique_id=900897999 instance=ExtResource("7_gwceb")]
 position = Vector2(528, 48)
+
+[node name="Door" parent="." unique_id=1028334009 instance=ExtResource("8_l53as")]
+position = Vector2(592, 16)

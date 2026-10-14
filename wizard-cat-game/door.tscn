@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c177gv4dscm8q"]
+
+[ext_resource type="Script" uid="uid://dmb4jjauxfc1i" path="res://door.gd" id="1_0phs7"]
+[ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="1_ba8gm"]
+[ext_resource type="Script" uid="uid://cahbckpdbwxoq" path="res://components/lock.gd" id="3_50cdl"]
+[ext_resource type="Script" uid="uid://dxddfl5g0sgtd" path="res://components/interaction_area.gd" id="4_50cdl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpvk7"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2w8te"]
+size = Vector2(32, 80)
+
+[node name="Door" type="StaticBody2D" unique_id=1028334009]
+script = ExtResource("1_0phs7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=18886379]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_ba8gm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1144138198]
+shape = SubResource("RectangleShape2D_gpvk7")
+
+[node name="Lock" type="Node" parent="." unique_id=1824631994]
+script = ExtResource("3_50cdl")
+metadata/_custom_type_script = "uid://cahbckpdbwxoq"
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1004351540]
+script = ExtResource("4_50cdl")
+metadata/_custom_type_script = "uid://dxddfl5g0sgtd"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1909048650]
+shape = SubResource("RectangleShape2D_2w8te")
+
+[connection signal="locked" from="Lock" to="." method="_on_lock_locked"]
+[connection signal="unlocked" from="Lock" to="." method="_on_lock_unlocked"]
+[connection signal="interact" from="InteractionArea" to="Lock" method="unlock"]
