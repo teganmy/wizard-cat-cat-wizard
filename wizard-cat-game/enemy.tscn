@@ -20,10 +20,12 @@ health = NodePath("Health")
 shooter = NodePath("AreaShooter")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2067645128]
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("1_7k104")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=55011735]
 position = Vector2(0, 1)
+scale = Vector2(1.2, 1.2)
 shape = SubResource("CircleShape2D_4gyqm")
 
 [node name="Health" type="Node" parent="." unique_id=1320739586]
@@ -40,17 +42,12 @@ metadata/_custom_type_script = "uid://c88tvlaqfqme2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=337809357]
 position = Vector2(0, 1)
+scale = Vector2(1.2, 1.2)
 shape = SubResource("CircleShape2D_7gw0c")
 
 [node name="AreaShooter" type="Node2D" parent="." unique_id=1718760392]
 script = ExtResource("5_epg4t")
 bullet = ExtResource("6_3yqyl")
 metadata/_custom_type_script = "uid://ds8lqx0juuem6"
-
-[node name="Lootable" type="Node2D" parent="." unique_id=581927806]
-script = ExtResource("7_dxifv")
-loot_table = Array[ExtResource("8_pwjut")]([SubResource("Resource_gpvk7"), SubResource("Resource_2w8te")])
-amount = 3
-metadata/_custom_type_script = "uid://c4u3dpkcjwe7p"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=253755314]
