@@ -46,8 +46,6 @@ shape = SubResource("CircleShape2D_7gw0c")
 script = ExtResource("5_epg4t")
 bullet = ExtResource("6_3yqyl")
 metadata/_custom_type_script = "uid://ds8lqx0juuem6"
-<<<<<<< Updated upstream
-=======
 
 [node name="Lootable" type="Node2D" parent="." unique_id=581927806]
 script = ExtResource("7_dxifv")
@@ -56,4 +54,3 @@ amount = 3
 metadata/_custom_type_script = "uid://c4u3dpkcjwe7p"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=253755314]
->>>>>>> Stashed changes
