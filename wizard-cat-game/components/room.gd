@@ -52,6 +52,7 @@ func _on_revealed() -> void:
 	revealed.emit()
 
 func _wave() -> void:
+	await get_tree().create_timer(randf_range(2.0,3.0)).timeout
 	if current_wave < total_waves:
 		for spawner in spawners:
 			var enemy = spawner.spawn()

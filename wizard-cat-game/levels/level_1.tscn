@@ -142,6 +142,7 @@ tile_set = ExtResource("2_bt44k")
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room3" unique_id=1885267368]
+visible = false
 polygon = PackedVector2Array(-64, -32, 128, -32, 128, 160, -32, 160, -32, 288, -160, 288, -160, 416, -352, 416, -352, 224, -224, 224, -224, 96, -64, 96)
 
 [node name="Door" parent="Room3" unique_id=1790365265 instance=ExtResource("8_l53as")]
