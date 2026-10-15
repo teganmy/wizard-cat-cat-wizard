@@ -9,7 +9,6 @@ signal unlocked
 func lock() -> void:
 	match state:
 		STATE.UNLOCKED:
-			print("Locked")
 			_change_state(STATE.LOCKED)
 			locked.emit()
 		STATE.LOCKED:
@@ -20,7 +19,6 @@ func unlock() -> void:
 		STATE.UNLOCKED:
 			pass
 		STATE.LOCKED:
-			print("Unlocked")
 			_change_state(STATE.UNLOCKED)
 			unlocked.emit()
 

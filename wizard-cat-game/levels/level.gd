@@ -15,6 +15,7 @@ func _ready() -> void:
 	add_child(new_player)
 	new_player.health.died.connect(respawn_player)
 	player = new_player
+	$Room1.reveal()
 	$Room1.activate()
 #	spawn_enemy()
 

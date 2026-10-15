@@ -11,7 +11,7 @@ func _on_interaction_area_interact() -> void:
 		$Lootable.generate_loot($SpawnMarker.position)
 		opened = true
 		sprite.modulate = Color.DARK_GRAY
-	else:
+	elif lock and lock.is_locked():
 		var label := $LockedLabel
 		if label:
 			label.scale = Vector2(0.75,0.75)

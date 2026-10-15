@@ -25,9 +25,6 @@ func _ready() -> void:
 func activate() -> void:
 	if state == STATE.REVEALED:
 		_change_state(STATE.ACTIVE)
-	elif state == STATE.UNEXPLORED:
-		_change_state(STATE.REVEALED)
-		_change_state(STATE.ACTIVE)
 
 func reveal() -> void:
 	if state == STATE.UNEXPLORED:
@@ -44,16 +41,13 @@ func _change_state(new_state: STATE) -> void:
 			_on_defeated()
 
 func _on_defeated() -> void:
-	print("Defeated")
 	defeated.emit()
 
 func _on_activated() -> void:
-	print("Activated")
 	activated.emit()
 	_wave.call_deferred()
 
 func _on_revealed() -> void:
-	print("Revealed")
 	show()
 	revealed.emit()
 
@@ -71,7 +65,6 @@ func _wave() -> void:
 	current_wave += 1
 
 func _on_enemy_died() -> void:
-	print("Enemy died, left: ", living_enemies)
 	living_enemies -= 1
 	if living_enemies <= 0:
 		living_enemies = 0
