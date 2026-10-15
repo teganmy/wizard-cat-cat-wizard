@@ -69,3 +69,5 @@ script = ExtResource("7_dxifv")
 loot_table = Array[ExtResource("8_pwjut")]([SubResource("Resource_gpvk7"), SubResource("Resource_2w8te")])
 amount = 3
 metadata/_custom_type_script = "uid://c4u3dpkcjwe7p"
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2139646530]
