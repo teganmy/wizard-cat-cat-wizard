@@ -27,7 +27,7 @@ func _physics_process(_delta: float) -> void:
 		STATE.GRABBED:
 			if follow:
 				apply_central_force(global_position.direction_to(follow.global_position) * 1000)
-				if (follow.global_position - global_position).abs() < Vector2(3, 3):
+				if follow.global_position.distance_to(global_position) < 20:
 					picked_up.emit(value)
 					queue_free()
 

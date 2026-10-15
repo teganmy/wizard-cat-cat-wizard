@@ -5,7 +5,7 @@ signal died
 @export var health: Health
 @export var shooter: Node2D
 @export_group("Shooting")
-@export var fire_interval: float = 1.2
+@export var fire_interval: float = 2.0
 @export var detection_range: float = 400.0
 @export var target_group: StringName = &"player"
 @export_group("Movement")
