@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://bva015hvaya2e"]
+
+[ext_resource type="Script" uid="uid://e6xxgepuxaku" path="res://vase.gd" id="1_4l7f1"]
+[ext_resource type="Texture2D" uid="uid://dl2a5ywfg307j" path="res://assets/vase.png" id="1_y28lw"]
+[ext_resource type="Script" uid="uid://c4u3dpkcjwe7p" path="res://loot/lootable.gd" id="2_m8sn8"]
+[ext_resource type="Script" uid="uid://bcc0owr08yuq5" path="res://components/health.gd" id="3_4l7f1"]
+[ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="4_7ktlj"]
+[ext_resource type="Script" uid="uid://c88tvlaqfqme2" path="res://components/hurtbox.gd" id="4_e2luj"]
+[ext_resource type="Resource" uid="uid://bysyxfwpc5ro3" path="res://loot/loot_types/coin.tres" id="5_wjor6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpvk7"]
+size = Vector2(28, 32)
+
+[sub_resource type="Resource" id="Resource_4l7f1"]
+script = ExtResource("4_7ktlj")
+type = ExtResource("5_wjor6")
+weight = 1.0
+metadata/_custom_type_script = "uid://drq0y0x2llhhg"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2w8te"]
+size = Vector2(32, 36)
+
+[sub_resource type="Curve" id="Curve_wjor6"]
+_limits = [0.0, 4.044983, 0.0, 1.0]
+_data = [Vector2(0, 4.044983), 0.0, -0.20383409, 0, 0, Vector2(0.25, 3.4086933), -10.974797, -10.974797, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_7ktlj"]
+curve = SubResource("Curve_wjor6")
+
+[sub_resource type="Curve" id="Curve_7ktlj"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.6621621, 94.38202), 0.0, 0.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_xft04"]
+curve = SubResource("Curve_7ktlj")
+
+[sub_resource type="Curve" id="Curve_xft04"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.945946, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_5m5ta"]
+curve = SubResource("Curve_xft04")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gpvk7"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+angle_min = -179.99998
+angle_max = 180.00002
+spread = 180.0
+initial_velocity_min = 48.39
+initial_velocity_max = 123.659996
+angular_velocity_min = -1.0000161
+angular_velocity_max = 0.9999839
+angular_velocity_curve = SubResource("CurveTexture_7ktlj")
+gravity = Vector3(0, 0, 0)
+damping_min = 9.677
+damping_max = 50.000004
+damping_curve = SubResource("CurveTexture_xft04")
+scale_max = 8.0
+scale_curve = SubResource("CurveTexture_5m5ta")
+
+[node name="Vase" type="StaticBody2D" unique_id=900897999]
+script = ExtResource("1_4l7f1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1573223910]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_y28lw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1449405824]
+shape = SubResource("RectangleShape2D_gpvk7")
+
+[node name="Lootable" type="Node2D" parent="." unique_id=1387915189]
+script = ExtResource("2_m8sn8")
+loot_table = Array[ExtResource("4_7ktlj")]([SubResource("Resource_4l7f1")])
+metadata/_custom_type_script = "uid://c4u3dpkcjwe7p"
+
+[node name="Health" type="Node" parent="." unique_id=392350253]
+script = ExtResource("3_4l7f1")
+metadata/_custom_type_script = "uid://bcc0owr08yuq5"
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1887478312 node_paths=PackedStringArray("health")]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("4_e2luj")
+health = NodePath("../Health")
+metadata/_custom_type_script = "uid://c88tvlaqfqme2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=453486191]
+shape = SubResource("RectangleShape2D_2w8te")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1281471216]
+modulate = Color(0.48962224, 0.48962224, 0.48962218, 1)
+texture_filter = 1
+emitting = false
+amount = 30
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_gpvk7")
+
+[connection signal="died" from="Health" to="." method="_on_health_died"]
