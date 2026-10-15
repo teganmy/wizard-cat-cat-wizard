@@ -20,12 +20,10 @@ health = NodePath("Health")
 shooter = NodePath("AreaShooter")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2067645128]
-scale = Vector2(1.2, 1.2)
 texture = ExtResource("1_7k104")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=55011735]
 position = Vector2(0, 1)
-scale = Vector2(1.2, 1.2)
 shape = SubResource("CircleShape2D_4gyqm")
 
 [node name="Health" type="Node" parent="." unique_id=1320739586]
@@ -42,7 +40,6 @@ metadata/_custom_type_script = "uid://c88tvlaqfqme2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=337809357]
 position = Vector2(0, 1)
-scale = Vector2(1.2, 1.2)
 shape = SubResource("CircleShape2D_7gw0c")
 
 [node name="AreaShooter" type="Node2D" parent="." unique_id=1718760392]
