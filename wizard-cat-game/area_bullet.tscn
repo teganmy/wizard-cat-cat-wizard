@@ -33,6 +33,7 @@ radius = 8.0
 [node name="AreaBullet" type="Area2D" unique_id=1377176640]
 collision_layer = 0
 script = ExtResource("1_doy0o")
+speed = 300.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=297831709]
 amount = 30
@@ -47,7 +48,6 @@ visible = false
 shape = SubResource("CircleShape2D_gpvk7")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1997511927]
-visible = false
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_1iwn5")

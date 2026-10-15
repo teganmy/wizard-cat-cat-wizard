@@ -62,6 +62,7 @@ shape = SubResource("CircleShape2D_7gw0c")
 texture_filter = 1
 script = ExtResource("5_epg4t")
 bullet = ExtResource("6_3yqyl")
+fire_speed = 300.0
 metadata/_custom_type_script = "uid://ds8lqx0juuem6"
 
 [node name="Lootable" type="Node2D" parent="." unique_id=581927806]
