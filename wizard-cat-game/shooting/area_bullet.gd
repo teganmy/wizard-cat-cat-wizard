@@ -32,11 +32,11 @@ func _ready() -> void:
 	lifetime_timer.start()
 
 func _physics_process(delta: float) -> void:
-	translate(speed * dir * delta)
+	translate(get_speed() * dir * delta)
 
 func get_speed() -> float:
 	if type.speed_curve:
-		return type.speed_curve.sample(lifetime_timer.time_left / type.lifetime) * speed
+		return type.speed_curve.sample((type.lifetime - lifetime_timer.time_left) / type.lifetime) * speed
 	else:
 		return speed
 

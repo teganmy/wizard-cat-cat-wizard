@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dvdc0giywjqia"]
 
-[ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="1_1e8wp"]
-[ext_resource type="Script" uid="uid://n8n43gwvlue2" path="res://area_bullet.gd" id="1_doy0o"]
-[ext_resource type="Script" uid="uid://un6ien2ktj74" path="res://components/hitbox.gd" id="3_1iwn5"]
+[ext_resource type="Script" uid="uid://n8n43gwvlue2" path="res://shooting/area_bullet.gd" id="1_6euxv"]
+[ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="2_wj4ey"]
+[ext_resource type="Script" uid="uid://un6ien2ktj74" path="res://components/hitbox.gd" id="3_als2d"]
 
 [sub_resource type="Curve" id="Curve_1iwn5"]
 _data = [Vector2(0.07432434, 1), 0.0, 0.15837343, 0, 0, Vector2(0.8310811, 0.61797756), -1.2887639, -1.2887639, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -32,7 +32,7 @@ radius = 8.0
 
 [node name="AreaBullet" type="Area2D" unique_id=1377176640]
 collision_layer = 0
-script = ExtResource("1_doy0o")
+script = ExtResource("1_6euxv")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=297831709]
 amount = 30
@@ -40,7 +40,7 @@ process_material = SubResource("ParticleProcessMaterial_gpvk7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1953664605]
 texture_filter = 1
-texture = ExtResource("1_1e8wp")
+texture = ExtResource("2_wj4ey")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=689570669]
 visible = false
@@ -49,7 +49,7 @@ shape = SubResource("CircleShape2D_gpvk7")
 [node name="Hitbox" type="Area2D" parent="." unique_id=1997511927]
 collision_layer = 0
 collision_mask = 0
-script = ExtResource("3_1iwn5")
+script = ExtResource("3_als2d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=723727561]
 shape = SubResource("CircleShape2D_1iwn5")

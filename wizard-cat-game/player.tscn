@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://bcc0owr08yuq5" path="res://components/health.gd" id="3_i3pqv"]
 [ext_resource type="Script" uid="uid://c88tvlaqfqme2" path="res://components/hurtbox.gd" id="4_hqtel"]
 [ext_resource type="Script" uid="uid://ds8lqx0juuem6" path="res://components/area_shooter.gd" id="7_1jxqw"]
-[ext_resource type="Resource" uid="uid://d4lh65x68250r" path="res://bullet_types/player_default.tres" id="7_dw050"]
-[ext_resource type="PackedScene" uid="uid://dvdc0giywjqia" path="res://area_bullet.tscn" id="8_dw050"]
+[ext_resource type="Resource" uid="uid://d4lh65x68250r" path="res://shooting/bullet_types/player_default.tres" id="7_dw050"]
+[ext_resource type="PackedScene" uid="uid://dvdc0giywjqia" path="res://shooting/area_bullet.tscn" id="8_dw050"]
 [ext_resource type="Script" uid="uid://cnhbys2pob6vi" path="res://components/pickup_area.gd" id="9_b26j0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_llefe"]

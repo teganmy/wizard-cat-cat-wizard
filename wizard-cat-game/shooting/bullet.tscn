@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bs3t3mggvtbl0"]
 
-[ext_resource type="Script" uid="uid://b66gv0mpjjcm8" path="res://bullet.gd" id="1_v7oki"]
+[ext_resource type="Script" uid="uid://b66gv0mpjjcm8" path="res://shooting/bullet.gd" id="1_v7oki"]
 [ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="2_v8qja"]
 [ext_resource type="Script" uid="uid://un6ien2ktj74" path="res://components/hitbox.gd" id="3_t4vbm"]
 

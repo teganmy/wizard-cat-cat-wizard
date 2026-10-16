@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://dnd73vpkeno0f"]
-
-[ext_resource type="PackedScene" uid="uid://dvdc0giywjqia" path="res://area_bullet.tscn" id="1_2ttam"]
-
-[node name="AreaBullet" unique_id=1377176640 instance=ExtResource("1_2ttam")]
-
-[node name="Hitbox" parent="." index="2" unique_id=1997511927]
-collision_mask = 8
