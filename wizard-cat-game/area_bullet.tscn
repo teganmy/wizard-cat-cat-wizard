@@ -33,7 +33,6 @@ radius = 8.0
 [node name="AreaBullet" type="Area2D" unique_id=1377176640]
 collision_layer = 0
 script = ExtResource("1_doy0o")
-speed = 300.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=297831709]
 amount = 30
@@ -49,11 +48,15 @@ shape = SubResource("CircleShape2D_gpvk7")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1997511927]
 collision_layer = 0
-collision_mask = 16
+collision_mask = 0
 script = ExtResource("3_1iwn5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=723727561]
 shape = SubResource("CircleShape2D_1iwn5")
 
+[node name="LifetimeTimer" type="Timer" parent="." unique_id=130607283]
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="landed" from="Hitbox" to="." method="_on_hitbox_landed"]
+[connection signal="timeout" from="LifetimeTimer" to="." method="_on_lifetime_timer_timeout"]

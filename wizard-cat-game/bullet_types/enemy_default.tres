@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BulletType" format=3 uid="uid://deotln05wb6bu"]
+
+[ext_resource type="Script" uid="uid://dnqcg6lff1m84" path="res://bullet_types/bullet_type.gd" id="1_t61cl"]
+[ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="2_0qrnd"]
+
+[resource]
+script = ExtResource("1_t61cl")
+sprite = ExtResource("2_0qrnd")
+modulate = Color(1, 0.4745098, 0.5058824, 1)
+particle_modulate = Color(1, 0.4745098, 0.5058824, 1)
+lifetime = 3.0
+collision_layer = null
+collision_mask = 1
+hitbox_layer = null
+hitbox_mask = 8
+metadata/_custom_type_script = "uid://dnqcg6lff1m84"
