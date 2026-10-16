@@ -30,7 +30,8 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	var dir := Input.get_vector("player_left", "player_right", "player_up", "player_down")
 	if Input.is_action_just_pressed("fire"):
-		add_sibling(shooter.fire(get_global_mouse_position()))
+		for bullet in shooter.fire(get_global_mouse_position()):
+			add_sibling(bullet)
 	match state:
 		STATE.IDLE:
 			if dir != Vector2.ZERO:

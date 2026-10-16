@@ -5,6 +5,7 @@ extends Node
 var current
 signal changed(current: int)
 signal died
+var is_dead:bool = false
 
 func _ready() -> void:
 	current = max_health
@@ -12,8 +13,11 @@ func _ready() -> void:
 func _change_current(amount: int) -> void:
 	current = clampi(current + amount, 0, max_health)
 	changed.emit(current)
-	if current <= 0:
+	if current <= 0 and not is_dead:
+		is_dead = true
 		died.emit()
+	if current > 0 and is_dead:
+		is_dead = false
 
 func hurt(amount: int) -> void:
 	_change_current(-amount)

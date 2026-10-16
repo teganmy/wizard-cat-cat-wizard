@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dvdc0giywjqia" path="res://shooting/area_bullet.tscn" id="6_pwjut"]
 [ext_resource type="Script" uid="uid://c4u3dpkcjwe7p" path="res://loot/lootable.gd" id="7_dxifv"]
 [ext_resource type="Resource" uid="uid://deotln05wb6bu" path="res://shooting/bullet_types/enemy_default.tres" id="7_n0g06"]
+[ext_resource type="Resource" uid="uid://8ou32872hvt4" path="res://shooting/firing_patterns/enemy_default.tres" id="8_n0g06"]
 [ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="8_pwjut"]
 [ext_resource type="Resource" uid="uid://bysyxfwpc5ro3" path="res://loot/loot_types/coin.tres" id="9_n0g06"]
 [ext_resource type="Resource" uid="uid://ld6uwxcbxknh" path="res://loot/loot_types/gem.tres" id="10_ar8e5"]
@@ -65,6 +66,7 @@ texture_filter = 1
 script = ExtResource("5_epg4t")
 bullet_scene = ExtResource("6_pwjut")
 bullet_type = ExtResource("7_n0g06")
+firing_pattern = ExtResource("8_n0g06")
 metadata/_custom_type_script = "uid://ds8lqx0juuem6"
 
 [node name="Lootable" type="Node2D" parent="." unique_id=581927806]

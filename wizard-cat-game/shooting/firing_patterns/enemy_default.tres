@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="FiringPattern" format=3 uid="uid://8ou32872hvt4"]
+
+[ext_resource type="Script" uid="uid://b4l4u22a0kvsv" path="res://shooting/firing_patterns/firing_pattern.gd" id="1_jhtwo"]
+
+[resource]
+script = ExtResource("1_jhtwo")
+metadata/_custom_type_script = "uid://b4l4u22a0kvsv"

@@ -10,7 +10,6 @@ var dir: Vector2 = Vector2.ZERO
 var cleaned: bool
 
 func _ready() -> void:
-	print("READY")
 	sprite.texture = type.sprite
 	particles.texture = type.particle_texture
 	sprite.modulate = type.modulate

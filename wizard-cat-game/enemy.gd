@@ -51,23 +51,19 @@ func _on_fire_timer_timeout() -> void:
 		return
 	shoot()
 
-
 func shoot() -> void:
-	var bullet: Node2D = shooter.fire(target.global_position)
-	get_tree().current_scene.add_child(bullet)
-	bullet.global_position = shooter.global_position
-
+	for bullet in shooter.fire(target.global_position):
+		add_sibling(bullet)
+		bullet.global_position = shooter.global_position
 
 func _on_health_changed(current: int) -> void:
 	if current < health.max_health:
 		_flash()
 
-
 func _on_died() -> void:
 	died.emit()
 	$Lootable.generate_loot()
 	queue_free()
-
 
 func _flash() -> void:
 	modulate = Color(1, 0.4, 0.4)
