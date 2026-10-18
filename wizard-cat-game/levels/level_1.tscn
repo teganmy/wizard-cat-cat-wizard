@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bsobkaqnjrnuk" path="res://levels/level.gd" id="1_jirdo"]
 [ext_resource type="TileSet" uid="uid://yeucsf3jvqss" path="res://assets/landscape_tileset.tres" id="2_bt44k"]
-[ext_resource type="PackedScene" uid="uid://6t34451gxrtm" path="res://player.tscn" id="3_bt44k"]
-[ext_resource type="PackedScene" uid="uid://ccs35van3ohn0" path="res://enemy.tscn" id="3_btoec"]
+[ext_resource type="PackedScene" uid="uid://6t34451gxrtm" path="res://player/player.tscn" id="3_bt44k"]
+[ext_resource type="PackedScene" uid="uid://ccs35van3ohn0" path="res://enemies/enemy.tscn" id="3_btoec"]
 [ext_resource type="PackedScene" uid="uid://bbhvbmlbu1ne7" path="res://UI/hud.tscn" id="4_kx6l7"]
 [ext_resource type="PackedScene" uid="uid://3fdgsfs7b4ci" path="res://props/chest.tscn" id="6_btoec"]
 [ext_resource type="PackedScene" uid="uid://bva015hvaya2e" path="res://props/vase.tscn" id="7_gwceb"]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ccs35van3ohn0"]
 
 [ext_resource type="Texture2D" uid="uid://dhtpiyohp7lug" path="res://assets/snail.png" id="1_7k104"]
-[ext_resource type="Script" uid="uid://cymfo04c1qinm" path="res://enemy.gd" id="1_iifgy"]
+[ext_resource type="Script" uid="uid://cymfo04c1qinm" path="res://enemies/enemy.gd" id="1_iifgy"]
 [ext_resource type="Script" uid="uid://bcc0owr08yuq5" path="res://components/health.gd" id="2_qi2p4"]
 [ext_resource type="Script" uid="uid://c88tvlaqfqme2" path="res://components/hurtbox.gd" id="3_iifgy"]
 [ext_resource type="Script" uid="uid://ds8lqx0juuem6" path="res://components/area_shooter.gd" id="5_epg4t"]
