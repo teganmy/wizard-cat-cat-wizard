@@ -57,7 +57,10 @@ func _wave() -> void:
 		for spawner in spawners:
 			var enemy = spawner.spawn()
 			if enemy:
-				enemy.position = spawner.position
+				var r = spawner.radius * sqrt(randf())
+				var theta = 2 * PI * randf()
+				var enemy_position = Vector2(r * cos(theta), r * sin(theta))
+				enemy.position = spawner.position + enemy_position
 				add_child(enemy)
 				living_enemies += 1
 				enemy.died.connect(_on_enemy_died)

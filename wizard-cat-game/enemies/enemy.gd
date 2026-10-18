@@ -12,10 +12,12 @@ var move_speed: float = 80.0
 var preferred_distance: float = 220.0
 var distance_tolerance: float = 30.0
 var default_modulate: Color = Color.WHITE
+var spawn_particle_color: Color = Color.WHITE
 
 var target: Node2D
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
 @onready var sprite := $Sprite2D
+@onready var particles := $GPUParticles2D
 
 func _ready() -> void:
 	health.changed.connect(_on_health_changed)
@@ -33,13 +35,14 @@ func _ready() -> void:
 	sprite.texture = type.sprite
 	modulate = type.modulate
 	default_modulate = type.modulate
+	particles.modulate = spawn_particle_color
 	var wait_timer = Timer.new()
 	wait_timer.wait_time = wait_time
 	wait_timer.autostart = true
 	wait_timer.timeout.connect(_on_wait_timer_timeout)
 	add_child(wait_timer)
+	particles.emitting = true
 	await get_tree().physics_frame
-
 
 func _physics_process(_delta: float) -> void:
 	if not is_instance_valid(target):

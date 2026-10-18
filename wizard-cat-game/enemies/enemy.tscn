@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="8_pwjut"]
 [ext_resource type="Resource" uid="uid://bysyxfwpc5ro3" path="res://loot/loot_types/coin.tres" id="9_n0g06"]
 [ext_resource type="Resource" uid="uid://ld6uwxcbxknh" path="res://loot/loot_types/gem.tres" id="10_ar8e5"]
+[ext_resource type="Material" uid="uid://b14hnq8vn4h8v" path="res://components/spawner_particle_material.tres" id="14_cjbay"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4gyqm"]
 radius = 14.0
@@ -38,6 +39,13 @@ script = ExtResource("1_iifgy")
 health = NodePath("Health")
 shooter = NodePath("AreaShooter")
 type = ExtResource("2_mgey2")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=506896840]
+emitting = false
+amount = 30
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("14_cjbay")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2067645128]
 texture_filter = 1

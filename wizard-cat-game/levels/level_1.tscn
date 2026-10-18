@@ -87,13 +87,15 @@ position = Vector2(256, -176)
 [node name="EnemySpawner" type="Marker2D" parent="Room1" unique_id=1373291125]
 position = Vector2(385, 352)
 script = ExtResource("8_3sk1a")
+radius = 50.0
 enemy_scene = ExtResource("3_btoec")
 waves = Array[ExtResource("9_betor")]([ExtResource("10_vjtdm")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="EnemySpawner2" type="Marker2D" parent="Room1" unique_id=1039805735]
-position = Vector2(-128, -128)
+position = Vector2(-64, -65)
 script = ExtResource("8_3sk1a")
+radius = 100.0
 enemy_scene = ExtResource("3_btoec")
 waves = Array[ExtResource("9_betor")]([null, ExtResource("11_vjtdm")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
@@ -149,15 +151,17 @@ position = Vector2(-16, 64)
 shape = SubResource("RectangleShape2D_gpvk7")
 
 [node name="EnemySpawner" type="Marker2D" parent="Room2" unique_id=830498527]
-position = Vector2(192, -128)
+position = Vector2(96, -129)
 script = ExtResource("8_3sk1a")
+radius = 50.0
 enemy_scene = ExtResource("3_btoec")
 waves = Array[ExtResource("9_betor")]([null, ExtResource("10_vjtdm")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="EnemySpawner2" type="Marker2D" parent="Room2" unique_id=767843410]
-position = Vector2(-224, -128)
+position = Vector2(-128, -129)
 script = ExtResource("8_3sk1a")
+radius = 50.0
 enemy_scene = ExtResource("3_btoec")
 waves = Array[ExtResource("9_betor")]([ExtResource("10_vjtdm"), ExtResource("11_vjtdm")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
@@ -198,22 +202,25 @@ position = Vector2(-304, 240)
 position = Vector2(-272, 240)
 
 [node name="EnemySpawner" type="Marker2D" parent="Room3" unique_id=2066954601]
-position = Vector2(-192, 128)
+position = Vector2(-160, 151)
 script = ExtResource("8_3sk1a")
+radius = 30.0
 enemy_scene = ExtResource("3_btoec")
 waves = Array[ExtResource("9_betor")]([null, ExtResource("10_vjtdm")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="EnemySpawner2" type="Marker2D" parent="Room3" unique_id=1260124108]
-position = Vector2(-320, 384)
+position = Vector2(-256, 343)
 script = ExtResource("8_3sk1a")
+radius = 30.0
 enemy_scene = ExtResource("3_btoec")
 waves = Array[ExtResource("9_betor")]([ExtResource("10_vjtdm")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="EnemySpawner3" type="Marker2D" parent="Room3" unique_id=148298682]
-position = Vector2(-64, 256)
+position = Vector2(-80, 223)
 script = ExtResource("8_3sk1a")
+radius = 30.0
 enemy_scene = ExtResource("3_btoec")
 waves = Array[ExtResource("9_betor")]([null, ExtResource("10_vjtdm")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
@@ -246,6 +253,7 @@ tile_set = ExtResource("2_bt44k")
 metadata/_edit_lock_ = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Room4/TileMapLayer" unique_id=935851065]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_aerfg")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room4" unique_id=460543447]
@@ -348,8 +356,9 @@ position = Vector2(-144, -120)
 position = Vector2(-144, -80)
 
 [node name="EnemySpawner" type="Marker2D" parent="Room4" unique_id=612590576]
-position = Vector2(-64, -168)
+position = Vector2(32, -152)
 script = ExtResource("8_3sk1a")
+radius = 100.0
 enemy_scene = ExtResource("3_btoec")
 waves = Array[ExtResource("9_betor")]([ExtResource("10_vjtdm"), ExtResource("10_vjtdm"), ExtResource("11_vjtdm"), ExtResource("10_vjtdm"), ExtResource("10_vjtdm")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
