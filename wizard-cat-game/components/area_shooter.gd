@@ -15,20 +15,13 @@ signal ready_to_fire
 func _ready() -> void:
 	if bullet_type.custom_bullet_scene:
 		bullet_scene = bullet_type.custom_bullet_scene
-	count = firing_pattern.count
-	spread = firing_pattern.spread
-	cooldown_timer = Timer.new()
-	cooldown_timer.wait_time = firing_pattern.cooldown
-	cooldown_timer.timeout.connect(_change_state.bind(STATE.READY))
-	add_child(cooldown_timer)
-	ready_to_fire.connect(print.bind("READY"))
-	ready_to_fire.emit()
+	setup_pattern()
 
 func fire(target: Vector2) -> Array[Area2D]:
 	var bullets: Array[Area2D] = []
 	match state:
 		STATE.READY:
-			for i in range(firing_pattern.count):
+			for i in range(count):
 				var angle: float = 0.0
 				if count > 1:
 					angle = i * (spread / (count - 1)) - spread / 2
@@ -47,3 +40,14 @@ func _change_state(new_state: STATE) -> void:
 	match state:
 		STATE.READY:
 			ready_to_fire.emit()
+
+func setup_pattern():
+	count = firing_pattern.count
+	spread = firing_pattern.spread
+	if not cooldown_timer:
+		cooldown_timer = Timer.new()
+		cooldown_timer.timeout.connect(_change_state.bind(STATE.READY))
+		add_child(cooldown_timer)
+	cooldown_timer.wait_time = firing_pattern.cooldown
+	cooldown_timer.start()
+	ready_to_fire.emit()

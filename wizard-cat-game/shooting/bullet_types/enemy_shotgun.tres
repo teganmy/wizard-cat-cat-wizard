@@ -6,8 +6,10 @@
 [resource]
 script = ExtResource("1_o5h7m")
 sprite = ExtResource("2_kqntp")
-speed = 400.0
-lifetime = 0.2
+modulate = Color(1, 0.4745098, 0.5058824, 1)
+particle_modulate = Color(1, 0.4745098, 0.5058824, 1)
+speed = 300.0
+lifetime = 0.5
 collision_layer = null
 collision_mask = 1
 hitbox_layer = null

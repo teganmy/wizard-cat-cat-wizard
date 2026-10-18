@@ -4,24 +4,35 @@ signal died
 
 @export var health: Health
 @export var shooter: AreaShooter
-@export_group("Shooting")
-@export var wait_time: float = 1.0
-@export var firing_pattern: FiringPattern
-@export var detection_range: float = 400.0
-@export var target_group: StringName = &"player"
-@export_group("Movement")
-@export var move_speed: float = 80.0
-@export var preferred_distance: float = 220.0
-@export var distance_tolerance: float = 30.0
+@export var type: EnemyType
+var wait_time: float = 0.5
+var detection_range: float = 400.0
+var target_group: StringName = &"player"
+var move_speed: float = 80.0
+var preferred_distance: float = 220.0
+var distance_tolerance: float = 30.0
+var default_modulate: Color = Color.WHITE
 
 var target: Node2D
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
+@onready var sprite := $Sprite2D
 
 func _ready() -> void:
 	health.changed.connect(_on_health_changed)
 	health.died.connect(_on_died)
-	if firing_pattern:
-		shooter.firing_pattern = firing_pattern
+	wait_time = type.wait_time
+	detection_range = type.detection_range
+	target_group = type.target_group
+	move_speed = type.move_speed
+	preferred_distance = type.preferred_distance
+	distance_tolerance = type.distance_tolerance
+	shooter.firing_pattern = type.firing_pattern
+	shooter.bullet_type = type.bullet_type
+	shooter.setup_pattern()
+	health.set_max(type.max_health)
+	sprite.texture = type.sprite
+	modulate = type.modulate
+	default_modulate = type.modulate
 	var wait_timer = Timer.new()
 	wait_timer.wait_time = wait_time
 	wait_timer.autostart = true
@@ -69,4 +80,4 @@ func _on_died() -> void:
 
 func _flash() -> void:
 	modulate = Color(1, 0.4, 0.4)
-	create_tween().tween_property(self, "modulate", Color.WHITE, 0.15)
+	create_tween().tween_property(self, "modulate", default_modulate, 0.15)

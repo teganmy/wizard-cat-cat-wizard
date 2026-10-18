@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyType" format=3 uid="uid://blk0w5rkukd5e"]
+
+[ext_resource type="Script" uid="uid://26e5cw4g2wa2" path="res://enemies/enemy_type.gd" id="1_d0ike"]
+[ext_resource type="Resource" uid="uid://d0j0frwpav6jk" path="res://shooting/bullet_types/enemy_shotgun.tres" id="1_ki0s0"]
+[ext_resource type="Resource" uid="uid://crumsiftnlvpm" path="res://shooting/firing_patterns/enemy_shotgun.tres" id="2_j04as"]
+[ext_resource type="Texture2D" uid="uid://dhtpiyohp7lug" path="res://assets/snail.png" id="2_xfq2o"]
+
+[resource]
+script = ExtResource("1_d0ike")
+sprite = ExtResource("2_xfq2o")
+modulate = Color(0.8762044, 0.6029949, 0.8295391, 1)
+max_health = 2
+bullet_type = ExtResource("1_ki0s0")
+firing_pattern = ExtResource("2_j04as")
+preferred_distance = 75.0
+metadata/_custom_type_script = "uid://26e5cw4g2wa2"

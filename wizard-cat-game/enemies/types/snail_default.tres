@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyType" format=3 uid="uid://csnqy0o3a70kb"]
+
+[ext_resource type="Resource" uid="uid://deotln05wb6bu" path="res://shooting/bullet_types/enemy_default.tres" id="1_s6mm6"]
+[ext_resource type="Resource" uid="uid://8ou32872hvt4" path="res://shooting/firing_patterns/enemy_default.tres" id="1_sn341"]
+[ext_resource type="Script" uid="uid://26e5cw4g2wa2" path="res://enemies/enemy_type.gd" id="1_y1pc2"]
+[ext_resource type="Texture2D" uid="uid://dhtpiyohp7lug" path="res://assets/snail.png" id="2_poard"]
+
+[resource]
+script = ExtResource("1_y1pc2")
+sprite = ExtResource("2_poard")
+max_health = 3
+bullet_type = ExtResource("1_s6mm6")
+firing_pattern = ExtResource("1_sn341")
+metadata/_custom_type_script = "uid://26e5cw4g2wa2"

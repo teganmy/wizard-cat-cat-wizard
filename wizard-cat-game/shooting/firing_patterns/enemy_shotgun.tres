@@ -5,5 +5,6 @@
 [resource]
 script = ExtResource("1_2tttb")
 count = 5
-spread = 0.7853981633974483
+spread = 0.9599310885968813
+cooldown = 2.0
 metadata/_custom_type_script = "uid://b4l4u22a0kvsv"

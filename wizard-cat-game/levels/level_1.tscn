@@ -10,8 +10,11 @@
 [ext_resource type="Script" uid="uid://d087k21va4dnw" path="res://components/enemy_spawn.gd" id="8_3sk1a"]
 [ext_resource type="PackedScene" uid="uid://c177gv4dscm8q" path="res://props/door.tscn" id="8_l53as"]
 [ext_resource type="Script" uid="uid://r7m3l5eq4nij" path="res://components/room.gd" id="9_3sk1a"]
+[ext_resource type="Script" uid="uid://26e5cw4g2wa2" path="res://enemies/enemy_type.gd" id="9_betor"]
 [ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="10_5ot28"]
+[ext_resource type="Resource" uid="uid://csnqy0o3a70kb" path="res://enemies/types/snail_default.tres" id="10_vjtdm"]
 [ext_resource type="Resource" uid="uid://ld6uwxcbxknh" path="res://loot/loot_types/gem.tres" id="11_aerfg"]
+[ext_resource type="Resource" uid="uid://blk0w5rkukd5e" path="res://enemies/types/snail_shotgun.tres" id="11_vjtdm"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2w8te"]
 vertices = PackedVector2Array(278, 297, 438, 297, 438, 405, 106, 405, 106, 117, 278, -183, -182, -183, -182, 117)
@@ -84,13 +87,15 @@ position = Vector2(256, -176)
 [node name="EnemySpawner" type="Marker2D" parent="Room1" unique_id=1373291125]
 position = Vector2(385, 352)
 script = ExtResource("8_3sk1a")
-waves = Array[PackedScene]([ExtResource("3_btoec")])
+enemy_scene = ExtResource("3_btoec")
+waves = Array[ExtResource("9_betor")]([ExtResource("10_vjtdm")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="EnemySpawner2" type="Marker2D" parent="Room1" unique_id=1039805735]
 position = Vector2(-128, -128)
 script = ExtResource("8_3sk1a")
-waves = Array[PackedScene]([null, ExtResource("3_btoec")])
+enemy_scene = ExtResource("3_btoec")
+waves = Array[ExtResource("9_betor")]([null, ExtResource("11_vjtdm")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room1" unique_id=1464424321]
@@ -146,13 +151,15 @@ shape = SubResource("RectangleShape2D_gpvk7")
 [node name="EnemySpawner" type="Marker2D" parent="Room2" unique_id=830498527]
 position = Vector2(192, -128)
 script = ExtResource("8_3sk1a")
-waves = Array[PackedScene]([null, ExtResource("3_btoec")])
+enemy_scene = ExtResource("3_btoec")
+waves = Array[ExtResource("9_betor")]([null, ExtResource("10_vjtdm")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="EnemySpawner2" type="Marker2D" parent="Room2" unique_id=767843410]
 position = Vector2(-224, -128)
 script = ExtResource("8_3sk1a")
-waves = Array[PackedScene]([ExtResource("3_btoec"), ExtResource("3_btoec")])
+enemy_scene = ExtResource("3_btoec")
+waves = Array[ExtResource("9_betor")]([ExtResource("10_vjtdm"), ExtResource("11_vjtdm")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="Room3" type="Area2D" parent="." unique_id=499311839 node_paths=PackedStringArray("lockables", "spawners")]
@@ -193,19 +200,22 @@ position = Vector2(-272, 240)
 [node name="EnemySpawner" type="Marker2D" parent="Room3" unique_id=2066954601]
 position = Vector2(-192, 128)
 script = ExtResource("8_3sk1a")
-waves = Array[PackedScene]([null, ExtResource("3_btoec")])
+enemy_scene = ExtResource("3_btoec")
+waves = Array[ExtResource("9_betor")]([null, ExtResource("10_vjtdm")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="EnemySpawner2" type="Marker2D" parent="Room3" unique_id=1260124108]
 position = Vector2(-320, 384)
 script = ExtResource("8_3sk1a")
-waves = Array[PackedScene]([ExtResource("3_btoec")])
+enemy_scene = ExtResource("3_btoec")
+waves = Array[ExtResource("9_betor")]([ExtResource("10_vjtdm")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="EnemySpawner3" type="Marker2D" parent="Room3" unique_id=148298682]
 position = Vector2(-64, 256)
 script = ExtResource("8_3sk1a")
-waves = Array[PackedScene]([null, ExtResource("3_btoec")])
+enemy_scene = ExtResource("3_btoec")
+waves = Array[ExtResource("9_betor")]([null, ExtResource("10_vjtdm")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="Vase" parent="Room3" unique_id=510356577 instance=ExtResource("7_gwceb")]
@@ -340,7 +350,8 @@ position = Vector2(-144, -80)
 [node name="EnemySpawner" type="Marker2D" parent="Room4" unique_id=612590576]
 position = Vector2(-64, -168)
 script = ExtResource("8_3sk1a")
-waves = Array[PackedScene]([ExtResource("3_btoec"), ExtResource("3_btoec"), ExtResource("3_btoec"), ExtResource("3_btoec"), ExtResource("3_btoec")])
+enemy_scene = ExtResource("3_btoec")
+waves = Array[ExtResource("9_betor")]([ExtResource("10_vjtdm"), ExtResource("10_vjtdm"), ExtResource("11_vjtdm"), ExtResource("10_vjtdm"), ExtResource("10_vjtdm")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="HUDLayer" type="CanvasLayer" parent="." unique_id=865870252]
