@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FiringPattern" format=3 uid="uid://crumsiftnlvpm"]
+
+[ext_resource type="Script" uid="uid://b4l4u22a0kvsv" path="res://shooting/firing_patterns/firing_pattern.gd" id="1_2tttb"]
+
+[resource]
+script = ExtResource("1_2tttb")
+count = 5
+spread = 0.7853981633974483
+metadata/_custom_type_script = "uid://b4l4u22a0kvsv"

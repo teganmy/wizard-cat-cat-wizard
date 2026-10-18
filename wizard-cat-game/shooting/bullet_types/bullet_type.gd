@@ -5,7 +5,7 @@ extends Resource
 @export var sprite: Texture2D
 @export var particle_texture: Texture2D
 @export var modulate: Color = Color.WHITE
-@export var particle_modulate: Color
+@export var particle_modulate: Color = Color.WHITE
 @export_group("Behavior")
 @export var speed: float = 200.0
 @export_range(0.0, 10.0, 0.1, "suffix:s") var lifetime: float = 1.0
