@@ -3,9 +3,10 @@ extends CharacterBody2D
 signal died
 
 @export var health: Health
-@export var shooter: Node2D
+@export var shooter: AreaShooter
 @export_group("Shooting")
-@export var fire_interval: float = 2.0
+@export var wait_time: float = 1.0
+@export var firing_pattern: FiringPattern
 @export var detection_range: float = 400.0
 @export var target_group: StringName = &"player"
 @export_group("Movement")
@@ -19,12 +20,13 @@ var target: Node2D
 func _ready() -> void:
 	health.changed.connect(_on_health_changed)
 	health.died.connect(_on_died)
-
-	var fire_timer := Timer.new()
-	fire_timer.wait_time = fire_interval
-	fire_timer.autostart = true
-	fire_timer.timeout.connect(_on_fire_timer_timeout)
-	add_child(fire_timer)
+	if firing_pattern:
+		shooter.firing_pattern = firing_pattern
+	var wait_timer = Timer.new()
+	wait_timer.wait_time = wait_time
+	wait_timer.autostart = true
+	wait_timer.timeout.connect(_on_wait_timer_timeout)
+	add_child(wait_timer)
 	await get_tree().physics_frame
 
 
@@ -44,7 +46,7 @@ func _physics_process(_delta: float) -> void:
 		
 	move_and_slide()
 
-func _on_fire_timer_timeout() -> void:
+func _on_wait_timer_timeout() -> void:
 	if not is_instance_valid(target):
 		return
 	if global_position.distance_to(target.global_position) > detection_range:
