@@ -31,9 +31,11 @@ size = Vector2(58, 57)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpvk7"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="Chest" type="StaticBody2D" unique_id=1010634097 node_paths=PackedStringArray("lock")]
+[node name="Chest" type="StaticBody2D" unique_id=1010634097 node_paths=PackedStringArray("lock", "lootable", "sprite")]
 script = ExtResource("1_trlyu")
 lock = NodePath("Lock")
+lootable = NodePath("Lootable")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=37528860]
 texture_filter = 1
@@ -43,7 +45,8 @@ texture = ExtResource("2_day8l")
 [node name="Lootable" type="Node2D" parent="." unique_id=1438251120]
 script = ExtResource("2_8uwsg")
 loot_table = Array[ExtResource("4_x7mpe")]([SubResource("Resource_bp1or"), SubResource("Resource_b26j0")])
-amount = 10
+max_amount = 6
+min_amount = 2
 metadata/_custom_type_script = "uid://c4u3dpkcjwe7p"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1990976404]

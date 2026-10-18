@@ -4,13 +4,15 @@ extends Node2D
 @export var loot_table: Array[WeightedLoot]
 var max_weight: float = 0
 var loot_scene: PackedScene = preload("res://loot/loot.tscn")
-@export var amount: int = 1
+@export var max_amount: int = 2
+@export var min_amount: int = 1
 
 func _ready() -> void:
 	for i in loot_table:
 		max_weight += i.weight
 
 func generate_loot(location: Vector2 = Vector2.ZERO) -> void:
+	var amount = randi_range(min_amount, max_amount)
 	for _i in range(amount):
 		var new_loot = roll_loot()
 		new_loot.global_position = to_global(location)
