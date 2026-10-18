@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://3fdgsfs7b4ci"]
 
-[ext_resource type="Script" uid="uid://be7s45j5u322e" path="res://chest.gd" id="1_trlyu"]
+[ext_resource type="Script" uid="uid://be7s45j5u322e" path="res://props/chest.gd" id="1_trlyu"]
 [ext_resource type="Script" uid="uid://c4u3dpkcjwe7p" path="res://loot/lootable.gd" id="2_8uwsg"]
 [ext_resource type="Texture2D" uid="uid://dtcd55d85rkxk" path="res://assets/chest.png" id="2_day8l"]
 [ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="4_x7mpe"]

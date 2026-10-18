@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bva015hvaya2e"]
 
-[ext_resource type="Script" uid="uid://e6xxgepuxaku" path="res://vase.gd" id="1_4l7f1"]
+[ext_resource type="Script" uid="uid://e6xxgepuxaku" path="res://props/vase.gd" id="1_4l7f1"]
 [ext_resource type="Texture2D" uid="uid://dl2a5ywfg307j" path="res://assets/vase.png" id="1_y28lw"]
 [ext_resource type="Script" uid="uid://c4u3dpkcjwe7p" path="res://loot/lootable.gd" id="2_m8sn8"]
 [ext_resource type="Script" uid="uid://bcc0owr08yuq5" path="res://components/health.gd" id="3_4l7f1"]
