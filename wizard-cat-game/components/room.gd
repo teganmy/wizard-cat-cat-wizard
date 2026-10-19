@@ -40,7 +40,7 @@ func _change_state(new_state: STATE) -> void:
 		STATE.REVEALED:
 			_on_revealed()
 		STATE.ACTIVE:
-			RoomState.activate()
+			RoomState.activate(total_waves)
 			_on_activated()
 		STATE.DEFEATED:
 			RoomState.defeat()
