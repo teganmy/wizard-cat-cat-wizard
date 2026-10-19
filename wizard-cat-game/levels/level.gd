@@ -11,7 +11,7 @@ func _ready() -> void:
 	add_child(new_player)
 	new_player.health.died.connect(respawn_player)
 	player = new_player
-	$Room1.reveal()
+	LevelState.enter()
 
 func respawn_player() -> void:
 	PlayerState.set_currency(0)

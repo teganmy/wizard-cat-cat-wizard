@@ -2,6 +2,7 @@ class_name Room
 extends Area2D
 
 @export var lockables: Array[StaticBody2D] = []
+@export var visible_on_enter: bool = false
 var total_waves: int = 1
 var spawners: Array[EnemySpawner] = []
 enum STATE {UNEXPLORED, REVEALED, ACTIVE, DEFEATED}
@@ -25,6 +26,8 @@ func _ready() -> void:
 			revealed.connect(lockable.lock.unlock)
 			defeated.connect(lockable.lock.unlock)
 			activated.connect(lockable.lock.lock)
+	if visible_on_enter:
+		LevelState.entered.connect(reveal)
 
 func activate() -> void:
 	if state == STATE.REVEALED:

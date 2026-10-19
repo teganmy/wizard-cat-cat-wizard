@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 PlayerState="*uid://bsi82jkp1yi24"
 RoomState="*uid://dd2y5kdwms2pv"
+LevelState="*uid://cbsmpq5v8dw0c"
 
 [display]
 

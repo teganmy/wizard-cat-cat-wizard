@@ -46,6 +46,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_3sk1a")
 lockables = [NodePath("Door"), NodePath("Chest"), NodePath("Chest2"), NodePath("Chest3"), NodePath("Door2")]
+visible_on_enter = true
 metadata/_custom_type_script = "uid://r7m3l5eq4nij"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Room1" unique_id=1281704120]

@@ -1,7 +1,6 @@
 extends CenterContainer
 
 var paused: bool = false
-var pausable: bool = true
 @export var pause_rect: ColorRect
 
 func _process(_delta: float) -> void:
@@ -9,7 +8,7 @@ func _process(_delta: float) -> void:
 		toggle_pause.call_deferred()
 
 func toggle_pause() -> void:
-	if pausable:
+	if LevelState.can_pause():
 		paused = not paused
 		get_tree().paused = paused
 		visible = paused
