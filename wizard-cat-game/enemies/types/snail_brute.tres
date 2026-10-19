@@ -23,12 +23,12 @@ metadata/_custom_type_script = "uid://drq0y0x2llhhg"
 [resource]
 script = ExtResource("2_xt0i1")
 sprite = ExtResource("3_xt0i1")
-modulate = Color(1, 0.4503541, 0.47165066, 1)
-max_health = 5
+modulate = Color(1, 0.8707373, 0.5159419, 1)
+max_health = 4
 bullet_type = ExtResource("1_m5gbt")
 firing_pattern = ExtResource("2_0fy6g")
 move_speed = 30.0
-preferred_distance = 300.0
+preferred_distance = 100.0
 distance_tolerance = 50.0
 loot_table = Array[ExtResource("1_vd6r4")]([SubResource("Resource_xt0i1"), SubResource("Resource_82jya")])
 max_loot = 5
