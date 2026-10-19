@@ -16,7 +16,7 @@
 [ext_resource type="Material" uid="uid://b14hnq8vn4h8v" path="res://components/spawner_particle_material.tres" id="14_cjbay"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4gyqm"]
-radius = 14.0
+radius = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7gw0c"]
 radius = 14.0
@@ -35,6 +35,7 @@ metadata/_custom_type_script = "uid://drq0y0x2llhhg"
 
 [node name="enemy" type="CharacterBody2D" unique_id=570259976 node_paths=PackedStringArray("health", "shooter")]
 collision_layer = 4
+motion_mode = 1
 script = ExtResource("1_iifgy")
 health = NodePath("Health")
 shooter = NodePath("AreaShooter")
@@ -87,3 +88,4 @@ min_amount = 2
 metadata/_custom_type_script = "uid://c4u3dpkcjwe7p"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2139646530]
+path_postprocessing = 1
