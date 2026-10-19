@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="EnemyType" format=3 uid="uid://dua1rcwkq8gmb"]
+
+[ext_resource type="Resource" uid="uid://bjfui28vacoyp" path="res://shooting/bullet_types/enemy_brute.tres" id="1_m5gbt"]
+[ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="1_vd6r4"]
+[ext_resource type="Resource" uid="uid://cqj422fq0phqg" path="res://shooting/firing_patterns/enemy_brute.tres" id="2_0fy6g"]
+[ext_resource type="Resource" uid="uid://bysyxfwpc5ro3" path="res://loot/loot_types/coin.tres" id="2_lwujn"]
+[ext_resource type="Script" uid="uid://26e5cw4g2wa2" path="res://enemies/enemy_type.gd" id="2_xt0i1"]
+[ext_resource type="Resource" uid="uid://ld6uwxcbxknh" path="res://loot/loot_types/gem.tres" id="3_kttlf"]
+[ext_resource type="Texture2D" uid="uid://dhtpiyohp7lug" path="res://assets/snail.png" id="3_xt0i1"]
+
+[sub_resource type="Resource" id="Resource_xt0i1"]
+script = ExtResource("1_vd6r4")
+type = ExtResource("2_lwujn")
+weight = 60.0
+metadata/_custom_type_script = "uid://drq0y0x2llhhg"
+
+[sub_resource type="Resource" id="Resource_82jya"]
+script = ExtResource("1_vd6r4")
+type = ExtResource("3_kttlf")
+weight = 40.0
+metadata/_custom_type_script = "uid://drq0y0x2llhhg"
+
+[resource]
+script = ExtResource("2_xt0i1")
+sprite = ExtResource("3_xt0i1")
+modulate = Color(1, 0.4503541, 0.47165066, 1)
+max_health = 5
+bullet_type = ExtResource("1_m5gbt")
+firing_pattern = ExtResource("2_0fy6g")
+move_speed = 30.0
+preferred_distance = 300.0
+distance_tolerance = 50.0
+loot_table = Array[ExtResource("1_vd6r4")]([SubResource("Resource_xt0i1"), SubResource("Resource_82jya")])
+max_loot = 5
+min_loot = 2
+metadata/_custom_type_script = "uid://26e5cw4g2wa2"

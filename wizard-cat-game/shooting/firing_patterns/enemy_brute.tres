@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="FiringPattern" format=3 uid="uid://cqj422fq0phqg"]
+
+[ext_resource type="Script" uid="uid://b4l4u22a0kvsv" path="res://shooting/firing_patterns/firing_pattern.gd" id="1_qbl13"]
+
+[resource]
+script = ExtResource("1_qbl13")
+cooldown = 3.0
+metadata/_custom_type_script = "uid://b4l4u22a0kvsv"
