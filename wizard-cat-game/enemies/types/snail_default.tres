@@ -4,6 +4,21 @@
 [ext_resource type="Resource" uid="uid://8ou32872hvt4" path="res://shooting/firing_patterns/enemy_default.tres" id="1_sn341"]
 [ext_resource type="Script" uid="uid://26e5cw4g2wa2" path="res://enemies/enemy_type.gd" id="1_y1pc2"]
 [ext_resource type="Texture2D" uid="uid://dhtpiyohp7lug" path="res://assets/snail.png" id="2_poard"]
+[ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="3_37rv5"]
+[ext_resource type="Resource" uid="uid://bysyxfwpc5ro3" path="res://loot/loot_types/coin.tres" id="4_d0vl2"]
+[ext_resource type="Resource" uid="uid://ld6uwxcbxknh" path="res://loot/loot_types/gem.tres" id="5_rd0pa"]
+
+[sub_resource type="Resource" id="Resource_cjbay"]
+script = ExtResource("3_37rv5")
+type = ExtResource("4_d0vl2")
+weight = 0.9
+metadata/_custom_type_script = "uid://drq0y0x2llhhg"
+
+[sub_resource type="Resource" id="Resource_0h01o"]
+script = ExtResource("3_37rv5")
+type = ExtResource("5_rd0pa")
+weight = 0.1
+metadata/_custom_type_script = "uid://drq0y0x2llhhg"
 
 [resource]
 script = ExtResource("1_y1pc2")
@@ -11,4 +26,7 @@ sprite = ExtResource("2_poard")
 max_health = 3
 bullet_type = ExtResource("1_s6mm6")
 firing_pattern = ExtResource("1_sn341")
+loot_table = Array[ExtResource("3_37rv5")]([SubResource("Resource_cjbay"), SubResource("Resource_0h01o")])
+max_loot = 4
+min_loot = 2
 metadata/_custom_type_script = "uid://26e5cw4g2wa2"

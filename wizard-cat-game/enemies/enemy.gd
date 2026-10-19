@@ -18,6 +18,7 @@ var target: Node2D
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
 @onready var sprite := $Sprite2D
 @onready var particles := $GPUParticles2D
+@onready var lootable := $Lootable
 
 func _ready() -> void:
 	health.changed.connect(_on_health_changed)
@@ -36,6 +37,9 @@ func _ready() -> void:
 	modulate = type.modulate
 	default_modulate = type.modulate
 	particles.modulate = spawn_particle_color
+	lootable.loot_table = type.loot_table
+	lootable.max_amount = type.max_loot
+	lootable.min_amount = type.min_loot
 	var wait_timer = Timer.new()
 	wait_timer.wait_time = wait_time
 	wait_timer.autostart = true

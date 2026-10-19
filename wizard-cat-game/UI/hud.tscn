@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cec2qkk20ybsu" path="res://UI/life_container.gd" id="1_knk3d"]
 [ext_resource type="Script" uid="uid://cawfowwy7xfdn" path="res://UI/hud.gd" id="1_px13d"]
 [ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="3_uj4j1"]
+[ext_resource type="Script" uid="uid://ccdrtef6dusxl" path="res://UI/wave_label.gd" id="5_0j753"]
 [ext_resource type="FontFile" uid="uid://b0olbbjmcd3wj" path="res://assets/SuperMagic-L3XVn.ttf" id="5_1m68m"]
 [ext_resource type="Script" uid="uid://cp8f4cqmnbsvk" path="res://UI/pause_menu.gd" id="5_quk1y"]
 [ext_resource type="Script" uid="uid://dq2js0a13n6oc" path="res://components/button_tween.gd" id="6_quk1y"]
@@ -97,6 +98,13 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_knk3d")
 heart_texture = ExtResource("3_uj4j1")
+
+[node name="WaveLabel" type="Label" parent="MarginContainer" unique_id=1045066760]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Wave 1"
+script = ExtResource("5_0j753")
 
 [node name="PauseRect" type="ColorRect" parent="." unique_id=901214118]
 visible = false

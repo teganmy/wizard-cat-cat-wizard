@@ -2,8 +2,8 @@ class_name Room
 extends Area2D
 
 @export var lockables: Array[StaticBody2D] = []
-@export var spawners: Array[EnemySpawner] = []
-@export var total_waves: int = 1
+var total_waves: int = 1
+var spawners: Array[EnemySpawner] = []
 enum STATE {UNEXPLORED, REVEALED, ACTIVE, DEFEATED}
 var state: STATE = STATE.UNEXPLORED
 signal defeated
@@ -16,6 +16,10 @@ var current_wave: int = 0
 func _ready() -> void:
 	hide()
 	body_entered.connect(activate.unbind(1))
+	for child in get_children():
+		if child is EnemySpawner:
+			spawners.append(child)
+			total_waves = max(total_waves, child.waves.size())
 	for lockable in lockables:
 		if lockable.lock.has_method("lock"):
 			revealed.connect(lockable.lock.unlock)
@@ -36,8 +40,10 @@ func _change_state(new_state: STATE) -> void:
 		STATE.REVEALED:
 			_on_revealed()
 		STATE.ACTIVE:
+			RoomState.activate()
 			_on_activated()
 		STATE.DEFEATED:
+			RoomState.defeat()
 			_on_defeated()
 
 func _on_defeated() -> void:
@@ -64,9 +70,10 @@ func _wave() -> void:
 				add_child(enemy)
 				living_enemies += 1
 				enemy.died.connect(_on_enemy_died)
+		current_wave += 1
+		RoomState.change_wave(current_wave)
 	else:
 		_change_state(STATE.DEFEATED)
-	current_wave += 1
 
 func _on_enemy_died() -> void:
 	living_enemies -= 1
