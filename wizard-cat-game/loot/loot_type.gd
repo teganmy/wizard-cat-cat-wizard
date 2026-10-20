@@ -5,3 +5,4 @@ extends Resource
 @export var sprite: Texture2D
 @export var value: int = 1
 @export var tint: Color = Color.WHITE
+@export var heal_amount: int = 0

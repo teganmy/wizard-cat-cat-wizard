@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LootType" format=3 uid="uid://dhxxvsvsbsbnd"]
+
+[ext_resource type="Script" uid="uid://qiyo0f705gt" path="res://loot/loot_type.gd" id="1_3884a"]
+[ext_resource type="Texture2D" uid="uid://ctir1lgg8ybcc" path="res://assets/potion_1.png" id="2_4ehuj"]
+
+[resource]
+script = ExtResource("1_3884a")
+sprite = ExtResource("2_4ehuj")
+value = 0
+heal_amount = 1
+metadata/_custom_type_script = "uid://qiyo0f705gt"
