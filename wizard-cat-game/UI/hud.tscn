@@ -214,6 +214,10 @@ text = "Cancel"
 layout_mode = 2
 text = "Confirm"
 
+[node name="ButtonTween" type="Node" parent="ConfirmMenu/PanelContainer" unique_id=1822570286]
+script = ExtResource("6_quk1y")
+metadata/_custom_type_script = "uid://dq2js0a13n6oc"
+
 [connection signal="popup_hide" from="TutorialPopup" to="." method="_on_tutorial_popup_popup_hide"]
 [connection signal="button_down" from="PauseMenu/PanelContainer/VBoxContainer/ResumeButton" to="PauseMenu/ButtonTween" method="pressed_button" binds= [NodePath("../PanelContainer/VBoxContainer/ResumeButton")]]
 [connection signal="button_up" from="PauseMenu/PanelContainer/VBoxContainer/ResumeButton" to="PauseMenu/ButtonTween" method="unpressed_button" binds= [NodePath("../PanelContainer/VBoxContainer/ResumeButton")]]
@@ -225,5 +229,13 @@ text = "Confirm"
 [connection signal="mouse_entered" from="PauseMenu/PanelContainer/VBoxContainer/QuitButton" to="PauseMenu/ButtonTween" method="activate_button" binds= [NodePath("../PanelContainer/VBoxContainer/QuitButton")]]
 [connection signal="mouse_exited" from="PauseMenu/PanelContainer/VBoxContainer/QuitButton" to="PauseMenu/ButtonTween" method="deactivate_button" binds= [NodePath("../PanelContainer/VBoxContainer/QuitButton")]]
 [connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/QuitButton" to="PauseMenu" method="_on_quit_button_pressed"]
+[connection signal="button_down" from="ConfirmMenu/PanelContainer/VBoxContainer/CancelButton" to="ConfirmMenu/PanelContainer/ButtonTween" method="pressed_button" binds= [NodePath("../VBoxContainer/CancelButton")]]
+[connection signal="button_up" from="ConfirmMenu/PanelContainer/VBoxContainer/CancelButton" to="ConfirmMenu/PanelContainer/ButtonTween" method="pressed_button" binds= [NodePath("../VBoxContainer/CancelButton")]]
+[connection signal="mouse_entered" from="ConfirmMenu/PanelContainer/VBoxContainer/CancelButton" to="ConfirmMenu/PanelContainer/ButtonTween" method="activate_button" binds= [NodePath("../VBoxContainer/CancelButton")]]
+[connection signal="mouse_exited" from="ConfirmMenu/PanelContainer/VBoxContainer/CancelButton" to="ConfirmMenu/PanelContainer/ButtonTween" method="deactivate_button" binds= [NodePath("../VBoxContainer/CancelButton")]]
 [connection signal="pressed" from="ConfirmMenu/PanelContainer/VBoxContainer/CancelButton" to="ConfirmMenu" method="_on_cancel_button_pressed"]
+[connection signal="button_down" from="ConfirmMenu/PanelContainer/VBoxContainer/ConfirmButton" to="ConfirmMenu/PanelContainer/ButtonTween" method="pressed_button" binds= [NodePath("../VBoxContainer/ConfirmButton")]]
+[connection signal="button_up" from="ConfirmMenu/PanelContainer/VBoxContainer/ConfirmButton" to="ConfirmMenu/PanelContainer/ButtonTween" method="unpressed_button" binds= [NodePath("../VBoxContainer/ConfirmButton")]]
+[connection signal="mouse_entered" from="ConfirmMenu/PanelContainer/VBoxContainer/ConfirmButton" to="ConfirmMenu/PanelContainer/ButtonTween" method="activate_button" binds= [NodePath("../VBoxContainer/ConfirmButton")]]
+[connection signal="mouse_exited" from="ConfirmMenu/PanelContainer/VBoxContainer/ConfirmButton" to="ConfirmMenu/PanelContainer/ButtonTween" method="deactivate_button" binds= [NodePath("../VBoxContainer/ConfirmButton")]]
 [connection signal="pressed" from="ConfirmMenu/PanelContainer/VBoxContainer/ConfirmButton" to="ConfirmMenu" method="_on_confirm_button_pressed"]
