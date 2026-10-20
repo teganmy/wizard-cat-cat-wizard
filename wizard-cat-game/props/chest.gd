@@ -7,12 +7,14 @@ var opened: bool = false
 @export var min_loot_override: int
 @export var lootable: Lootable
 @export var sprite: Sprite2D
+@export var open_texture: Texture2D
 
 func _on_interaction_area_interact() -> void:
 	if not opened and not lock.is_locked():
 		lootable.generate_loot($SpawnMarker.position)
 		opened = true
-		sprite.modulate = Color.DARK_GRAY
+		sprite.texture = open_texture
+		sprite.modulate = Color.WHITE
 	elif lock.is_locked():
 		var label := $LockedLabel
 		if label:

@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://be7s45j5u322e" path="res://props/chest.gd" id="1_trlyu"]
 [ext_resource type="Script" uid="uid://c4u3dpkcjwe7p" path="res://loot/lootable.gd" id="2_8uwsg"]
-[ext_resource type="Texture2D" uid="uid://dtcd55d85rkxk" path="res://assets/chest.png" id="2_day8l"]
+[ext_resource type="Texture2D" uid="uid://chhng3jhfdet3" path="res://assets/_chest_open.png" id="2_iuyfc"]
+[ext_resource type="Texture2D" uid="uid://4vhfet0pfcki" path="res://assets/chest2.png" id="3_kbr3y"]
 [ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="4_x7mpe"]
 [ext_resource type="Resource" uid="uid://bysyxfwpc5ro3" path="res://loot/loot_types/coin.tres" id="5_bv3sb"]
 [ext_resource type="Script" uid="uid://dxddfl5g0sgtd" path="res://components/interaction_area.gd" id="6_bv3sb"]
@@ -43,11 +44,12 @@ script = ExtResource("1_trlyu")
 lock = NodePath("Lock")
 lootable = NodePath("Lootable")
 sprite = NodePath("Sprite2D")
+open_texture = ExtResource("2_iuyfc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=37528860]
 texture_filter = 1
 scale = Vector2(2, 1.5)
-texture = ExtResource("2_day8l")
+texture = ExtResource("3_kbr3y")
 
 [node name="Lootable" type="Node2D" parent="." unique_id=1438251120]
 script = ExtResource("2_8uwsg")
