@@ -7,5 +7,5 @@
 script = ExtResource("1_eifg1")
 name = "Rare Coin"
 sprite = ExtResource("2_hsxjx")
-value = 2
+value = 50
 metadata/_custom_type_script = "uid://qiyo0f705gt"

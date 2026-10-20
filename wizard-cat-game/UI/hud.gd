@@ -14,3 +14,4 @@ func _on_currency_changed(new: int) -> void:
 func _on_tutorial_popup_popup_hide() -> void:
 	get_tree().set_deferred("paused", false)
 	$PauseRect.hide()
+	LevelState.enter()
