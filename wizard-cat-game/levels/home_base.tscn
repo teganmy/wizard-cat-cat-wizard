@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://c0tlynvfb03nu"]
 
 [ext_resource type="Script" uid="uid://bsobkaqnjrnuk" path="res://levels/level.gd" id="1_xolgs"]
+[ext_resource type="PackedScene" uid="uid://6t34451gxrtm" path="res://player/player.tscn" id="2_43h8d"]
 [ext_resource type="PackedScene" uid="uid://bbhvbmlbu1ne7" path="res://UI/hud.tscn" id="2_sancg"]
 
 [node name="HomeBase" type="Node2D" unique_id=1618752609]
 script = ExtResource("1_xolgs")
+player_scene = ExtResource("2_43h8d")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1959786645]
 

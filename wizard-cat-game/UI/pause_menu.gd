@@ -22,4 +22,4 @@ func _on_resume_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	toggle_pause.call_deferred()
-	get_tree().change_scene_to_file.call_deferred("res://main.tscn")
+	SceneLoader.change_to_menu()

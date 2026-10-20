@@ -16,7 +16,14 @@ var currency: int = 0:
 		new = max(new, 0)
 		currency_changed.emit(new)
 		currency = new
+var player_is_new: bool = true
 
 signal current_health_changed(new: int)
 signal max_health_changed(new: int)
 signal currency_changed(new: int)
+
+func reset() -> void:
+	current_health = 0
+	max_health = 0
+	currency = 0
+	player_is_new = true
