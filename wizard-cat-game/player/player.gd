@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed: float = 100
 @export var dodge_speed: float = 500
+@export var i_frames: float = 0.1
 @onready var shooter := $AreaShooter
 @onready var sprite := $Sprite2D
 @onready var health := $Health
@@ -11,7 +12,9 @@ var last_dir: Vector2 = Vector2.ZERO
 var dodge_dir: Vector2 = Vector2.ZERO
 
 enum STATE {IDLE, MOVE, DODGE}
+enum HIT_STATE {NORMAL, INVINCIBLE}
 var state: STATE = STATE.IDLE
+var hit_state: HIT_STATE = HIT_STATE.NORMAL
 
 func _ready() -> void:
 	if not PlayerState.max_health:
@@ -52,6 +55,7 @@ func _physics_process(_delta: float) -> void:
 
 func _change_state(new_state: STATE) -> void:
 	state = new_state
+	print(STATE.keys()[new_state])
 	match new_state:
 		STATE.IDLE:
 			pass
@@ -63,18 +67,27 @@ func _change_state(new_state: STATE) -> void:
 			else:
 				_change_state(STATE.IDLE)
 
+func _change_hit_state(new_state: HIT_STATE) -> void:
+	hit_state = new_state
+	match new_state:
+		HIT_STATE.NORMAL:
+			hurtbox.monitoring = true
+			hurtbox.monitorable = true
+		HIT_STATE.INVINCIBLE:
+			hurtbox.monitoring = false
+			hurtbox.monitorable = false
+
 func _dodge() -> void:
-	hurtbox.monitoring = false
-	hurtbox.monitorable = false
-	dodge_dir = -global_position.direction_to(get_global_mouse_position())
+	_change_hit_state(HIT_STATE.INVINCIBLE)
+	dodge_dir = last_dir
 	get_tree().create_timer(0.1).timeout.connect(_end_dodge)
 
 func _end_dodge() -> void:
 	velocity = Vector2.ZERO
-	hurtbox.monitoring = true
-	hurtbox.monitorable = true
 	dodge_cooldown.start()
+	_change_hit_state(HIT_STATE.NORMAL)
 	_change_state(STATE.IDLE)
+	last_dir = Vector2.ZERO
 
 
 func _on_pickup_area_picked_up(value: int) -> void:
