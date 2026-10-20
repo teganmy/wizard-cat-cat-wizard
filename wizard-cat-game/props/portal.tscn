@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://hpag36semn3u"]
 
+[ext_resource type="Script" uid="uid://bpt0lxbw05few" path="res://props/portal.gd" id="1_7bbq2"]
 [ext_resource type="Script" uid="uid://cahbckpdbwxoq" path="res://components/lock.gd" id="1_30qti"]
-[ext_resource type="Script" uid="uid://bpt0lxbw05few" path="res://props/exit_portal.gd" id="1_ab6lv"]
 [ext_resource type="Script" uid="uid://dxddfl5g0sgtd" path="res://components/interaction_area.gd" id="2_ab6lv"]
 [ext_resource type="PackedScene" uid="uid://be1g2jqyou40i" path="res://main.tscn" id="2_n1733"]
 
@@ -33,10 +33,10 @@ size = Vector2(64, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2w8te"]
 size = Vector2(64, 64)
 
-[node name="ExitPortal" type="StaticBody2D" unique_id=1944338752 node_paths=PackedStringArray("lock")]
+[node name="Portal" type="StaticBody2D" unique_id=1944338752 node_paths=PackedStringArray("lock")]
 collision_layer = 0
 collision_mask = 0
-script = ExtResource("1_ab6lv")
+script = ExtResource("1_7bbq2")
 lock = NodePath("Lock")
 scene_to_load = ExtResource("2_n1733")
 
