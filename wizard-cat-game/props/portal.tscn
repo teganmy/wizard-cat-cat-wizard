@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://bpt0lxbw05few" path="res://props/portal.gd" id="1_7bbq2"]
 [ext_resource type="Script" uid="uid://cahbckpdbwxoq" path="res://components/lock.gd" id="1_30qti"]
 [ext_resource type="Script" uid="uid://dxddfl5g0sgtd" path="res://components/interaction_area.gd" id="2_ab6lv"]
-[ext_resource type="PackedScene" uid="uid://be1g2jqyou40i" path="res://main.tscn" id="2_n1733"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpvk7"]
 size = Vector2(32, 32)
@@ -38,7 +37,6 @@ collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_7bbq2")
 lock = NodePath("Lock")
-scene_to_load = ExtResource("2_n1733")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1203809853]
 visible = false
@@ -56,6 +54,7 @@ texture = SubResource("PlaceholderTexture2D_w60vn")
 
 [node name="Lock" type="Node" parent="." unique_id=1988044753]
 script = ExtResource("1_30qti")
+state = 1
 metadata/_custom_type_script = "uid://cahbckpdbwxoq"
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=1617808236]
