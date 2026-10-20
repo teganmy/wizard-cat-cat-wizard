@@ -2,6 +2,7 @@ extends Node
 
 signal exited
 signal entered
+signal exit_tried
 
 enum STATE {ACTIVE, INACTIVE}
 var state: STATE = STATE.INACTIVE
@@ -19,3 +20,6 @@ func _change_state(new_state: STATE) -> void:
 
 func can_pause() -> bool:
 	return state == STATE.ACTIVE
+
+func try_exit() -> void:
+	exit_tried.emit()

@@ -29,10 +29,7 @@ func _on_interaction_area_body_entered(_body: Node2D) -> void:
 		create_tween().tween_property(sprite, "modulate", Color.YELLOW, 0.1)
 
 func _on_interaction_area_body_exited(_body: Node2D) -> void:
-	if not opened:
-		create_tween().tween_property(sprite, "modulate", Color.WHITE, 0.1)
-	else:
-		sprite.modulate = Color.DARK_GRAY
+	create_tween().tween_property(sprite, "modulate", Color.WHITE, 0.1)
 
 func _ready() -> void:
 	if loot_table_override:

@@ -6,4 +6,4 @@ extends StaticBody2D
 
 func _on_interaction_area_interact() -> void:
 	if not lock.is_locked():
-		LevelState.exit()
+		LevelState.try_exit()
