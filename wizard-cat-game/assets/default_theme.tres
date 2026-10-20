@@ -91,6 +91,18 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 corner_detail = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgm14"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.5803922, 0.42745098, 0.42745098, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [resource]
 default_font = ExtResource("1_qew4h")
 default_font_size = 50
@@ -107,4 +119,5 @@ MarginContainer/constants/margin_left = 32
 MarginContainer/constants/margin_right = 32
 MarginContainer/constants/margin_top = 32
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_06t4h")
+ScrollContainer/styles/panel = SubResource("StyleBoxFlat_qgm14")
 VBoxContainer/constants/separation = 26
