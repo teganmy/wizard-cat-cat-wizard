@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c0tlynvfb03nu"]
+
+[ext_resource type="Script" uid="uid://bsobkaqnjrnuk" path="res://levels/level.gd" id="1_xolgs"]
+[ext_resource type="PackedScene" uid="uid://bbhvbmlbu1ne7" path="res://UI/hud.tscn" id="2_sancg"]
+
+[node name="HomeBase" type="Node2D" unique_id=1618752609]
+script = ExtResource("1_xolgs")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1959786645]
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1866075112]
+position = Vector2(590, 329)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1670196449]
+
+[node name="HUD" parent="CanvasLayer" unique_id=1381849764 instance=ExtResource("2_sancg")]

@@ -14,6 +14,6 @@ func _ready() -> void:
 	LevelState.enter()
 
 func respawn_player() -> void:
-	PlayerState.set_currency(0)
+	PlayerState.currency = 0
 	LevelState.exit()
 	get_tree().reload_current_scene.call_deferred()

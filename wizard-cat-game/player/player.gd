@@ -19,11 +19,11 @@ var iframe_timer: Timer
 
 func _ready() -> void:
 	if not PlayerState.max_health:
-		PlayerState.set_max_health(health.max_health)
+		PlayerState.max_health = health.max_health
 	else:
 		health.set_max(PlayerState.max_health)
-	PlayerState.set_current_health(health.current)
-	health.changed.connect(PlayerState.set_current_health)
+	PlayerState.current_health = health.current
+	health.changed.connect(func(new: int): PlayerState.current_health = new)
 	iframe_timer = Timer.new()
 	iframe_timer.wait_time = i_frames
 	iframe_timer.one_shot = true
@@ -97,7 +97,7 @@ func _end_dodge() -> void:
 
 
 func _on_pickup_area_picked_up(value: int) -> void:
-	PlayerState.add_currency(value)
+	PlayerState.currency += value
 
 
 func _on_hurtbox_hurt() -> void:
