@@ -26,6 +26,7 @@ motion_mode = 1
 script = ExtResource("1_onrkg")
 speed = 250.0
 dodge_speed = 700.0
+i_frames = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1903219605]
 texture_filter = 1

@@ -102,3 +102,5 @@ func _on_pickup_area_picked_up(value: int) -> void:
 
 func _on_hurtbox_hurt() -> void:
 	_change_hit_state(HIT_STATE.INVINCIBLE)
+	modulate = Color.DARK_GRAY
+	create_tween().tween_property(self, "modulate", Color.WHITE, i_frames)
