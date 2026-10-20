@@ -15,6 +15,7 @@ enum STATE {IDLE, MOVE, DODGE}
 enum HIT_STATE {NORMAL, INVINCIBLE}
 var state: STATE = STATE.IDLE
 var hit_state: HIT_STATE = HIT_STATE.NORMAL
+var iframe_timer: Timer
 
 func _ready() -> void:
 	if not PlayerState.max_health:
@@ -23,6 +24,11 @@ func _ready() -> void:
 		health.set_max(PlayerState.max_health)
 	PlayerState.set_current_health(health.current)
 	health.changed.connect(PlayerState.set_current_health)
+	iframe_timer = Timer.new()
+	iframe_timer.wait_time = i_frames
+	iframe_timer.one_shot = true
+	iframe_timer.timeout.connect(_change_hit_state.bind(HIT_STATE.NORMAL))
+	add_child(iframe_timer)
 
 func _process(_delta: float) -> void:
 	if get_global_mouse_position().x < global_position.x:
@@ -55,7 +61,6 @@ func _physics_process(_delta: float) -> void:
 
 func _change_state(new_state: STATE) -> void:
 	state = new_state
-	print(STATE.keys()[new_state])
 	match new_state:
 		STATE.IDLE:
 			pass
@@ -71,11 +76,12 @@ func _change_hit_state(new_state: HIT_STATE) -> void:
 	hit_state = new_state
 	match new_state:
 		HIT_STATE.NORMAL:
-			hurtbox.monitoring = true
-			hurtbox.monitorable = true
+			hurtbox.set_deferred("monitoring", true)
+			hurtbox.set_deferred("monitorable", true)
 		HIT_STATE.INVINCIBLE:
-			hurtbox.monitoring = false
-			hurtbox.monitorable = false
+			hurtbox.set_deferred("monitoring", false)
+			hurtbox.set_deferred("monitorable", false)
+			iframe_timer.start()
 
 func _dodge() -> void:
 	_change_hit_state(HIT_STATE.INVINCIBLE)
@@ -92,3 +98,7 @@ func _end_dodge() -> void:
 
 func _on_pickup_area_picked_up(value: int) -> void:
 	PlayerState.add_currency(value)
+
+
+func _on_hurtbox_hurt() -> void:
+	_change_hit_state(HIT_STATE.INVINCIBLE)
