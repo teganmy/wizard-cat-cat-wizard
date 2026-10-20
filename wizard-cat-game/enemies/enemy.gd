@@ -88,3 +88,7 @@ func _on_died() -> void:
 func _flash() -> void:
 	modulate = Color(1, 0.4, 0.4)
 	create_tween().tween_property(self, "modulate", default_modulate, 0.15)
+
+func _process(_delta: float) -> void:
+	if is_instance_valid(target):
+		sprite.flip_h = target.global_position.x > global_position.x

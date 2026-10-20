@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://bysyxfwpc5ro3" path="res://loot/loot_types/coin.tres" id="2_lwujn"]
 [ext_resource type="Script" uid="uid://26e5cw4g2wa2" path="res://enemies/enemy_type.gd" id="2_xt0i1"]
 [ext_resource type="Resource" uid="uid://ld6uwxcbxknh" path="res://loot/loot_types/gem.tres" id="3_kttlf"]
-[ext_resource type="Texture2D" uid="uid://dhtpiyohp7lug" path="res://assets/snail.png" id="3_xt0i1"]
+[ext_resource type="Texture2D" uid="uid://b7iihk17s3fy6" path="res://assets/frog.png" id="7_m5gbt"]
 
 [sub_resource type="Resource" id="Resource_xt0i1"]
 script = ExtResource("1_vd6r4")
@@ -22,7 +22,7 @@ metadata/_custom_type_script = "uid://drq0y0x2llhhg"
 
 [resource]
 script = ExtResource("2_xt0i1")
-sprite = ExtResource("3_xt0i1")
+sprite = ExtResource("7_m5gbt")
 modulate = Color(1, 0.8707373, 0.5159419, 1)
 max_health = 4
 bullet_type = ExtResource("1_m5gbt")
