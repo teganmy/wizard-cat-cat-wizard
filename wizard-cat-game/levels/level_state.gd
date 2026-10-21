@@ -21,7 +21,6 @@ func _change_state(new_state: STATE) -> void:
 	state = new_state
 
 func can_pause() -> bool:
-	print(state == STATE.ACTIVE)
 	return state == STATE.ACTIVE
 
 func try_exit() -> void:

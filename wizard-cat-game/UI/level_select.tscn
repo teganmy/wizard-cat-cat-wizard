@@ -2,10 +2,11 @@
 
 [ext_resource type="Theme" uid="uid://cnlk2q7yx8tfd" path="res://assets/default_theme.tres" id="1_r4dbv"]
 [ext_resource type="Script" uid="uid://cuux8h5i48whu" path="res://UI/level_select.gd" id="2_qgm14"]
+[ext_resource type="Script" uid="uid://dq2js0a13n6oc" path="res://components/button_tween.gd" id="3_q0b5w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gjday"]
 
-[node name="LevelSelect" type="Control" unique_id=975190331 node_paths=PackedStringArray("button_container")]
+[node name="LevelSelect" type="Control" unique_id=975190331 node_paths=PackedStringArray("button_container", "button_tween")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,6 +16,11 @@ grow_vertical = 2
 theme = ExtResource("1_r4dbv")
 script = ExtResource("2_qgm14")
 button_container = NodePath("CenterContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer")
+button_tween = NodePath("ButtonTween")
+
+[node name="ButtonTween" type="Node" parent="." unique_id=143310987]
+script = ExtResource("3_q0b5w")
+metadata/_custom_type_script = "uid://dq2js0a13n6oc"
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=2134715913]
 layout_mode = 1
@@ -44,5 +50,7 @@ custom_maximum_size = Vector2(300, 300)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer/ScrollContainer" unique_id=1442914183]
-custom_minimum_size = Vector2(290, 0)
+custom_minimum_size = Vector2(275, 0)
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 2

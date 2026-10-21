@@ -1,6 +1,7 @@
 extends Control
 
 @export var button_container: Container
+@export var button_tween: ButtonTween
 var levels: Array[String] = []
 
 func _ready() -> void:
@@ -14,5 +15,5 @@ func _ready() -> void:
 			var button = Button.new()
 			button.text = num
 			button_container.add_child(button)
-			button.pressed.connect(SceneLoader.change_to_level.bind(num.to_int()))
-		
+			button.pressed.connect(SceneLoader.change_to_level.call_deferred.bind(num.to_int()))
+			button_tween.add_button(button)
