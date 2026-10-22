@@ -413,6 +413,7 @@ shape = SubResource("RectangleShape2D_ch8v3")
 
 [node name="ExitPortal" parent="Room6" unique_id=1944338752 instance=ExtResource("16_lrvbd")]
 position = Vector2(-160, -64)
+level = 0
 
 [node name="EnemySpawner" type="Marker2D" parent="Room6" unique_id=522198882]
 position = Vector2(0, -56)
