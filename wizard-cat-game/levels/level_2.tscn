@@ -9,6 +9,9 @@
 [ext_resource type="Script" uid="uid://d087k21va4dnw" path="res://components/enemy_spawn.gd" id="6_ep78u"]
 [ext_resource type="PackedScene" uid="uid://ccs35van3ohn0" path="res://enemies/enemy.tscn" id="7_dfjjl"]
 [ext_resource type="Script" uid="uid://26e5cw4g2wa2" path="res://enemies/enemy_type.gd" id="8_at1ld"]
+[ext_resource type="Resource" uid="uid://csnqy0o3a70kb" path="res://enemies/types/snail.tres" id="9_hbb88"]
+[ext_resource type="Resource" uid="uid://blk0w5rkukd5e" path="res://enemies/types/snake.tres" id="10_wcjpl"]
+[ext_resource type="Resource" uid="uid://dua1rcwkq8gmb" path="res://enemies/types/frog.tres" id="11_5orea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpvk7"]
 size = Vector2(416, 320)
@@ -22,8 +25,10 @@ position = Vector2(576, 576)
 
 [node name="Room1" type="Area2D" parent="." unique_id=291317439 node_paths=PackedStringArray("lockables")]
 position = Vector2(576, 320)
+collision_mask = 2
 script = ExtResource("3_v5uil")
 lockables = [NodePath("Door")]
+visible_on_enter = true
 metadata/_custom_type_script = "uid://r7m3l5eq4nij"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Room1" unique_id=2095351958]
@@ -43,32 +48,31 @@ scale = Vector2(4, 1)
 position = Vector2(128, -64)
 script = ExtResource("6_ep78u")
 enemy_scene = ExtResource("7_dfjjl")
-waves = Array[ExtResource("8_at1ld")]([null, null, null])
+waves = Array[ExtResource("8_at1ld")]([ExtResource("9_hbb88"), ExtResource("10_wcjpl"), ExtResource("10_wcjpl")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="EnemySpawner2" type="Marker2D" parent="Room1" unique_id=1019873683]
 position = Vector2(-128, -64)
 script = ExtResource("6_ep78u")
 enemy_scene = ExtResource("7_dfjjl")
-waves = Array[ExtResource("8_at1ld")]([null, null, null])
+waves = Array[ExtResource("8_at1ld")]([ExtResource("11_5orea"), ExtResource("11_5orea"), ExtResource("11_5orea")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="EnemySpawner3" type="Marker2D" parent="Room1" unique_id=1832277918]
 position = Vector2(128, -256)
 script = ExtResource("6_ep78u")
 enemy_scene = ExtResource("7_dfjjl")
-waves = Array[ExtResource("8_at1ld")]([null, null, null])
+waves = Array[ExtResource("8_at1ld")]([ExtResource("9_hbb88"), ExtResource("9_hbb88"), ExtResource("9_hbb88")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="EnemySpawner4" type="Marker2D" parent="Room1" unique_id=1009593365]
 position = Vector2(-128, -256)
 script = ExtResource("6_ep78u")
 enemy_scene = ExtResource("7_dfjjl")
-waves = Array[ExtResource("8_at1ld")]([null, null, null])
+waves = Array[ExtResource("8_at1ld")]([ExtResource("11_5orea"), ExtResource("10_wcjpl"), ExtResource("10_wcjpl")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1406832674]
 
 [node name="HUD" parent="CanvasLayer" unique_id=1381849764 instance=ExtResource("3_0srwa")]
-visible = false
 metadata/_edit_lock_ = true
