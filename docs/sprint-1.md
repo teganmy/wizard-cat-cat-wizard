@@ -54,7 +54,7 @@ MUSTs we need to work on:
     - [ ] JSON can be read from files
     - [ ] JSON can be deserialized into information
     - [ ] Information can be applied to game from one place
-    - [ ] Saves can be loaded
+    - [ ] Saves can be loaded from menu
 - [ ] More props/decor
   - Assigned to:
   - Done when:
