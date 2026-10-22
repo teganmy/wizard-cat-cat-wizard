@@ -15,7 +15,7 @@ MUSTs we need to work on:
     - [ ] New levels can be created and easily added to menu
     - [ ] Levels can have metadata assigned (e.g. icon, title, file location)
 - [ ] Level progression (Unlocks during play)
-  - Assigned to:
+  - Assigned to: **Sophie**
   - Done when:
     - [ ] Levels store when they should be unlocked
     - [ ] Levels can only be selected when unlocked
@@ -25,28 +25,28 @@ MUSTs we need to work on:
     - [x] The player spawns into a non-level location
     - [x] The player can leave home base
     - [x] The player comes back after levels
-- [ ] Upgrades
-  - Assigned to:
+- [ ] Upgrades / Shop
+  - Assigned to: **Tegan**
   - Done when:
-    - [ ] Upgrades can be defined in code
+    - [ ] Upgrades can be defined in code (Player statistic is modified)
     - [ ] Upgrades can be applied to the player
     - [ ] Upgrades persist across level transitions
     - [ ] Upgrades can be purchased by the player
 - [ ] More spells (secondary attacks)
-  - Assigned to:
+  - Assigned to: **Tegan**
   - Done when:
     - [ ] Secondary attacks can be defined in code
     - [ ] Secondary attacks can be used by player
     - [ ] Secondary attacks can be equipped by player
     - [ ] Secondary attacks can be upgraded by player
 - [ ] Bosses drop secondary attacks
-  - Assigned to:
+  - Assigned to: **Tegan**
   - Done when:
     - [ ] Bosses can be assigned secondary attacks to drop
     - [ ] Bosses unlock secondary attacks for player on defeat
     - [ ] Player can only equip unlocked attacks
 - [ ] Save function
-  - Assigned to:
+  - Assigned to: **Sophie**
   - Done when:
     - [ ] Information to be saved can be collected in one place
     - [ ] Information can be serialized into JSON
@@ -56,15 +56,22 @@ MUSTs we need to work on:
     - [ ] Information can be applied to game from one place
     - [ ] Saves can be loaded from menu
 - [ ] More props/decor
-  - Assigned to:
+  - Assigned to: **Tegan**
   - Done when:
     - [ ] Sprites for props are created
     - [ ] Scenes for props are created
     - [ ] Props can be added to levels
 - [ ] Sound effects
-  - Assigned to:
+  - Assigned to: **Tegan**
   - Done when:
     - [ ] Effects are sourced ethically
     - [ ] Effects are assigned to specific events
     - [ ] Sound players are added to appropriate objects
     - [ ] Sound is played at the appropriate time
+- [ ] Health management
+  - Assigned to: **Tegan**
+  - Done when:
+    - [ ] Health potions can be stored for later
+    - [ ] Separate chests / other props drop health potions
+    - [ ] Button to use stored potions
+    - [ ] Limited amount of potions can be stored
