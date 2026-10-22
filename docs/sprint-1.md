@@ -1,12 +1,70 @@
 MUSTs we need to work on:
 
 - [ ] Bossfights
+  - Assigned to: **Sophie**
+  - Done when:
+      - [ ] Bosses are defined in code
+      - [ ] Bosses are spawnable
+      - [ ] Bosses are fightable
+      - [ ] Bosses create meaningful challenge
 - [ ] Level Select
+  - Assigned to:
+  - Done when: **Sophie**
+    - [x] Levels can be selected from a menu
+    - [x] Levels can be entered
+    - [ ] New levels can be created and easily added to menu
+    - [ ] Levels can have metadata assigned (e.g. icon, title, file location)
 - [ ] Level progression (Unlocks during play)
-- [ ] Home base
+  - Assigned to:
+  - Done when:
+    - [ ] Levels store when they should be unlocked
+    - [ ] Levels can only be selected when unlocked
+- [x] Home base
+  - Assigned to: **Sophie**
+  - Done when:
+    - [x] The player spawns into a non-level location
+    - [x] The player can leave home base
+    - [x] The player comes back after levels
 - [ ] Upgrades
+  - Assigned to:
+  - Done when:
+    - [ ] Upgrades can be defined in code
+    - [ ] Upgrades can be applied to the player
+    - [ ] Upgrades persist across level transitions
+    - [ ] Upgrades can be purchased by the player
 - [ ] More spells (secondary attacks)
+  - Assigned to:
+  - Done when:
+    - [ ] Secondary attacks can be defined in code
+    - [ ] Secondary attacks can be used by player
+    - [ ] Secondary attacks can be equipped by player
+    - [ ] Secondary attacks can be upgraded by player
 - [ ] Bosses drop secondary attacks
+  - Assigned to:
+  - Done when:
+    - [ ] Bosses can be assigned secondary attacks to drop
+    - [ ] Bosses unlock secondary attacks for player on defeat
+    - [ ] Player can only equip unlocked attacks
 - [ ] Save function
+  - Assigned to:
+  - Done when:
+    - [ ] Information to be saved can be collected in one place
+    - [ ] Information can be serialized into JSON
+    - [ ] JSON can be written to files
+    - [ ] JSON can be read from files
+    - [ ] JSON can be deserialized into information
+    - [ ] Information can be applied to game from one place
+    - [ ] Saves can be loaded
 - [ ] More props/decor
+  - Assigned to:
+  - Done when:
+    - [ ] Sprites for props are created
+    - [ ] Scenes for props are created
+    - [ ] Props can be added to levels
 - [ ] Sound effects
+  - Assigned to:
+  - Done when:
+    - [ ] Effects are sourced ethically
+    - [ ] Effects are assigned to specific events
+    - [ ] Sound players are added to appropriate objects
+    - [ ] Sound is played at the appropriate time
