@@ -16,3 +16,7 @@
 - [ ] Add a boss fight
 - [ ] Add player upgrades
 - [ ] More sprites
+
+| Suggestion | Choice | Reason |
+|____________|________|________|
+| More visibility in pop ups| 
