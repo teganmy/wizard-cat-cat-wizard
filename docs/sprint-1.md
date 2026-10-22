@@ -9,3 +9,4 @@ MUSTs we need to work on:
 - [ ] Bosses drop secondary attacks
 - [ ] Save function
 - [ ] More props/decor
+- [ ] Sound effects
