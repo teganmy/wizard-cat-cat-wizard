@@ -12,10 +12,10 @@
 [ext_resource type="Script" uid="uid://r7m3l5eq4nij" path="res://components/room.gd" id="9_3sk1a"]
 [ext_resource type="Script" uid="uid://26e5cw4g2wa2" path="res://enemies/enemy_type.gd" id="9_betor"]
 [ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="10_5ot28"]
-[ext_resource type="Resource" uid="uid://csnqy0o3a70kb" path="res://enemies/types/snail_default.tres" id="10_vjtdm"]
+[ext_resource type="Resource" uid="uid://csnqy0o3a70kb" path="res://enemies/types/snail.tres" id="10_vjtdm"]
 [ext_resource type="Resource" uid="uid://ld6uwxcbxknh" path="res://loot/loot_types/gem.tres" id="11_aerfg"]
-[ext_resource type="Resource" uid="uid://blk0w5rkukd5e" path="res://enemies/types/snail_shotgun.tres" id="11_vjtdm"]
-[ext_resource type="Resource" uid="uid://dua1rcwkq8gmb" path="res://enemies/types/snail_brute.tres" id="15_bgw3c"]
+[ext_resource type="Resource" uid="uid://blk0w5rkukd5e" path="res://enemies/types/snake.tres" id="11_vjtdm"]
+[ext_resource type="Resource" uid="uid://dua1rcwkq8gmb" path="res://enemies/types/frog.tres" id="15_bgw3c"]
 [ext_resource type="PackedScene" uid="uid://hpag36semn3u" path="res://props/portal.tscn" id="16_lrvbd"]
 
 [sub_resource type="Resource" id="Resource_3sk1a"]
