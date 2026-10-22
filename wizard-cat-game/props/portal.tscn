@@ -54,7 +54,6 @@ texture = SubResource("PlaceholderTexture2D_w60vn")
 
 [node name="Lock" type="Node" parent="." unique_id=1988044753]
 script = ExtResource("1_30qti")
-state = 1
 metadata/_custom_type_script = "uid://cahbckpdbwxoq"
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=1617808236]

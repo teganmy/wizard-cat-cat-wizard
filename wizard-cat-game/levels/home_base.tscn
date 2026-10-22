@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bbhvbmlbu1ne7" path="res://UI/hud.tscn" id="2_sancg"]
 [ext_resource type="TileSet" uid="uid://yeucsf3jvqss" path="res://assets/landscape_tileset.tres" id="3_8uweq"]
 [ext_resource type="PackedScene" uid="uid://hpag36semn3u" path="res://props/portal.tscn" id="5_boaak"]
+[ext_resource type="PackedScene" uid="uid://b7abfpxug6kt" path="res://UI/level_select_menu.tscn" id="5_cas1r"]
+[ext_resource type="PackedScene" uid="uid://u300mn1dprv" path="res://props/level_selector.tscn" id="7_m63w8"]
 
 [node name="HomeBase" type="Node2D" unique_id=1618752609]
 script = ExtResource("1_xolgs")
@@ -23,6 +25,15 @@ position = Vector2(608, 384)
 [node name="HUD" parent="CanvasLayer" unique_id=1381849764 instance=ExtResource("2_sancg")]
 metadata/_edit_lock_ = true
 
+[node name="LevelSelectMenu" parent="CanvasLayer/HUD" unique_id=975190331 instance=ExtResource("5_cas1r")]
+visible = false
+layout_mode = 1
+
 [node name="Portal" parent="." unique_id=1944338752 instance=ExtResource("5_boaak")]
 position = Vector2(608, 224)
 destination = 1
+
+[node name="LevelSelector" parent="." unique_id=315151584 node_paths=PackedStringArray("level_select", "portal") instance=ExtResource("7_m63w8")]
+position = Vector2(546, 212)
+level_select = NodePath("../CanvasLayer/HUD/LevelSelectMenu")
+portal = NodePath("../Portal")

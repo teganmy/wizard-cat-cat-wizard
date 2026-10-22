@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dimgunrtmkuqt"]
+
+[ext_resource type="Script" uid="uid://bsobkaqnjrnuk" path="res://levels/level.gd" id="1_mi4ay"]
+[ext_resource type="PackedScene" uid="uid://6t34451gxrtm" path="res://player/player.tscn" id="2_pqqg8"]
+[ext_resource type="PackedScene" uid="uid://bbhvbmlbu1ne7" path="res://UI/hud.tscn" id="3_0srwa"]
+
+[node name="Level2" type="Node2D" unique_id=93842371]
+script = ExtResource("1_mi4ay")
+player_scene = ExtResource("2_pqqg8")
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=983090693]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1406832674]
+
+[node name="HUD" parent="CanvasLayer" unique_id=1381849764 instance=ExtResource("3_0srwa")]

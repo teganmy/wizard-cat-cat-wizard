@@ -8,7 +8,7 @@ func _process(_delta: float) -> void:
 		toggle_pause.call_deferred()
 
 func toggle_pause() -> void:
-	if LevelState.can_pause():
+	if LevelState.pausable:
 		paused = not paused
 		get_tree().paused = paused
 		visible = paused
@@ -23,3 +23,7 @@ func _on_resume_button_pressed() -> void:
 func _on_quit_button_pressed() -> void:
 	toggle_pause.call_deferred()
 	SceneLoader.change_to_menu()
+
+func _on_home_button_pressed() -> void:
+	toggle_pause.call_deferred()
+	SceneLoader.change_to_home()

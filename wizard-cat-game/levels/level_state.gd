@@ -5,6 +5,7 @@ signal entered
 signal exit_tried
 
 enum STATE {ACTIVE, INACTIVE}
+var pausable: bool = false
 var state: STATE = STATE.INACTIVE
 
 func exit() -> void:
@@ -19,9 +20,11 @@ func enter() -> void:
 
 func _change_state(new_state: STATE) -> void:
 	state = new_state
-
-func can_pause() -> bool:
-	return state == STATE.ACTIVE
+	match new_state:
+		STATE.ACTIVE:
+			pausable = true
+		STATE.INACTIVE:
+			pausable = false
 
 func try_exit() -> void:
 	exit_tried.emit()
