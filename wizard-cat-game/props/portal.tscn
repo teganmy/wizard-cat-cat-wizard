@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bpt0lxbw05few" path="res://props/portal.gd" id="1_7bbq2"]
 [ext_resource type="Script" uid="uid://cahbckpdbwxoq" path="res://components/lock.gd" id="1_30qti"]
 [ext_resource type="Script" uid="uid://dxddfl5g0sgtd" path="res://components/interaction_area.gd" id="2_ab6lv"]
+[ext_resource type="Script" uid="uid://cinm2ra8wmwf2" path="res://props/label_popup.gd" id="4_7bbq2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpvk7"]
 size = Vector2(32, 32)
@@ -32,11 +33,14 @@ size = Vector2(64, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2w8te"]
 size = Vector2(64, 64)
 
-[node name="Portal" type="StaticBody2D" unique_id=1944338752 node_paths=PackedStringArray("lock")]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sq7nh"]
+
+[node name="Portal" type="StaticBody2D" unique_id=1944338752 node_paths=PackedStringArray("lock", "label")]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_7bbq2")
 lock = NodePath("Lock")
+label = NodePath("DestLabel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1203809853]
 visible = false
@@ -65,4 +69,29 @@ metadata/_custom_type_script = "uid://dxddfl5g0sgtd"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=2135272419]
 shape = SubResource("RectangleShape2D_2w8te")
 
+[node name="DestLabel" type="Label" parent="." unique_id=1811528330 node_paths=PackedStringArray("interaction_area")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -53.0
+offset_right = 31.5
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sq7nh")
+text = "Level 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_7bbq2")
+interaction_area = NodePath("../InteractionArea")
+metadata/_custom_type_script = "uid://cinm2ra8wmwf2"
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
 [connection signal="interact" from="InteractionArea" to="." method="_on_interaction_area_interact"]

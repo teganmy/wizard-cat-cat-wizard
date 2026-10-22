@@ -28,10 +28,10 @@ metadata/_custom_type_script = "uid://drq0y0x2llhhg"
 size = Vector2(448, 416)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2w8te"]
-size = Vector2(784, 112)
+size = Vector2(784, 104)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ch8v3"]
-size = Vector2(288, 160)
+size = Vector2(272, 160)
 
 [node name="Level1" type="Node2D" unique_id=1118981851]
 script = ExtResource("1_jirdo")
@@ -162,7 +162,7 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room3" unique_id=1885267368]
 visible = false
-polygon = PackedVector2Array(-64, -32, 128, -32, 128, 160, -32, 160, -32, 288, -160, 288, -160, 416, -352, 416, -352, 224, -224, 224, -224, 96, -64, 96)
+polygon = PackedVector2Array(-48, -17, 112, -17, 112, 143, -48, 143, -48, 271, -176, 271, -176, 399, -336, 399, -336, 239, -208, 239, -208, 111, -48, 111)
 
 [node name="Door" parent="Room3" unique_id=1790365265 instance=ExtResource("8_l53as")]
 position = Vector2(-16, -48)
@@ -233,7 +233,7 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room4" unique_id=460543447]
 visible = false
-polygon = PackedVector2Array(-320, -256, 160, -256, 160, 64, -96, 64, -96, -64, -320, -64)
+polygon = PackedVector2Array(-304, -240, 144, -240, 144, 48, -80, 48, -80, -80, -304, -80)
 
 [node name="Door" parent="Room4" unique_id=757083471 instance=ExtResource("8_l53as")]
 position = Vector2(176, 16)
@@ -357,7 +357,7 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room5" unique_id=165516404]
 visible = false
-position = Vector2(336, 32)
+position = Vector2(336, 28)
 shape = SubResource("RectangleShape2D_2w8te")
 
 [node name="EnemySpawner" type="Marker2D" parent="Room5" unique_id=2129039270]
@@ -407,7 +407,8 @@ tile_map_data = PackedByteArray("AAD6//v/AwAAAAAAAAD6//z/AwAAAAAAAAD6//3/AwAAAAA
 tile_set = ExtResource("2_bt44k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room6" unique_id=866727072]
-position = Vector2(-32, -64)
+visible = false
+position = Vector2(-40, -64)
 shape = SubResource("RectangleShape2D_ch8v3")
 
 [node name="ExitPortal" parent="Room6" unique_id=1944338752 instance=ExtResource("16_lrvbd")]

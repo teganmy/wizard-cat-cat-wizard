@@ -10,6 +10,7 @@ func _ready() -> void:
 	for file_name in ResourceLoader.list_directory("res://levels"):
 		if file_name.begins_with("level_") and file_name.ends_with(".tscn"):
 			levels.append(file_name)
+	levels.sort()
 	var regex := RegEx.create_from_string("\\d+")
 	for level in levels:
 		var num = regex.search(level).get_string()
