@@ -10,8 +10,11 @@ size = Vector2(32, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2w8te"]
 size = Vector2(44, 66)
 
-[node name="LevelSelector" type="StaticBody2D" unique_id=315151584]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4yprg"]
+
+[node name="LevelSelector" type="StaticBody2D" unique_id=315151584 node_paths=PackedStringArray("label")]
 script = ExtResource("1_4yprg")
+label = NodePath("SelectLabel")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=932774360]
 texture_filter = 1
@@ -31,4 +34,26 @@ metadata/_custom_type_script = "uid://dxddfl5g0sgtd"
 position = Vector2(0, 13)
 shape = SubResource("RectangleShape2D_2w8te")
 
+[node name="SelectLabel" type="Label" parent="." unique_id=568748798]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -46.0
+offset_right = 59.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4yprg")
+text = "Level Select"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
 [connection signal="interact" from="InteractionArea" to="." method="_on_interaction_area_interact"]

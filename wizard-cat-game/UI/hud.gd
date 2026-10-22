@@ -4,6 +4,7 @@ extends Control
 
 func _ready() -> void:
 	PlayerState.currency_changed.connect(_on_currency_changed)
+	_on_currency_changed(PlayerState.currency)
 	if PlayerState.player_is_new:
 		$TutorialPopup.popup_centered()
 		get_tree().set_deferred("paused", true)
