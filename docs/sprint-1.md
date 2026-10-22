@@ -61,6 +61,7 @@ MUSTs we need to work on:
     - [ ] Sprites for props are created
     - [ ] Scenes for props are created
     - [ ] Props can be added to levels
+    - [ ] Loot moves at an appropriate speed
 - [ ] Sound effects
   - Assigned to: **Tegan**
   - Done when:
