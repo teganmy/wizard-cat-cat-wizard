@@ -185,6 +185,7 @@ layout_mode = 2
 text = "Quit"
 
 [node name="ConfirmMenu" type="CenterContainer" parent="." unique_id=1032381515 node_paths=PackedStringArray("pause_rect")]
+process_mode = 3
 visible = false
 layout_mode = 1
 anchors_preset = 15

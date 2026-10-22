@@ -12,6 +12,8 @@
 [ext_resource type="Resource" uid="uid://csnqy0o3a70kb" path="res://enemies/types/snail.tres" id="9_hbb88"]
 [ext_resource type="Resource" uid="uid://blk0w5rkukd5e" path="res://enemies/types/snake.tres" id="10_wcjpl"]
 [ext_resource type="Resource" uid="uid://dua1rcwkq8gmb" path="res://enemies/types/frog.tres" id="11_5orea"]
+[ext_resource type="PackedScene" uid="uid://hpag36semn3u" path="res://props/portal.tscn" id="12_wcjpl"]
+[ext_resource type="PackedScene" uid="uid://3fdgsfs7b4ci" path="res://props/chest.tscn" id="13_5orea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpvk7"]
 size = Vector2(416, 320)
@@ -27,7 +29,7 @@ position = Vector2(576, 576)
 position = Vector2(576, 320)
 collision_mask = 2
 script = ExtResource("3_v5uil")
-lockables = [NodePath("Door")]
+lockables = [NodePath("Door"), NodePath("Portal"), NodePath("Chest")]
 visible_on_enter = true
 metadata/_custom_type_script = "uid://r7m3l5eq4nij"
 
@@ -71,6 +73,15 @@ script = ExtResource("6_ep78u")
 enemy_scene = ExtResource("7_dfjjl")
 waves = Array[ExtResource("8_at1ld")]([ExtResource("11_5orea"), ExtResource("10_wcjpl"), ExtResource("10_wcjpl")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
+
+[node name="Portal" parent="Room1" unique_id=1944338752 instance=ExtResource("12_wcjpl")]
+position = Vector2(-192, -152)
+level = 0
+
+[node name="Chest" parent="Room1" unique_id=1010634097 instance=ExtResource("13_5orea")]
+position = Vector2(184, -304)
+max_loot_override = 100
+min_loot_override = 50
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1406832674]
 
