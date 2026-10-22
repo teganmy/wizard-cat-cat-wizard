@@ -1,5 +1,5 @@
 | Suggestion | Choice | Reason |
-| __________ | ______ | ______ |
+| ---------- | ------ | ------ |
 | More visibility in pop ups | Adopt | Players need to be able to figure out what they're supposed to do |
 | Remove left click to shoot | Adopt | Having one shooting mode will be more intuitive | 
 | Add chest opening animation| Adopt | Having an "opened" visual will make what has already been looted clearer|
