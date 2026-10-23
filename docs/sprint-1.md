@@ -7,13 +7,13 @@ MUSTs we need to work on:
       - [ ] Bosses are spawnable
       - [ ] Bosses are fightable
       - [ ] Bosses create meaningful challenge
-- [ ] Level Select
+- [x] Level Select
   - Assigned to:
   - Done when: **Sophie**
     - [x] Levels can be selected from a menu
     - [x] Levels can be entered
-    - [ ] New levels can be created and easily added to menu
-    - [ ] Levels can have metadata assigned (e.g. icon, title, file location)
+    - [x] New levels can be created and easily added to menu
+    - [x] Levels can have metadata assigned (e.g. icon, title, file location)
 - [ ] Level progression (Unlocks during play)
   - Assigned to: **Sophie**
   - Done when:
