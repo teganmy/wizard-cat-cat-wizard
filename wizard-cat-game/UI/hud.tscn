@@ -184,7 +184,7 @@ text = "Home Base"
 layout_mode = 2
 text = "Quit"
 
-[node name="ConfirmMenu" type="CenterContainer" parent="." unique_id=1032381515 node_paths=PackedStringArray("pause_rect")]
+[node name="ConfirmMenu" type="CenterContainer" parent="." unique_id=1032381515 node_paths=PackedStringArray("pause_rect", "label")]
 process_mode = 3
 visible = false
 layout_mode = 1
@@ -195,6 +195,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("8_i0a73")
 pause_rect = NodePath("../PauseRect")
+label = NodePath("PanelContainer/VBoxContainer/Label")
 
 [node name="PanelContainer" type="PanelContainer" parent="ConfirmMenu" unique_id=500262348]
 layout_mode = 2

@@ -1,14 +1,18 @@
 extends CenterContainer
 
 @export var pause_rect: ColorRect
+@export var label = Label
+var action: Callable
 
 func _ready() -> void:
-	LevelState.exit_tried.connect(open)	
+	SceneLoader.confirmation.connect(open)
 
 func _on_confirm_button_pressed() -> void:
-	SceneLoader.change_to_home()
+	action.call()
 
-func open() -> void:
+func open(message: String, new_action: Callable) -> void:
+	action = new_action
+	label.text = message
 	LevelState.set_deferred("pausable", false)
 	get_tree().set_deferred("paused", true)
 	pause_rect.show()

@@ -2,7 +2,6 @@ extends Node
 
 signal exited
 signal entered
-signal exit_tried
 
 enum STATE {ACTIVE, INACTIVE}
 var pausable: bool = false
@@ -25,6 +24,3 @@ func _change_state(new_state: STATE) -> void:
 			pausable = true
 		STATE.INACTIVE:
 			pausable = false
-
-func try_exit() -> void:
-	exit_tried.emit()

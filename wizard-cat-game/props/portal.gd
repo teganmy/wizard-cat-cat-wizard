@@ -16,7 +16,7 @@ func _ready() -> void:
 func _on_interaction_area_interact() -> void:
 	if not lock.is_locked():
 		if level == null:
-			LevelState.try_exit()
+			SceneLoader.change_to_home(true)
 		else:
 			SceneLoader.change_to_level(level)
 
