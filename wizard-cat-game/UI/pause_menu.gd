@@ -22,8 +22,8 @@ func _on_resume_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	toggle_pause.call_deferred()
-	SceneLoader.change_to_menu()
+	SceneLoader.change_to_menu.call_deferred(true)
 
 func _on_home_button_pressed() -> void:
 	toggle_pause.call_deferred()
-	SceneLoader.change_to_home()
+	SceneLoader.change_to_home.call_deferred(true)
