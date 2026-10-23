@@ -5,7 +5,11 @@ extends StaticBody2D
 
 
 func _ready() -> void:
-	level_select.level_selected.connect(func(new_level:int): portal.level = new_level; portal.lock.unlock())
+	level_select.level_selected.connect(_on_level_selected)
 
 func _on_interaction_area_interact() -> void:
 	level_select.open()
+
+func _on_level_selected(def: LevelDef) -> void:
+	portal.level = def
+	portal.lock.unlock()

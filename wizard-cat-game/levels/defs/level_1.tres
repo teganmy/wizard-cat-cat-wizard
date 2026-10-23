@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LevelDef" format=3 uid="uid://cmw7lcy5ojkj2"]
+
+[ext_resource type="Script" uid="uid://b3fyhuywwkp5m" path="res://levels/level_def.gd" id="1_0h15p"]
+
+[resource]
+script = ExtResource("1_0h15p")
+name = "Level 1"
+file = "uid://blvux4u1kme2s"
+ordering = 1
+metadata/_custom_type_script = "uid://b3fyhuywwkp5m"

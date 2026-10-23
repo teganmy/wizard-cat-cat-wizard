@@ -2,25 +2,23 @@ extends Control
 
 @export var button_container: Container
 @export var button_tween: ButtonTween
-var levels: Array[String] = []
-signal level_selected(num: int)
+var levels: Array[LevelDef] = []
+signal level_selected(def: LevelDef)
 
 func _ready() -> void:
 	hide()
-	for file_name in ResourceLoader.list_directory("res://levels"):
-		if file_name.begins_with("level_") and file_name.ends_with(".tscn"):
-			levels.append(file_name)
-	levels.sort()
-	var regex := RegEx.create_from_string("\\d+")
+	for file_name in ResourceLoader.list_directory("res://levels/defs"):
+		var file = ResourceLoader.load("res://levels/defs/%s" % file_name)
+		if file is LevelDef:
+			levels.append(file)
+	levels.sort_custom(func(one: LevelDef, two: LevelDef): return one.ordering < two.ordering)
 	for level in levels:
-		var num = regex.search(level).get_string()
-		if num != "":
-			var button = Button.new()
-			button.text = num
-			button_container.add_child(button)
-			button_tween.add_button(button)
-			button.pressed.connect(level_selected.emit.bind(num.to_int()))
-			button.pressed.connect(close)
+		var button = Button.new()
+		button.text = level.name
+		button_container.add_child(button)
+		button_tween.add_button(button)
+		button.pressed.connect(level_selected.emit.bind(level))
+		button.pressed.connect(close)
 
 func open() -> void:
 	LevelState.set_deferred("pausable", false)
