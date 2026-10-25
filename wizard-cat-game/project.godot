@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 PlayerState="*uid://bsi82jkp1yi24"
-RoomState="*uid://dd2y5kdwms2pv"
 SceneLoader="*uid://dc4g18ntwdqgq"
 
 [display]

@@ -5,10 +5,25 @@ extends Node2D
 var player: CharacterBody2D
 signal exited
 signal entered
+signal wave(num: int)
+signal room_changed
+signal room_defeated
 
 enum STATE {ACTIVE, INACTIVE}
 var pausable: bool = false
 var state: STATE = STATE.INACTIVE
+
+var current_room: Room:
+	set(new):
+		if current_room:
+			if current_room.wave.is_connected(wave.emit):
+				current_room.wave.disconnect(wave.emit)
+			if current_room.defeated.is_connected(room_defeated.emit):
+				current_room.defeated.disconnect(room_defeated.emit)
+		new.wave.connect(wave.emit)
+		new.defeated.connect(room_defeated.emit)
+		current_room = new
+		room_changed.emit()
 
 func _ready() -> void:
 	var new_player = player_scene.instantiate()

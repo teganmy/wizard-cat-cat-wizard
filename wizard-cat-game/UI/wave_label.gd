@@ -5,12 +5,13 @@ var max_waves: int = 0
 
 func _ready() -> void:
 	modulate.a = 0
-	RoomState.activated.connect(_on_room_activated)
-	RoomState.wave.connect(_on_room_wave)
-	RoomState.defeated.connect(_on_room_defeated)
+	var tree = get_tree()
+	tree.current_scene.room_changed.connect(_on_room_activated)
+	tree.current_scene.wave.connect(_on_room_wave)
+	tree.current_scene.room_defeated.connect(_on_room_defeated)
 
 func _on_room_activated() -> void:
-	max_waves = RoomState.max_waves
+	max_waves = get_tree().current_scene.current_room.total_waves
 
 func _on_room_wave(wave: int) -> void:
 	display("Wave %s of %s" % [wave, max_waves])

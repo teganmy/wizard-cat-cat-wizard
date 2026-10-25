@@ -10,6 +10,7 @@ var state: STATE = STATE.UNEXPLORED
 signal defeated
 signal activated
 signal revealed
+signal wave
 
 var living_enemies: int = 0
 var current_wave: int = 0
@@ -43,16 +44,15 @@ func _change_state(new_state: STATE) -> void:
 		STATE.REVEALED:
 			_on_revealed()
 		STATE.ACTIVE:
-			RoomState.activate(total_waves)
 			_on_activated()
 		STATE.DEFEATED:
-			RoomState.defeat()
 			_on_defeated()
 
 func _on_defeated() -> void:
 	defeated.emit()
 
 func _on_activated() -> void:
+	get_tree().current_scene.current_room = self
 	activated.emit()
 	_wave.call_deferred()
 
@@ -74,7 +74,7 @@ func _wave() -> void:
 				living_enemies += 1
 				enemy.died.connect(_on_enemy_died)
 		current_wave += 1
-		RoomState.change_wave(current_wave)
+		wave.emit(current_wave)
 	else:
 		_change_state(STATE.DEFEATED)
 
