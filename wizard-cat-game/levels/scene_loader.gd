@@ -22,6 +22,8 @@ func change_to_menu(confirm: bool = false) -> void:
 		change_to_file("res://main.tscn")
 
 func change_to_file(file: String) -> void:
-	get_tree().set_deferred("paused", false)
-	LevelState.exit()
-	get_tree().change_scene_to_file.call_deferred(file)
+	var tree := get_tree()
+	tree.set_deferred("paused", false)
+	if tree.current_scene.has_method("exit"):
+		tree.current_scene.exit()
+	tree.change_scene_to_file.call_deferred(file)

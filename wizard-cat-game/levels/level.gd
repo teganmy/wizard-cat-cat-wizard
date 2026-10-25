@@ -3,6 +3,12 @@ extends Node2D
 @export var player_scene: PackedScene
 @onready var spawn_point := $SpawnPoint
 var player: CharacterBody2D
+signal exited
+signal entered
+
+enum STATE {ACTIVE, INACTIVE}
+var pausable: bool = false
+var state: STATE = STATE.INACTIVE
 
 func _ready() -> void:
 	var new_player = player_scene.instantiate()
@@ -11,9 +17,27 @@ func _ready() -> void:
 	add_child(new_player)
 	new_player.health.died.connect(respawn_player)
 	player = new_player
-	LevelState.enter()
+	enter()
 
 func respawn_player() -> void:
 	PlayerState.currency = 0
-	LevelState.exit()
+	exit()
 	get_tree().reload_current_scene.call_deferred()
+
+func exit() -> void:
+	if state == STATE.ACTIVE:
+		exited.emit()
+		_change_state(STATE.INACTIVE)
+
+func enter() -> void:
+	if state == STATE.INACTIVE:
+		entered.emit()
+		_change_state(STATE.ACTIVE)
+
+func _change_state(new_state: STATE) -> void:
+	state = new_state
+	match new_state:
+		STATE.ACTIVE:
+			pausable = true
+		STATE.INACTIVE:
+			pausable = false

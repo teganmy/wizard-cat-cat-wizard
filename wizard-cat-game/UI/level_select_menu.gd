@@ -21,13 +21,14 @@ func _ready() -> void:
 		button.pressed.connect(close)
 
 func open() -> void:
-	LevelState.set_deferred("pausable", false)
+	get_tree().current_scene.set_deferred("pausable", false)
 	get_tree().set_deferred("paused", true)
 	show()
 
 func close() -> void:
-	get_tree().create_timer(0.1).timeout.connect(LevelState.set_deferred.bind("pausable", true))
-	get_tree().set_deferred("paused", false)
+	var tree := get_tree()
+	tree.create_timer(0.1).timeout.connect(tree.current_scene.set_deferred.bind("pausable", true))
+	tree.set_deferred("paused", false)
 	hide()
 
 func _input(_event: InputEvent) -> void:

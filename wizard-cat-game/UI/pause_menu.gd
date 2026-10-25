@@ -8,7 +8,7 @@ func _process(_delta: float) -> void:
 		toggle_pause.call_deferred()
 
 func toggle_pause() -> void:
-	if LevelState.pausable:
+	if get_tree().current_scene.pausable:
 		paused = not paused
 		get_tree().paused = paused
 		visible = paused

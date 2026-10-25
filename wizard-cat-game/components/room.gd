@@ -27,7 +27,7 @@ func _ready() -> void:
 			defeated.connect(lockable.lock.unlock)
 			activated.connect(lockable.lock.lock)
 	if visible_on_enter:
-		LevelState.entered.connect(reveal)
+		get_tree().current_scene.entered.connect(reveal)
 
 func activate() -> void:
 	if state == STATE.REVEALED:
