@@ -22,8 +22,22 @@ signal current_health_changed(new: int)
 signal max_health_changed(new: int)
 signal currency_changed(new: int)
 
+func _ready() -> void:
+	add_to_group("Persistent")
+
 func reset() -> void:
 	current_health = 0
 	max_health = 0
 	currency = 0
 	player_is_new = true
+
+func save() -> Dictionary:
+	return {
+		"path": get_path(),
+		"parent": get_parent(),
+		"scene_path": scene_file_path,
+		"current_health": current_health,
+		"max_health": max_health,
+		"currency": currency,
+		"player_is_new": player_is_new,
+	}

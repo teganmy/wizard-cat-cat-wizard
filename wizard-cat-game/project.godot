@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 PlayerState="*uid://bsi82jkp1yi24"
 SceneLoader="*uid://dc4g18ntwdqgq"
+Save="*uid://bq8sxdrcnc3q0"
 
 [display]
 
@@ -28,6 +29,7 @@ window/stretch/aspect="expand"
 [global_group]
 
 Player="The player"
+Persistent="saved to a file on save action"
 
 [gui]
 
