@@ -55,6 +55,7 @@ script = ExtResource("7_1jxqw")
 bullet_scene = ExtResource("8_dw050")
 bullet_type = ExtResource("7_dw050")
 firing_pattern = ExtResource("8_b26j0")
+use_player_boost = true
 metadata/_custom_type_script = "uid://ds8lqx0juuem6"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=677666763]

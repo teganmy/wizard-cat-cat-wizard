@@ -9,6 +9,9 @@ var value: int = 1
 enum STATE {IDLE, GRABBED}
 var state: STATE = STATE.IDLE
 var follow: Node2D
+@export var heal_amount: int = 0
+@export var bullet_speed_multiplier: float = 1.0
+@export var bullet_speed_duration: float = 0.0
 
 func grab(new_follow: Node2D) -> void:
 	_change_state(STATE.GRABBED)

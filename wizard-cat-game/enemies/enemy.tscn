@@ -15,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://ld6uwxcbxknh" path="res://loot/loot_types/gem.tres" id="10_ar8e5"]
 [ext_resource type="Material" uid="uid://b14hnq8vn4h8v" path="res://components/spawner_particle_material.tres" id="14_cjbay"]
 [ext_resource type="Resource" uid="uid://dhxxvsvsbsbnd" path="res://loot/loot_types/healing_potion.tres" id="15_0h01o"]
+[ext_resource type="Script" uid="uid://un6ien2ktj74" path="res://components/hitbox.gd" id="16_8cidi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4gyqm"]
 radius = 12.0
@@ -39,6 +40,9 @@ script = ExtResource("8_pwjut")
 type = ExtResource("15_0h01o")
 weight = 0.1
 metadata/_custom_type_script = "uid://drq0y0x2llhhg"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jwmm1"]
+radius = 15.0
 
 [node name="enemy" type="CharacterBody2D" unique_id=570259976 node_paths=PackedStringArray("health", "shooter")]
 collision_layer = 4
@@ -96,3 +100,12 @@ metadata/_custom_type_script = "uid://c4u3dpkcjwe7p"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2139646530]
 path_postprocessing = 1
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1526558729]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("16_8cidi")
+metadata/_custom_type_script = "uid://un6ien2ktj74"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=191403766]
+shape = SubResource("CircleShape2D_jwmm1")

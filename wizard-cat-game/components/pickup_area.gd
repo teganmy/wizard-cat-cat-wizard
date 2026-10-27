@@ -17,5 +17,7 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_loot_picked_up(value: int, type: LootType) -> void:
 	if type.heal_amount > 0:
 		health.heal(type.heal_amount)
+	elif type.fire_rate_multiplier != 1.0:
+		PlayerState.apply_fire_rate_boost(type.fire_rate_multiplier, type.fire_rate_duration)
 	else:
 		picked_up.emit(value)

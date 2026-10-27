@@ -14,7 +14,7 @@ func _ready() -> void:
 	particles.texture = type.particle_texture
 	sprite.modulate = type.modulate
 	particles.modulate = type.particle_modulate
-	speed = type.speed
+	speed = type.speed 
 	lifetime_timer.wait_time = type.lifetime
 	hitbox.damage = type.damage
 	if type.collision_layer:

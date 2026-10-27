@@ -4,8 +4,9 @@ extends Node2D
 @export var bullet_scene: PackedScene
 @export var bullet_type: BulletType
 @export var firing_pattern: FiringPattern
+@export var use_player_boost: bool
 var count: int = 0
-var spread: float = 0
+var spread: float = 0 
 enum STATE {READY, COOLDOWN}
 var state: STATE = STATE.READY
 var cooldown_timer: Timer
@@ -31,7 +32,8 @@ func fire(target: Vector2) -> Array[Area2D]:
 				new_bullet.type = bullet_type
 				bullets.append(new_bullet)
 			_change_state(STATE.COOLDOWN)
-			cooldown_timer.start()
+			var rate: float = PlayerState.fire_rate_multiplier if use_player_boost else 1.0
+			cooldown_timer.start(firing_pattern.cooldown / maxf(rate, 0.01))
 			fired.emit()
 	return bullets
 
