@@ -69,6 +69,7 @@ MUSTs we need to work on:
     - [ ] Effects are assigned to specific events
     - [ ] Sound players are added to appropriate objects
     - [ ] Sound is played at the appropriate time
+    - [ ] Licenses/credits are tracked for publication time
 - [ ] Health management
   - Assigned to: **Tegan**
   - Done when:
