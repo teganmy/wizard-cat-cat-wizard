@@ -13,7 +13,7 @@ func _on_confirm_button_pressed() -> void:
 func open(message: String, new_action: Callable) -> void:
 	action = new_action
 	label.text = message
-	get_tree().current_sceen.set_deferred("pausable", false)
+	get_tree().current_scene.set_deferred("pausable", false)
 	get_tree().set_deferred("paused", true)
 	pause_rect.show()
 	show()
