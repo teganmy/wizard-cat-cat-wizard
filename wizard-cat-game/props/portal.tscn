@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cahbckpdbwxoq" path="res://components/lock.gd" id="1_30qti"]
 [ext_resource type="Script" uid="uid://dxddfl5g0sgtd" path="res://components/interaction_area.gd" id="2_ab6lv"]
 [ext_resource type="Script" uid="uid://cinm2ra8wmwf2" path="res://props/label_popup.gd" id="4_7bbq2"]
+[ext_resource type="FontFile" uid="uid://cvdyy7i6focc1" path="res://assets/Auldmagick-gvdp.ttf" id="4_sq7nh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpvk7"]
 size = Vector2(32, 32)
@@ -83,7 +84,8 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("4_sq7nh")
+theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxEmpty_sq7nh")
 text = "Level 1"
 horizontal_alignment = 1
