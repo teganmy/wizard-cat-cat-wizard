@@ -31,9 +31,8 @@ layout_mode = 1
 
 [node name="Portal" parent="." unique_id=1944338752 instance=ExtResource("5_boaak")]
 position = Vector2(608, 224)
-destination = 1
 
 [node name="LevelSelector" parent="." unique_id=315151584 node_paths=PackedStringArray("level_select", "portal") instance=ExtResource("7_m63w8")]
-position = Vector2(546, 212)
+position = Vector2(488, 208)
 level_select = NodePath("../CanvasLayer/HUD/LevelSelectMenu")
 portal = NodePath("../Portal")

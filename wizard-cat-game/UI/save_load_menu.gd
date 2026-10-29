@@ -31,3 +31,7 @@ func save_select(save: String) -> void:
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		close()
+
+
+func _on_cancel_button_pressed() -> void:
+	close()
