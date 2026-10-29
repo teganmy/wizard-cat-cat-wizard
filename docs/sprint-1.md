@@ -45,16 +45,16 @@ MUSTs we need to work on:
     - [ ] Bosses can be assigned secondary attacks to drop
     - [ ] Bosses unlock secondary attacks for player on defeat
     - [ ] Player can only equip unlocked attacks
-- [ ] Save function
+- [x] Save function
   - Assigned to: **Sophie**
   - Done when:
-    - [ ] Information to be saved can be collected in one place
-    - [ ] Information can be serialized into JSON
-    - [ ] JSON can be written to files
-    - [ ] JSON can be read from files
-    - [ ] JSON can be deserialized into information
-    - [ ] Information can be applied to game from one place
-    - [ ] Saves can be loaded from menu
+    - [x] Information to be saved can be collected in one place
+    - [x] Information can be serialized into JSON
+    - [x] JSON can be written to files
+    - [x] JSON can be read from files
+    - [x] JSON can be deserialized into information
+    - [x] Information can be applied to game from one place
+    - [x] Saves can be loaded from menu
 - [ ] More props/decor
   - Assigned to: **Tegan**
   - Done when:
