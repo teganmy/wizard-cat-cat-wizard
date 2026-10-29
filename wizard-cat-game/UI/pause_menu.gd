@@ -2,6 +2,7 @@ extends CenterContainer
 
 var paused: bool = false
 @export var pause_rect: ColorRect
+@export var button_tween: ButtonTween
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
@@ -10,6 +11,7 @@ func _process(_delta: float) -> void:
 func toggle_pause() -> void:
 	if get_tree().current_scene.pausable:
 		paused = not paused
+		button_tween.active = paused
 		get_tree().paused = paused
 		visible = paused
 		pause_rect.visible = paused

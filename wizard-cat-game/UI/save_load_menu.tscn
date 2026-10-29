@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://b2df86ng1bq6e"]
 
 [ext_resource type="Script" uid="uid://bdv22unmor721" path="res://UI/save_load_menu.gd" id="1_hvgms"]
+[ext_resource type="Script" uid="uid://dq2js0a13n6oc" path="res://components/button_tween.gd" id="2_8sgtu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gpvk7"]
 
-[node name="SaveLoadMenu" type="Control" unique_id=656603275 node_paths=PackedStringArray("button_container")]
+[node name="SaveLoadMenu" type="Control" unique_id=656603275 node_paths=PackedStringArray("button_container", "button_tween")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +14,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hvgms")
 button_container = NodePath("CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer")
+button_tween = NodePath("ButtonTween")
+
+[node name="ButtonTween" type="Node" parent="." unique_id=118234597 node_paths=PackedStringArray("buttons")]
+script = ExtResource("2_8sgtu")
+buttons = [NodePath("../CenterContainer/PanelContainer/VBoxContainer/CancelButton")]
+metadata/_custom_type_script = "uid://dq2js0a13n6oc"
 
 [node name="PauseRect" type="ColorRect" parent="." unique_id=107846596]
 layout_mode = 1

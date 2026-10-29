@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b63eh4xvu0geo"]
 
 [ext_resource type="Script" uid="uid://btt0d76v6qs3l" path="res://UI/save_name_menu.gd" id="1_lhp5t"]
+[ext_resource type="Script" uid="uid://dq2js0a13n6oc" path="res://components/button_tween.gd" id="2_x00e7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x00e7"]
 
@@ -90,6 +91,11 @@ text = "Continue"
 [node name="ExitButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1534819236]
 layout_mode = 2
 text = "Cancel"
+
+[node name="ButtonTween" type="Node" parent="." unique_id=654600194 node_paths=PackedStringArray("buttons")]
+script = ExtResource("2_x00e7")
+buttons = [NodePath("../CenterContainer/PanelContainer/VBoxContainer/ContinueButton"), NodePath("../CenterContainer/PanelContainer/VBoxContainer/ExitButton")]
+metadata/_custom_type_script = "uid://dq2js0a13n6oc"
 
 [connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/ContinueButton" to="." method="accept"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/ExitButton" to="." method="close"]
