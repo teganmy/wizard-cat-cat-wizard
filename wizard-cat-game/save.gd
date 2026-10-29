@@ -22,7 +22,7 @@ func load_current() -> void:
 
 func save(file_to_save: String) -> void:
 	if FileAccess.file_exists(save_folder.path_join(file_to_save)):
-		print("Saving %s...", file_to_save)
+		print("Saving %s..." % file_to_save)
 		var file := FileAccess.open(save_folder.path_join(file_to_save), FileAccess.WRITE)
 		var last_access: String = JSON.stringify({"last_access": Time.get_datetime_string_from_system(true)})
 		file.store_line(last_access)

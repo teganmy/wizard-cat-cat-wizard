@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://b63eh4xvu0geo"]
+
+[ext_resource type="Script" uid="uid://btt0d76v6qs3l" path="res://UI/save_name_menu.gd" id="1_lhp5t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x00e7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhp5t"]
+bg_color = Color(0.26293245, 0.26293245, 0.26293245, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.5803922, 0.42745098, 0.42745098, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gpvk7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2w8te"]
+
+[node name="SaveNameMenu" type="Control" unique_id=465224974 node_paths=PackedStringArray("line_edit", "error_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lhp5t")
+line_edit = NodePath("CenterContainer/PanelContainer/VBoxContainer/ScrollContainer/LineEdit")
+error_label = NodePath("CenterContainer/PanelContainer/VBoxContainer/ErrorLabel")
+
+[node name="PauseRect" type="ColorRect" parent="." unique_id=1176720491]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.80784315)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=116094934]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=834668566]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=1981512491]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1572100866]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x00e7")
+text = "New Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=184700318]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lhp5t")
+
+[node name="LineEdit" type="LineEdit" parent="CenterContainer/PanelContainer/VBoxContainer/ScrollContainer" unique_id=1951638082]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gpvk7")
+placeholder_text = "Save Name"
+
+[node name="ErrorLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=215161118]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.32807916, 0.32800996, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2w8te")
+text = "error: invalid filename"
+
+[node name="ContinueButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1251641139]
+layout_mode = 2
+text = "Continue"
+
+[node name="ExitButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1534819236]
+layout_mode = 2
+text = "Cancel"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/ContinueButton" to="." method="accept"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/ExitButton" to="." method="close"]

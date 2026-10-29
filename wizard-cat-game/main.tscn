@@ -4,16 +4,18 @@
 [ext_resource type="Script" uid="uid://hvo3h3pb28bc" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="Theme" uid="uid://cnlk2q7yx8tfd" path="res://assets/default_theme.tres" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://cdhwe1jm0yer6" path="res://assets/wizard-cat.png" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://b2df86ng1bq6e" path="res://UI/save_load_menu.tscn" id="5_lquwl"]
 [ext_resource type="FontFile" uid="uid://cvdyy7i6focc1" path="res://assets/Auldmagick-gvdp.ttf" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://b2df86ng1bq6e" path="res://UI/save_load_menu.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://b63eh4xvu0geo" path="res://UI/save_name_menu.tscn" id="6_7mycd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1bvp3"]
 font_size = 70
 font_color = Color(0.99215686, 0.95686275, 0.8235294, 1)
 
-[node name="Main" type="Node2D" unique_id=1893129849 node_paths=PackedStringArray("save_load_menu")]
+[node name="Main" type="Node2D" unique_id=1893129849 node_paths=PackedStringArray("save_load_menu", "save_name_menu")]
 script = ExtResource("1_h2yge")
 save_load_menu = NodePath("MenuLayer/SaveLoadMenu")
+save_name_menu = NodePath("MenuLayer/SaveNameMenu")
 
 [node name="MenuLayer" type="CanvasLayer" parent="." unique_id=32101130]
 
@@ -122,6 +124,10 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="SaveLoadMenu" parent="MenuLayer" unique_id=656603275 instance=ExtResource("5_lquwl")]
+visible = false
+
+[node name="SaveNameMenu" parent="MenuLayer" unique_id=465224974 instance=ExtResource("6_7mycd")]
+visible = false
 
 [connection signal="pressed" from="MenuLayer/MainMenu/PanelContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="MenuLayer/MainMenu/PanelContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
