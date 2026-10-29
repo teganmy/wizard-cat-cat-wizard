@@ -20,6 +20,9 @@ func open() -> void:
 
 func accept() -> void:
 	var text = line_edit.text
+	if not text:
+		error_label.show()
+		return
 	text = text.to_snake_case() + ".json"
 	print(text)
 	if not text.is_valid_filename():
