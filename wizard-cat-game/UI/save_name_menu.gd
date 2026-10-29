@@ -2,6 +2,7 @@ extends Control
 
 @export var line_edit: LineEdit
 @export var error_label: Label
+@export var button_tween: ButtonTween
 
 signal save_named(name: String)
 
@@ -15,6 +16,7 @@ func _ready() -> void:
 	hide()
 
 func open() -> void:
+	button_tween.activate()
 	show()
 	line_edit.grab_focus()
 
@@ -28,8 +30,10 @@ func accept() -> void:
 	if not text.is_valid_filename():
 		error_label.show()
 		return
+	close()
 	save_named.emit(text)
 
 func close() -> void:
+	button_tween.deactivate()
 	line_edit.clear()
 	hide()

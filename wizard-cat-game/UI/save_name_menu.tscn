@@ -21,7 +21,7 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2w8te"]
 
-[node name="SaveNameMenu" type="Control" unique_id=465224974 node_paths=PackedStringArray("line_edit", "error_label")]
+[node name="SaveNameMenu" type="Control" unique_id=465224974 node_paths=PackedStringArray("line_edit", "error_label", "button_tween")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,6 +31,7 @@ grow_vertical = 2
 script = ExtResource("1_lhp5t")
 line_edit = NodePath("CenterContainer/PanelContainer/VBoxContainer/ScrollContainer/LineEdit")
 error_label = NodePath("CenterContainer/PanelContainer/VBoxContainer/ErrorLabel")
+button_tween = NodePath("ButtonTween")
 
 [node name="PauseRect" type="ColorRect" parent="." unique_id=1176720491]
 layout_mode = 1

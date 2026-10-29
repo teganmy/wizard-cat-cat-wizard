@@ -10,6 +10,7 @@ func _ready() -> void:
 	hide()
 
 func open() -> void:
+	button_tween.activate()
 	for file in Save.get_save_files():
 		var button = Button.new()
 		button.text = file.get_file().get_basename().capitalize()
@@ -20,6 +21,7 @@ func open() -> void:
 	show()
 
 func close() -> void:
+	button_tween.deactivate()
 	hide()
 	for button in buttons:
 		button_tween.remove_button(button)
