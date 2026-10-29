@@ -41,6 +41,7 @@ func respawn_player() -> void:
 
 func exit() -> void:
 	if state == STATE.ACTIVE:
+		Save.save_current()
 		exited.emit()
 		_change_state(STATE.INACTIVE)
 
