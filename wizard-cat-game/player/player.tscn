@@ -67,15 +67,21 @@ drag_vertical_enabled = true
 [node name="DodgeCooldown" type="Timer" parent="." unique_id=204651733]
 one_shot = true
 
-[node name="PickupArea" type="Area2D" parent="." unique_id=983108859 node_paths=PackedStringArray("health")]
+[node name="PickupArea" type="Area2D" parent="." unique_id=983108859 node_paths=PackedStringArray("health", "secondary_shooter")]
 collision_layer = 0
 collision_mask = 32
 script = ExtResource("9_b26j0")
 health = NodePath("../Health")
+secondary_shooter = NodePath("../SecondaryShooter")
 metadata/_custom_type_script = "uid://cnhbys2pob6vi"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" unique_id=209260760]
 shape = SubResource("CircleShape2D_gpvk7")
+
+[node name="SecondaryShooter" type="Node2D" parent="." unique_id=159068291]
+script = ExtResource("7_1jxqw")
+bullet_scene = ExtResource("8_dw050")
+metadata/_custom_type_script = "uid://ds8lqx0juuem6"
 
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
 [connection signal="picked_up" from="PickupArea" to="." method="_on_pickup_area_picked_up"]

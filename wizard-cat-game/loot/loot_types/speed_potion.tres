@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_l48w5")
 sprite = ExtResource("2_o8qek")
-bullet_speed_multiplier = 1.5
-bullet_speed_duration = 30.0
+fire_rate_multiplier = 5.0
+fire_rate_duration = 30.0
 metadata/_custom_type_script = "uid://qiyo0f705gt"

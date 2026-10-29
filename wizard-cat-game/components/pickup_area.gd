@@ -3,6 +3,7 @@ extends Area2D
 
 signal picked_up(value: int)
 @export var health: Health
+@export var secondary_shooter: AreaShooter
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -17,6 +18,8 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_loot_picked_up(value: int, type: LootType) -> void:
 	if type.heal_amount > 0:
 		health.heal(type.heal_amount)
+	elif type.attack:
+		secondary_shooter.configure(type.attack.bullet_type, type.attack.firing_pattern)
 	elif type.fire_rate_multiplier != 1.0:
 		PlayerState.apply_fire_rate_boost(type.fire_rate_multiplier, type.fire_rate_duration)
 	else:

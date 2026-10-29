@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var health := $Health
 @onready var dodge_cooldown := $DodgeCooldown
 @onready var hurtbox := $Hurtbox
+@onready var secondary_shooter: AreaShooter = $SecondaryShooter
 var last_dir: Vector2 = Vector2.ZERO
 var dodge_dir: Vector2 = Vector2.ZERO
 
@@ -40,6 +41,9 @@ func _physics_process(_delta: float) -> void:
 	var dir := Input.get_vector("player_left", "player_right", "player_up", "player_down")
 	if Input.is_action_just_pressed("fire"):
 		for bullet in shooter.fire(get_global_mouse_position()):
+			add_sibling(bullet)
+	if Input.is_action_just_pressed("secondary_fire"):
+		for bullet in secondary_shooter.fire(get_global_mouse_position()):
 			add_sibling(bullet)
 	match state:
 		STATE.IDLE:

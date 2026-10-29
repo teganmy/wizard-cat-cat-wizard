@@ -8,3 +8,4 @@ extends Resource
 @export var heal_amount: int = 0
 @export var fire_rate_multiplier: float = 1.0
 @export var fire_rate_duration: float = 0.0
+@export var attack: SecondaryAttack

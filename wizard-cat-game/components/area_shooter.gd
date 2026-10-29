@@ -1,10 +1,10 @@
 class_name AreaShooter
 extends Node2D
-
 @export var bullet_scene: PackedScene
 @export var bullet_type: BulletType
 @export var firing_pattern: FiringPattern
 @export var use_player_boost: bool
+var _default_bullet_scene: PackedScene
 var count: int = 0
 var spread: float = 0 
 enum STATE {READY, COOLDOWN}
@@ -14,12 +14,23 @@ signal fired
 signal ready_to_fire
 
 func _ready() -> void:
+	_default_bullet_scene = bullet_scene
+	if bullet_type and firing_pattern:
+		configure(bullet_type, firing_pattern)
+		
+func configure(new_type: BulletType, new_pattern: FiringPattern) -> void:
+	bullet_type = new_type
+	firing_pattern = new_pattern
 	if bullet_type.custom_bullet_scene:
 		bullet_scene = bullet_type.custom_bullet_scene
+	else:
+		bullet_scene = _default_bullet_scene
 	setup_pattern()
-
+	
 func fire(target: Vector2) -> Array[Area2D]:
 	var bullets: Array[Area2D] = []
+	if firing_pattern == null or bullet_scene == null:
+		return bullets
 	match state:
 		STATE.READY:
 			for i in range(count):

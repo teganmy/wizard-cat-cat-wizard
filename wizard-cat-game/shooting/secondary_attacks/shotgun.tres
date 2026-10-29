@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SecondaryAttack" format=3 uid="uid://d4l8dkf04gyju"]
+
+[ext_resource type="Resource" uid="uid://dhpiibg4jam7c" path="res://shooting/bullet_types/player_shotgun.tres" id="1_chiud"]
+[ext_resource type="Script" uid="uid://c5b021votofrj" path="res://shooting/secondary_attack.gd" id="1_jon5o"]
+[ext_resource type="Resource" uid="uid://crumsiftnlvpm" path="res://shooting/firing_patterns/enemy_shotgun.tres" id="2_q124r"]
+
+[resource]
+script = ExtResource("1_jon5o")
+bullet_type = ExtResource("1_chiud")
+firing_pattern = ExtResource("2_q124r")
+metadata/_custom_type_script = "uid://c5b021votofrj"
