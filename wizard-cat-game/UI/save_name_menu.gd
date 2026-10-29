@@ -6,7 +6,7 @@ extends Control
 signal save_named(name: String)
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("confirm_button"):
 		accept()
 	elif Input.is_action_just_pressed("ui_cancel"):
 		close()

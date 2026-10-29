@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://hvo3h3pb28bc" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="Theme" uid="uid://cnlk2q7yx8tfd" path="res://assets/default_theme.tres" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://cdhwe1jm0yer6" path="res://assets/wizard-cat.png" id="3_h2yge"]
-[ext_resource type="FontFile" uid="uid://cvdyy7i6focc1" path="res://assets/Auldmagick-gvdp.ttf" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://b2df86ng1bq6e" path="res://UI/save_load_menu.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://b63eh4xvu0geo" path="res://UI/save_name_menu.tscn" id="6_7mycd"]
 
@@ -34,13 +33,11 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -504.0
+offset_left = -512.0
 offset_top = 40.0
-offset_right = 333.0
-offset_bottom = 123.0
+offset_right = 129.0
+offset_bottom = 186.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("3_lquwl")
-theme_override_font_sizes/font_size = 75
 text = "Cat Wizard: Wizard Cat"
 label_settings = SubResource("LabelSettings_1bvp3")
 horizontal_alignment = 1
@@ -52,7 +49,7 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 64.0
-offset_top = -156.0
+offset_top = -77.0
 offset_right = 471.0
 offset_bottom = 290.0
 grow_vertical = 2
@@ -71,27 +68,19 @@ alignment = 1
 [node name="NewGameButton" type="Button" parent="MenuLayer/MainMenu/PanelContainer/VBoxContainer" unique_id=1482941788]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("3_lquwl")
-theme_override_font_sizes/font_size = 75
 text = "New Game"
 
 [node name="ContinueButton" type="Button" parent="MenuLayer/MainMenu/PanelContainer/VBoxContainer" unique_id=2078129066]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_lquwl")
-theme_override_font_sizes/font_size = 75
 text = "Continue"
 
 [node name="LoadButton" type="Button" parent="MenuLayer/MainMenu/PanelContainer/VBoxContainer" unique_id=912717492]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("3_lquwl")
-theme_override_font_sizes/font_size = 75
 text = "Load"
 
 [node name="QuitButton" type="Button" parent="MenuLayer/MainMenu/PanelContainer/VBoxContainer" unique_id=631376314]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_lquwl")
-theme_override_font_sizes/font_size = 75
 text = "Quit"
 
 [node name="CatImage" type="TextureRect" parent="MenuLayer/MainMenu" unique_id=1170171024]

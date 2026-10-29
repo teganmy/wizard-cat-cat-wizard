@@ -10,7 +10,6 @@
 [ext_resource type="Resource" uid="uid://ld6uwxcbxknh" path="res://loot/loot_types/gem.tres" id="6_day8l"]
 [ext_resource type="Resource" uid="uid://dhxxvsvsbsbnd" path="res://loot/loot_types/healing_potion.tres" id="7_4cwo6"]
 [ext_resource type="Script" uid="uid://cahbckpdbwxoq" path="res://components/lock.gd" id="8_t3ekh"]
-[ext_resource type="FontFile" uid="uid://cvdyy7i6focc1" path="res://assets/Auldmagick-gvdp.ttf" id="11_iuyfc"]
 
 [sub_resource type="Resource" id="Resource_bp1or"]
 script = ExtResource("4_x7mpe")
@@ -84,15 +83,13 @@ script = ExtResource("8_t3ekh")
 metadata/_custom_type_script = "uid://cahbckpdbwxoq"
 
 [node name="LockedLabel" type="Label" parent="." unique_id=1467071774]
-modulate = Color(1, 1, 1, 0)
 offset_left = -38.0
-offset_top = -40.0
+offset_top = -54.0
 offset_right = 38.0
-offset_bottom = -16.0
+offset_bottom = -10.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("11_iuyfc")
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_gpvk7")
 text = "Locked!"
 horizontal_alignment = 1

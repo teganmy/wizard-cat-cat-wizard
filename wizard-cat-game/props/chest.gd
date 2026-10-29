@@ -32,6 +32,7 @@ func _on_interaction_area_body_exited(_body: Node2D) -> void:
 	create_tween().tween_property(sprite, "modulate", Color.WHITE, 0.1)
 
 func _ready() -> void:
+	modulate.a = 0.0
 	if loot_table_override:
 		lootable.loot_table = loot_table_override
 	if max_loot_override:

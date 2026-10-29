@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="1_ut6rh"]
 [ext_resource type="Script" uid="uid://dxddfl5g0sgtd" path="res://components/interaction_area.gd" id="2_dlcje"]
 [ext_resource type="Script" uid="uid://cinm2ra8wmwf2" path="res://props/label_popup.gd" id="4_ojqhc"]
-[ext_resource type="FontFile" uid="uid://cvdyy7i6focc1" path="res://assets/Auldmagick-gvdp.ttf" id="4_vnb2k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpvk7"]
 size = Vector2(32, 32)
@@ -42,15 +41,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -59.0
-offset_top = -46.0
+offset_top = -65.0
 offset_right = 59.0
-offset_bottom = -22.0
+offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("4_vnb2k")
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxEmpty_4yprg")
 text = "Level Select"
 horizontal_alignment = 1
