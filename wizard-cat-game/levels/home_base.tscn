@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://hpag36semn3u" path="res://props/portal.tscn" id="5_boaak"]
 [ext_resource type="PackedScene" uid="uid://b7abfpxug6kt" path="res://UI/level_select_menu.tscn" id="5_cas1r"]
 [ext_resource type="PackedScene" uid="uid://u300mn1dprv" path="res://props/level_selector.tscn" id="7_m63w8"]
+[ext_resource type="PackedScene" uid="uid://5fb3r7077xy0" path="res://enemies/bosses/boss.tscn" id="8_wmka8"]
 
 [node name="HomeBase" type="Node2D" unique_id=1618752609]
 script = ExtResource("1_xolgs")
@@ -36,3 +37,6 @@ position = Vector2(608, 224)
 position = Vector2(488, 208)
 level_select = NodePath("../CanvasLayer/HUD/LevelSelectMenu")
 portal = NodePath("../Portal")
+
+[node name="Boss" parent="." unique_id=809267286 instance=ExtResource("8_wmka8")]
+position = Vector2(336, 352)

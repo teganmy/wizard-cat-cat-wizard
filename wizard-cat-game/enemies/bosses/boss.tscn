@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://5fb3r7077xy0"]
+
+[ext_resource type="Script" uid="uid://crwq0f0hs7geq" path="res://enemies/bosses/boss.gd" id="1_m4niq"]
+[ext_resource type="Texture2D" uid="uid://dhtpiyohp7lug" path="res://assets/snail.png" id="1_p8p2m"]
+[ext_resource type="Script" uid="uid://ds8lqx0juuem6" path="res://components/area_shooter.gd" id="3_sm571"]
+[ext_resource type="Script" uid="uid://bcc0owr08yuq5" path="res://components/health.gd" id="4_x6ew0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m4niq"]
+radius = 29.017237
+
+[node name="Boss" type="CharacterBody2D" unique_id=809267286 node_paths=PackedStringArray("health", "shooter", "nav_agent", "sprite")]
+collision_layer = 4
+script = ExtResource("1_m4niq")
+health = NodePath("Health")
+shooter = NodePath("AreaShooter")
+nav_agent = NodePath("NavigationAgent2D")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=486696595]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_p8p2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=341412598]
+shape = SubResource("CircleShape2D_m4niq")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=937572849]
+debug_enabled = true
+
+[node name="AreaShooter" type="Node2D" parent="." unique_id=2020245574]
+script = ExtResource("3_sm571")
+metadata/_custom_type_script = "uid://ds8lqx0juuem6"
+
+[node name="Health" type="Node" parent="." unique_id=1422729104]
+script = ExtResource("4_x6ew0")
+metadata/_custom_type_script = "uid://bcc0owr08yuq5"

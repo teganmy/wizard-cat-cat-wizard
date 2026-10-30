@@ -46,7 +46,6 @@ func _ready() -> void:
 	wait_timer.timeout.connect(_on_wait_timer_timeout)
 	add_child(wait_timer)
 	particles.emitting = true
-	await get_tree().physics_frame
 
 func _physics_process(_delta: float) -> void:
 	if not is_instance_valid(target):
