@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="BossDef" format=3 uid="uid://c8hdbgylp83qg"]
+
+[ext_resource type="Script" uid="uid://bof80j5oc6jsp" path="res://enemies/bosses/attacks/boss_attack.gd" id="1_yo7wx"]
+[ext_resource type="Resource" uid="uid://bjfui28vacoyp" path="res://shooting/bullet_types/enemy_brute.tres" id="2_6a7na"]
+[ext_resource type="Script" uid="uid://cmna1iq5h5oq7" path="res://enemies/bosses/defs/boss_def.gd" id="2_jq48m"]
+[ext_resource type="Resource" uid="uid://crumsiftnlvpm" path="res://shooting/firing_patterns/enemy_shotgun.tres" id="3_7yic4"]
+[ext_resource type="Resource" uid="uid://deotln05wb6bu" path="res://shooting/bullet_types/enemy_default.tres" id="4_vk15q"]
+[ext_resource type="Texture2D" uid="uid://dhtpiyohp7lug" path="res://assets/snail.png" id="6_ajggv"]
+
+[sub_resource type="Resource" id="Resource_rrejq"]
+script = ExtResource("1_yo7wx")
+bullet = ExtResource("2_6a7na")
+pattern = ExtResource("3_7yic4")
+metadata/_custom_type_script = "uid://bof80j5oc6jsp"
+
+[sub_resource type="Resource" id="Resource_twj2v"]
+script = ExtResource("1_yo7wx")
+bullet = ExtResource("4_vk15q")
+pattern = ExtResource("3_7yic4")
+metadata/_custom_type_script = "uid://bof80j5oc6jsp"
+
+[resource]
+script = ExtResource("2_jq48m")
+sprite = ExtResource("6_ajggv")
+attack_timing = 2.0
+attacks = Array[ExtResource("1_yo7wx")]([SubResource("Resource_rrejq"), SubResource("Resource_twj2v")])
+attack_distance = 400.0
+move_speed = 100.0
+min_target_distance = 100.0
+max_target_distance = 200.0
+distance_tolerance = 30.0
+max_health = 10
+flash_modulate = Color(1, 0.5489248, 0.6547978, 1)
+metadata/_custom_type_script = "uid://cmna1iq5h5oq7"

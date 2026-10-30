@@ -2,26 +2,11 @@
 
 [ext_resource type="Script" uid="uid://crwq0f0hs7geq" path="res://enemies/bosses/boss.gd" id="1_m4niq"]
 [ext_resource type="Texture2D" uid="uid://dhtpiyohp7lug" path="res://assets/snail.png" id="1_p8p2m"]
-[ext_resource type="Script" uid="uid://bof80j5oc6jsp" path="res://enemies/bosses/attacks/boss_attack.gd" id="2_yg4s3"]
-[ext_resource type="Resource" uid="uid://deotln05wb6bu" path="res://shooting/bullet_types/enemy_default.tres" id="3_7rc2r"]
+[ext_resource type="Resource" uid="uid://c8hdbgylp83qg" path="res://enemies/bosses/defs/default_boss.tres" id="2_grk4i"]
 [ext_resource type="Script" uid="uid://ds8lqx0juuem6" path="res://components/area_shooter.gd" id="3_sm571"]
-[ext_resource type="Resource" uid="uid://crumsiftnlvpm" path="res://shooting/firing_patterns/enemy_shotgun.tres" id="4_rrejq"]
 [ext_resource type="Script" uid="uid://bcc0owr08yuq5" path="res://components/health.gd" id="4_x6ew0"]
-[ext_resource type="Resource" uid="uid://bjfui28vacoyp" path="res://shooting/bullet_types/enemy_brute.tres" id="5_rrejq"]
 [ext_resource type="Script" uid="uid://c88tvlaqfqme2" path="res://components/hurtbox.gd" id="5_wp37u"]
 [ext_resource type="PackedScene" uid="uid://dvdc0giywjqia" path="res://shooting/area_bullet.tscn" id="7_7rc2r"]
-
-[sub_resource type="Resource" id="Resource_wp37u"]
-script = ExtResource("2_yg4s3")
-bullet = ExtResource("3_7rc2r")
-pattern = ExtResource("4_rrejq")
-metadata/_custom_type_script = "uid://bof80j5oc6jsp"
-
-[sub_resource type="Resource" id="Resource_7rc2r"]
-script = ExtResource("2_yg4s3")
-bullet = ExtResource("5_rrejq")
-pattern = ExtResource("4_rrejq")
-metadata/_custom_type_script = "uid://bof80j5oc6jsp"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m4niq"]
 radius = 25.0
@@ -31,14 +16,13 @@ size = Vector2(59, 50)
 
 [node name="Boss" type="CharacterBody2D" unique_id=809267286 node_paths=PackedStringArray("health", "shooter", "nav_agent", "sprite")]
 collision_layer = 4
+motion_mode = 1
 script = ExtResource("1_m4niq")
+def = ExtResource("2_grk4i")
 health = NodePath("Health")
 shooter = NodePath("AreaShooter")
 nav_agent = NodePath("NavigationAgent2D")
 sprite = NodePath("Sprite2D")
-attack_timing = 2.0
-attacks = Array[ExtResource("2_yg4s3")]([SubResource("Resource_wp37u"), SubResource("Resource_7rc2r")])
-flash_modulate = Color(1, 0.3977014, 0.3292555, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=486696595]
 texture_filter = 1

@@ -7,17 +7,16 @@ extends CharacterBody2D
 @export var nav_agent: NavigationAgent2D
 @export var sprite: Sprite2D
 
-@export_group("Temp tuning") # TODO: Read these from boss def
-@export var attack_timing: float = 1.0
-@export var attacks: Array[BossAttack] = []
-@export var move_speed: float = 100.0
-@export var target_group: String = &"player"
-@export var min_target_distance:float = 100.0
-@export var max_target_distance:float = 200.0
-@export var distance_tolerance: float = 10.0
-@export var attack_distance: float = 400.0
-@export var max_health: int = 10
-@export var flash_modulate: Color
+var attack_timing: float
+var attacks: Array[BossAttack]
+var move_speed: float
+var target_group: String
+var min_target_distance:float
+var max_target_distance:float
+var distance_tolerance: float
+var attack_distance: float
+var flash_modulate: Color
+var default_modulate: Color
 
 var target: Node2D
 var last_target_pos: Vector2 = Vector2.ZERO
@@ -26,7 +25,19 @@ var attack_timer: Timer
 signal defeated
 
 func _ready() -> void:
-	health.max_health = max_health
+	attack_timing = def.attack_timing
+	attacks = def.attacks
+	move_speed = def.move_speed
+	target_group = def.target_group
+	min_target_distance = def.min_target_distance
+	max_target_distance = def.max_target_distance
+	distance_tolerance = def.distance_tolerance
+	attack_distance = def.attack_distance
+	flash_modulate = def.flash_modulate
+	health.max_health = def.max_health
+	default_modulate = def.modulate
+	sprite.texture = def.sprite
+	sprite.modulate = default_modulate
 	attack_timer = Timer.new()
 	attack_timer.wait_time = attack_timing
 	attack_timer.timeout.connect(_attack)
@@ -65,11 +76,9 @@ func _on_health_died() -> void:
 	defeated.emit()
 	queue_free()
 
-
-func _on_health_changed(current: int) -> void:
-	if current < max_health:
-		_flash()
+func _on_health_changed(_current: int) -> void:
+	_flash()
 
 func _flash() -> void:
 	modulate = flash_modulate
-	create_tween().tween_property(self, "modulate", Color.WHITE, 0.2)
+	create_tween().tween_property(self, "modulate", default_modulate, 0.2)
