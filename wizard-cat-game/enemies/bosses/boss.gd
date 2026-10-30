@@ -55,7 +55,10 @@ func _physics_process(_delta: float) -> void:
 
 func _attack() -> void:
 	if global_position.distance_to(target.global_position) < attack_distance:
-		print("BLAM!")
+		var attack = attacks.pick_random()
+		shooter.configure(attack.bullet, attack.pattern)
+		for bullet in shooter.fire(target.global_position):
+			add_sibling(bullet)
 
 
 func _on_health_died() -> void:
@@ -69,4 +72,4 @@ func _on_health_changed(current: int) -> void:
 
 func _flash() -> void:
 	modulate = flash_modulate
-	create_tween().tween_property(self, "modulate", Color.WHITE, 0.25)
+	create_tween().tween_property(self, "modulate", Color.WHITE, 0.2)

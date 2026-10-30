@@ -61,6 +61,7 @@ func setup_pattern():
 		cooldown_timer = Timer.new()
 		cooldown_timer.timeout.connect(_change_state.bind(STATE.READY))
 		add_child(cooldown_timer)
+	cooldown_timer.stop()
 	cooldown_timer.wait_time = firing_pattern.cooldown
-	cooldown_timer.start()
 	ready_to_fire.emit()
+	_change_state(STATE.READY)
