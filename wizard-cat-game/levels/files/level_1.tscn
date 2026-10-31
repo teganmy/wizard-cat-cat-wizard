@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bva015hvaya2e" path="res://props/vase.tscn" id="7_gwceb"]
 [ext_resource type="Script" uid="uid://d087k21va4dnw" path="res://components/enemy_spawn.gd" id="8_3sk1a"]
 [ext_resource type="PackedScene" uid="uid://c177gv4dscm8q" path="res://props/door.tscn" id="8_l53as"]
-[ext_resource type="Script" uid="uid://r7m3l5eq4nij" path="res://components/room.gd" id="9_3sk1a"]
+[ext_resource type="Script" uid="uid://r7m3l5eq4nij" path="res://components/enemy_room.gd" id="9_3sk1a"]
 [ext_resource type="Script" uid="uid://26e5cw4g2wa2" path="res://enemies/enemy_type.gd" id="9_betor"]
 [ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="10_5ot28"]
 [ext_resource type="Resource" uid="uid://csnqy0o3a70kb" path="res://enemies/types/snail.tres" id="10_vjtdm"]

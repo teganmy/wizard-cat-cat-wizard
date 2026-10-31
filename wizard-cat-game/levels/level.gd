@@ -15,7 +15,7 @@ enum STATE {ACTIVE, INACTIVE}
 var pausable: bool = false
 var state: STATE = STATE.INACTIVE
 
-var current_room: Room:
+var current_room: EnemyRoom:
 	set(new):
 		if current_room:
 			if current_room.wave.is_connected(wave.emit):

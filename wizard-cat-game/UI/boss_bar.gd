@@ -18,7 +18,6 @@ func _on_boss_spawned(new_name: String, health: Health) -> void:
 	boss_name = new_name
 	connected_health = health
 	activate()
-	
 
 func activate() -> void:
 	if connected_health:

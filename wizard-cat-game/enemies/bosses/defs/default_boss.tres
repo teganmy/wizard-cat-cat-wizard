@@ -21,6 +21,7 @@ metadata/_custom_type_script = "uid://bof80j5oc6jsp"
 
 [resource]
 script = ExtResource("2_jq48m")
+name = "Default Boss"
 sprite = ExtResource("6_ajggv")
 attack_timing = 2.0
 attacks = Array[ExtResource("1_yo7wx")]([SubResource("Resource_rrejq"), SubResource("Resource_twj2v")])

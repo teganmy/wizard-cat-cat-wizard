@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bsobkaqnjrnuk" path="res://levels/level.gd" id="1_mi4ay"]
 [ext_resource type="PackedScene" uid="uid://6t34451gxrtm" path="res://player/player.tscn" id="2_pqqg8"]
 [ext_resource type="PackedScene" uid="uid://bbhvbmlbu1ne7" path="res://UI/hud.tscn" id="3_0srwa"]
-[ext_resource type="Script" uid="uid://r7m3l5eq4nij" path="res://components/room.gd" id="3_v5uil"]
+[ext_resource type="Script" uid="uid://r7m3l5eq4nij" path="res://components/enemy_room.gd" id="3_v5uil"]
 [ext_resource type="TileSet" uid="uid://yeucsf3jvqss" path="res://assets/landscape_tileset.tres" id="4_5722l"]
 [ext_resource type="PackedScene" uid="uid://c177gv4dscm8q" path="res://props/door.tscn" id="5_ilhis"]
 [ext_resource type="Script" uid="uid://d087k21va4dnw" path="res://components/enemy_spawn.gd" id="6_ep78u"]
