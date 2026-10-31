@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bj1whtrt5egb2"]
+
+[ext_resource type="Script" uid="uid://cabquy35tjyc5" path="res://UI/boss_bar.gd" id="1_sunra"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6j02i"]
+
+[node name="BossBar" type="Control" unique_id=302076886 node_paths=PackedStringArray("label", "bar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sunra")
+label = NodePath("CenterContainer/VBoxContainer/Label")
+bar = NodePath("CenterContainer/VBoxContainer/LifeBar")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1480518848]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+pivot_offset = Vector2(0.5, 0.5)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1218973514]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=600528816]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6j02i")
+text = "BOSS NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LifeBar" type="ProgressBar" parent="CenterContainer/VBoxContainer" unique_id=1628077853]
+custom_minimum_size = Vector2(500, 15)
+layout_mode = 2
+max_value = 10.0
+value = 10.0
+show_percentage = false

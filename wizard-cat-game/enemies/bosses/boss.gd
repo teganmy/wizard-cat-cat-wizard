@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var nav_agent: NavigationAgent2D
 @export var sprite: Sprite2D
 
+var boss_name: String
 var attack_timing: float
 var attacks: Array[BossAttack]
 var move_speed: float
@@ -25,6 +26,7 @@ var attack_timer: Timer
 signal defeated
 
 func _ready() -> void:
+	boss_name = def.name
 	attack_timing = def.attack_timing
 	attacks = def.attacks
 	move_speed = def.move_speed
@@ -43,6 +45,7 @@ func _ready() -> void:
 	attack_timer.timeout.connect(_attack)
 	add_child(attack_timer)
 	attack_timer.start()
+	get_tree().current_scene.spawn_boss(self)
 
 func _physics_process(_delta: float) -> void:
 	if not is_instance_valid(target):

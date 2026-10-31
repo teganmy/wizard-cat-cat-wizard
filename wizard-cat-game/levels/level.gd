@@ -8,6 +8,8 @@ signal entered
 signal wave(num: int)
 signal room_changed
 signal room_defeated
+signal boss_spawned(name: String, health: Health)
+signal boss_defeated
 
 enum STATE {ACTIVE, INACTIVE}
 var pausable: bool = false
@@ -57,3 +59,7 @@ func _change_state(new_state: STATE) -> void:
 			pausable = true
 		STATE.INACTIVE:
 			pausable = false
+
+func spawn_boss(boss: CharacterBody2D) -> void:
+	boss_spawned.emit(boss.boss_name, boss.health)
+	boss.defeated.connect(boss_defeated.emit)
