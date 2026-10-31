@@ -1,7 +1,6 @@
 class_name EnemyRoom
 extends Room
 
-@export var lockables: Array[StaticBody2D] = []
 var total_waves: int = 1
 var spawners: Array[EnemySpawner] = []
 signal wave

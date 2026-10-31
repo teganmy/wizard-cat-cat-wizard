@@ -72,6 +72,7 @@ func _attack() -> void:
 		var attack = attacks.pick_random()
 		shooter.configure(attack.bullet, attack.pattern)
 		for bullet in shooter.fire(target.global_position):
+			bullet.global_position = shooter.global_position
 			add_sibling(bullet)
 
 

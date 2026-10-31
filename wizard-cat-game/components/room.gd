@@ -1,7 +1,9 @@
 @abstract class_name Room
 extends Area2D
 
+@export var lockables: Array[StaticBody2D] = []
 @export var visible_on_enter: bool = false
+
 
 enum STATE {UNEXPLORED, REVEALED, ACTIVE, DEFEATED}
 var state: STATE
@@ -9,6 +11,15 @@ var state: STATE
 signal defeated
 signal activated
 signal revealed
+
+func _ready() -> void:
+	hide()
+	body_entered.connect(activate.unbind(1))
+	for lockable in lockables:
+		if lockable.lock.has_method("lock"):
+			revealed.connect(lockable.lock.unlock)
+			defeated.connect(lockable.lock.unlock)
+			activated.connect(lockable.lock.lock)
 
 func _change_state(new_state: STATE) -> void:
 	state = new_state
@@ -21,6 +32,7 @@ func activate() -> void:
 func reveal() -> void:
 	if state == STATE.UNEXPLORED:
 		revealed.emit()
+		show()
 		_change_state(STATE.REVEALED)
 
 func defeat() -> void:
