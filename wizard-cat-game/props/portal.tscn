@@ -35,12 +35,13 @@ size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sq7nh"]
 
-[node name="Portal" type="StaticBody2D" unique_id=1944338752 node_paths=PackedStringArray("lock", "label")]
+[node name="Portal" type="StaticBody2D" unique_id=1944338752 node_paths=PackedStringArray("label", "lock", "interaction_area")]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_7bbq2")
-lock = NodePath("Lock")
 label = NodePath("DestLabel")
+lock = NodePath("Lock")
+interaction_area = NodePath("InteractionArea")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1203809853]
 visible = false

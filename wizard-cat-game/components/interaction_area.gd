@@ -1,6 +1,8 @@
 class_name InteractionArea
 extends Area2D
 
+@export var hint: String = "E to interact"
+
 enum STATE {ENTERED, IDLE}
 var state: STATE = STATE.IDLE
 signal interact
@@ -17,6 +19,11 @@ func _on_body_exited(_body: Node2D) -> void:
 
 func _change_state(new_state: STATE) -> void:
 	state = new_state
+	match new_state:
+		STATE.ENTERED:
+			get_tree().current_scene.hud.show_hint(hint)
+		STATE.IDLE:
+			get_tree().current_scene.hud.hide_hint()
 
 func _process(_delta: float) -> void:
 	if state == STATE.ENTERED:

@@ -2,6 +2,7 @@ extends Node2D
 
 @export var player_scene: PackedScene
 @export var exit_portal: StaticBody2D
+@export var hud: Control
 @onready var spawn_point := $SpawnPoint
 var player: CharacterBody2D
 signal exited
