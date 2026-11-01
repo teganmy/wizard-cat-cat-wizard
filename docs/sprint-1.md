@@ -1,12 +1,12 @@
 MUSTs we need to work on:
 
-- [ ] Bossfights
+- [x] Bossfights
   - Assigned to: **Sophie**
   - Done when:
-      - [ ] Bosses are defined in code
-      - [ ] Bosses are spawnable
-      - [ ] Bosses are fightable
-      - [ ] Bosses create meaningful challenge
+      - [x] Bosses are defined in code
+      - [x] Bosses are spawnable
+      - [x] Bosses are fightable
+      - [x] Bosses create meaningful challenge
 - [x] Level Select
   - Assigned to:
   - Done when: **Sophie**
