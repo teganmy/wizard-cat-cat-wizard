@@ -45,7 +45,6 @@ func _ready() -> void:
 	attack_timer.timeout.connect(_attack)
 	add_child(attack_timer)
 	attack_timer.start()
-	get_tree().current_scene.spawn_boss(self)
 
 func _physics_process(_delta: float) -> void:
 	if not is_instance_valid(target):
@@ -72,8 +71,8 @@ func _attack() -> void:
 		var attack = attacks.pick_random()
 		shooter.configure(attack.bullet, attack.pattern)
 		for bullet in shooter.fire(target.global_position):
-			bullet.global_position = shooter.global_position
 			add_sibling(bullet)
+			bullet.global_position = shooter.global_position
 
 
 func _on_health_died() -> void:

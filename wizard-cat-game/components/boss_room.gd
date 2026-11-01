@@ -19,6 +19,7 @@ func _on_activated() -> void:
 	boss = boss_scene.instantiate()
 	boss.def = boss_def
 	add_child.call_deferred(boss)
+	boss.defeated.connect(defeat)
 	get_tree().current_scene.spawn_boss.call_deferred(boss)
 
 func _on_defeated() -> void:

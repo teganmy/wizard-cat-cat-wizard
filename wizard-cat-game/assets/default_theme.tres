@@ -85,6 +85,20 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 corner_detail = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o54fn"]
+bg_color = Color(0.16924527, 0.1692453, 0.16924521, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_203bq"]
+bg_color = Color(0.60785836, 0, 0.12118887, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgm14"]
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 5
@@ -112,5 +126,8 @@ MarginContainer/constants/margin_left = 32
 MarginContainer/constants/margin_right = 32
 MarginContainer/constants/margin_top = 32
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_06t4h")
+ProgressBar/constants/outline_size = 10
+ProgressBar/styles/background = SubResource("StyleBoxFlat_o54fn")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_203bq")
 ScrollContainer/styles/panel = SubResource("StyleBoxFlat_qgm14")
 VBoxContainer/constants/separation = 15

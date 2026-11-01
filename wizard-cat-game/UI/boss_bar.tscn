@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bj1whtrt5egb2"]
 
+[ext_resource type="Theme" uid="uid://cnlk2q7yx8tfd" path="res://assets/default_theme.tres" id="1_cvqfg"]
 [ext_resource type="Script" uid="uid://cabquy35tjyc5" path="res://UI/boss_bar.gd" id="1_sunra"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6j02i"]
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_cvqfg")
 script = ExtResource("1_sunra")
 label = NodePath("CenterContainer/VBoxContainer/Label")
 bar = NodePath("CenterContainer/VBoxContainer/LifeBar")

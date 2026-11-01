@@ -252,7 +252,7 @@ position = Vector2(32, -128)
 script = ExtResource("8_3sk1a")
 radius = 100.0
 enemy_scene = ExtResource("3_btoec")
-waves = Array[ExtResource("9_betor")]([ExtResource("10_vjtdm"), ExtResource("10_vjtdm"), ExtResource("11_vjtdm"), ExtResource("10_vjtdm"), ExtResource("15_bgw3c")])
+waves = Array[ExtResource("9_betor")]([ExtResource("10_vjtdm"), ExtResource("10_vjtdm"), ExtResource("11_vjtdm"), ExtResource("10_vjtdm")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="EnemySpawner2" type="Marker2D" parent="Room4" unique_id=1786427905]
@@ -260,7 +260,7 @@ position = Vector2(-192, -136)
 script = ExtResource("8_3sk1a")
 radius = 50.0
 enemy_scene = ExtResource("3_btoec")
-waves = Array[ExtResource("9_betor")]([null, null, ExtResource("15_bgw3c"), ExtResource("10_vjtdm"), ExtResource("11_vjtdm")])
+waves = Array[ExtResource("9_betor")]([null, null, null, ExtResource("10_vjtdm")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="Door2" parent="Room4" unique_id=1103527666 instance=ExtResource("8_l53as")]
@@ -377,7 +377,7 @@ script = ExtResource("18_ccqkv")
 boss_def = ExtResource("18_gycmd")
 boss_scene = ExtResource("19_hwkh2")
 boss_spawner = NodePath("Marker2D")
-lockables = [NodePath("../Room5/Door")]
+lockables = [NodePath("../Room5/Door"), NodePath("Chest"), NodePath("Chest2"), NodePath("Chest3"), NodePath("Chest4"), NodePath("Chest5"), NodePath("Chest6")]
 metadata/_custom_type_script = "uid://b5qmnxsgil7fy"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Room7" unique_id=867862317]

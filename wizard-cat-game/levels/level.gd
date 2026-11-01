@@ -67,7 +67,7 @@ func _change_state(new_state: STATE) -> void:
 
 func spawn_boss(boss: CharacterBody2D) -> void:
 	boss_spawned.emit(boss.boss_name, boss.health)
-	boss.defeated.connect(boss_defeated.emit)
+	boss.defeated.connect(_on_boss_defeated)
 
 func _on_exit_portal_unlocked() -> void:
 	if not portal_enabled:
