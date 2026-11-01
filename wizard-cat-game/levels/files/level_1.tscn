@@ -261,7 +261,7 @@ position = Vector2(-192, -136)
 script = ExtResource("8_3sk1a")
 radius = 50.0
 enemy_scene = ExtResource("3_btoec")
-waves = Array[ExtResource("9_betor")]([null, null, null, ExtResource("10_vjtdm")])
+waves = Array[ExtResource("9_betor")]([null, null, null, ExtResource("15_bgw3c")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="Door2" parent="Room4" unique_id=1103527666 instance=ExtResource("8_l53as")]
@@ -367,7 +367,7 @@ locked_hint = "Defeat boss to unlock"
 position = Vector2(0, -56)
 script = ExtResource("8_3sk1a")
 enemy_scene = ExtResource("3_btoec")
-waves = Array[ExtResource("9_betor")]([ExtResource("10_vjtdm")])
+waves = Array[ExtResource("9_betor")]([ExtResource("10_vjtdm"), ExtResource("15_bgw3c"), ExtResource("15_bgw3c"), ExtResource("15_bgw3c")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="Room7" type="Area2D" parent="." unique_id=89619610 node_paths=PackedStringArray("boss_spawner", "lockables")]
