@@ -387,11 +387,12 @@ tile_set = ExtResource("2_bt44k")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room7" unique_id=1220628870]
+visible = false
 position = Vector2(-16, -128)
 shape = SubResource("RectangleShape2D_i7aio")
 
 [node name="Marker2D" type="Marker2D" parent="Room7" unique_id=764760634]
-position = Vector2(0, -128)
+position = Vector2(-16, -128)
 
 [node name="Chest" parent="Room7" unique_id=1887054985 instance=ExtResource("6_btoec")]
 position = Vector2(-184, -304)
