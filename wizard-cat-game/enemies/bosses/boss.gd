@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var shooter: AreaShooter
 @export var nav_agent: NavigationAgent2D
 @export var sprite: Sprite2D
+@export var death_particles: GPUParticles2D
 
 var boss_name: String
 var attack_timing: float
@@ -92,10 +93,13 @@ func _on_health_died() -> void:
 			_change_state(STATE.DEAD)
 			var tween = create_tween()
 			tween.tween_property(self, "shake_mult", 1.0, 1.0)
-			tween.parallel().tween_property(self, "modulate", Color.BLACK, 2.0).set_delay(0.5)
-			tween.parallel().tween_property(self, "scale", Vector2(0.1, 0.25), 2.0).set_delay(0.5)
+			tween.parallel().tween_property(sprite, "modulate", Color.BLACK, 2.0).set_delay(0.5)
+			tween.parallel().tween_property(sprite, "scale", Vector2(0.1, 0.25), 2.0).set_delay(0.5)
 			await tween.finished
+			sprite.hide()
+			death_particles.emitting = true
 			defeated.emit()
+			await death_particles.finished
 			queue_free()
 
 func _on_health_changed(_current: int) -> void:
