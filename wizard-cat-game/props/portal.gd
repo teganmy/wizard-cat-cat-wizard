@@ -21,6 +21,7 @@ func _ready() -> void:
 
 func _on_interaction_area_interact() -> void:
 	if not lock.is_locked():
+		get_tree().current_scene.complete()
 		if level == null:
 			SceneLoader.change_to_home(true)
 		else:
