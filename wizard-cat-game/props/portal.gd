@@ -1,6 +1,5 @@
 extends StaticBody2D
 
-
 ## The level the portal is to, or home base if empty
 @export var level: LevelDef:
 	set(new_level):

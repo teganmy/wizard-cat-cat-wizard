@@ -28,6 +28,9 @@ func is_unlocked(level: LevelDef) -> bool:
 func is_current(level: LevelDef) -> bool:
 	return levels[level_pointer - 1] == level
 
+func reset() -> void:
+	level_pointer = 1
+
 func save() -> Dictionary:
 	return {
 		"path": get_path(),
