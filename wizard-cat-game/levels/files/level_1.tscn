@@ -19,7 +19,7 @@
 [ext_resource type="Resource" uid="uid://dua1rcwkq8gmb" path="res://enemies/types/frog.tres" id="15_bgw3c"]
 [ext_resource type="PackedScene" uid="uid://hpag36semn3u" path="res://props/portal.tscn" id="16_lrvbd"]
 [ext_resource type="Script" uid="uid://b5qmnxsgil7fy" path="res://components/boss_room.gd" id="18_ccqkv"]
-[ext_resource type="Resource" uid="uid://c8hdbgylp83qg" path="res://enemies/bosses/defs/default_boss.tres" id="18_gycmd"]
+[ext_resource type="Resource" uid="uid://c8hdbgylp83qg" path="res://enemies/bosses/defs/shotgun_boss.tres" id="18_gycmd"]
 [ext_resource type="PackedScene" uid="uid://5fb3r7077xy0" path="res://enemies/bosses/boss.tscn" id="19_hwkh2"]
 
 [sub_resource type="Resource" id="Resource_3sk1a"]

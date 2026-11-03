@@ -46,6 +46,10 @@ func _ready() -> void:
 	default_modulate = def.modulate
 	sprite.texture = def.sprite
 	sprite.modulate = default_modulate
+	lootable.loot_table = def.loot_table
+	lootable.max_amount = def.max_loot
+	lootable.min_amount = def.min_loot
+	lootable.guaranteed_loot = def.guaranteed_loot
 	attack_timer = Timer.new()
 	attack_timer.wait_time = attack_timing
 	attack_timer.timeout.connect(_attack)

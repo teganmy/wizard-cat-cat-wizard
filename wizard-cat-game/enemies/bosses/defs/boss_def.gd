@@ -20,3 +20,9 @@ extends Resource
 @export_group("Health")
 @export var max_health: int
 @export var flash_modulate: Color
+
+@export_group("Loot")
+@export var loot_table: Array[WeightedLoot]
+@export var max_loot: int
+@export var min_loot: int
+@export var guaranteed_loot: Array[LootType]

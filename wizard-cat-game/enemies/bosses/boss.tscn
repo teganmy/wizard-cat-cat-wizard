@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://crwq0f0hs7geq" path="res://enemies/bosses/boss.gd" id="1_m4niq"]
 [ext_resource type="Texture2D" uid="uid://dhtpiyohp7lug" path="res://assets/snail.png" id="1_p8p2m"]
-[ext_resource type="Resource" uid="uid://c8hdbgylp83qg" path="res://enemies/bosses/defs/default_boss.tres" id="2_grk4i"]
+[ext_resource type="Resource" uid="uid://c8hdbgylp83qg" path="res://enemies/bosses/defs/shotgun_boss.tres" id="2_grk4i"]
 [ext_resource type="Script" uid="uid://ds8lqx0juuem6" path="res://components/area_shooter.gd" id="3_sm571"]
 [ext_resource type="Script" uid="uid://bcc0owr08yuq5" path="res://components/health.gd" id="4_x6ew0"]
 [ext_resource type="Script" uid="uid://c88tvlaqfqme2" path="res://components/hurtbox.gd" id="5_wp37u"]

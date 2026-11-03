@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="BossDef" format=3 uid="uid://c8hdbgylp83qg"]
+
+[ext_resource type="Script" uid="uid://bof80j5oc6jsp" path="res://enemies/bosses/attacks/boss_attack.gd" id="1_scu07"]
+[ext_resource type="Resource" uid="uid://bjfui28vacoyp" path="res://shooting/bullet_types/enemy_brute.tres" id="2_70gt7"]
+[ext_resource type="Resource" uid="uid://crumsiftnlvpm" path="res://shooting/firing_patterns/enemy_shotgun.tres" id="3_b26yu"]
+[ext_resource type="Resource" uid="uid://deotln05wb6bu" path="res://shooting/bullet_types/enemy_default.tres" id="4_epk3g"]
+[ext_resource type="Script" uid="uid://qiyo0f705gt" path="res://loot/loot_type.gd" id="5_6qrtt"]
+[ext_resource type="Resource" uid="uid://c2387hiu35uva" path="res://loot/loot_types/shotgun_secondary.tres" id="6_70gt7"]
+[ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="6_drqev"]
+[ext_resource type="Resource" uid="uid://bysyxfwpc5ro3" path="res://loot/loot_types/coin.tres" id="7_60jho"]
+[ext_resource type="Resource" uid="uid://ld6uwxcbxknh" path="res://loot/loot_types/gem.tres" id="8_b727k"]
+[ext_resource type="Script" uid="uid://cmna1iq5h5oq7" path="res://enemies/bosses/defs/boss_def.gd" id="9_nt1bg"]
+[ext_resource type="Texture2D" uid="uid://dhtpiyohp7lug" path="res://assets/snail.png" id="10_dqjqt"]
+
+[sub_resource type="Resource" id="Resource_rrejq"]
+script = ExtResource("1_scu07")
+bullet = ExtResource("2_70gt7")
+pattern = ExtResource("3_b26yu")
+metadata/_custom_type_script = "uid://bof80j5oc6jsp"
+
+[sub_resource type="Resource" id="Resource_twj2v"]
+script = ExtResource("1_scu07")
+bullet = ExtResource("4_epk3g")
+pattern = ExtResource("3_b26yu")
+metadata/_custom_type_script = "uid://bof80j5oc6jsp"
+
+[sub_resource type="Resource" id="Resource_hwkh2"]
+script = ExtResource("6_drqev")
+type = ExtResource("7_60jho")
+weight = 0.4
+metadata/_custom_type_script = "uid://drq0y0x2llhhg"
+
+[sub_resource type="Resource" id="Resource_faoul"]
+script = ExtResource("6_drqev")
+type = ExtResource("8_b727k")
+weight = 0.6
+metadata/_custom_type_script = "uid://drq0y0x2llhhg"
+
+[resource]
+script = ExtResource("9_nt1bg")
+name = "Shotgun Steve"
+sprite = ExtResource("10_dqjqt")
+attack_timing = 2.0
+attacks = Array[ExtResource("1_scu07")]([SubResource("Resource_rrejq"), SubResource("Resource_twj2v")])
+attack_distance = 400.0
+move_speed = 100.0
+min_target_distance = 50.0
+max_target_distance = 100.0
+distance_tolerance = 10.0
+max_health = 20
+flash_modulate = Color(1, 0.5489248, 0.6547978, 1)
+loot_table = Array[ExtResource("6_drqev")]([SubResource("Resource_hwkh2"), SubResource("Resource_faoul")])
+max_loot = 20
+min_loot = 15
+guaranteed_loot = Array[ExtResource("5_6qrtt")]([ExtResource("6_70gt7")])
+metadata/_custom_type_script = "uid://cmna1iq5h5oq7"
