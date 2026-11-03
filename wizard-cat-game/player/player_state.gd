@@ -1,6 +1,8 @@
 extends Node
 var fire_rate_multiplier: float = 1.0
 var _boost_timer: Timer
+var max_potions: int = 3
+var potions: Array[LootType] = []
 
 var current_health: int:
 	set(new):
@@ -24,6 +26,7 @@ signal current_health_changed(new: int)
 signal max_health_changed(new: int)
 signal currency_changed(new: int)
 signal fire_rate_boost_changed(multiplier: float)
+signal potions_changed
 
 func _ready() -> void:
 	add_to_group("Persistent")
@@ -47,6 +50,7 @@ func reset() -> void:
 	currency = 0
 	clear_fire_rate_boost()
 	player_is_new = true
+	potions.clear()
 
 func save() -> Dictionary:
 	return {
@@ -56,5 +60,25 @@ func save() -> Dictionary:
 		"current_health": current_health,
 		"max_health": max_health,
 		"currency": currency,
+		"potions": potions.map(func(p: LootType): return p.resource_path),
 		"player_is_new": player_is_new,
 	}
+
+func add_potion(type: LootType) -> bool:
+	if potions.size() >= max_potions:
+		return false
+	potions.append(type)
+	potions_changed.emit()
+	return true
+	
+func selected() -> LootType:
+	return potions.front()
+	
+func consume_selected() -> void:
+	potions.pop_front()
+	potions_changed.emit()
+
+func cycle_potion() -> void:
+	if potions.size() > 1:
+		potions.push_back(potions.pop_front())
+		potions_changed.emit()

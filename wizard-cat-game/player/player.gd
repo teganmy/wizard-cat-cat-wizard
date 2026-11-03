@@ -9,6 +9,8 @@ extends CharacterBody2D
 @onready var dodge_cooldown := $DodgeCooldown
 @onready var hurtbox := $Hurtbox
 @onready var secondary_shooter: AreaShooter = $SecondaryShooter
+@onready var pickup_area: PickupArea = $PickupArea
+
 var last_dir: Vector2 = Vector2.ZERO
 var dodge_dir: Vector2 = Vector2.ZERO
 
@@ -45,6 +47,10 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("secondary_fire"):
 		for bullet in secondary_shooter.fire(get_global_mouse_position()):
 			add_sibling(bullet)
+	if Input.is_action_just_pressed("use_potion"):
+		_use_potion()
+	if Input.is_action_just_pressed("cycle_potion"):
+		PlayerState.cycle_potion()
 	match state:
 		STATE.IDLE:
 			if dir != Vector2.ZERO:
@@ -108,3 +114,10 @@ func _on_hurtbox_hurt() -> void:
 	_change_hit_state(HIT_STATE.INVINCIBLE)
 	modulate = Color.DARK_GRAY
 	create_tween().tween_property(self, "modulate", Color.WHITE, i_frames)
+	
+func _use_potion() -> void:
+	var potion: LootType = PlayerState.selected()
+	if potion == null or not potion.can_use(health):
+		return
+	pickup_area.apply_effect(potion)
+	PlayerState.consume_selected()
