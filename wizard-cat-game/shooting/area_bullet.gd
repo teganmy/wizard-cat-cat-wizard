@@ -1,12 +1,14 @@
 extends Area2D
 
-var type: BulletType
+@export var type: BulletType
+@export var payload: PackedScene
 var speed: float = 0.0
 var dir: Vector2 = Vector2.ZERO
-@onready var particles := $GPUParticles2D
-@onready var sprite := $Sprite2D
-@onready var hitbox := $Hitbox
-@onready var lifetime_timer := $LifetimeTimer
+@export_group("Wiring")
+@export var particles: GPUParticles2D
+@export var sprite: Sprite2D
+@export var hitbox: Hitbox
+@export var lifetime_timer: Timer
 var cleaned: bool
 
 func _ready() -> void:
@@ -17,6 +19,7 @@ func _ready() -> void:
 	speed = type.speed 
 	lifetime_timer.wait_time = type.lifetime
 	hitbox.damage = type.damage
+	payload = type.payload
 	if type.collision_layer:
 		collision_layer = type.collision_layer
 	if type.collision_mask:
@@ -48,8 +51,16 @@ func _on_hitbox_landed() -> void:
 func _on_lifetime_timer_timeout() -> void:
 	_clean_up.call_deferred()
 
+func _activate_payload() -> void:
+	if payload:
+		var node = payload.instantiate()
+		node.global_position = self.global_position
+		get_tree().current_scene.add_child.call_deferred(node)
+		print(node)
+
 func _clean_up() -> void:
 	if not cleaned:
+		_activate_payload()
 		cleaned = true
 		dir = Vector2.ZERO
 		sprite.hide()
