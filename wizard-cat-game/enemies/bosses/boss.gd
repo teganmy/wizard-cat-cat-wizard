@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var nav_agent: NavigationAgent2D
 @export var sprite: Sprite2D
 @export var death_particles: GPUParticles2D
+@export var lootable: Lootable
 
 var boss_name: String
 var attack_timing: float
@@ -99,6 +100,7 @@ func _on_health_died() -> void:
 			sprite.hide()
 			death_particles.emitting = true
 			defeated.emit()
+			lootable.generate_loot()
 			await death_particles.finished
 			queue_free()
 

@@ -11,6 +11,8 @@
 [ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="9_ylii2"]
 [ext_resource type="Resource" uid="uid://ld6uwxcbxknh" path="res://loot/loot_types/gem.tres" id="10_pk2gn"]
 [ext_resource type="Resource" uid="uid://bysyxfwpc5ro3" path="res://loot/loot_types/coin.tres" id="11_trnlp"]
+[ext_resource type="Script" uid="uid://qiyo0f705gt" path="res://loot/loot_type.gd" id="12_pk2gn"]
+[ext_resource type="Resource" uid="uid://c2387hiu35uva" path="res://loot/loot_types/shotgun_secondary.tres" id="13_trnlp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m4niq"]
 radius = 25.0
@@ -52,7 +54,7 @@ damping_max = 100.00001
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_twj2v")
 
-[node name="Boss" type="CharacterBody2D" unique_id=809267286 node_paths=PackedStringArray("health", "shooter", "nav_agent", "sprite", "death_particles")]
+[node name="Boss" type="CharacterBody2D" unique_id=809267286 node_paths=PackedStringArray("health", "shooter", "nav_agent", "sprite", "death_particles", "lootable")]
 collision_layer = 4
 motion_mode = 1
 script = ExtResource("1_m4niq")
@@ -62,6 +64,7 @@ shooter = NodePath("AreaShooter")
 nav_agent = NodePath("NavigationAgent2D")
 sprite = NodePath("Sprite2D")
 death_particles = NodePath("DeathParticles")
+lootable = NodePath("Lootable")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=486696595]
 texture_filter = 1
@@ -99,6 +102,7 @@ shape = SubResource("RectangleShape2D_gpvk7")
 [node name="Lootable" type="Node2D" parent="." unique_id=1168048836]
 script = ExtResource("8_twj2v")
 loot_table = Array[ExtResource("9_ylii2")]([SubResource("Resource_gpvk7"), SubResource("Resource_2w8te")])
+guaranteed_loot = Array[ExtResource("12_pk2gn")]([ExtResource("13_trnlp")])
 max_amount = 20
 min_amount = 15
 metadata/_custom_type_script = "uid://c4u3dpkcjwe7p"

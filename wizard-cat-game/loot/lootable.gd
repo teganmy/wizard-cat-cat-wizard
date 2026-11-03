@@ -2,6 +2,7 @@ class_name Lootable
 extends Node2D
 
 @export var loot_table: Array[WeightedLoot]
+@export var guaranteed_loot: Array[LootType]
 var max_weight: float = 0
 var loot_scene: PackedScene = preload("res://loot/loot.tscn")
 @export var max_amount: int = 2
@@ -16,9 +17,19 @@ func generate_loot(location: Vector2 = Vector2.ZERO) -> void:
 	for _i in range(amount):
 		var new_loot = roll_loot()
 		new_loot.global_position = to_global(location)
-		if new_loot.has_method("apply_central_impulse"):
-			new_loot.apply_central_impulse(Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)) * 75)
+		_apply_impulse(new_loot)
 		get_tree().current_scene.add_child.call_deferred(new_loot)
+	for type in guaranteed_loot:
+		var new_loot = loot_scene.instantiate()
+		new_loot.type = type
+		new_loot.global_position = to_global(location)
+		_apply_impulse(new_loot)
+		get_tree().current_scene.add_child.call_deferred(new_loot)
+		
+
+func _apply_impulse(loot: Node2D) -> void:
+	if loot.has_method("apply_central_impulse"):
+			loot.apply_central_impulse(Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)) * 75)
 
 func roll_loot() -> Loot:
 	var rand = randf()
