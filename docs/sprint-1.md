@@ -35,8 +35,8 @@ MUSTs we need to work on:
 - [ ] More spells (secondary attacks)
   - Assigned to: **Tegan**
   - Done when:
-    - [ ] Secondary attacks can be defined in code
-    - [ ] Secondary attacks can be used by player
+    - [x] Secondary attacks can be defined in code
+    - [x] Secondary attacks can be used by player
     - [ ] Secondary attacks can be equipped by player
     - [ ] Secondary attacks can be upgraded by player
 - [ ] Bosses drop secondary attacks
@@ -73,7 +73,7 @@ MUSTs we need to work on:
 - [ ] Health management
   - Assigned to: **Tegan**
   - Done when:
-    - [ ] Health potions can be stored for later
+    - [x] Health potions can be stored for later
     - [ ] Separate chests / other props drop health potions
-    - [ ] Button to use stored potions
-    - [ ] Limited amount of potions can be stored
+    - [x] Button to use stored potions
+    - [x] Limited amount of potions can be stored
