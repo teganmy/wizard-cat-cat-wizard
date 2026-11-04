@@ -14,11 +14,11 @@ MUSTs we need to work on:
     - [x] Levels can be entered
     - [x] New levels can be created and easily added to menu
     - [x] Levels can have metadata assigned (e.g. icon, title, file location)
-- [ ] Level progression (Unlocks during play)
+- [x] Level progression (Unlocks during play)
   - Assigned to: **Sophie**
   - Done when:
-    - [ ] Levels store when they should be unlocked
-    - [ ] Levels can only be selected when unlocked
+    - [x] Levels store when they should be unlocked
+    - [x] Levels can only be selected when unlocked
 - [x] Home base
   - Assigned to: **Sophie**
   - Done when:
@@ -40,11 +40,11 @@ MUSTs we need to work on:
     - [ ] Secondary attacks can be equipped by player
     - [ ] Secondary attacks can be upgraded by player
 - [ ] Bosses drop secondary attacks
-  - Assigned to: **Tegan**
+  - Assigned to: **Sophie**
   - Done when:
-    - [ ] Bosses can be assigned secondary attacks to drop
-    - [ ] Bosses unlock secondary attacks for player on defeat
-    - [ ] Player can only equip unlocked attacks
+    - [x] Bosses can be assigned secondary attacks to drop
+    - [x] Bosses unlock secondary attacks for player on defeat
+    - [x] Player can only equip unlocked attacks
 - [x] Save function
   - Assigned to: **Sophie**
   - Done when:
