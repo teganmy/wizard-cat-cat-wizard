@@ -5,9 +5,11 @@ extends Area2D
 signal landed
 
 func _ready() -> void:
-	area_entered.connect(_on_area_entered)
+	area_entered.connect(_damage)
+	for area in get_overlapping_areas():
+		_damage(area)
 
-func _on_area_entered(area: Area2D) -> void:
+func _damage(area:Area2D) -> void:
 	if area is Hurtbox:
 		area.take_damage(damage)
 		landed.emit()

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cjrcsfbktgvmi"]
+
+[ext_resource type="Script" uid="uid://dpytp44d2ps5s" path="res://shooting/explosion.gd" id="1_q54qk"]
+[ext_resource type="Script" uid="uid://un6ien2ktj74" path="res://components/hitbox.gd" id="2_e2ei7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gpvk7"]
+radius = 50.0
+
+[sub_resource type="Gradient" id="Gradient_e2ei7"]
+colors = PackedColorArray(0.8561908, 0, 0.030332096, 1, 0.79974586, 0.62475556, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e2ei7"]
+gradient = SubResource("Gradient_e2ei7")
+
+[sub_resource type="Curve" id="Curve_j8c38"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7567568, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_j8c38"]
+curve = SubResource("Curve_j8c38")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gpvk7"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 25.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_j8c38")
+color_ramp = SubResource("GradientTexture1D_e2ei7")
+
+[node name="Explosion" type="Node2D" unique_id=379142188 node_paths=PackedStringArray("hitbox")]
+script = ExtResource("1_q54qk")
+hitbox = NodePath("Hitbox")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1285402097]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("2_e2ei7")
+damage = 3
+metadata/_custom_type_script = "uid://un6ien2ktj74"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1171850883]
+shape = SubResource("CircleShape2D_gpvk7")
+
+[node name="LifeTimer" type="Timer" parent="." unique_id=82635885]
+one_shot = true
+autostart = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1672327774]
+amount = 100
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_gpvk7")
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
