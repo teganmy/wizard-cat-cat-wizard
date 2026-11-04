@@ -47,27 +47,27 @@ func add_button(button: Button) -> void:
 func _activate_button(button: NodePath) -> void:
 	if active:
 		var button_node = get_node(button)
-		if button_node:
+		if button_node and not button_node.disabled:
 			button_node.pivot_offset_ratio = Vector2(0.5,0.5)
 			create_tween().set_trans(transition).tween_property(button_node, "scale", hover_scale, anim_time)
 
 func _deactivate_button(button: NodePath) -> void:
 	if active:
 		var button_node = get_node(button)
-		if button_node:
+		if button_node and not button_node.disabled:
 			button_node.pivot_offset_ratio = Vector2(0.5,0.5)
 			create_tween().set_trans(transition).tween_property(button_node, "scale", Vector2.ONE, anim_time)
 
 func _pressed_button(button: NodePath) -> void:
 	if active:
 		var button_node = get_node(button)
-		if button_node:
+		if button_node and not button_node.disabled:
 			button_node.pivot_offset_ratio = Vector2(0.5,0.5)
 			create_tween().set_trans(transition).tween_property(button_node, "scale", press_scale, anim_time)
 
 func _unpressed_button(button: NodePath) -> void:
 	if active:
 		var button_node = get_node(button)
-		if button_node:
+		if button_node and not button_node.disabled:
 			button_node.pivot_offset_ratio = Vector2(0.5,0.5)
 			create_tween().set_trans(transition).tween_property(button_node, "scale", hover_scale, anim_time)

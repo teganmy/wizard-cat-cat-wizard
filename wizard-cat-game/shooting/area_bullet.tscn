@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dvdc0giywjqia"]
 
 [ext_resource type="Script" uid="uid://n8n43gwvlue2" path="res://shooting/area_bullet.gd" id="1_6euxv"]
+[ext_resource type="Resource" uid="uid://deotln05wb6bu" path="res://shooting/bullet_types/enemy_default.tres" id="2_als2d"]
 [ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="2_wj4ey"]
 [ext_resource type="Script" uid="uid://un6ien2ktj74" path="res://components/hitbox.gd" id="3_als2d"]
 
@@ -30,9 +31,14 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_1iwn5"]
 radius = 8.0
 
-[node name="AreaBullet" type="Area2D" unique_id=1377176640]
+[node name="AreaBullet" type="Area2D" unique_id=1377176640 node_paths=PackedStringArray("particles", "sprite", "hitbox", "lifetime_timer")]
 collision_layer = 0
 script = ExtResource("1_6euxv")
+type = ExtResource("2_als2d")
+particles = NodePath("GPUParticles2D")
+sprite = NodePath("Sprite2D")
+hitbox = NodePath("Hitbox")
+lifetime_timer = NodePath("LifetimeTimer")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=297831709]
 amount = 30

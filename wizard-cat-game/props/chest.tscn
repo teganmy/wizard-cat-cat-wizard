@@ -42,12 +42,15 @@ size = Vector2(58, 57)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpvk7"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="Chest" type="StaticBody2D" unique_id=1010634097 node_paths=PackedStringArray("lock", "lootable", "sprite")]
+[node name="Chest" type="StaticBody2D" unique_id=1010634097 node_paths=PackedStringArray("lootable", "sprite", "lock", "spawn_marker", "label", "interaction_area")]
 script = ExtResource("1_trlyu")
-lock = NodePath("Lock")
+open_texture = ExtResource("2_iuyfc")
 lootable = NodePath("Lootable")
 sprite = NodePath("Sprite2D")
-open_texture = ExtResource("2_iuyfc")
+lock = NodePath("Lock")
+spawn_marker = NodePath("SpawnMarker")
+label = NodePath("LockedLabel")
+interaction_area = NodePath("InteractionArea")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=37528860]
 texture_filter = 1

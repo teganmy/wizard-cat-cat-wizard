@@ -3,15 +3,12 @@ extends Control
 @export var button_container: Container
 @export var button_tween: ButtonTween
 var levels: Array[LevelDef] = []
+var buttons: Array[Button] = []
 signal level_selected(def: LevelDef)
 
 func _ready() -> void:
 	hide()
-	for file_name in ResourceLoader.list_directory("res://levels/defs"):
-		var file = ResourceLoader.load("res://levels/defs/%s" % file_name)
-		if file is LevelDef:
-			levels.append(file)
-	levels.sort_custom(func(one: LevelDef, two: LevelDef): return one.ordering < two.ordering)
+	levels = LevelLoader.levels
 	for level in levels:
 		var button = Button.new()
 		button.text = level.name
@@ -19,8 +16,13 @@ func _ready() -> void:
 		button_tween.add_button(button)
 		button.pressed.connect(level_selected.emit.bind(level))
 		button.pressed.connect(close)
+		buttons.append(button)
 
 func open() -> void:
+	for button in buttons.slice(0, LevelLoader.level_pointer):
+		button.set_disabled(false)
+	for button in buttons.slice(LevelLoader.level_pointer):
+		button.set_disabled(true)
 	get_tree().current_scene.set_deferred("pausable", false)
 	get_tree().set_deferred("paused", true)
 	show()

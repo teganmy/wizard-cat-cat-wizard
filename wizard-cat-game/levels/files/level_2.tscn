@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://bsobkaqnjrnuk" path="res://levels/level.gd" id="1_mi4ay"]
 [ext_resource type="PackedScene" uid="uid://6t34451gxrtm" path="res://player/player.tscn" id="2_pqqg8"]
 [ext_resource type="PackedScene" uid="uid://bbhvbmlbu1ne7" path="res://UI/hud.tscn" id="3_0srwa"]
-[ext_resource type="Script" uid="uid://r7m3l5eq4nij" path="res://components/room.gd" id="3_v5uil"]
+[ext_resource type="Resource" uid="uid://cnwk4hlcyg631" path="res://levels/defs/level_2.tres" id="3_bu5mg"]
+[ext_resource type="Script" uid="uid://r7m3l5eq4nij" path="res://components/enemy_room.gd" id="3_v5uil"]
 [ext_resource type="TileSet" uid="uid://yeucsf3jvqss" path="res://assets/landscape_tileset.tres" id="4_5722l"]
 [ext_resource type="PackedScene" uid="uid://c177gv4dscm8q" path="res://props/door.tscn" id="5_ilhis"]
 [ext_resource type="Script" uid="uid://d087k21va4dnw" path="res://components/enemy_spawn.gd" id="6_ep78u"]
@@ -18,9 +19,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpvk7"]
 size = Vector2(416, 320)
 
-[node name="Level2" type="Node2D" unique_id=93842371]
+[node name="Level2" type="Node2D" unique_id=93842371 node_paths=PackedStringArray("exit_portal", "hud")]
 script = ExtResource("1_mi4ay")
 player_scene = ExtResource("2_pqqg8")
+exit_portal = NodePath("Room1/Portal")
+hud = NodePath("CanvasLayer/HUD")
+level_def = ExtResource("3_bu5mg")
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=983090693]
 position = Vector2(576, 576)
@@ -76,7 +80,6 @@ metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="Portal" parent="Room1" unique_id=1944338752 instance=ExtResource("12_wcjpl")]
 position = Vector2(-192, -152)
-level = 0
 
 [node name="Chest" parent="Room1" unique_id=1010634097 instance=ExtResource("13_5orea")]
 position = Vector2(184, -304)

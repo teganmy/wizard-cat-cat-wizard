@@ -37,6 +37,7 @@ func save(file_to_save: String) -> void:
 func load_save(save_to_load: String) -> void:
 	if FileAccess.file_exists(save_folder.path_join(save_to_load)):
 		print("Loading %s..." % save_to_load)
+		get_tree().call_group("Persistent", "reset")
 		var file := FileAccess.open(save_folder.path_join(save_to_load), FileAccess.READ)
 		var _date: String = file.get_line()
 		var line: String = file.get_line()

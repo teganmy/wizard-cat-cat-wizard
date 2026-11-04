@@ -4,12 +4,13 @@
 [ext_resource type="TileSet" uid="uid://yeucsf3jvqss" path="res://assets/landscape_tileset.tres" id="2_bt44k"]
 [ext_resource type="PackedScene" uid="uid://6t34451gxrtm" path="res://player/player.tscn" id="3_bt44k"]
 [ext_resource type="PackedScene" uid="uid://ccs35van3ohn0" path="res://enemies/enemy.tscn" id="3_btoec"]
+[ext_resource type="Resource" uid="uid://cmw7lcy5ojkj2" path="res://levels/defs/level_1.tres" id="3_hwkh2"]
 [ext_resource type="PackedScene" uid="uid://bbhvbmlbu1ne7" path="res://UI/hud.tscn" id="4_kx6l7"]
 [ext_resource type="PackedScene" uid="uid://3fdgsfs7b4ci" path="res://props/chest.tscn" id="6_btoec"]
 [ext_resource type="PackedScene" uid="uid://bva015hvaya2e" path="res://props/vase.tscn" id="7_gwceb"]
 [ext_resource type="Script" uid="uid://d087k21va4dnw" path="res://components/enemy_spawn.gd" id="8_3sk1a"]
 [ext_resource type="PackedScene" uid="uid://c177gv4dscm8q" path="res://props/door.tscn" id="8_l53as"]
-[ext_resource type="Script" uid="uid://r7m3l5eq4nij" path="res://components/room.gd" id="9_3sk1a"]
+[ext_resource type="Script" uid="uid://r7m3l5eq4nij" path="res://components/enemy_room.gd" id="9_3sk1a"]
 [ext_resource type="Script" uid="uid://26e5cw4g2wa2" path="res://enemies/enemy_type.gd" id="9_betor"]
 [ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="10_5ot28"]
 [ext_resource type="Resource" uid="uid://csnqy0o3a70kb" path="res://enemies/types/snail.tres" id="10_vjtdm"]
@@ -17,6 +18,9 @@
 [ext_resource type="Resource" uid="uid://blk0w5rkukd5e" path="res://enemies/types/snake.tres" id="11_vjtdm"]
 [ext_resource type="Resource" uid="uid://dua1rcwkq8gmb" path="res://enemies/types/frog.tres" id="15_bgw3c"]
 [ext_resource type="PackedScene" uid="uid://hpag36semn3u" path="res://props/portal.tscn" id="16_lrvbd"]
+[ext_resource type="Script" uid="uid://b5qmnxsgil7fy" path="res://components/boss_room.gd" id="18_ccqkv"]
+[ext_resource type="Resource" uid="uid://c8hdbgylp83qg" path="res://enemies/bosses/defs/shotgun_boss.tres" id="18_gycmd"]
+[ext_resource type="PackedScene" uid="uid://5fb3r7077xy0" path="res://enemies/bosses/boss.tscn" id="19_hwkh2"]
 
 [sub_resource type="Resource" id="Resource_3sk1a"]
 script = ExtResource("10_5ot28")
@@ -33,15 +37,21 @@ size = Vector2(784, 104)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ch8v3"]
 size = Vector2(272, 160)
 
-[node name="Level1" type="Node2D" unique_id=1118981851]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7aio"]
+size = Vector2(384, 352)
+
+[node name="Level1" type="Node2D" unique_id=1118981851 node_paths=PackedStringArray("exit_portal", "hud")]
 script = ExtResource("1_jirdo")
 player_scene = ExtResource("3_bt44k")
+exit_portal = NodePath("Room6/ExitPortal")
+hud = NodePath("HUDLayer/HUD")
+level_def = ExtResource("3_hwkh2")
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1639797245]
 position = Vector2(304, 552)
 
 [node name="Room1" type="Area2D" parent="." unique_id=2053026148 node_paths=PackedStringArray("lockables")]
-position = Vector2(448, 257)
+position = Vector2(448, 256)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_3sk1a")
@@ -59,10 +69,10 @@ position = Vector2(-144, -208)
 scale = Vector2(3, 1)
 
 [node name="Chest" parent="Room1" unique_id=1010634097 instance=ExtResource("6_btoec")]
-position = Vector2(128, -176)
+position = Vector2(96, -176)
 
 [node name="Chest2" parent="Room1" unique_id=83594861 instance=ExtResource("6_btoec")]
-position = Vector2(192, -176)
+position = Vector2(176, -176)
 
 [node name="Chest3" parent="Room1" unique_id=1732655282 instance=ExtResource("6_btoec")]
 position = Vector2(256, -176)
@@ -98,7 +108,7 @@ position = Vector2(-144, 143)
 scale = Vector2(3, 1)
 
 [node name="Room2" type="Area2D" parent="." unique_id=327343923 node_paths=PackedStringArray("lockables")]
-position = Vector2(512, -191)
+position = Vector2(512, -192)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_3sk1a")
@@ -148,7 +158,7 @@ waves = Array[ExtResource("9_betor")]([ExtResource("10_vjtdm"), ExtResource("11_
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="Room3" type="Area2D" parent="." unique_id=499311839 node_paths=PackedStringArray("lockables")]
-position = Vector2(0, 129)
+position = Vector2(0, 128)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_3sk1a")
@@ -177,10 +187,10 @@ scale = Vector2(3, 1)
 position = Vector2(-336, 240)
 
 [node name="Chest2" parent="Room3" unique_id=781368711 instance=ExtResource("6_btoec")]
-position = Vector2(-304, 240)
+position = Vector2(96, -17)
 
 [node name="Chest3" parent="Room3" unique_id=851428898 instance=ExtResource("6_btoec")]
-position = Vector2(-272, 240)
+position = Vector2(-144, 111)
 
 [node name="EnemySpawner" type="Marker2D" parent="Room3" unique_id=2066954601]
 position = Vector2(-160, 151)
@@ -240,118 +250,54 @@ position = Vector2(176, 16)
 rotation = 1.5707964
 scale = Vector2(3, 1)
 
-[node name="Vase" parent="Room4" unique_id=618260529 instance=ExtResource("7_gwceb")]
-position = Vector2(-304, -240)
-
-[node name="Vase2" parent="Room4" unique_id=2099479803 instance=ExtResource("7_gwceb")]
-position = Vector2(-304, -200)
-
-[node name="Vase3" parent="Room4" unique_id=2144162462 instance=ExtResource("7_gwceb")]
-position = Vector2(-304, -160)
-
-[node name="Vase4" parent="Room4" unique_id=732295962 instance=ExtResource("7_gwceb")]
-position = Vector2(-304, -120)
-
-[node name="Vase5" parent="Room4" unique_id=951289796 instance=ExtResource("7_gwceb")]
-position = Vector2(-304, -80)
-
-[node name="Vase6" parent="Room4" unique_id=1450419507 instance=ExtResource("7_gwceb")]
-position = Vector2(-272, -240)
-
-[node name="Vase7" parent="Room4" unique_id=710133349 instance=ExtResource("7_gwceb")]
-position = Vector2(-272, -200)
-
-[node name="Vase8" parent="Room4" unique_id=2000648669 instance=ExtResource("7_gwceb")]
-position = Vector2(-272, -160)
-
-[node name="Vase9" parent="Room4" unique_id=345431668 instance=ExtResource("7_gwceb")]
-position = Vector2(-272, -120)
-
-[node name="Vase10" parent="Room4" unique_id=1164084799 instance=ExtResource("7_gwceb")]
-position = Vector2(-272, -80)
-
-[node name="Vase11" parent="Room4" unique_id=706655856 instance=ExtResource("7_gwceb")]
-position = Vector2(-240, -240)
-
-[node name="Vase12" parent="Room4" unique_id=1968787955 instance=ExtResource("7_gwceb")]
-position = Vector2(-240, -200)
-
-[node name="Vase13" parent="Room4" unique_id=1192517227 instance=ExtResource("7_gwceb")]
-position = Vector2(-240, -160)
-
-[node name="Vase14" parent="Room4" unique_id=1638043441 instance=ExtResource("7_gwceb")]
-position = Vector2(-240, -120)
-
-[node name="Vase15" parent="Room4" unique_id=1226320498 instance=ExtResource("7_gwceb")]
-position = Vector2(-240, -80)
-
-[node name="Vase16" parent="Room4" unique_id=785715536 instance=ExtResource("7_gwceb")]
-position = Vector2(-208, -240)
-
-[node name="Vase17" parent="Room4" unique_id=1953787042 instance=ExtResource("7_gwceb")]
-position = Vector2(-208, -200)
-
-[node name="Vase18" parent="Room4" unique_id=903909754 instance=ExtResource("7_gwceb")]
-position = Vector2(-208, -160)
-
-[node name="Vase19" parent="Room4" unique_id=1397999499 instance=ExtResource("7_gwceb")]
-position = Vector2(-208, -120)
-
-[node name="Vase20" parent="Room4" unique_id=149430754 instance=ExtResource("7_gwceb")]
-position = Vector2(-208, -80)
-
-[node name="Vase21" parent="Room4" unique_id=1805798462 instance=ExtResource("7_gwceb")]
-position = Vector2(-176, -240)
-
-[node name="Vase22" parent="Room4" unique_id=1940452557 instance=ExtResource("7_gwceb")]
-position = Vector2(-176, -200)
-
-[node name="Vase23" parent="Room4" unique_id=627215545 instance=ExtResource("7_gwceb")]
-position = Vector2(-176, -160)
-
-[node name="Vase24" parent="Room4" unique_id=1839927486 instance=ExtResource("7_gwceb")]
-position = Vector2(-176, -120)
-
-[node name="Vase25" parent="Room4" unique_id=599992720 instance=ExtResource("7_gwceb")]
-position = Vector2(-176, -80)
-
-[node name="Vase26" parent="Room4" unique_id=1106553134 instance=ExtResource("7_gwceb")]
-position = Vector2(-144, -240)
-
-[node name="Vase27" parent="Room4" unique_id=1759172318 instance=ExtResource("7_gwceb")]
-position = Vector2(-144, -200)
-
-[node name="Vase28" parent="Room4" unique_id=244955301 instance=ExtResource("7_gwceb")]
-position = Vector2(-144, -160)
-
-[node name="Vase29" parent="Room4" unique_id=992114373 instance=ExtResource("7_gwceb")]
-position = Vector2(-144, -120)
-
-[node name="Vase30" parent="Room4" unique_id=162887993 instance=ExtResource("7_gwceb")]
-position = Vector2(-144, -80)
-
 [node name="EnemySpawner" type="Marker2D" parent="Room4" unique_id=612590576]
-position = Vector2(32, -152)
+position = Vector2(32, -128)
 script = ExtResource("8_3sk1a")
 radius = 100.0
 enemy_scene = ExtResource("3_btoec")
-waves = Array[ExtResource("9_betor")]([ExtResource("10_vjtdm"), ExtResource("10_vjtdm"), ExtResource("11_vjtdm"), ExtResource("10_vjtdm"), ExtResource("15_bgw3c")])
+waves = Array[ExtResource("9_betor")]([ExtResource("10_vjtdm"), ExtResource("10_vjtdm"), ExtResource("11_vjtdm"), ExtResource("10_vjtdm")])
+metadata/_custom_type_script = "uid://d087k21va4dnw"
+
+[node name="EnemySpawner2" type="Marker2D" parent="Room4" unique_id=1786427905]
+position = Vector2(-192, -136)
+script = ExtResource("8_3sk1a")
+radius = 50.0
+enemy_scene = ExtResource("3_btoec")
+waves = Array[ExtResource("9_betor")]([null, null, null, ExtResource("15_bgw3c")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="Door2" parent="Room4" unique_id=1103527666 instance=ExtResource("8_l53as")]
 position = Vector2(-272, -272)
 scale = Vector2(3, 1)
 
+[node name="Vase" parent="Room4" unique_id=490627236 instance=ExtResource("7_gwceb")]
+position = Vector2(-144, -232)
+
+[node name="Vase2" parent="Room4" unique_id=431285230 instance=ExtResource("7_gwceb")]
+position = Vector2(-176, -232)
+
+[node name="Vase3" parent="Room4" unique_id=640168235 instance=ExtResource("7_gwceb")]
+position = Vector2(-208, -232)
+
+[node name="Vase4" parent="Room4" unique_id=909804982 instance=ExtResource("7_gwceb")]
+position = Vector2(-240, -232)
+
+[node name="Vase5" parent="Room4" unique_id=1268471500 instance=ExtResource("7_gwceb")]
+position = Vector2(-272, -232)
+
+[node name="Vase6" parent="Room4" unique_id=526080934 instance=ExtResource("7_gwceb")]
+position = Vector2(-304, -232)
+
 [node name="Room5" type="Area2D" parent="." unique_id=355783683 node_paths=PackedStringArray("lockables")]
 position = Vector2(-512, -448)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_3sk1a")
-lockables = [NodePath("../Room4/Door2"), NodePath("Chest"), NodePath("Chest2"), NodePath("Chest3"), NodePath("Chest4")]
+lockables = [NodePath("../Room4/Door2"), NodePath("Chest"), NodePath("Chest2"), NodePath("Chest3"), NodePath("Chest4"), NodePath("Door")]
 metadata/_custom_type_script = "uid://r7m3l5eq4nij"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Room5" unique_id=384206968]
-tile_map_data = PackedByteArray("AAD+////AwAAAAAAAAD+/wAAAwAAAAAAAAD+/wEAAwAAAAAAAAD+/wIAAwAAAAAAAAD/////AwAAAAAAAAD//wAAAwAAAAAAAAD//wEAAwAAAAAAAAD//wIAAwAAAAAAAAAAAP//AwAAAAAAAAAAAAAAAwAAAAAAAAAAAAEAAwAAAAAAAAAAAAIAAwAAAAAAAAABAP//AwAAAAAAAAABAAAAAwAAAAAAAAABAAEAAwAAAAAAAAABAAIAAwAAAAAAAAACAP//AwAAAAAAAAACAAAAAwAAAAAAAAACAAEAAwAAAAAAAAACAAIAAwAAAAAAAAADAP//AwAAAAAAAAADAAAAAwAAAAAAAAADAAEAAwAAAAAAAAADAAIAAwAAAAAAAAAEAP//AwAAAAAAAAAEAAAAAwAAAAAAAAAEAAEAAwAAAAAAAAAEAAIAAwAAAAAAAAAFAP//AwAAAAAAAAAFAAAAAwAAAAAAAAAFAAEAAwAAAAAAAAAFAAIAAwAAAAAAAAAGAP//AwAAAAAAAAAGAAAAAwAAAAAAAAAGAAEAAwAAAAAAAAAGAAIAAwAAAAAAAAAHAP//AwAAAAAAAAAHAAAAAwAAAAAAAAAHAAEAAwAAAAAAAAAHAAIAAwAAAAAAAAAIAP//AwAAAAAAAAAIAAAAAwAAAAAAAAAIAAEAAwAAAAAAAAAIAAIAAwAAAAAAAAAJAP//AwAAAAAAAAAJAAAAAwAAAAAAAAAJAAEAAwAAAAAAAAAJAAIAAwAAAAAAAAAKAP//AwAAAAAAAAAKAAAAAwAAAAAAAAAKAAEAAwAAAAAAAAAKAAIAAwAAAAAAAAALAP//AwAAAAAAAAALAAAAAwAAAAAAAAALAAEAAwAAAAAAAAALAAIAAwAAAAAAAAAMAP//AwAAAAAAAAAMAAAAAwAAAAAAAAAMAAEAAwAAAAAAAAAMAAIAAwAAAAAAAAANAP//AwAAAAAAAAANAAAAAwAAAAAAAAANAAEAAwAAAAAAAAANAAIAAwAAAAAAAAAOAP//AwAAAAAAAAAOAAAAAwAAAAAAAAAOAAEAAwAAAAAAAAAOAAIAAwAAAAAAAAAPAP//AwAAAAAAAAAPAAAAAwAAAAAAAAAPAAEAAwAAAAAAAAAPAAIAAwAAAAAAAAAQAP//AwAAAAAAAAAQAAAAAwAAAAAAAAAQAAEAAwAAAAAAAAAQAAIAAwAAAAAAAAARAP//AwAAAAAAAAARAAAAAwAAAAAAAAARAAEAAwAAAAAAAAARAAIAAwAAAAAAAAASAP//AwAAAAAAAAASAAAAAwAAAAAAAAASAAEAAwAAAAAAAAASAAIAAwAAAAAAAAATAP//AwAAAAAAAAATAAAAAwAAAAAAAAATAAEAAwAAAAAAAAATAAIAAwAAAAAAAAAUAP//AwAAAAAAAAAUAAAAAwAAAAAAAAAUAAEAAwAAAAAAAAAUAAIAAwAAAAAAAAAVAP//AwAAAAAAAAAVAAAAAwAAAAAAAAAVAAEAAwAAAAAAAAAVAAIAAwAAAAAAAAAWAP//AwAAAAAAAAAWAAAAAwAAAAAAAAAWAAEAAwAAAAAAAAAWAAIAAwAAAAAAAAD9/wIABQAAAAAAAAD9/wEABQAAAAAAAAD9/wAABQAAAAAAAAD9////BQAAAAAAAAD9//7/BQAAAAAAAAD+//7/BQAAAAAAAAD///7/BQAAAAAAAAAAAP7/BQAAAAAAAAABAP7/BQAAAAAAAAACAP7/BQAAAAAAAAADAP7/BQAAAAAAAAAEAP7/BQAAAAAAAAAFAP7/BQAAAAAAAAAGAP7/BQAAAAAAAAAHAP7/BQAAAAAAAAAIAP7/BQAAAAAAAAAJAP7/BQAAAAAAAAAKAP7/BQAAAAAAAAALAP7/BQAAAAAAAAAMAP7/BQAAAAAAAAANAP7/BQAAAAAAAAAOAP7/BQAAAAAAAAAPAP7/BQAAAAAAAAAQAP7/BQAAAAAAAAARAP7/BQAAAAAAAAASAP7/BQAAAAAAAAATAP7/BQAAAAAAAAAUAP7/BQAAAAAAAAAVAP7/BQAAAAAAAAAWAP7/BQAAAAAAAAAXAP7/BQAAAAAAAAAOAAMABQAAAAAAAAAPAAMABQAAAAAAAAAQAAMABQAAAAAAAAARAAMABQAAAAAAAAASAAMABQAAAAAAAAATAAMABQAAAAAAAAAUAAMABQAAAAAAAAAVAAMABQAAAAAAAAAWAAMABQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD+////AwAAAAAAAAD+/wAAAwAAAAAAAAD+/wEAAwAAAAAAAAD+/wIAAwAAAAAAAAD/////AwAAAAAAAAD//wAAAwAAAAAAAAD//wEAAwAAAAAAAAD//wIAAwAAAAAAAAAAAP//AwAAAAAAAAAAAAAAAwAAAAAAAAAAAAEAAwAAAAAAAAAAAAIAAwAAAAAAAAABAP//AwAAAAAAAAABAAAAAwAAAAAAAAABAAEAAwAAAAAAAAABAAIAAwAAAAAAAAACAP//AwAAAAAAAAACAAAAAwAAAAAAAAACAAEAAwAAAAAAAAACAAIAAwAAAAAAAAADAP//AwAAAAAAAAADAAAAAwAAAAAAAAADAAEAAwAAAAAAAAADAAIAAwAAAAAAAAAEAP//AwAAAAAAAAAEAAAAAwAAAAAAAAAEAAEAAwAAAAAAAAAEAAIAAwAAAAAAAAAFAP//AwAAAAAAAAAFAAAAAwAAAAAAAAAFAAEAAwAAAAAAAAAFAAIAAwAAAAAAAAAGAP//AwAAAAAAAAAGAAAAAwAAAAAAAAAGAAEAAwAAAAAAAAAGAAIAAwAAAAAAAAAHAP//AwAAAAAAAAAHAAAAAwAAAAAAAAAHAAEAAwAAAAAAAAAHAAIAAwAAAAAAAAAIAP//AwAAAAAAAAAIAAAAAwAAAAAAAAAIAAEAAwAAAAAAAAAIAAIAAwAAAAAAAAAJAP//AwAAAAAAAAAJAAAAAwAAAAAAAAAJAAEAAwAAAAAAAAAJAAIAAwAAAAAAAAAKAP//AwAAAAAAAAAKAAAAAwAAAAAAAAAKAAEAAwAAAAAAAAAKAAIAAwAAAAAAAAALAP//AwAAAAAAAAALAAAAAwAAAAAAAAALAAEAAwAAAAAAAAALAAIAAwAAAAAAAAAMAP//AwAAAAAAAAAMAAAAAwAAAAAAAAAMAAEAAwAAAAAAAAAMAAIAAwAAAAAAAAANAP//AwAAAAAAAAANAAAAAwAAAAAAAAANAAEAAwAAAAAAAAANAAIAAwAAAAAAAAAOAP//AwAAAAAAAAAOAAAAAwAAAAAAAAAOAAEAAwAAAAAAAAAOAAIAAwAAAAAAAAAPAP//AwAAAAAAAAAPAAAAAwAAAAAAAAAPAAEAAwAAAAAAAAAPAAIAAwAAAAAAAAAQAP//AwAAAAAAAAAQAAAAAwAAAAAAAAAQAAEAAwAAAAAAAAAQAAIAAwAAAAAAAAARAP//AwAAAAAAAAARAAAAAwAAAAAAAAARAAEAAwAAAAAAAAARAAIAAwAAAAAAAAASAP//AwAAAAAAAAASAAAAAwAAAAAAAAASAAEAAwAAAAAAAAASAAIAAwAAAAAAAAATAP//AwAAAAAAAAATAAAAAwAAAAAAAAATAAEAAwAAAAAAAAATAAIAAwAAAAAAAAAUAP//AwAAAAAAAAAUAAAAAwAAAAAAAAAUAAEAAwAAAAAAAAAUAAIAAwAAAAAAAAAVAP//AwAAAAAAAAAVAAAAAwAAAAAAAAAVAAEAAwAAAAAAAAAVAAIAAwAAAAAAAAAWAP//AwAAAAAAAAAWAAAAAwAAAAAAAAAWAAEAAwAAAAAAAAAWAAIAAwAAAAAAAAD9/wIABQAAAAAAAAD9/wEABQAAAAAAAAD9/wAABQAAAAAAAAD9////BQAAAAAAAAD9//7/BQAAAAAAAAD+//7/BQAAAAAAAAD///7/BQAAAAAAAAAAAP7/BQAAAAAAAAABAP7/BQAAAAAAAAACAP7/BQAAAAAAAAADAP7/BQAAAAAAAAAEAP7/BQAAAAAAAAAFAP7/BQAAAAAAAAAGAP7/BQAAAAAAAAAHAP7/BQAAAAAAAAAIAP7/BQAAAAAAAAAJAP7/BQAAAAAAAAAKAP7/BQAAAAAAAAALAP7/BQAAAAAAAAAMAP7/BQAAAAAAAAANAP7/BQAAAAAAAAAOAP7/BQAAAAAAAAAPAP7/BQAAAAAAAAAQAP7/BQAAAAAAAAARAP7/BQAAAAAAAAASAP7/BQAAAAAAAAATAP7/BQAAAAAAAAAXAP7/BQAAAAAAAAAOAAMABQAAAAAAAAAPAAMABQAAAAAAAAAQAAMABQAAAAAAAAARAAMABQAAAAAAAAASAAMABQAAAAAAAAATAAMABQAAAAAAAAAUAAMABQAAAAAAAAAVAAMABQAAAAAAAAAWAAMABQAAAAAAAAAUAP7/AwAAAAAAAAAVAP7/AwAAAAAAAAAWAP7/AwAAAAAAAAA=")
 tile_set = ExtResource("2_bt44k")
 metadata/_edit_lock_ = true
 
@@ -383,16 +329,20 @@ waves = Array[ExtResource("9_betor")]([null, ExtResource("10_vjtdm"), ExtResourc
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="Chest" parent="Room5" unique_id=350920048 instance=ExtResource("6_btoec")]
-position = Vector2(272, -16)
+position = Vector2(233, -16)
 
 [node name="Chest2" parent="Room5" unique_id=1451487541 instance=ExtResource("6_btoec")]
-position = Vector2(328, -16)
+position = Vector2(302, -16)
 
 [node name="Chest3" parent="Room5" unique_id=1503263384 instance=ExtResource("6_btoec")]
-position = Vector2(384, -16)
+position = Vector2(371, -16)
 
 [node name="Chest4" parent="Room5" unique_id=871427090 instance=ExtResource("6_btoec")]
 position = Vector2(440, -16)
+
+[node name="Door" parent="Room5" unique_id=1352446871 instance=ExtResource("8_l53as")]
+position = Vector2(688, -48)
+scale = Vector2(3, 1)
 
 [node name="Room6" type="Area2D" parent="." unique_id=1113429198 node_paths=PackedStringArray("lockables")]
 position = Vector2(-512, 512)
@@ -413,18 +363,61 @@ shape = SubResource("RectangleShape2D_ch8v3")
 
 [node name="ExitPortal" parent="Room6" unique_id=1944338752 instance=ExtResource("16_lrvbd")]
 position = Vector2(-160, -64)
-level = 0
+locked_hint = "Defeat boss to unlock"
 
 [node name="EnemySpawner" type="Marker2D" parent="Room6" unique_id=522198882]
 position = Vector2(0, -56)
 script = ExtResource("8_3sk1a")
 enemy_scene = ExtResource("3_btoec")
-waves = Array[ExtResource("9_betor")]([ExtResource("10_vjtdm")])
+waves = Array[ExtResource("9_betor")]([ExtResource("10_vjtdm"), ExtResource("15_bgw3c"), ExtResource("15_bgw3c"), ExtResource("15_bgw3c")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
+
+[node name="Room7" type="Area2D" parent="." unique_id=89619610 node_paths=PackedStringArray("boss_spawner", "lockables")]
+position = Vector2(192, -576)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("18_ccqkv")
+boss_def = ExtResource("18_gycmd")
+boss_scene = ExtResource("19_hwkh2")
+boss_spawner = NodePath("Marker2D")
+lockables = [NodePath("../Room5/Door"), NodePath("Chest"), NodePath("Chest2"), NodePath("Chest3"), NodePath("Chest4"), NodePath("Chest5"), NodePath("Chest6")]
+metadata/_custom_type_script = "uid://b5qmnxsgil7fy"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Room7" unique_id=867862317]
+tile_map_data = PackedByteArray("AAD9/wEAAwAAAAAAAAD+/wEAAwAAAAAAAAD//wEAAwAAAAAAAAAAAAEAAwAAAAAAAAD5//j/AwAAAAAAAAD5//n/AwAAAAAAAAD5//r/AwAAAAAAAAD5//v/AwAAAAAAAAD5//z/AwAAAAAAAAD5//3/AwAAAAAAAAD5//7/AwAAAAAAAAD5////AwAAAAAAAAD5/wAAAwAAAAAAAAD5/wEAAwAAAAAAAAD6//j/AwAAAAAAAAD6//n/AwAAAAAAAAD6//r/AwAAAAAAAAD6//v/AwAAAAAAAAD6//z/AwAAAAAAAAD6//3/AwAAAAAAAAD6//7/AwAAAAAAAAD6////AwAAAAAAAAD6/wAAAwAAAAAAAAD6/wEAAwAAAAAAAAD7//j/AwAAAAAAAAD7//n/AwAAAAAAAAD7//r/AwAAAAAAAAD7//v/AwAAAAAAAAD7//z/AwAAAAAAAAD7//3/AwAAAAAAAAD7//7/AwAAAAAAAAD7////AwAAAAAAAAD7/wAAAwAAAAAAAAD7/wEAAwAAAAAAAAD8//j/AwAAAAAAAAD8//n/AwAAAAAAAAD8//r/AwAAAAAAAAD8//v/AwAAAAAAAAD8//z/AwAAAAAAAAD8//3/AwAAAAAAAAD8//7/AwAAAAAAAAD8////AwAAAAAAAAD8/wAAAwAAAAAAAAD8/wEAAwAAAAAAAAD9//j/AwAAAAAAAAD9//n/AwAAAAAAAAD9//r/AwAAAAAAAAD9//v/AwAAAAAAAAD9//z/AwAAAAAAAAD9//3/AwAAAAAAAAD9//7/AwAAAAAAAAD9////AwAAAAAAAAD9/wAAAwAAAAAAAAD+//j/AwAAAAAAAAD+//n/AwAAAAAAAAD+//r/AwAAAAAAAAD+//v/AwAAAAAAAAD+//z/AwAAAAAAAAD+//3/AwAAAAAAAAD+//7/AwAAAAAAAAD+////AwAAAAAAAAD+/wAAAwAAAAAAAAD///j/AwAAAAAAAAD///n/AwAAAAAAAAD///r/AwAAAAAAAAD///v/AwAAAAAAAAD///z/AwAAAAAAAAD///3/AwAAAAAAAAD///7/AwAAAAAAAAD/////AwAAAAAAAAD//wAAAwAAAAAAAAAAAPj/AwAAAAAAAAAAAPn/AwAAAAAAAAAAAPr/AwAAAAAAAAAAAPv/AwAAAAAAAAAAAPz/AwAAAAAAAAAAAP3/AwAAAAAAAAAAAP7/AwAAAAAAAAAAAP//AwAAAAAAAAAAAAAAAwAAAAAAAAABAPj/AwAAAAAAAAABAPn/AwAAAAAAAAABAPr/AwAAAAAAAAABAPv/AwAAAAAAAAABAPz/AwAAAAAAAAABAP3/AwAAAAAAAAABAP7/AwAAAAAAAAABAP//AwAAAAAAAAABAAAAAwAAAAAAAAABAAEAAwAAAAAAAAACAPj/AwAAAAAAAAACAPn/AwAAAAAAAAACAPr/AwAAAAAAAAACAPv/AwAAAAAAAAACAPz/AwAAAAAAAAACAP3/AwAAAAAAAAACAP7/AwAAAAAAAAACAP//AwAAAAAAAAACAAAAAwAAAAAAAAACAAEAAwAAAAAAAAADAPj/AwAAAAAAAAADAPn/AwAAAAAAAAADAPr/AwAAAAAAAAADAPv/AwAAAAAAAAADAPz/AwAAAAAAAAADAP3/AwAAAAAAAAADAP7/AwAAAAAAAAADAP//AwAAAAAAAAADAAAAAwAAAAAAAAADAAEAAwAAAAAAAAAEAPj/AwAAAAAAAAAEAPn/AwAAAAAAAAAEAPr/AwAAAAAAAAAEAPv/AwAAAAAAAAAEAPz/AwAAAAAAAAAEAP3/AwAAAAAAAAAEAP7/AwAAAAAAAAAEAP//AwAAAAAAAAAEAAAAAwAAAAAAAAAEAAEAAwAAAAAAAAAFAPj/AwAAAAAAAAAFAPn/AwAAAAAAAAAFAPr/AwAAAAAAAAAFAPv/AwAAAAAAAAAFAPz/AwAAAAAAAAAFAP3/AwAAAAAAAAAFAP7/AwAAAAAAAAAFAP//AwAAAAAAAAAFAAAAAwAAAAAAAAAFAAEAAwAAAAAAAAD5//b/AwAAAAAAAAD5//f/AwAAAAAAAAD6//b/AwAAAAAAAAD6//f/AwAAAAAAAAD7//b/AwAAAAAAAAD7//f/AwAAAAAAAAD8//b/AwAAAAAAAAD8//f/AwAAAAAAAAD9//b/AwAAAAAAAAD9//f/AwAAAAAAAAD+//b/AwAAAAAAAAD+//f/AwAAAAAAAAD///b/AwAAAAAAAAD///f/AwAAAAAAAAAAAPb/AwAAAAAAAAAAAPf/AwAAAAAAAAABAPb/AwAAAAAAAAABAPf/AwAAAAAAAAACAPb/AwAAAAAAAAACAPf/AwAAAAAAAAADAPb/AwAAAAAAAAADAPf/AwAAAAAAAAAEAPb/AwAAAAAAAAAEAPf/AwAAAAAAAAAFAPb/AwAAAAAAAAAFAPf/AwAAAAAAAAD4//X/BQAAAAAAAAD4//b/BQAAAAAAAAD4//f/BQAAAAAAAAD4//j/BQAAAAAAAAD4//n/BQAAAAAAAAD4//r/BQAAAAAAAAD4//v/BQAAAAAAAAD4//z/BQAAAAAAAAD4//3/BQAAAAAAAAD4//7/BQAAAAAAAAD4////BQAAAAAAAAD4/wAABQAAAAAAAAD4/wEABQAAAAAAAAD5//X/BQAAAAAAAAD6//X/BQAAAAAAAAD7//X/BQAAAAAAAAD8//X/BQAAAAAAAAD9//X/BQAAAAAAAAD+//X/BQAAAAAAAAD///X/BQAAAAAAAAAAAPX/BQAAAAAAAAABAPX/BQAAAAAAAAACAPX/BQAAAAAAAAADAPX/BQAAAAAAAAAEAPX/BQAAAAAAAAAFAPX/BQAAAAAAAAAGAPX/BQAAAAAAAAAGAPb/BQAAAAAAAAAGAPf/BQAAAAAAAAAGAPj/BQAAAAAAAAAGAPn/BQAAAAAAAAAGAPr/BQAAAAAAAAAGAPv/BQAAAAAAAAAGAPz/BQAAAAAAAAAGAP3/BQAAAAAAAAAGAP7/BQAAAAAAAAAGAP//BQAAAAAAAAAGAAAABQAAAAAAAAAGAAEABQAAAAAAAAAGAAIABQAAAAAAAAACAAIABQAAAAAAAAADAAIABQAAAAAAAAAEAAIABQAAAAAAAAAFAAIABQAAAAAAAAA=")
+tile_set = ExtResource("2_bt44k")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room7" unique_id=1220628870]
+visible = false
+position = Vector2(-16, -128)
+shape = SubResource("RectangleShape2D_i7aio")
+
+[node name="Marker2D" type="Marker2D" parent="Room7" unique_id=764760634]
+position = Vector2(-16, -128)
+
+[node name="Chest" parent="Room7" unique_id=1887054985 instance=ExtResource("6_btoec")]
+position = Vector2(-184, -304)
+
+[node name="Chest2" parent="Room7" unique_id=375043567 instance=ExtResource("6_btoec")]
+position = Vector2(-112, -304)
+
+[node name="Chest3" parent="Room7" unique_id=733762595 instance=ExtResource("6_btoec")]
+position = Vector2(-40, -304)
+
+[node name="Chest4" parent="Room7" unique_id=29987105 instance=ExtResource("6_btoec")]
+position = Vector2(24, -304)
+
+[node name="Chest5" parent="Room7" unique_id=1059662176 instance=ExtResource("6_btoec")]
+position = Vector2(88, -304)
+
+[node name="Chest6" parent="Room7" unique_id=1183086496 instance=ExtResource("6_btoec")]
+position = Vector2(152, -304)
 
 [node name="HUDLayer" type="CanvasLayer" parent="." unique_id=865870252]
 
 [node name="HUD" parent="HUDLayer" unique_id=675684008 instance=ExtResource("4_kx6l7")]
+visible = false
 metadata/_edit_lock_ = true
 
 [connection signal="defeated" from="Room1" to="Room2" method="reveal"]
@@ -432,3 +425,4 @@ metadata/_edit_lock_ = true
 [connection signal="defeated" from="Room2" to="Room4" method="reveal"]
 [connection signal="defeated" from="Room3" to="Room6" method="reveal"]
 [connection signal="defeated" from="Room4" to="Room5" method="reveal"]
+[connection signal="defeated" from="Room5" to="Room7" method="reveal"]

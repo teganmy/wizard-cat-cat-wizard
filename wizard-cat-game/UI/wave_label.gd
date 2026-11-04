@@ -2,6 +2,7 @@ extends Label
 
 var tween: Tween
 var max_waves: int = 0
+var room: Room
 
 func _ready() -> void:
 	modulate.a = 0
@@ -11,13 +12,16 @@ func _ready() -> void:
 	tree.current_scene.room_defeated.connect(_on_room_defeated)
 
 func _on_room_activated() -> void:
-	max_waves = get_tree().current_scene.current_room.total_waves
+	room = get_tree().current_scene.current_room
+	if room is EnemyRoom:
+		max_waves = room.total_waves
 
 func _on_room_wave(wave: int) -> void:
 	display("Wave %s of %s" % [wave, max_waves])
 
 func _on_room_defeated() -> void:
-	display("Defeated")
+	if room is EnemyRoom:
+		display("Defeated")
 
 func display(display_text: String) -> void:
 	text = display_text
