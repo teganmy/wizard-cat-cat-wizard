@@ -50,13 +50,14 @@ level_def = ExtResource("3_hwkh2")
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1639797245]
 position = Vector2(304, 552)
 
-[node name="Room1" type="Area2D" parent="." unique_id=2053026148 node_paths=PackedStringArray("lockables")]
+[node name="Room1" type="Area2D" parent="." unique_id=2053026148 node_paths=PackedStringArray("lockables", "connected_rooms")]
 position = Vector2(448, 256)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_3sk1a")
 lockables = [NodePath("Door"), NodePath("Chest"), NodePath("Chest2"), NodePath("Chest3"), NodePath("Door2")]
 visible_on_enter = true
+connected_rooms = [NodePath("../Room2")]
 metadata/_custom_type_script = "uid://r7m3l5eq4nij"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Room1" unique_id=1281704120]
@@ -107,12 +108,13 @@ position = Vector2(464, 384)
 position = Vector2(-144, 143)
 scale = Vector2(3, 1)
 
-[node name="Room2" type="Area2D" parent="." unique_id=327343923 node_paths=PackedStringArray("lockables")]
+[node name="Room2" type="Area2D" parent="." unique_id=327343923 node_paths=PackedStringArray("lockables", "connected_rooms")]
 position = Vector2(512, -192)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_3sk1a")
 lockables = [NodePath("Door"), NodePath("Chest"), NodePath("Door2")]
+connected_rooms = [NodePath("../Room3"), NodePath("../Room4")]
 metadata/_custom_type_script = "uid://r7m3l5eq4nij"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Room2" unique_id=255150253]
@@ -157,12 +159,13 @@ enemy_scene = ExtResource("3_btoec")
 waves = Array[ExtResource("9_betor")]([ExtResource("10_vjtdm"), ExtResource("11_vjtdm")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
-[node name="Room3" type="Area2D" parent="." unique_id=499311839 node_paths=PackedStringArray("lockables")]
+[node name="Room3" type="Area2D" parent="." unique_id=499311839 node_paths=PackedStringArray("lockables", "connected_rooms")]
 position = Vector2(0, 128)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_3sk1a")
 lockables = [NodePath("Door"), NodePath("Chest"), NodePath("Chest2"), NodePath("Chest3"), NodePath("Door2")]
+connected_rooms = [NodePath("../Room6")]
 metadata/_custom_type_script = "uid://r7m3l5eq4nij"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Room3" unique_id=806101480]
@@ -228,12 +231,13 @@ position = Vector2(-16, 143)
 [node name="Vase4" parent="Room3" unique_id=2079993041 instance=ExtResource("7_gwceb")]
 position = Vector2(-48, 111)
 
-[node name="Room4" type="Area2D" parent="." unique_id=1041433148 node_paths=PackedStringArray("lockables")]
+[node name="Room4" type="Area2D" parent="." unique_id=1041433148 node_paths=PackedStringArray("lockables", "connected_rooms")]
 position = Vector2(-256, -64)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_3sk1a")
 lockables = [NodePath("Door"), NodePath("Door2")]
+connected_rooms = [NodePath("../Room5")]
 metadata/_custom_type_script = "uid://r7m3l5eq4nij"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Room4" unique_id=284184299]
@@ -288,12 +292,13 @@ position = Vector2(-272, -232)
 [node name="Vase6" parent="Room4" unique_id=526080934 instance=ExtResource("7_gwceb")]
 position = Vector2(-304, -232)
 
-[node name="Room5" type="Area2D" parent="." unique_id=355783683 node_paths=PackedStringArray("lockables")]
+[node name="Room5" type="Area2D" parent="." unique_id=355783683 node_paths=PackedStringArray("lockables", "connected_rooms")]
 position = Vector2(-512, -448)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_3sk1a")
 lockables = [NodePath("../Room4/Door2"), NodePath("Chest"), NodePath("Chest2"), NodePath("Chest3"), NodePath("Chest4"), NodePath("Door")]
+connected_rooms = [NodePath("../Room7")]
 metadata/_custom_type_script = "uid://r7m3l5eq4nij"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Room5" unique_id=384206968]
@@ -419,10 +424,3 @@ position = Vector2(152, -304)
 [node name="HUD" parent="HUDLayer" unique_id=675684008 instance=ExtResource("4_kx6l7")]
 visible = false
 metadata/_edit_lock_ = true
-
-[connection signal="defeated" from="Room1" to="Room2" method="reveal"]
-[connection signal="defeated" from="Room2" to="Room3" method="reveal"]
-[connection signal="defeated" from="Room2" to="Room4" method="reveal"]
-[connection signal="defeated" from="Room3" to="Room6" method="reveal"]
-[connection signal="defeated" from="Room4" to="Room5" method="reveal"]
-[connection signal="defeated" from="Room5" to="Room7" method="reveal"]

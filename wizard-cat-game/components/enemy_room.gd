@@ -20,6 +20,8 @@ func _ready() -> void:
 			revealed.connect(lockable.lock.unlock)
 			defeated.connect(lockable.lock.unlock)
 			activated.connect(lockable.lock.lock)
+	for room in connected_rooms:
+		defeated.connect(room.reveal)
 	if visible_on_enter:
 		get_tree().current_scene.entered.connect(reveal)
 

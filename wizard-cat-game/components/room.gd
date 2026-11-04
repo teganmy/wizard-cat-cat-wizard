@@ -3,7 +3,7 @@ extends Area2D
 
 @export var lockables: Array[StaticBody2D] = []
 @export var visible_on_enter: bool = false
-
+@export var connected_rooms: Array[Room] = []
 
 enum STATE {UNEXPLORED, REVEALED, ACTIVE, DEFEATED}
 var state: STATE
@@ -20,6 +20,10 @@ func _ready() -> void:
 			revealed.connect(lockable.lock.unlock)
 			defeated.connect(lockable.lock.unlock)
 			activated.connect(lockable.lock.lock)
+	for room in connected_rooms:
+		defeated.connect(room.reveal)
+	if visible_on_enter:
+		get_tree().current_scene.entered.connect(reveal)
 
 func _change_state(new_state: STATE) -> void:
 	state = new_state
