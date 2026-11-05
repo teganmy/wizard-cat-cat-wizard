@@ -40,5 +40,4 @@ func roll_loot() -> Loot:
 			var new_loot = loot_scene.instantiate()
 			new_loot.type = loot.type
 			return new_loot
-	assert(false, "Should never be reached")
 	return null
