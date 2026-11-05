@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://dua1rcwkq8gmb" path="res://enemies/types/frog.tres" id="11_5orea"]
 [ext_resource type="PackedScene" uid="uid://hpag36semn3u" path="res://props/portal.tscn" id="12_wcjpl"]
 [ext_resource type="PackedScene" uid="uid://3fdgsfs7b4ci" path="res://props/chest.tscn" id="13_5orea"]
+[ext_resource type="PackedScene" uid="uid://boyx6x1khflbj" path="res://props/candle.tscn" id="14_bu5mg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpvk7"]
 size = Vector2(416, 320)
@@ -82,6 +83,9 @@ level = 0
 position = Vector2(184, -304)
 max_loot_override = 100
 min_loot_override = 50
+
+[node name="Candle" parent="Room1" unique_id=753880452 instance=ExtResource("14_bu5mg")]
+position = Vector2(171, -154)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1406832674]
 

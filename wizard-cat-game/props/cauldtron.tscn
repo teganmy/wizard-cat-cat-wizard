@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://t7dn52ht6rhi"]
+
+[ext_resource type="Script" uid="uid://be7s45j5u322e" path="res://props/chest.gd" id="1_aaro3"]
+[ext_resource type="Texture2D" uid="uid://d16du6v6q2p02" path="res://assets/cauldron.png" id="3_aaro3"]
+[ext_resource type="Script" uid="uid://c4u3dpkcjwe7p" path="res://loot/lootable.gd" id="4_h35q5"]
+[ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="5_k27cy"]
+[ext_resource type="Resource" uid="uid://dniq4qev1nvsd" path="res://loot/loot_types/speed_potion.tres" id="7_rawcp"]
+[ext_resource type="Resource" uid="uid://dhxxvsvsbsbnd" path="res://loot/loot_types/healing_potion.tres" id="8_f3nui"]
+[ext_resource type="Script" uid="uid://dxddfl5g0sgtd" path="res://components/interaction_area.gd" id="9_n1cv6"]
+[ext_resource type="Script" uid="uid://cahbckpdbwxoq" path="res://components/lock.gd" id="10_u1ld1"]
+
+[sub_resource type="Resource" id="Resource_5hv0q"]
+script = ExtResource("5_k27cy")
+type = ExtResource("8_f3nui")
+weight = 0.8
+metadata/_custom_type_script = "uid://drq0y0x2llhhg"
+
+[sub_resource type="Resource" id="Resource_o8qek"]
+script = ExtResource("5_k27cy")
+type = ExtResource("7_rawcp")
+weight = 0.2
+metadata/_custom_type_script = "uid://drq0y0x2llhhg"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpvk7"]
+size = Vector2(28, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2w8te"]
+size = Vector2(58, 57)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpvk7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Cauldron" type="StaticBody2D" unique_id=1010634097 node_paths=PackedStringArray("lock", "lootable", "sprite")]
+script = ExtResource("1_aaro3")
+lock = NodePath("Lock")
+lootable = NodePath("Lootable")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=37528860]
+texture_filter = 1
+scale = Vector2(2, 1.5)
+texture = ExtResource("3_aaro3")
+
+[node name="Lootable" type="Node2D" parent="." unique_id=1438251120]
+script = ExtResource("4_h35q5")
+loot_table = Array[ExtResource("5_k27cy")]([SubResource("Resource_5hv0q"), SubResource("Resource_o8qek")])
+max_amount = 6
+min_amount = 2
+metadata/_custom_type_script = "uid://c4u3dpkcjwe7p"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1990976404]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_gpvk7")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=339077646]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("9_n1cv6")
+metadata/_custom_type_script = "uid://dxddfl5g0sgtd"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=132199877]
+position = Vector2(0, 17.5)
+shape = SubResource("RectangleShape2D_2w8te")
+
+[node name="SpawnMarker" type="Marker2D" parent="." unique_id=960260319]
+position = Vector2(0, 17)
+
+[node name="Lock" type="Node" parent="." unique_id=2134691984]
+script = ExtResource("10_u1ld1")
+metadata/_custom_type_script = "uid://cahbckpdbwxoq"
+
+[node name="LockedLabel" type="Label" parent="." unique_id=1467071774]
+offset_left = -38.0
+offset_top = -54.0
+offset_right = 38.0
+offset_bottom = -10.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_gpvk7")
+text = "Locked!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
+[connection signal="interact" from="InteractionArea" to="." method="_on_interaction_area_interact"]

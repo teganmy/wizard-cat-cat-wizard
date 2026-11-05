@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://6t34451gxrtm" path="res://player/player.tscn" id="2_43h8d"]
 [ext_resource type="PackedScene" uid="uid://bbhvbmlbu1ne7" path="res://UI/hud.tscn" id="2_sancg"]
 [ext_resource type="TileSet" uid="uid://yeucsf3jvqss" path="res://assets/landscape_tileset.tres" id="3_8uweq"]
+[ext_resource type="PackedScene" uid="uid://boyx6x1khflbj" path="res://props/candle.tscn" id="3_wmka8"]
 [ext_resource type="PackedScene" uid="uid://hpag36semn3u" path="res://props/portal.tscn" id="5_boaak"]
 [ext_resource type="PackedScene" uid="uid://b7abfpxug6kt" path="res://UI/level_select_menu.tscn" id="5_cas1r"]
 [ext_resource type="PackedScene" uid="uid://u300mn1dprv" path="res://props/level_selector.tscn" id="7_m63w8"]
@@ -36,3 +37,9 @@ position = Vector2(608, 224)
 position = Vector2(488, 208)
 level_select = NodePath("../CanvasLayer/HUD/LevelSelectMenu")
 portal = NodePath("../Portal")
+
+[node name="Candle2" parent="." unique_id=1615648304 instance=ExtResource("3_wmka8")]
+position = Vector2(665, 211)
+
+[node name="Candle" parent="." unique_id=753880452 instance=ExtResource("3_wmka8")]
+position = Vector2(442, 214)

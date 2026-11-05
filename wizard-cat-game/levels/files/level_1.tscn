@@ -15,7 +15,9 @@
 [ext_resource type="Resource" uid="uid://csnqy0o3a70kb" path="res://enemies/types/snail.tres" id="10_vjtdm"]
 [ext_resource type="Resource" uid="uid://ld6uwxcbxknh" path="res://loot/loot_types/gem.tres" id="11_aerfg"]
 [ext_resource type="Resource" uid="uid://blk0w5rkukd5e" path="res://enemies/types/snake.tres" id="11_vjtdm"]
+[ext_resource type="PackedScene" uid="uid://boyx6x1khflbj" path="res://props/candle.tscn" id="13_1ylvr"]
 [ext_resource type="Resource" uid="uid://dua1rcwkq8gmb" path="res://enemies/types/frog.tres" id="15_bgw3c"]
+[ext_resource type="PackedScene" uid="uid://t7dn52ht6rhi" path="res://props/cauldtron.tscn" id="16_ccqkv"]
 [ext_resource type="PackedScene" uid="uid://hpag36semn3u" path="res://props/portal.tscn" id="16_lrvbd"]
 
 [sub_resource type="Resource" id="Resource_3sk1a"]
@@ -97,6 +99,15 @@ position = Vector2(464, 384)
 position = Vector2(-144, 143)
 scale = Vector2(3, 1)
 
+[node name="Candle" parent="Room1" unique_id=753880452 instance=ExtResource("13_1ylvr")]
+position = Vector2(472, 349)
+
+[node name="Candle2" parent="Room1" unique_id=22373445 instance=ExtResource("13_1ylvr")]
+position = Vector2(264, -89)
+
+[node name="Candle3" parent="Room1" unique_id=330765422 instance=ExtResource("13_1ylvr")]
+position = Vector2(-158, 55)
+
 [node name="Room2" type="Area2D" parent="." unique_id=327343923 node_paths=PackedStringArray("lockables")]
 position = Vector2(512, -191)
 collision_layer = 0
@@ -147,12 +158,24 @@ enemy_scene = ExtResource("3_btoec")
 waves = Array[ExtResource("9_betor")]([ExtResource("10_vjtdm"), ExtResource("11_vjtdm")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
+[node name="Candle" parent="Room2" unique_id=1529659483 instance=ExtResource("13_1ylvr")]
+position = Vector2(-211, -208)
+
+[node name="Candle2" parent="Room2" unique_id=30574373 instance=ExtResource("13_1ylvr")]
+position = Vector2(170, -208)
+
+[node name="Candle3" parent="Room2" unique_id=1860767743 instance=ExtResource("13_1ylvr")]
+position = Vector2(-211, 166)
+
+[node name="Candle4" parent="Room2" unique_id=1285114312 instance=ExtResource("13_1ylvr")]
+position = Vector2(170, 166)
+
 [node name="Room3" type="Area2D" parent="." unique_id=499311839 node_paths=PackedStringArray("lockables")]
 position = Vector2(0, 129)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_3sk1a")
-lockables = [NodePath("Door"), NodePath("Chest"), NodePath("Chest2"), NodePath("Chest3"), NodePath("Door2")]
+lockables = [NodePath("Door"), NodePath("Cauldron"), NodePath("Cauldron2"), NodePath("Cauldron3"), NodePath("Door2")]
 metadata/_custom_type_script = "uid://r7m3l5eq4nij"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Room3" unique_id=806101480]
@@ -172,15 +195,6 @@ scale = Vector2(3, 1)
 position = Vector2(-368, 367)
 rotation = 1.5707964
 scale = Vector2(3, 1)
-
-[node name="Chest" parent="Room3" unique_id=1691808411 instance=ExtResource("6_btoec")]
-position = Vector2(-336, 240)
-
-[node name="Chest2" parent="Room3" unique_id=781368711 instance=ExtResource("6_btoec")]
-position = Vector2(-304, 240)
-
-[node name="Chest3" parent="Room3" unique_id=851428898 instance=ExtResource("6_btoec")]
-position = Vector2(-272, 240)
 
 [node name="EnemySpawner" type="Marker2D" parent="Room3" unique_id=2066954601]
 position = Vector2(-160, 151)
@@ -217,6 +231,15 @@ position = Vector2(-16, 143)
 
 [node name="Vase4" parent="Room3" unique_id=2079993041 instance=ExtResource("7_gwceb")]
 position = Vector2(-48, 111)
+
+[node name="Cauldron3" parent="Room3" unique_id=164657669 instance=ExtResource("16_ccqkv")]
+position = Vector2(-272, 240)
+
+[node name="Cauldron2" parent="Room3" unique_id=389771354 instance=ExtResource("16_ccqkv")]
+position = Vector2(-304, 240)
+
+[node name="Cauldron" parent="Room3" unique_id=623285871 instance=ExtResource("16_ccqkv")]
+position = Vector2(-336, 240)
 
 [node name="Room4" type="Area2D" parent="." unique_id=1041433148 node_paths=PackedStringArray("lockables")]
 position = Vector2(-256, -64)
