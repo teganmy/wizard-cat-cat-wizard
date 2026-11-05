@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ShopItem" format=3 uid="uid://mkqe7ur1i11e"]
+
+[ext_resource type="Texture2D" uid="uid://c0q2vctmkonmc" path="res://assets/wing.png" id="1_bhtgk"]
+[ext_resource type="Script" uid="uid://oort4vmrahae" path="res://shop/shop_item.gd" id="1_ut11q"]
+
+[resource]
+script = ExtResource("1_ut11q")
+name = "Move Speed Upgrade"
+description = "Upgrades player movement speed"
+icon = ExtResource("1_bhtgk")
+kind = 2
+price = 200
+upgrade_id = "move_speed"
+max_level = 3
+price_step = 150
+metadata/_custom_type_script = "uid://oort4vmrahae"

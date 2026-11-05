@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ShopItem" format=3 uid="uid://bi2at5lixyf0b"]
+
+[ext_resource type="Texture2D" uid="uid://bh0b5ngjxo8yg" path="res://assets/heart_boost.png" id="1_l464y"]
+[ext_resource type="Script" uid="uid://oort4vmrahae" path="res://shop/shop_item.gd" id="1_pli2g"]
+
+[resource]
+script = ExtResource("1_pli2g")
+name = "Max Health Upgrade"
+description = "Upgrades max health by one heart"
+icon = ExtResource("1_l464y")
+kind = 2
+price = 200
+upgrade_id = "max_health"
+max_level = 3
+price_step = 150
+metadata/_custom_type_script = "uid://oort4vmrahae"

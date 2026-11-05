@@ -1,0 +1,22 @@
+[gd_resource type="Theme" format=3 uid="uid://73e2rg3fxfv"]
+
+[ext_resource type="FontFile" uid="uid://daw8ks1yvxnhe" path="res://assets/SurabanglusNormal-16dv.ttf" id="1_lxjny"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ljlg5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bv5vx"]
+bg_color = Color(0.56078434, 0.4392157, 0.42745098, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.98039216, 0.9411765, 0.8392157, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[resource]
+default_font = ExtResource("1_lxjny")
+Label/styles/normal = SubResource("StyleBoxEmpty_ljlg5")
+Panel/styles/panel = SubResource("StyleBoxFlat_bv5vx")

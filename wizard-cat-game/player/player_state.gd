@@ -1,10 +1,17 @@
 extends Node
 var fire_rate_multiplier: float = 1.0
 var _boost_timer: Timer
-var max_potions: int = 3
+
+const BASE_POTIONS := 3
+var max_potions: int:
+	get:
+		return BASE_POTIONS + upgrade_level("potion_slots")
+var upgrades: Dictionary = {}
 var potions: Array[LootType] = []
 var secondary: LootType
 
+signal potions_changed
+signal upgrades_changed
 signal secondary_changed(type: LootType)
 
 var current_health: int:
@@ -43,7 +50,6 @@ signal current_health_changed(new: int)
 signal max_health_changed(new: int)
 signal currency_changed(new: int)
 signal fire_rate_boost_changed(multiplier: float)
-signal potions_changed
 
 func _ready() -> void:
 	add_to_group("Persistent")
@@ -82,6 +88,7 @@ func save() -> Dictionary:
 		"player_is_new": player_is_new,
 		"secondary_path": secondary_path,
 		"potion_paths": potion_paths,
+		"upgrades": upgrades,
 	}
 
 func add_potion(type: LootType) -> bool:
@@ -106,3 +113,13 @@ func cycle_potion() -> void:
 func set_secondary(type: LootType) -> void:
 	secondary = type
 	secondary_changed.emit(type)
+	
+func upgrade_level(id: String) -> int:
+	return int(upgrades.get(id, 0))
+	
+func add_upgrade(id: String) -> void:
+	upgrades[id] = upgrade_level(id) + 1
+	if id == "max_health":
+		max_health += 1
+	upgrades_changed.emit()
+	

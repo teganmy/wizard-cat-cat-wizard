@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ShopItem" format=3 uid="uid://87151qk6t7vn"]
+
+[ext_resource type="Script" uid="uid://oort4vmrahae" path="res://shop/shop_item.gd" id="1_3bptn"]
+[ext_resource type="Texture2D" uid="uid://bfjj06yfh3mjg" path="res://assets/clock.png" id="1_ctsd6"]
+
+[resource]
+script = ExtResource("1_3bptn")
+name = "Dodge Cooldown Reducer"
+description = "Reduces cooldown time for dodge action"
+icon = ExtResource("1_ctsd6")
+kind = 2
+price = 250
+upgrade_id = "dodge_cooldown"
+max_level = 3
+price_step = 150
+metadata/_custom_type_script = "uid://oort4vmrahae"

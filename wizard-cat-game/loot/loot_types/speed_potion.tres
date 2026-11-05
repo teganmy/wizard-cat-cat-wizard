@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_l48w5")
+name = "Speed Potion"
 sprite = ExtResource("2_o8qek")
 storable = true
 fire_rate_multiplier = 5.0

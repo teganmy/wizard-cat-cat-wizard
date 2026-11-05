@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://hpag36semn3u" path="res://props/portal.tscn" id="5_boaak"]
 [ext_resource type="PackedScene" uid="uid://b7abfpxug6kt" path="res://UI/level_select_menu.tscn" id="5_cas1r"]
 [ext_resource type="PackedScene" uid="uid://u300mn1dprv" path="res://props/level_selector.tscn" id="7_m63w8"]
+[ext_resource type="PackedScene" uid="uid://cm51ht3rkb1e6" path="res://shop/shop.tscn" id="9_24ckt"]
+[ext_resource type="PackedScene" uid="uid://c7pn22x2stlpn" path="res://shop/shopkeeper.tscn" id="10_x5qsl"]
 
 [node name="HomeBase" type="Node2D" unique_id=1618752609]
 script = ExtResource("1_xolgs")
@@ -43,3 +45,20 @@ position = Vector2(665, 211)
 
 [node name="Candle" parent="." unique_id=753880452 instance=ExtResource("3_wmka8")]
 position = Vector2(442, 214)
+
+[node name="ShopLayer" type="CanvasLayer" parent="." unique_id=857428770]
+
+[node name="Shop" parent="ShopLayer" unique_id=812727718 instance=ExtResource("9_24ckt")]
+anchors_preset = -1
+anchor_left = 0.44500002
+anchor_top = 0.48700002
+anchor_right = 0.44500002
+anchor_bottom = 0.48700002
+offset_left = -272.64
+offset_top = -130.57602
+offset_right = -272.64
+offset_bottom = -130.57602
+
+[node name="Shopkeeper" parent="." unique_id=1160917847 node_paths=PackedStringArray("shop") instance=ExtResource("10_x5qsl")]
+position = Vector2(923, 241)
+shop = NodePath("../ShopLayer/Shop")
