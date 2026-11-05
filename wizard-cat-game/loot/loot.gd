@@ -29,7 +29,7 @@ func _physics_process(_delta: float) -> void:
 	match state:
 		STATE.GRABBED:
 			if follow:
-				apply_central_force(global_position.direction_to(follow.global_position) * 1000)
+				apply_central_force(global_position.direction_to(follow.global_position) * 100)
 				if follow.global_position.distance_to(global_position) < 20:
 					picked_up.emit(value)
 					queue_free()
