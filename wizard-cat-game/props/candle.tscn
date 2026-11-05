@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cepujxmgktgbn" path="res://assets/candle.png" id="1_tcgl6"]
 
 [sub_resource type="Gradient" id="Gradient_pqck8"]
+offsets = PackedFloat32Array(0.13068181, 0.19886364, 0.36647728, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.84337354, 0.84337354, 0.84337354, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_jwmm1"]
 gradient = SubResource("Gradient_pqck8")
@@ -22,6 +24,7 @@ texture = ExtResource("1_tcgl6")
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=1756924679]
 color = Color(1, 0.63529414, 0.13333334, 1)
+shadow_filter = 1
 texture = SubResource("GradientTexture2D_jwmm1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=532223559]
