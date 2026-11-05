@@ -11,10 +11,12 @@
 font_size = 70
 font_color = Color(0.99215686, 0.95686275, 0.8235294, 1)
 
-[node name="Main" type="Node2D" unique_id=1893129849 node_paths=PackedStringArray("save_load_menu", "save_name_menu")]
+[node name="Main" type="Node2D" unique_id=1893129849 node_paths=PackedStringArray("save_load_menu", "save_name_menu", "continue_button", "load_button")]
 script = ExtResource("1_h2yge")
 save_load_menu = NodePath("MenuLayer/SaveLoadMenu")
 save_name_menu = NodePath("MenuLayer/SaveNameMenu")
+continue_button = NodePath("MenuLayer/MainMenu/PanelContainer/VBoxContainer/ContinueButton")
+load_button = NodePath("MenuLayer/MainMenu/PanelContainer/VBoxContainer/LoadButton")
 
 [node name="MenuLayer" type="CanvasLayer" parent="." unique_id=32101130]
 

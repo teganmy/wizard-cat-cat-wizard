@@ -12,7 +12,8 @@ func _ready() -> void:
 		if file.get_extension() == "json":
 			save_files.append(file)
 	save_files.sort_custom(_sort_by_date)
-	current_save = save_files[0]
+	if save_files.size() > 0:
+		current_save = save_files[0]
 
 func save_current() -> void:
 	save(current_save)
@@ -68,6 +69,7 @@ func change_save_file(filename: String) -> void:
 	load_current()
 
 func get_save_files() -> Array[String]:
+	save_files.sort_custom(_sort_by_date)
 	return save_files
 
 func add_save_file(filename: String) -> void:
@@ -93,11 +95,12 @@ func get_latest_save() -> String:
 	save_files.sort_custom(_sort_by_date)
 	return save_files[0]
 
-## True if save1 should be before save2, e.g. save1 is *more recent*
+## True if save1 should be before save2, e.g. save1 is more recent
 func _sort_by_date(save1: String, save2: String) -> bool:
 	var date1 = Time.get_datetime_dict_from_datetime_string(get_last_access(save1), false)
 	var date2 = Time.get_datetime_dict_from_datetime_string(get_last_access(save2), false)
-	for key in ["year", "month", "day", "hour", "second"]:
+	print("date1 = ", date1, "\ndate2 = ", date2)
+	for key in ["year", "month", "day", "hour", "minute", "second"]:
 		if date1[key] > date2[key]:
 			return true
 	return false
