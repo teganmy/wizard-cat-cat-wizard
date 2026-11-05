@@ -15,7 +15,7 @@ func _ready() -> void:
 func generate_loot(location: Vector2 = Vector2.ZERO) -> void:
 	var amount = randi_range(min_amount, max_amount)
 	for _i in range(amount):
-		var new_loot = roll_loot()
+		var new_loot = roll_loot()		
 		new_loot.global_position = to_global(location)
 		_apply_impulse(new_loot)
 		get_tree().current_scene.add_child.call_deferred(new_loot)
