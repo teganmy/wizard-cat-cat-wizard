@@ -8,4 +8,5 @@ script = ExtResource("1_3884a")
 sprite = ExtResource("2_4ehuj")
 value = 0
 heal_amount = 1
+storable = true
 metadata/_custom_type_script = "uid://qiyo0f705gt"

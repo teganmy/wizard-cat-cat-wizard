@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://cec2qkk20ybsu" path="res://UI/life_container.gd" id="1_knk3d"]
 [ext_resource type="Script" uid="uid://cawfowwy7xfdn" path="res://UI/hud.gd" id="1_px13d"]
-[ext_resource type="Texture2D" uid="uid://twcn8reybrid" path="res://assets/heart2.png" id="4_0j753"]
+[ext_resource type="Texture2D" uid="uid://cvycvjxgj6ke8" path="res://assets/heart3.png" id="3_i0a73"]
 [ext_resource type="Script" uid="uid://ccdrtef6dusxl" path="res://UI/wave_label.gd" id="5_0j753"]
 [ext_resource type="Script" uid="uid://cp8f4cqmnbsvk" path="res://UI/pause_menu.gd" id="5_quk1y"]
 [ext_resource type="Script" uid="uid://dq2js0a13n6oc" path="res://components/button_tween.gd" id="6_quk1y"]
 [ext_resource type="Script" uid="uid://bsm781q6jn3fy" path="res://UI/confirm_menu.gd" id="8_i0a73"]
-[ext_resource type="PackedScene" uid="uid://bj1whtrt5egb2" path="res://UI/boss_bar.tscn" id="8_pf7ph"]
+[ext_resource type="Script" uid="uid://bk6ihj4uox8lt" path="res://potion_container.gd" id="8_pf7ph"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_quk1y"]
 content_margin_left = 10.0
@@ -102,7 +102,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_knk3d")
-heart_texture = ExtResource("4_0j753")
+heart_texture = ExtResource("3_i0a73")
 
 [node name="WaveLabel" type="Label" parent="MarginContainer" unique_id=1045066760]
 layout_mode = 2
@@ -244,6 +244,14 @@ script = ExtResource("6_quk1y")
 buttons = [NodePath("../PanelContainer/VBoxContainer/CancelButton"), NodePath("../PanelContainer/VBoxContainer/ConfirmButton")]
 active = false
 metadata/_custom_type_script = "uid://dq2js0a13n6oc"
+
+[node name="PotionContainer" type="HBoxContainer" parent="." unique_id=2079544909]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+alignment = 1
+script = ExtResource("8_pf7ph")
 
 [connection signal="popup_hide" from="TutorialPopup" to="." method="_on_tutorial_popup_popup_hide"]
 [connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/ResumeButton" to="PauseMenu" method="_on_resume_button_pressed"]

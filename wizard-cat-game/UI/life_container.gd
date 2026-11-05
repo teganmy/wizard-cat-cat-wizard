@@ -4,13 +4,14 @@ var hearts: Array[TextureRect] = []
 @export var heart_texture: Texture2D
 
 func change_hearts(new: int) -> void:
-	for heart in range(0, new):
-		hearts[heart].modulate = Color.WHITE
-	for heart in range(new, PlayerState.max_health):
-		hearts[heart].modulate = Color.BLACK
+	for i in hearts.size():
+		hearts[i].modulate = Color.WHITE if i < new else Color.BLACK
 		
 
 func change_max(new: int) -> void:
+	for heart in hearts:
+		remove_child(heart)
+		heart.queue_free()
 	hearts.clear()
 	for _i in range(new):
 		var heart = TextureRect.new()
@@ -28,6 +29,7 @@ func _ready() -> void:
 
 func _on_player_max_changed(new: int) -> void:
 	change_max(new)
+	change_hearts(new)
 
 func _on_player_current_changed(new: int) -> void:
 	change_hearts(new)

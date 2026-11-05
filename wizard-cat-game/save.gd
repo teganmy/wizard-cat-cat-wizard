@@ -39,6 +39,7 @@ func load_save(save_to_load: String) -> void:
 		print("Loading %s..." % save_to_load)
 		get_tree().call_group("Persistent", "reset")
 		var file := FileAccess.open(save_folder.path_join(save_to_load), FileAccess.READ)
+		PlayerState.reset()
 		var _date: String = file.get_line()
 		var line: String = file.get_line()
 		while line:

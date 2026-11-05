@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+const GROUND_RESPONSE := 0.1
+const FEET_OFFSET := Vector2(0, 8)
+@export var ice_slide_time: float = 1.0
+@export var water_speed_multiplier: float = 0.5
 @export var speed: float = 100
 @export var dodge_speed: float = 500
 @export var i_frames: float = 0.1
@@ -9,8 +13,11 @@ extends CharacterBody2D
 @onready var dodge_cooldown := $DodgeCooldown
 @onready var hurtbox := $Hurtbox
 @onready var secondary_shooter: AreaShooter = $SecondaryShooter
+@onready var pickup_area: PickupArea = $PickupArea
+
 var last_dir: Vector2 = Vector2.ZERO
 var dodge_dir: Vector2 = Vector2.ZERO
+var _surface_layer: TileMapLayer
 
 enum STATE {IDLE, MOVE, DODGE}
 enum HIT_STATE {NORMAL, INVINCIBLE}
@@ -30,6 +37,7 @@ func _ready() -> void:
 	iframe_timer.one_shot = true
 	iframe_timer.timeout.connect(_change_hit_state.bind(HIT_STATE.NORMAL))
 	add_child(iframe_timer)
+	_surface_layer = get_tree().get_first_node_in_group("surface_layer")
 
 func _process(_delta: float) -> void:
 	if get_global_mouse_position().x < global_position.x:
@@ -37,7 +45,7 @@ func _process(_delta: float) -> void:
 	else:
 		sprite.flip_h = true
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var dir := Input.get_vector("player_left", "player_right", "player_up", "player_down")
 	if Input.is_action_just_pressed("fire"):
 		for bullet in shooter.fire(get_global_mouse_position()):
@@ -45,6 +53,10 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("secondary_fire"):
 		for bullet in secondary_shooter.fire(get_global_mouse_position()):
 			add_sibling(bullet)
+	if Input.is_action_just_pressed("use_potion"):
+		_use_potion()
+	if Input.is_action_just_pressed("cycle_potion"):
+		PlayerState.cycle_potion()
 	match state:
 		STATE.IDLE:
 			if dir != Vector2.ZERO:
@@ -56,11 +68,11 @@ func _physics_process(_delta: float) -> void:
 				_change_state(STATE.IDLE)
 			if Input.is_action_just_pressed("player_dodge"):
 				_change_state(STATE.DODGE)
-			if dir != last_dir:
-				create_tween().set_trans(Tween.TRANS_QUAD).tween_property(self, "velocity", speed * dir, 0.1)
-				last_dir = dir
+			last_dir = dir
 		STATE.DODGE:
 			velocity = dodge_dir * dodge_speed
+	if state != STATE.DODGE:
+		_update_velocity(dir, delta)
 	move_and_slide()
 
 func _change_state(new_state: STATE) -> void:
@@ -103,8 +115,38 @@ func _end_dodge() -> void:
 func _on_pickup_area_picked_up(value: int) -> void:
 	PlayerState.currency += value
 
-
 func _on_hurtbox_hurt() -> void:
 	_change_hit_state(HIT_STATE.INVINCIBLE)
 	modulate = Color.DARK_GRAY
 	create_tween().tween_property(self, "modulate", Color.WHITE, i_frames)
+	
+func _use_potion() -> void:
+	var potion: LootType = PlayerState.selected()
+	if potion == null or not potion.can_use(health):
+		return
+	pickup_area.apply_effect(potion)
+	PlayerState.consume_selected()
+	
+func _update_velocity(dir: Vector2, delta: float) -> void:
+	var max_speed := speed
+	var accel_time := GROUND_RESPONSE
+	var stop_time := GROUND_RESPONSE
+	match _get_surface():
+		"ice":
+			accel_time = ice_slide_time * 0.4
+			stop_time = ice_slide_time
+		"water":
+			max_speed = speed * water_speed_multiplier
+	if dir != Vector2.ZERO:
+		velocity = velocity.move_toward(dir * max_speed, speed / accel_time * delta)
+	else:
+		velocity = velocity.move_toward(Vector2.ZERO, speed / stop_time * delta)
+
+func _get_surface() -> String:
+	if _surface_layer == null:
+		return ""
+	var cell := _surface_layer.local_to_map(_surface_layer.to_local(global_position + FEET_OFFSET))
+	var data := _surface_layer.get_cell_tile_data(cell)
+	if data == null:
+		return ""
+	return str(data.get_custom_data("surface"))

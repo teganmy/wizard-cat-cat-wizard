@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ShopItem" format=3 uid="uid://ctlb4mgmxyhpd"]
+
+[ext_resource type="Texture2D" uid="uid://ctir1lgg8ybcc" path="res://assets/potion_1.png" id="1_d2r0q"]
+[ext_resource type="Script" uid="uid://oort4vmrahae" path="res://shop/shop_item.gd" id="1_thv8q"]
+[ext_resource type="Resource" uid="uid://dhxxvsvsbsbnd" path="res://loot/loot_types/healing_potion.tres" id="2_me3is"]
+
+[resource]
+script = ExtResource("1_thv8q")
+name = "Healing Potion"
+description = "Heals one heart"
+icon = ExtResource("1_d2r0q")
+price = 50
+loot = ExtResource("2_me3is")
+metadata/_custom_type_script = "uid://oort4vmrahae"

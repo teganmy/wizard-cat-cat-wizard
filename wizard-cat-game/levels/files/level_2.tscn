@@ -390,6 +390,9 @@ position = Vector2(144, -432)
 [node name="Chest3" parent="Room5" unique_id=1331244908 instance=ExtResource("13_5orea")]
 position = Vector2(352, -48)
 
+[node name="Candle" parent="Room1" unique_id=753880452 instance=ExtResource("14_bu5mg")]
+position = Vector2(171, -154)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1406832674]
 
 [node name="HUD" parent="CanvasLayer" unique_id=1381849764 instance=ExtResource("3_0srwa")]

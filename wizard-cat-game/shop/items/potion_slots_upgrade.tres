@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ShopItem" format=3 uid="uid://s0ynkqs2e2r6"]
+
+[ext_resource type="Script" uid="uid://oort4vmrahae" path="res://shop/shop_item.gd" id="1_8pv2s"]
+[ext_resource type="Texture2D" uid="uid://bwdj2cxda4pwo" path="res://assets/potion-plus.png" id="1_ars0n"]
+
+[resource]
+script = ExtResource("1_8pv2s")
+name = "Potion Slots Upgrade"
+description = "Allows the player to store more potions"
+icon = ExtResource("1_ars0n")
+kind = 2
+price = 250
+upgrade_id = "potion_slots"
+max_level = 3
+price_step = 250
+metadata/_custom_type_script = "uid://oort4vmrahae"

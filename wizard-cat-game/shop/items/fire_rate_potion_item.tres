@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ShopItem" format=3 uid="uid://d3dxnupe5752r"]
+
+[ext_resource type="Texture2D" uid="uid://c0dhoptrl3wsf" path="res://assets/potion_1 1.png" id="1_6b0tg"]
+[ext_resource type="Resource" uid="uid://dniq4qev1nvsd" path="res://loot/loot_types/speed_potion.tres" id="1_bg1i7"]
+[ext_resource type="Script" uid="uid://oort4vmrahae" path="res://shop/shop_item.gd" id="1_scpno"]
+
+[resource]
+script = ExtResource("1_scpno")
+name = "Fire Rate Potion"
+description = "Temporarily reduces cooldown time for firing shots at enemies"
+icon = ExtResource("1_6b0tg")
+price = 50
+loot = ExtResource("1_bg1i7")
+metadata/_custom_type_script = "uid://oort4vmrahae"

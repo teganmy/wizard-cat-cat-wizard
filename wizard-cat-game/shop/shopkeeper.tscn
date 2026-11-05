@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c7pn22x2stlpn"]
+
+[ext_resource type="Script" uid="uid://cjyg1tldjkd1y" path="res://shop/shopkeeper.gd" id="1_cd8th"]
+[ext_resource type="Texture2D" uid="uid://bi30h0wjprk6s" path="res://assets/shop-cat.png" id="1_kxpjl"]
+[ext_resource type="Script" uid="uid://dxddfl5g0sgtd" path="res://components/interaction_area.gd" id="2_w6s7f"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kxpjl"]
+radius = 11.0
+height = 32.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w6s7f"]
+radius = 18.0
+height = 50.0
+
+[node name="Shopkeeper" type="StaticBody2D" unique_id=1160917847]
+script = ExtResource("1_cd8th")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1518237708]
+texture = ExtResource("1_kxpjl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1500869401]
+shape = SubResource("CapsuleShape2D_kxpjl")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1926465761]
+collision_mask = 2
+script = ExtResource("2_w6s7f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=66059909]
+shape = SubResource("CapsuleShape2D_w6s7f")
+
+[connection signal="interact" from="InteractionArea" to="." method="_on_interaction_area_interact"]

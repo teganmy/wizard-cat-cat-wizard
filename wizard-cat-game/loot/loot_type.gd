@@ -6,6 +6,10 @@ extends Resource
 @export var value: int = 1
 @export var tint: Color = Color.WHITE
 @export var heal_amount: int = 0
+@export var storable: bool = false
 @export var fire_rate_multiplier: float = 1.0
 @export var fire_rate_duration: float = 0.0
 @export var attack: SecondaryAttack
+
+func can_use(health: Health) -> bool:
+	return not (heal_amount > 0 and health.current >= health.max_health)

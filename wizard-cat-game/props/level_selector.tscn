@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://u300mn1dprv"]
 
 [ext_resource type="Script" uid="uid://mq0i1f1fg1n7" path="res://props/level_selector.gd" id="1_4yprg"]
-[ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="1_ut6rh"]
 [ext_resource type="Script" uid="uid://dxddfl5g0sgtd" path="res://components/interaction_area.gd" id="2_dlcje"]
+[ext_resource type="Texture2D" uid="uid://bomglkj44uho0" path="res://assets/portal.png" id="2_ojqhc"]
 [ext_resource type="Script" uid="uid://cinm2ra8wmwf2" path="res://props/label_popup.gd" id="4_ojqhc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpvk7"]
@@ -18,10 +18,12 @@ script = ExtResource("1_4yprg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=932774360]
 texture_filter = 1
+position = Vector2(0, 6)
 scale = Vector2(2, 2)
-texture = ExtResource("1_ut6rh")
+texture = ExtResource("2_ojqhc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=948248874]
+position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_gpvk7")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=920884551]
@@ -31,7 +33,7 @@ script = ExtResource("2_dlcje")
 metadata/_custom_type_script = "uid://dxddfl5g0sgtd"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=795444729]
-position = Vector2(0, 13)
+position = Vector2(0, 22)
 shape = SubResource("RectangleShape2D_2w8te")
 
 [node name="SelectLabel" type="Label" parent="." unique_id=1252771046 node_paths=PackedStringArray("interaction_area")]
@@ -41,9 +43,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -59.0
-offset_top = -65.0
+offset_top = -61.0
 offset_right = 59.0
-offset_bottom = -21.0
+offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
