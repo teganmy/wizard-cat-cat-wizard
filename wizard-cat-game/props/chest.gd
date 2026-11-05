@@ -1,22 +1,26 @@
 extends StaticBody2D
 
 var opened: bool = false
-@export var lock: Lock
 @export var loot_table_override: Array[WeightedLoot]
 @export var max_loot_override: int
 @export var min_loot_override: int
+@export var open_texture: Texture2D
+@export_group("Wiring")
 @export var lootable: Lootable
 @export var sprite: Sprite2D
-@export var open_texture: Texture2D
+@export var lock: Lock
+@export var spawn_marker: Marker2D
+@export var label: Label
+@export var interaction_area: InteractionArea
 
 func _on_interaction_area_interact() -> void:
 	if not opened and not lock.is_locked():
-		lootable.generate_loot($SpawnMarker.position)
+		lootable.generate_loot(spawn_marker.position)
 		opened = true
 		sprite.texture = open_texture
 		sprite.modulate = Color.WHITE
+		interaction_area.hint = ""
 	elif lock.is_locked():
-		var label := $LockedLabel
 		if label:
 			label.scale = Vector2(0.75,0.75)
 			var tween = label.create_tween()
@@ -32,7 +36,7 @@ func _on_interaction_area_body_exited(_body: Node2D) -> void:
 	create_tween().tween_property(sprite, "modulate", Color.WHITE, 0.1)
 
 func _ready() -> void:
-	$LockedLabel.modulate.a = 0.0
+	label.modulate.a = 0.0
 	if loot_table_override:
 		lootable.loot_table = loot_table_override
 	if max_loot_override:

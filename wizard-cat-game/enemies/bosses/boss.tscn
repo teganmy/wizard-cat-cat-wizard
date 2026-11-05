@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://5fb3r7077xy0"]
+
+[ext_resource type="Script" uid="uid://crwq0f0hs7geq" path="res://enemies/bosses/boss.gd" id="1_m4niq"]
+[ext_resource type="Texture2D" uid="uid://dhtpiyohp7lug" path="res://assets/snail.png" id="1_p8p2m"]
+[ext_resource type="Resource" uid="uid://c8hdbgylp83qg" path="res://enemies/bosses/defs/shotgun_boss.tres" id="2_grk4i"]
+[ext_resource type="Script" uid="uid://ds8lqx0juuem6" path="res://components/area_shooter.gd" id="3_sm571"]
+[ext_resource type="Script" uid="uid://bcc0owr08yuq5" path="res://components/health.gd" id="4_x6ew0"]
+[ext_resource type="Script" uid="uid://c88tvlaqfqme2" path="res://components/hurtbox.gd" id="5_wp37u"]
+[ext_resource type="PackedScene" uid="uid://dvdc0giywjqia" path="res://shooting/area_bullet.tscn" id="7_7rc2r"]
+[ext_resource type="Script" uid="uid://c4u3dpkcjwe7p" path="res://loot/lootable.gd" id="8_twj2v"]
+[ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="9_ylii2"]
+[ext_resource type="Resource" uid="uid://ld6uwxcbxknh" path="res://loot/loot_types/gem.tres" id="10_pk2gn"]
+[ext_resource type="Resource" uid="uid://bysyxfwpc5ro3" path="res://loot/loot_types/coin.tres" id="11_trnlp"]
+[ext_resource type="Script" uid="uid://qiyo0f705gt" path="res://loot/loot_type.gd" id="12_pk2gn"]
+[ext_resource type="Resource" uid="uid://c2387hiu35uva" path="res://loot/loot_types/shotgun_secondary.tres" id="13_trnlp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m4niq"]
+radius = 25.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpvk7"]
+size = Vector2(59, 50)
+
+[sub_resource type="Resource" id="Resource_gpvk7"]
+script = ExtResource("9_ylii2")
+type = ExtResource("10_pk2gn")
+weight = 0.6
+metadata/_custom_type_script = "uid://drq0y0x2llhhg"
+
+[sub_resource type="Resource" id="Resource_2w8te"]
+script = ExtResource("9_ylii2")
+type = ExtResource("11_trnlp")
+weight = 0.4
+metadata/_custom_type_script = "uid://drq0y0x2llhhg"
+
+[sub_resource type="Curve" id="Curve_ylii2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.89189196, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_twj2v"]
+curve = SubResource("Curve_ylii2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pk2gn"]
+particle_flag_disable_z = true
+angle_min = -179.99998
+angle_max = 180.00002
+spread = 180.0
+initial_velocity_min = 40.0
+initial_velocity_max = 100.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = -1.6093254e-05
+gravity = Vector3(0, 0, 0)
+damping_min = 95.00001
+damping_max = 100.00001
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_twj2v")
+
+[node name="Boss" type="CharacterBody2D" unique_id=809267286 node_paths=PackedStringArray("health", "shooter", "nav_agent", "sprite", "death_particles", "lootable")]
+collision_layer = 4
+motion_mode = 1
+script = ExtResource("1_m4niq")
+def = ExtResource("2_grk4i")
+health = NodePath("Health")
+shooter = NodePath("AreaShooter")
+nav_agent = NodePath("NavigationAgent2D")
+sprite = NodePath("Sprite2D")
+death_particles = NodePath("DeathParticles")
+lootable = NodePath("Lootable")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=486696595]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_p8p2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=341412598]
+visible = false
+shape = SubResource("CircleShape2D_m4niq")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=937572849]
+
+[node name="AreaShooter" type="Node2D" parent="." unique_id=2020245574]
+script = ExtResource("3_sm571")
+bullet_scene = ExtResource("7_7rc2r")
+metadata/_custom_type_script = "uid://ds8lqx0juuem6"
+
+[node name="Health" type="Node" parent="." unique_id=1422729104]
+script = ExtResource("4_x6ew0")
+max_health = 10
+metadata/_custom_type_script = "uid://bcc0owr08yuq5"
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1655275753 node_paths=PackedStringArray("health")]
+visible = false
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("5_wp37u")
+health = NodePath("../Health")
+metadata/_custom_type_script = "uid://c88tvlaqfqme2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1171293507]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_gpvk7")
+
+[node name="Lootable" type="Node2D" parent="." unique_id=1168048836]
+script = ExtResource("8_twj2v")
+loot_table = Array[ExtResource("9_ylii2")]([SubResource("Resource_gpvk7"), SubResource("Resource_2w8te")])
+guaranteed_loot = Array[ExtResource("12_pk2gn")]([ExtResource("13_trnlp")])
+max_amount = 20
+min_amount = 15
+metadata/_custom_type_script = "uid://c4u3dpkcjwe7p"
+
+[node name="DeathParticles" type="GPUParticles2D" parent="." unique_id=1916142293]
+modulate = Color(0, 0.5022893, 0.80802345, 1)
+emitting = false
+amount = 30
+lifetime = 4.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_pk2gn")
+
+[connection signal="changed" from="Health" to="." method="_on_health_changed"]
+[connection signal="died" from="Health" to="." method="_on_health_died"]

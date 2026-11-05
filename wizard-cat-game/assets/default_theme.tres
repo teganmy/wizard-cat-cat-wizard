@@ -1,5 +1,22 @@
 [gd_resource type="Theme" format=3 uid="uid://cnlk2q7yx8tfd"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oal56"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 15.0
+bg_color = Color(0.82704794, 0.70929563, 0.70788485, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.99215686, 0.95686275, 0.8235294, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_81pgw"]
 content_margin_left = 0.0
 content_margin_top = 0.0
@@ -69,10 +86,10 @@ corner_radius_bottom_left = 20
 corner_detail = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
 bg_color = Color(0.6901961, 0.8039216, 0.9019608, 1)
 border_width_left = 5
 border_width_top = 5
@@ -84,6 +101,20 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o54fn"]
+bg_color = Color(0.16924527, 0.1692453, 0.16924521, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_203bq"]
+bg_color = Color(0.60785836, 0, 0.12118887, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgm14"]
 bg_color = Color(1, 1, 1, 1)
@@ -102,6 +133,7 @@ default_font_size = 30
 Button/colors/font_color = Color(0.99215686, 0.95686275, 0.8235294, 1)
 Button/colors/font_hover_color = Color(0.99215686, 0.95686275, 0.8235294, 1)
 Button/colors/font_pressed_color = Color(0.9843137, 0.9137255, 0.6509804, 1)
+Button/styles/disabled = SubResource("StyleBoxFlat_oal56")
 Button/styles/hover = SubResource("StyleBoxFlat_81pgw")
 Button/styles/normal = SubResource("StyleBoxFlat_qew4h")
 Button/styles/pressed = SubResource("StyleBoxFlat_cs2sx")
@@ -112,5 +144,8 @@ MarginContainer/constants/margin_left = 32
 MarginContainer/constants/margin_right = 32
 MarginContainer/constants/margin_top = 32
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_06t4h")
+ProgressBar/constants/outline_size = 10
+ProgressBar/styles/background = SubResource("StyleBoxFlat_o54fn")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_203bq")
 ScrollContainer/styles/panel = SubResource("StyleBoxFlat_qgm14")
 VBoxContainer/constants/separation = 15

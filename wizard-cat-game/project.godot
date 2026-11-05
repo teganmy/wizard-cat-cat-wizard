@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 PlayerState="*uid://bsi82jkp1yi24"
 SceneLoader="*uid://dc4g18ntwdqgq"
 Save="*uid://bq8sxdrcnc3q0"
+LevelLoader="*uid://dy0rsvs363y4h"
 
 [display]
 

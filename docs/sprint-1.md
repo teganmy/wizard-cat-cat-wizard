@@ -1,12 +1,12 @@
 MUSTs we need to work on:
 
-- [ ] Bossfights
+- [x] Bossfights
   - Assigned to: **Sophie**
   - Done when:
-      - [ ] Bosses are defined in code
-      - [ ] Bosses are spawnable
-      - [ ] Bosses are fightable
-      - [ ] Bosses create meaningful challenge
+      - [x] Bosses are defined in code
+      - [x] Bosses are spawnable
+      - [x] Bosses are fightable
+      - [x] Bosses create meaningful challenge
 - [x] Level Select
   - Assigned to:
   - Done when: **Sophie**
@@ -14,11 +14,11 @@ MUSTs we need to work on:
     - [x] Levels can be entered
     - [x] New levels can be created and easily added to menu
     - [x] Levels can have metadata assigned (e.g. icon, title, file location)
-- [ ] Level progression (Unlocks during play)
+- [x] Level progression (Unlocks during play)
   - Assigned to: **Sophie**
   - Done when:
-    - [ ] Levels store when they should be unlocked
-    - [ ] Levels can only be selected when unlocked
+    - [x] Levels store when they should be unlocked
+    - [x] Levels can only be selected when unlocked
 - [x] Home base
   - Assigned to: **Sophie**
   - Done when:
@@ -28,23 +28,23 @@ MUSTs we need to work on:
 - [ ] Upgrades / Shop
   - Assigned to: **Tegan**
   - Done when:
-    - [ ] Upgrades can be defined in code (Player statistic is modified)
-    - [ ] Upgrades can be applied to the player
-    - [ ] Upgrades persist across level transitions
-    - [ ] Upgrades can be purchased by the player
+    - [x] Upgrades can be defined in code (Player statistic is modified)
+    - [x] Upgrades can be applied to the player
+    - [x] Upgrades persist across level transitions
+    - [x] Upgrades can be purchased by the player
 - [ ] More spells (secondary attacks)
   - Assigned to: **Tegan**
   - Done when:
-    - [ ] Secondary attacks can be defined in code
-    - [ ] Secondary attacks can be used by player
-    - [ ] Secondary attacks can be equipped by player
+    - [x] Secondary attacks can be defined in code
+    - [x] Secondary attacks can be used by player
+    - [x] Secondary attacks can be equipped by player
     - [ ] Secondary attacks can be upgraded by player
 - [ ] Bosses drop secondary attacks
-  - Assigned to: **Tegan**
+  - Assigned to: **Sophie**
   - Done when:
-    - [ ] Bosses can be assigned secondary attacks to drop
-    - [ ] Bosses unlock secondary attacks for player on defeat
-    - [ ] Player can only equip unlocked attacks
+    - [x] Bosses can be assigned secondary attacks to drop
+    - [x] Bosses unlock secondary attacks for player on defeat
+    - [x] Player can only equip unlocked attacks
 - [x] Save function
   - Assigned to: **Sophie**
   - Done when:
@@ -58,10 +58,10 @@ MUSTs we need to work on:
 - [ ] More props/decor
   - Assigned to: **Tegan**
   - Done when:
-    - [ ] Sprites for props are created
-    - [ ] Scenes for props are created
-    - [ ] Props can be added to levels
-    - [ ] Loot moves at an appropriate speed
+    - [x] Sprites for props are created
+    - [x] Scenes for props are created
+    - [x] Props can be added to levels
+    - [x] Loot moves at an appropriate speed
 - [ ] Sound effects
   - Assigned to: **Tegan**
   - Done when:
@@ -73,7 +73,7 @@ MUSTs we need to work on:
 - [ ] Health management
   - Assigned to: **Tegan**
   - Done when:
-    - [ ] Health potions can be stored for later
-    - [ ] Separate chests / other props drop health potions
-    - [ ] Button to use stored potions
-    - [ ] Limited amount of potions can be stored
+    - [x] Health potions can be stored for later
+    - [x] Separate chests / other props drop health potions
+    - [x] Button to use stored potions
+    - [x] Limited amount of potions can be stored

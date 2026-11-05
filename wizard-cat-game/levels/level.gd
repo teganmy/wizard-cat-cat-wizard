@@ -1,6 +1,9 @@
 extends Node2D
 
 @export var player_scene: PackedScene
+@export var exit_portal: StaticBody2D
+@export var hud: Control
+@export var level_def: LevelDef
 @onready var spawn_point := $SpawnPoint
 var player: CharacterBody2D
 signal exited
@@ -8,19 +11,23 @@ signal entered
 signal wave(num: int)
 signal room_changed
 signal room_defeated
+signal boss_spawned(name: String, health: Health)
+signal boss_defeated
 
-enum STATE {ACTIVE, INACTIVE}
+enum STATE {ACTIVE, INACTIVE, COMPLETED}
 var pausable: bool = false
 var state: STATE = STATE.INACTIVE
+var portal_enabled: bool = false
 
 var current_room: Room:
 	set(new):
 		if current_room:
-			if current_room.wave.is_connected(wave.emit):
+			if current_room is EnemyRoom and current_room.wave.is_connected(wave.emit):
 				current_room.wave.disconnect(wave.emit)
 			if current_room.defeated.is_connected(room_defeated.emit):
 				current_room.defeated.disconnect(room_defeated.emit)
-		new.wave.connect(wave.emit)
+		if new is EnemyRoom:
+			new.wave.connect(wave.emit)
 		new.defeated.connect(room_defeated.emit)
 		current_room = new
 		room_changed.emit()
@@ -32,18 +39,25 @@ func _ready() -> void:
 	add_child(new_player)
 	new_player.health.died.connect(respawn_player)
 	player = new_player
+	if exit_portal and exit_portal.lock and exit_portal.lock.has_signal("unlocked"):
+		exit_portal.lock.unlocked.connect(_on_exit_portal_unlocked)
 	enter()
 
 func respawn_player() -> void:
-	PlayerState.currency = 0
 	exit()
 	get_tree().reload_current_scene.call_deferred()
 
 func exit() -> void:
-	if state == STATE.ACTIVE:
-		Save.save_current()
-		exited.emit()
-		_change_state(STATE.INACTIVE)
+	match state:
+		STATE.COMPLETED:
+			Save.save_current()
+			exited.emit()
+			if level_def and LevelLoader.is_current(level_def):
+				LevelLoader.unlock_next_level()
+		STATE.ACTIVE:
+			Save.save_current()
+			exited.emit()
+			_change_state(STATE.INACTIVE)
 
 func enter() -> void:
 	if state == STATE.INACTIVE:
@@ -57,3 +71,21 @@ func _change_state(new_state: STATE) -> void:
 			pausable = true
 		STATE.INACTIVE:
 			pausable = false
+
+func spawn_boss(boss: CharacterBody2D) -> void:
+	boss_spawned.emit(boss.boss_name, boss.health)
+	boss.defeated.connect(_on_boss_defeated)
+
+func complete() -> void:
+	_change_state(STATE.COMPLETED)
+	exit()
+
+func _on_exit_portal_unlocked() -> void:
+	if not portal_enabled:
+		exit_portal.lock.lock()
+
+func _on_boss_defeated() -> void:
+	boss_defeated.emit()
+	portal_enabled = true
+	if exit_portal:
+		exit_portal.lock.unlock()

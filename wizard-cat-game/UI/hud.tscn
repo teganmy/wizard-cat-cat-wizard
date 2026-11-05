@@ -54,11 +54,13 @@ expand_margin_top = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 5.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m63w8"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_quk1y"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0j753"]
 
-[node name="HUD" type="Control" unique_id=1381849764]
+[node name="HUD" type="Control" unique_id=1381849764 node_paths=PackedStringArray("money_label", "tutorial_popup", "pause_rect", "hint_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,6 +69,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_1m68m")
 script = ExtResource("1_px13d")
+money_label = NodePath("MarginContainer/MoneyLabel")
+tutorial_popup = NodePath("TutorialPopup")
+pause_rect = NodePath("PauseRect")
+hint_label = NodePath("MarginContainer/HintLabel")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=414647905]
 layout_mode = 1
@@ -75,6 +81,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="MoneyLabel" type="Label" parent="MarginContainer" unique_id=2027048716]
 layout_mode = 2
@@ -103,6 +110,17 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "Wave 1"
 script = ExtResource("5_0j753")
+
+[node name="HintLabel" type="Label" parent="MarginContainer" unique_id=273300948]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/outline_size = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m63w8")
+
+[node name="BossBar" parent="." unique_id=302076886 instance=ExtResource("8_pf7ph")]
+visible = false
+layout_mode = 1
 
 [node name="PauseRect" type="ColorRect" parent="." unique_id=901214118]
 visible = false
@@ -134,7 +152,7 @@ grow_vertical = 2
 text = "WASD to move
 Space to shoot
 Mouse to aim
-E to interact
+Shift to dash
 Click to close"
 fit_content = true
 horizontal_alignment = 1
@@ -160,6 +178,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PauseMenu/PanelContainer/VBoxContainer" unique_id=1139874978]
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 50
