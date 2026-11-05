@@ -262,6 +262,15 @@ position = Vector2(-16, 143)
 [node name="Vase4" parent="Room3" unique_id=2079993041 instance=ExtResource("7_gwceb")]
 position = Vector2(-48, 111)
 
+[node name="Candle" parent="Room3" unique_id=667735021 instance=ExtResource("13_1ylvr")]
+position = Vector2(112, 144)
+
+[node name="Candle2" parent="Room3" unique_id=1526763060 instance=ExtResource("13_1ylvr")]
+position = Vector2(-48, 272)
+
+[node name="Candle3" parent="Room3" unique_id=256830392 instance=ExtResource("13_1ylvr")]
+position = Vector2(-176, 400)
+
 [node name="Room4" type="Area2D" parent="." unique_id=1041433148 node_paths=PackedStringArray("lockables", "connected_rooms")]
 position = Vector2(-256, -64)
 collision_layer = 0
@@ -323,6 +332,18 @@ position = Vector2(-272, -232)
 [node name="Vase6" parent="Room4" unique_id=526080934 instance=ExtResource("7_gwceb")]
 position = Vector2(-304, -232)
 
+[node name="Candle" parent="Room4" unique_id=558246317 instance=ExtResource("13_1ylvr")]
+position = Vector2(144, -240)
+
+[node name="Candle2" parent="Room4" unique_id=767764721 instance=ExtResource("13_1ylvr")]
+position = Vector2(-104, -240)
+
+[node name="Candle3" parent="Room4" unique_id=2070877065 instance=ExtResource("13_1ylvr")]
+position = Vector2(-304, -80)
+
+[node name="Candle4" parent="Room4" unique_id=816866662 instance=ExtResource("13_1ylvr")]
+position = Vector2(-80, 48)
+
 [node name="Room5" type="Area2D" parent="." unique_id=355783683 node_paths=PackedStringArray("lockables", "connected_rooms")]
 position = Vector2(-512, -448)
 collision_layer = 0
@@ -380,6 +401,18 @@ position = Vector2(440, -16)
 position = Vector2(688, -48)
 scale = Vector2(3, 1)
 
+[node name="Candle" parent="Room5" unique_id=703437261 instance=ExtResource("13_1ylvr")]
+position = Vector2(-48, -16)
+
+[node name="Candle2" parent="Room5" unique_id=680105357 instance=ExtResource("13_1ylvr")]
+position = Vector2(184, -16)
+
+[node name="Candle3" parent="Room5" unique_id=51184544 instance=ExtResource("13_1ylvr")]
+position = Vector2(488, -16)
+
+[node name="Candle4" parent="Room5" unique_id=1571823261 instance=ExtResource("13_1ylvr")]
+position = Vector2(720, 80)
+
 [node name="Room6" type="Area2D" parent="." unique_id=1113429198 node_paths=PackedStringArray("lockables")]
 position = Vector2(-512, 512)
 collision_layer = 0
@@ -391,6 +424,18 @@ metadata/_custom_type_script = "uid://r7m3l5eq4nij"
 [node name="TileMapLayer" type="TileMapLayer" parent="Room6" unique_id=1977077700]
 tile_map_data = PackedByteArray("AAD6//v/AwAAAAAAAAD6//z/AwAAAAAAAAD6//3/AwAAAAAAAAD6//7/AwAAAAAAAAD6////AwAAAAAAAAD6/wAAAwAAAAAAAAD7//v/AwAAAAAAAAD7//z/AwAAAAAAAAD7//3/AwAAAAAAAAD7//7/AwAAAAAAAAD7////AwAAAAAAAAD7/wAAAwAAAAAAAAD8//v/AwAAAAAAAAD8//z/AwAAAAAAAAD8//3/AwAAAAAAAAD8//7/AwAAAAAAAAD8////AwAAAAAAAAD8/wAAAwAAAAAAAAD9//v/AwAAAAAAAAD9//z/AwAAAAAAAAD9//3/AwAAAAAAAAD9//7/AwAAAAAAAAD9////AwAAAAAAAAD9/wAAAwAAAAAAAAD+//v/AwAAAAAAAAD+//z/AwAAAAAAAAD+//3/AwAAAAAAAAD+//7/AwAAAAAAAAD+////AwAAAAAAAAD+/wAAAwAAAAAAAAD///v/AwAAAAAAAAD///z/AwAAAAAAAAD///3/AwAAAAAAAAD///7/AwAAAAAAAAD/////AwAAAAAAAAD//wAAAwAAAAAAAAAAAPv/AwAAAAAAAAAAAPz/AwAAAAAAAAAAAP3/AwAAAAAAAAAAAP7/AwAAAAAAAAAAAP//AwAAAAAAAAAAAAAAAwAAAAAAAAABAPv/AwAAAAAAAAABAPz/AwAAAAAAAAABAP3/AwAAAAAAAAABAP7/AwAAAAAAAAABAP//AwAAAAAAAAABAAAAAwAAAAAAAAACAPv/AwAAAAAAAAACAPz/AwAAAAAAAAACAP3/AwAAAAAAAAACAP7/AwAAAAAAAAACAP//AwAAAAAAAAACAAAAAwAAAAAAAAADAPv/AwAAAAAAAAADAPz/AwAAAAAAAAADAP3/AwAAAAAAAAADAP7/AwAAAAAAAAADAP//AwAAAAAAAAADAAAAAwAAAAAAAAADAPr/BAAAAAAAAAACAPr/BAAAAAAAAAABAPr/BAAAAAAAAAAAAPr/BAAAAAAAAAD///r/BAAAAAAAAAD+//r/BAAAAAAAAAD9//r/BAAAAAAAAAD8//r/BAAAAAAAAAD7//r/BAAAAAAAAAD6//r/BAAAAAAAAAD5//r/BAAAAAAAAAADAAEABAAAAAAAAAACAAEABAAAAAAAAAABAAEABAAAAAAAAAAAAAEABAAAAAAAAAD//wEABAAAAAAAAAD+/wEABAAAAAAAAAD9/wEABAAAAAAAAAD8/wEABAAAAAAAAAD7/wEABAAAAAAAAAD6/wEABAAAAAAAAAD5/wEABAAAAAAAAAD5/wAABAAAAAAAAAD5////BAAAAAAAAAD5//7/BAAAAAAAAAD5//3/BAAAAAAAAAD5//z/BAAAAAAAAAD5//v/BAAAAAAAAAA=")
 tile_set = ExtResource("2_bt44k")
+
+[node name="Candle" parent="Room6/TileMapLayer" unique_id=919407351 instance=ExtResource("13_1ylvr")]
+position = Vector2(112, -144)
+
+[node name="Candle2" parent="Room6/TileMapLayer" unique_id=907700637 instance=ExtResource("13_1ylvr")]
+position = Vector2(112, -72)
+
+[node name="Candle3" parent="Room6/TileMapLayer" unique_id=442620178 instance=ExtResource("13_1ylvr")]
+position = Vector2(-176, 16)
+
+[node name="Candle4" parent="Room6/TileMapLayer" unique_id=187064727 instance=ExtResource("13_1ylvr")]
+position = Vector2(-176, -144)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room6" unique_id=866727072]
 visible = false
@@ -449,6 +494,18 @@ position = Vector2(88, -304)
 
 [node name="Chest6" parent="Room7" unique_id=1183086496 instance=ExtResource("6_btoec")]
 position = Vector2(152, -304)
+
+[node name="Candle" parent="Room7" unique_id=200890853 instance=ExtResource("13_1ylvr")]
+position = Vector2(-208, -224)
+
+[node name="Candle2" parent="Room7" unique_id=1438725751 instance=ExtResource("13_1ylvr")]
+position = Vector2(176, -232)
+
+[node name="Candle3" parent="Room7" unique_id=914167155 instance=ExtResource("13_1ylvr")]
+position = Vector2(176, 48)
+
+[node name="Candle4" parent="Room7" unique_id=1460919737 instance=ExtResource("13_1ylvr")]
+position = Vector2(-208, 48)
 
 [node name="HUDLayer" type="CanvasLayer" parent="." unique_id=865870252]
 
