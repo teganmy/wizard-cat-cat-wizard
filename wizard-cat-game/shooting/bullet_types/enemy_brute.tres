@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BulletType" format=3 uid="uid://bjfui28vacoyp"]
 
 [ext_resource type="Script" uid="uid://dnqcg6lff1m84" path="res://shooting/bullet_types/bullet_type.gd" id="1_t34bi"]
-[ext_resource type="Texture2D" uid="uid://dd541qkjfpw3t" path="res://assets/bullet.png" id="2_2ng2r"]
+[ext_resource type="Texture2D" uid="uid://d2gnilqcvxqvj" path="res://assets/lilypad.png" id="2_2ng2r"]
 
 [resource]
 script = ExtResource("1_t34bi")

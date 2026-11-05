@@ -76,6 +76,7 @@ waves = Array[ExtResource("8_at1ld")]([ExtResource("11_5orea"), ExtResource("10_
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="Portal" parent="Room1" unique_id=1944338752 instance=ExtResource("12_wcjpl")]
+modulate = Color(0.30588236, 0.92156863, 1, 1)
 position = Vector2(-192, -152)
 level = 0
 
