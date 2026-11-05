@@ -15,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://dua1rcwkq8gmb" path="res://enemies/types/frog.tres" id="11_5orea"]
 [ext_resource type="PackedScene" uid="uid://hpag36semn3u" path="res://props/portal.tscn" id="12_wcjpl"]
 [ext_resource type="PackedScene" uid="uid://3fdgsfs7b4ci" path="res://props/chest.tscn" id="13_5orea"]
+[ext_resource type="PackedScene" uid="uid://boyx6x1khflbj" path="res://props/candle.tscn" id="14_t8jds"]
 [ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="15_d701b"]
 [ext_resource type="Script" uid="uid://b5qmnxsgil7fy" path="res://components/boss_room.gd" id="16_lf5r6"]
 [ext_resource type="Resource" uid="uid://dhxxvsvsbsbnd" path="res://loot/loot_types/healing_potion.tres" id="16_pqtwy"]
@@ -122,6 +123,18 @@ position = Vector2(48, -304)
 
 [node name="Chest4" parent="Room1" unique_id=2103776211 instance=ExtResource("13_5orea")]
 position = Vector2(120, -304)
+
+[node name="Candle" parent="Room1" unique_id=753880452 instance=ExtResource("14_t8jds")]
+position = Vector2(-72, -88)
+
+[node name="Candle2" parent="Room1" unique_id=763180438 instance=ExtResource("14_t8jds")]
+position = Vector2(72, -88)
+
+[node name="Candle3" parent="Room1" unique_id=1055703294 instance=ExtResource("14_t8jds")]
+position = Vector2(72, -200)
+
+[node name="Candle4" parent="Room1" unique_id=254897314 instance=ExtResource("14_t8jds")]
+position = Vector2(-72, -200)
 
 [node name="Room2" type="Area2D" parent="." unique_id=1587960879 node_paths=PackedStringArray("lockables", "connected_rooms")]
 position = Vector2(896, 64)
@@ -271,6 +284,18 @@ position = Vector2(440, -72)
 [node name="Vase4" parent="Room3" unique_id=1668014349 instance=ExtResource("16_wr4gd")]
 position = Vector2(688, -72)
 
+[node name="Candle" parent="Room3" unique_id=1437450153 instance=ExtResource("14_t8jds")]
+position = Vector2(136, -80)
+
+[node name="Candle2" parent="Room3" unique_id=2037537074 instance=ExtResource("14_t8jds")]
+position = Vector2(296, -80)
+
+[node name="Candle3" parent="Room3" unique_id=786808764 instance=ExtResource("14_t8jds")]
+position = Vector2(472, -80)
+
+[node name="Candle4" parent="Room3" unique_id=992660778 instance=ExtResource("14_t8jds")]
+position = Vector2(656, -80)
+
 [node name="Room4" type="Area2D" parent="." unique_id=1123971984 node_paths=PackedStringArray("lockables", "connected_rooms")]
 position = Vector2(1536, -64)
 collision_mask = 2
@@ -330,19 +355,28 @@ position = Vector2(40, -72)
 position = Vector2(-32, -72)
 
 [node name="Vase" parent="Room4" unique_id=799422349 instance=ExtResource("16_wr4gd")]
-position = Vector2(-16, 136)
+position = Vector2(-16, 120)
 
 [node name="Vase3" parent="Room4" unique_id=30409595 instance=ExtResource("16_wr4gd")]
 position = Vector2(-88, -72)
 
 [node name="Vase2" parent="Room4" unique_id=1907060984 instance=ExtResource("16_wr4gd")]
-position = Vector2(-16, 184)
+position = Vector2(-16, 200)
 
 [node name="Vase5" parent="Room4" unique_id=244256139 instance=ExtResource("16_wr4gd")]
 position = Vector2(120, 336)
 
 [node name="Vase4" parent="Room4" unique_id=1365694470 instance=ExtResource("16_wr4gd")]
 position = Vector2(-128, -72)
+
+[node name="Candle" parent="Room4" unique_id=731529121 instance=ExtResource("14_t8jds")]
+position = Vector2(-160, -80)
+
+[node name="Candle2" parent="Room4" unique_id=887882361 instance=ExtResource("14_t8jds")]
+position = Vector2(-16, 160)
+
+[node name="Candle3" parent="Room4" unique_id=569630068 instance=ExtResource("14_t8jds")]
+position = Vector2(216, 336)
 
 [node name="Room5" type="Area2D" parent="." unique_id=171162208 node_paths=PackedStringArray("boss_spawner", "lockables")]
 position = Vector2(1280, -256)
@@ -390,6 +424,20 @@ position = Vector2(144, -432)
 [node name="Chest3" parent="Room5" unique_id=1331244908 instance=ExtResource("13_5orea")]
 position = Vector2(352, -48)
 
+[node name="Candle" parent="Room5" unique_id=188398728 instance=ExtResource("14_t8jds")]
+position = Vector2(64, -272)
+
+[node name="Candle2" parent="Room5" unique_id=572759477 instance=ExtResource("14_t8jds")]
+position = Vector2(352, -400)
+
+[node name="Candle3" parent="Room5" unique_id=2132516759 instance=ExtResource("14_t8jds")]
+position = Vector2(352, -144)
+
+[node name="Candle4" parent="Room5" unique_id=1227165902 instance=ExtResource("14_t8jds")]
+position = Vector2(48, 48)
+
+[node name="Candle5" parent="Room5" unique_id=667170151 instance=ExtResource("14_t8jds")]
+position = Vector2(144, 48)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1406832674]
 
