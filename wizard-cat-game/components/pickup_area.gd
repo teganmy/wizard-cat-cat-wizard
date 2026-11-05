@@ -8,6 +8,9 @@ var _potions: int = 0
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
+	PlayerState.secondary_changed.connect(_configure_secondary)
+	if PlayerState.secondary:
+		_configure_secondary.call_deferred(PlayerState.secondary)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Loot and not body.is_grabbed():
@@ -32,9 +35,13 @@ func apply_effect(type: LootType) -> bool:
 	if type.heal_amount > 0:
 		health.heal(type.heal_amount)
 	elif type.attack:
-		secondary_shooter.configure(type.attack.bullet_type, type.attack.firing_pattern)
+		PlayerState.set_secondary(type)
 	elif type.fire_rate_multiplier != 1.0:
 		PlayerState.apply_fire_rate_boost(type.fire_rate_multiplier, type.fire_rate_duration)
 	else:
 		return false
 	return true
+
+func _configure_secondary(type: LootType) -> void:
+	if type and type.attack:
+		secondary_shooter.configure(type.attack.bullet_type, type.attack.firing_pattern)

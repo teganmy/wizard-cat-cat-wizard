@@ -3,6 +3,9 @@ var fire_rate_multiplier: float = 1.0
 var _boost_timer: Timer
 var max_potions: int = 3
 var potions: Array[LootType] = []
+var secondary: LootType
+
+signal secondary_changed(type: LootType)
 
 var current_health: int:
 	set(new):
@@ -21,7 +24,21 @@ var currency: int = 0:
 		currency_changed.emit(new)
 		currency = new
 var player_is_new: bool = true
+var secondary_path: String:
+	get:
+		return secondary.resource_path if secondary else ""
+	set(path):
+		set_secondary(load(path) if path != "" else null)
 
+var potion_paths: Array:
+	get:
+		return potions.map(func(p: LootType): return p.resource_path)
+	set(paths):
+		potions.clear()
+		for path in paths:
+			potions.append(load(path))
+		potions_changed.emit()
+		
 signal current_health_changed(new: int)
 signal max_health_changed(new: int)
 signal currency_changed(new: int)
@@ -51,6 +68,7 @@ func reset() -> void:
 	clear_fire_rate_boost()
 	player_is_new = true
 	potions.clear()
+	secondary = null
 
 func save() -> Dictionary:
 	return {
@@ -62,6 +80,8 @@ func save() -> Dictionary:
 		"currency": currency,
 		"potions": potions.map(func(p: LootType): return p.resource_path),
 		"player_is_new": player_is_new,
+		"secondary_path": secondary_path,
+		"potion_paths": potion_paths,
 	}
 
 func add_potion(type: LootType) -> bool:
@@ -82,3 +102,7 @@ func cycle_potion() -> void:
 	if potions.size() > 1:
 		potions.push_back(potions.pop_front())
 		potions_changed.emit()
+
+func set_secondary(type: LootType) -> void:
+	secondary = type
+	secondary_changed.emit(type)
