@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dq2js0a13n6oc" path="res://components/button_tween.gd" id="6_quk1y"]
 [ext_resource type="Script" uid="uid://bsm781q6jn3fy" path="res://UI/confirm_menu.gd" id="8_i0a73"]
 [ext_resource type="Script" uid="uid://bk6ihj4uox8lt" path="res://potion_container.gd" id="8_pf7ph"]
+[ext_resource type="PackedScene" uid="uid://bj1whtrt5egb2" path="res://UI/boss_bar.tscn" id="9_pf7ph"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_quk1y"]
 content_margin_left = 10.0
@@ -118,10 +119,6 @@ size_flags_vertical = 8
 theme_override_constants/outline_size = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_m63w8")
 
-[node name="BossBar" parent="." unique_id=302076886 instance=ExtResource("8_pf7ph")]
-visible = false
-layout_mode = 1
-
 [node name="PauseRect" type="ColorRect" parent="." unique_id=901214118]
 visible = false
 layout_mode = 1
@@ -146,7 +143,7 @@ anchor_bottom = 0.5
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 310.0
-offset_bottom = 360.0
+offset_bottom = 310.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "WASD to move
@@ -252,6 +249,9 @@ anchor_right = 1.0
 grow_horizontal = 2
 alignment = 1
 script = ExtResource("8_pf7ph")
+
+[node name="BossBar" parent="." unique_id=302076886 instance=ExtResource("9_pf7ph")]
+layout_mode = 1
 
 [connection signal="popup_hide" from="TutorialPopup" to="." method="_on_tutorial_popup_popup_hide"]
 [connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/ResumeButton" to="PauseMenu" method="_on_resume_button_pressed"]
