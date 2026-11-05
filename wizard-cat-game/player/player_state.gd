@@ -68,6 +68,7 @@ func clear_fire_rate_boost() -> void:
 	fire_rate_boost_changed.emit(1.0)
 	
 func reset() -> void:
+	print("PlayerState being reset")
 	current_health = 0
 	max_health = 0
 	currency = 0

@@ -32,6 +32,7 @@ func is_current(level: LevelDef) -> bool:
 		return false
 
 func reset() -> void:
+	print("Level Reset")
 	level_pointer = 1
 
 func save() -> Dictionary:

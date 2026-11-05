@@ -65,6 +65,7 @@ func change_save_file(filename: String) -> void:
 	if filename not in save_files:
 		add_save_file(filename)
 	current_save = filename
+	load_current()
 
 func get_save_files() -> Array[String]:
 	return save_files

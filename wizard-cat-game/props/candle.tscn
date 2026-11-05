@@ -18,6 +18,7 @@ fill_to = Vector2(0.8055556, 0.8354701)
 size = Vector2(12, 16)
 
 [node name="Candle" type="StaticBody2D" unique_id=753880452]
+texture_filter = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1517613627]
 texture = ExtResource("1_tcgl6")
