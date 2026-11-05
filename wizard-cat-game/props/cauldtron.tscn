@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://t7dn52ht6rhi"]
 
-[ext_resource type="Script" uid="uid://be7s45j5u322e" path="res://props/chest.gd" id="1_aaro3"]
+[ext_resource type="Script" uid="uid://bpjxo73n7ecwl" path="res://props/cauldron.gd" id="1_mbsov"]
 [ext_resource type="Texture2D" uid="uid://d16du6v6q2p02" path="res://assets/cauldron.png" id="3_aaro3"]
 [ext_resource type="Script" uid="uid://c4u3dpkcjwe7p" path="res://loot/lootable.gd" id="4_h35q5"]
 [ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="5_k27cy"]
@@ -30,14 +30,11 @@ size = Vector2(58, 57)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpvk7"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="Cauldron" type="StaticBody2D" unique_id=1010634097 node_paths=PackedStringArray("lootable", "sprite", "lock", "spawn_marker", "label", "interaction_area")]
-script = ExtResource("1_aaro3")
+[node name="Cauldron" type="StaticBody2D" unique_id=1010634097 node_paths=PackedStringArray("lock", "lootable", "sprite")]
+script = ExtResource("1_mbsov")
+lock = NodePath("Lock")
 lootable = NodePath("Lootable")
 sprite = NodePath("Sprite2D")
-lock = NodePath("Lock")
-spawn_marker = NodePath("SpawnMarker")
-label = NodePath("LockedLabel")
-interaction_area = NodePath("InteractionArea")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=37528860]
 texture_filter = 1
