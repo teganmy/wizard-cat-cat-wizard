@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="BossDef" format=3 uid="uid://cejo5p0ftn6mn"]
+
+[ext_resource type="Script" uid="uid://bof80j5oc6jsp" path="res://enemies/bosses/attacks/boss_attack.gd" id="1_07bav"]
+[ext_resource type="Script" uid="uid://qiyo0f705gt" path="res://loot/loot_type.gd" id="2_5wy6m"]
+[ext_resource type="Resource" uid="uid://deotln05wb6bu" path="res://shooting/bullet_types/enemy_default.tres" id="2_t1aet"]
+[ext_resource type="Resource" uid="uid://ccj2h5whpih0j" path="res://shooting/firing_patterns/enemy_rapidfire.tres" id="3_3581o"]
+[ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="3_t1aet"]
+[ext_resource type="Script" uid="uid://cmna1iq5h5oq7" path="res://enemies/bosses/defs/boss_def.gd" id="4_3581o"]
+[ext_resource type="Texture2D" uid="uid://b7iihk17s3fy6" path="res://assets/frog.png" id="6_3581o"]
+
+[sub_resource type="Resource" id="Resource_5lc8o"]
+script = ExtResource("1_07bav")
+bullet = ExtResource("2_t1aet")
+pattern = ExtResource("3_3581o")
+metadata/_custom_type_script = "uid://bof80j5oc6jsp"
+
+[resource]
+script = ExtResource("4_3581o")
+name = "Machine Gun Mack"
+sprite = ExtResource("6_3581o")
+attack_timing = 0.1
+attacks = Array[ExtResource("1_07bav")]([SubResource("Resource_5lc8o")])
+attack_distance = 400.0
+move_speed = 75.0
+min_target_distance = 50.0
+max_target_distance = 200.0
+distance_tolerance = 15.0
+max_health = 15
+flash_modulate = Color(0.98940533, 0, 0.04805457, 1)
+metadata/_custom_type_script = "uid://cmna1iq5h5oq7"

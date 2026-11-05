@@ -43,6 +43,7 @@ func _ready() -> void:
 	attack_distance = def.attack_distance
 	flash_modulate = def.flash_modulate
 	health.max_health = def.max_health
+	health.current = def.max_health
 	default_modulate = def.modulate
 	sprite.texture = def.sprite
 	sprite.modulate = default_modulate

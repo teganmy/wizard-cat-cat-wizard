@@ -87,4 +87,5 @@ func _on_exit_portal_unlocked() -> void:
 func _on_boss_defeated() -> void:
 	boss_defeated.emit()
 	portal_enabled = true
-	exit_portal.lock.unlock()
+	if exit_portal:
+		exit_portal.lock.unlock()
