@@ -28,16 +28,16 @@ MUSTs we need to work on:
 - [ ] Upgrades / Shop
   - Assigned to: **Tegan**
   - Done when:
-    - [ ] Upgrades can be defined in code (Player statistic is modified)
-    - [ ] Upgrades can be applied to the player
-    - [ ] Upgrades persist across level transitions
-    - [ ] Upgrades can be purchased by the player
+    - [x] Upgrades can be defined in code (Player statistic is modified)
+    - [x] Upgrades can be applied to the player
+    - [x] Upgrades persist across level transitions
+    - [x] Upgrades can be purchased by the player
 - [ ] More spells (secondary attacks)
   - Assigned to: **Tegan**
   - Done when:
     - [x] Secondary attacks can be defined in code
     - [x] Secondary attacks can be used by player
-    - [ ] Secondary attacks can be equipped by player
+    - [x] Secondary attacks can be equipped by player
     - [ ] Secondary attacks can be upgraded by player
 - [ ] Bosses drop secondary attacks
   - Assigned to: **Sophie**
@@ -58,10 +58,10 @@ MUSTs we need to work on:
 - [ ] More props/decor
   - Assigned to: **Tegan**
   - Done when:
-    - [ ] Sprites for props are created
-    - [ ] Scenes for props are created
-    - [ ] Props can be added to levels
-    - [ ] Loot moves at an appropriate speed
+    - [x] Sprites for props are created
+    - [x] Scenes for props are created
+    - [x] Props can be added to levels
+    - [x] Loot moves at an appropriate speed
 - [ ] Sound effects
   - Assigned to: **Tegan**
   - Done when:
@@ -74,6 +74,6 @@ MUSTs we need to work on:
   - Assigned to: **Tegan**
   - Done when:
     - [x] Health potions can be stored for later
-    - [ ] Separate chests / other props drop health potions
+    - [x] Separate chests / other props drop health potions
     - [x] Button to use stored potions
     - [x] Limited amount of potions can be stored
