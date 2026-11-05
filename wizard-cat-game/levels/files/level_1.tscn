@@ -18,6 +18,7 @@
 [ext_resource type="Resource" uid="uid://blk0w5rkukd5e" path="res://enemies/types/snake.tres" id="11_vjtdm"]
 [ext_resource type="PackedScene" uid="uid://boyx6x1khflbj" path="res://props/candle.tscn" id="13_1ylvr"]
 [ext_resource type="Resource" uid="uid://dua1rcwkq8gmb" path="res://enemies/types/frog.tres" id="15_bgw3c"]
+[ext_resource type="PackedScene" uid="uid://t7dn52ht6rhi" path="res://props/cauldtron.tscn" id="16_ccqkv"]
 [ext_resource type="PackedScene" uid="uid://hpag36semn3u" path="res://props/portal.tscn" id="16_lrvbd"]
 [ext_resource type="Script" uid="uid://b5qmnxsgil7fy" path="res://components/boss_room.gd" id="18_ccqkv"]
 [ext_resource type="Resource" uid="uid://c8hdbgylp83qg" path="res://enemies/bosses/defs/shotgun_boss.tres" id="18_gycmd"]
@@ -55,7 +56,7 @@ position = Vector2(448, 256)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_3sk1a")
-lockables = [NodePath("Door"), NodePath("Chest"), NodePath("Chest2"), NodePath("Chest3"), NodePath("Door2")]
+lockables = [NodePath("Door"), NodePath("Chest"), NodePath("Chest2"), NodePath("Chest3"), NodePath("Door2"), NodePath("Cauldron")]
 visible_on_enter = true
 connected_rooms = [NodePath("../Room2")]
 metadata/_custom_type_script = "uid://r7m3l5eq4nij"
@@ -119,6 +120,9 @@ position = Vector2(112, 144)
 
 [node name="Candle3" parent="Room1" unique_id=1169911290 instance=ExtResource("13_1ylvr")]
 position = Vector2(48, -176)
+
+[node name="Cauldron" parent="Room1" unique_id=307959600 instance=ExtResource("16_ccqkv")]
+position = Vector2(0, -176)
 
 [node name="Room2" type="Area2D" parent="." unique_id=327343923 node_paths=PackedStringArray("lockables", "connected_rooms")]
 position = Vector2(512, -192)

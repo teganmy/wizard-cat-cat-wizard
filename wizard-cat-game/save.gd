@@ -99,7 +99,6 @@ func get_latest_save() -> String:
 func _sort_by_date(save1: String, save2: String) -> bool:
 	var date1 = Time.get_datetime_dict_from_datetime_string(get_last_access(save1), false)
 	var date2 = Time.get_datetime_dict_from_datetime_string(get_last_access(save2), false)
-	print("date1 = ", date1, "\ndate2 = ", date2)
 	for key in ["year", "month", "day", "hour", "minute", "second"]:
 		if date1[key] > date2[key]:
 			return true
