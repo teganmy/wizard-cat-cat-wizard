@@ -24,6 +24,11 @@ func change_to_menu(confirm: bool = false) -> void:
 func change_to_file(file: String) -> void:
 	var tree := get_tree()
 	tree.set_deferred("paused", false)
+	var current = get_tree().current_scene
+	if current is Level and current.level_def:
+		Save.load_current()
+	elif current is Level:
+		Save.save_current()
 	if tree.current_scene.has_method("exit"):
 		tree.current_scene.exit()
 	tree.change_scene_to_file.call_deferred(file)

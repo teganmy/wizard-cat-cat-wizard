@@ -26,9 +26,11 @@ func is_unlocked(level: LevelDef) -> bool:
 	return level.ordering <= current.ordering
 
 func is_current(level: LevelDef) -> bool:
-	if level_pointer - 1 > levels.size():
-		return levels[level_pointer - 1] == level
+	if level_pointer <= levels.size():
+		print("Level current: ", levels[level_pointer - 1].ordering == level.ordering)
+		return levels[level_pointer - 1].ordering == level.ordering
 	else:
+		print("Fallback")
 		return false
 
 func reset() -> void:

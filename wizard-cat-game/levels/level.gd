@@ -1,3 +1,4 @@
+class_name Level
 extends Node2D
 
 @export var player_scene: PackedScene
@@ -44,7 +45,7 @@ func _ready() -> void:
 	enter()
 
 func respawn_player() -> void:
-	exit()
+	Save.load_current()
 	get_tree().reload_current_scene.call_deferred()
 
 func exit() -> void:
@@ -53,9 +54,9 @@ func exit() -> void:
 			Save.save_current()
 			exited.emit()
 			if level_def and LevelLoader.is_current(level_def):
+				print("Level is being advanced")
 				LevelLoader.unlock_next_level()
 		STATE.ACTIVE:
-			Save.save_current()
 			exited.emit()
 			_change_state(STATE.INACTIVE)
 

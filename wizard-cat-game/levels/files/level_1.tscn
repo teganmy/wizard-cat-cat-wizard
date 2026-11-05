@@ -41,15 +41,14 @@ size = Vector2(272, 160)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7aio"]
 size = Vector2(384, 352)
 
-[node name="Level1" type="Node2D" unique_id=1118981851 node_paths=PackedStringArray("exit_portal", "hud")]
+[node name="Level1" type="Node2D" unique_id=1118981851 node_paths=PackedStringArray("hud")]
 script = ExtResource("1_jirdo")
 player_scene = ExtResource("3_bt44k")
-exit_portal = NodePath("Room6/ExitPortal")
 hud = NodePath("HUDLayer/HUD")
 level_def = ExtResource("3_hwkh2")
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1639797245]
-position = Vector2(304, 552)
+position = Vector2(-608, 432)
 
 [node name="Room1" type="Area2D" parent="." unique_id=2053026148 node_paths=PackedStringArray("lockables", "connected_rooms")]
 position = Vector2(448, 256)
@@ -419,6 +418,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_3sk1a")
 lockables = [NodePath("../Room3/Door2"), NodePath("ExitPortal")]
+visible_on_enter = true
 metadata/_custom_type_script = "uid://r7m3l5eq4nij"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Room6" unique_id=1977077700]
