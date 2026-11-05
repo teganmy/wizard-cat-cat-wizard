@@ -100,7 +100,9 @@ func add_potion(type: LootType) -> bool:
 	return true
 	
 func selected() -> LootType:
-	return potions.front()
+	if potions.size() > 0:
+		return potions.front()
+	return null
 	
 func consume_selected() -> void:
 	potions.pop_front()
