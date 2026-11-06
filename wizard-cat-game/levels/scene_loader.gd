@@ -26,7 +26,10 @@ func change_to_file(file: String) -> void:
 	tree.set_deferred("paused", false)
 	var current = get_tree().current_scene
 	if current is Level and current.level_def:
+		var kept_potions: Array = PlayerState.potion_paths
 		Save.load_current()
+		PlayerState.potion_paths = kept_potions
+		Save.save_current()
 	elif current is Level:
 		Save.save_current()
 	if tree.current_scene.has_method("exit"):
