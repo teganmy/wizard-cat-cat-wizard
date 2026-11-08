@@ -16,9 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://hpag36semn3u" path="res://props/portal.tscn" id="12_wcjpl"]
 [ext_resource type="PackedScene" uid="uid://3fdgsfs7b4ci" path="res://props/chest.tscn" id="13_5orea"]
 [ext_resource type="PackedScene" uid="uid://boyx6x1khflbj" path="res://props/candle.tscn" id="14_t8jds"]
-[ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="15_d701b"]
+[ext_resource type="PackedScene" uid="uid://t7dn52ht6rhi" path="res://props/cauldtron.tscn" id="15_kv63o"]
 [ext_resource type="Script" uid="uid://b5qmnxsgil7fy" path="res://components/boss_room.gd" id="16_lf5r6"]
-[ext_resource type="Resource" uid="uid://dhxxvsvsbsbnd" path="res://loot/loot_types/healing_potion.tres" id="16_pqtwy"]
 [ext_resource type="PackedScene" uid="uid://bva015hvaya2e" path="res://props/vase.tscn" id="16_wr4gd"]
 [ext_resource type="PackedScene" uid="uid://5fb3r7077xy0" path="res://enemies/bosses/boss.tscn" id="17_1msb5"]
 [ext_resource type="Resource" uid="uid://cejo5p0ftn6mn" path="res://enemies/bosses/defs/machinegun_boss.tres" id="19_1msb5"]
@@ -28,12 +27,6 @@ size = Vector2(416, 320)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2w8te"]
 size = Vector2(778, 144)
-
-[sub_resource type="Resource" id="Resource_3f8vn"]
-script = ExtResource("15_d701b")
-type = ExtResource("16_pqtwy")
-weight = 1.0
-metadata/_custom_type_script = "uid://drq0y0x2llhhg"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ch8v3"]
 size = Vector2(496, 464)
@@ -52,7 +45,7 @@ position = Vector2(576, 576)
 position = Vector2(576, 320)
 collision_mask = 2
 script = ExtResource("3_v5uil")
-lockables = [NodePath("Door"), NodePath("Door2"), NodePath("Door3"), NodePath("Chest"), NodePath("Chest2"), NodePath("Chest3"), NodePath("Chest4")]
+lockables = [NodePath("Door"), NodePath("Door2"), NodePath("Door3"), NodePath(""), NodePath("Chest2"), NodePath("Chest3"), NodePath("Chest4")]
 visible_on_enter = true
 connected_rooms = [NodePath("../Room2"), NodePath("../Room3")]
 metadata/_custom_type_script = "uid://r7m3l5eq4nij"
@@ -112,9 +105,6 @@ enemy_scene = ExtResource("7_dfjjl")
 waves = Array[ExtResource("8_at1ld")]([null, ExtResource("9_hbb88")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
-[node name="Chest" parent="Room1" unique_id=1010634097 instance=ExtResource("13_5orea")]
-position = Vector2(-96, -304)
-
 [node name="Chest2" parent="Room1" unique_id=809555720 instance=ExtResource("13_5orea")]
 position = Vector2(-24, -304)
 
@@ -135,6 +125,9 @@ position = Vector2(72, -200)
 
 [node name="Candle4" parent="Room1" unique_id=254897314 instance=ExtResource("14_t8jds")]
 position = Vector2(-72, -200)
+
+[node name="Cauldron" parent="Room1" unique_id=1010634097 instance=ExtResource("15_kv63o")]
+position = Vector2(-96, -304)
 
 [node name="Room2" type="Area2D" parent="." unique_id=1587960879 node_paths=PackedStringArray("lockables", "connected_rooms")]
 position = Vector2(896, 64)
@@ -208,7 +201,7 @@ position = Vector2(400, 304)
 position = Vector2(384, -128)
 collision_mask = 2
 script = ExtResource("3_v5uil")
-lockables = [NodePath("../Room1/Door3"), NodePath("Chest"), NodePath("Chest2"), NodePath("Chest3"), NodePath("Door")]
+lockables = [NodePath("../Room1/Door3"), NodePath("Chest"), NodePath(""), NodePath("Chest3"), NodePath("Door")]
 connected_rooms = [NodePath("../Room4")]
 metadata/_custom_type_script = "uid://r7m3l5eq4nij"
 
@@ -224,13 +217,6 @@ shape = SubResource("RectangleShape2D_2w8te")
 
 [node name="Chest" parent="Room3" unique_id=1359504058 instance=ExtResource("13_5orea")]
 position = Vector2(744, -80)
-
-[node name="Chest2" parent="Room3" unique_id=1312564390 instance=ExtResource("13_5orea")]
-modulate = Color(1, 0.6570382, 0.6468026, 1)
-position = Vector2(384, -80)
-loot_table_override = Array[ExtResource("15_d701b")]([SubResource("Resource_3f8vn")])
-max_loot_override = 2
-min_loot_override = 4
 
 [node name="Chest3" parent="Room3" unique_id=1212649088 instance=ExtResource("13_5orea")]
 position = Vector2(32, -80)
@@ -295,6 +281,9 @@ position = Vector2(472, -80)
 
 [node name="Candle4" parent="Room3" unique_id=992660778 instance=ExtResource("14_t8jds")]
 position = Vector2(656, -80)
+
+[node name="Cauldron" parent="Room3" unique_id=748063794 instance=ExtResource("15_kv63o")]
+position = Vector2(384, -80)
 
 [node name="Room4" type="Area2D" parent="." unique_id=1123971984 node_paths=PackedStringArray("lockables", "connected_rooms")]
 position = Vector2(1536, -64)
