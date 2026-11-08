@@ -198,7 +198,7 @@ position = Vector2(0, 128)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_3sk1a")
-lockables = [NodePath("Door"), NodePath("Chest"), NodePath("Chest2"), NodePath("Chest3"), NodePath("Door2")]
+lockables = [NodePath("Door"), NodePath("Chest"), NodePath("Chest2"), NodePath(""), NodePath("Door2")]
 connected_rooms = [NodePath("../Room6")]
 metadata/_custom_type_script = "uid://r7m3l5eq4nij"
 
@@ -225,9 +225,6 @@ position = Vector2(-336, 240)
 
 [node name="Chest2" parent="Room3" unique_id=781368711 instance=ExtResource("6_btoec")]
 position = Vector2(96, -17)
-
-[node name="Chest3" parent="Room3" unique_id=851428898 instance=ExtResource("6_btoec")]
-position = Vector2(-144, 111)
 
 [node name="EnemySpawner" type="Marker2D" parent="Room3" unique_id=2066954601]
 position = Vector2(-160, 151)
@@ -273,6 +270,9 @@ position = Vector2(-48, 272)
 
 [node name="Candle3" parent="Room3" unique_id=256830392 instance=ExtResource("13_1ylvr")]
 position = Vector2(-176, 400)
+
+[node name="Cauldron" parent="Room3" unique_id=408881675 instance=ExtResource("16_ccqkv")]
+position = Vector2(-152, 112)
 
 [node name="Room4" type="Area2D" parent="." unique_id=1041433148 node_paths=PackedStringArray("lockables", "connected_rooms")]
 position = Vector2(-256, -64)
@@ -352,7 +352,7 @@ position = Vector2(-512, -448)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_3sk1a")
-lockables = [NodePath("../Room4/Door2"), NodePath("Chest"), NodePath("Chest2"), NodePath("Chest3"), NodePath("Chest4"), NodePath("Door")]
+lockables = [NodePath("../Room4/Door2"), NodePath("Chest"), NodePath("Chest2"), NodePath("Chest3"), NodePath(""), NodePath("Door")]
 connected_rooms = [NodePath("../Room7")]
 metadata/_custom_type_script = "uid://r7m3l5eq4nij"
 
@@ -397,9 +397,6 @@ position = Vector2(302, -16)
 [node name="Chest3" parent="Room5" unique_id=1503263384 instance=ExtResource("6_btoec")]
 position = Vector2(371, -16)
 
-[node name="Chest4" parent="Room5" unique_id=871427090 instance=ExtResource("6_btoec")]
-position = Vector2(440, -16)
-
 [node name="Door" parent="Room5" unique_id=1352446871 instance=ExtResource("8_l53as")]
 position = Vector2(688, -48)
 scale = Vector2(3, 1)
@@ -415,6 +412,9 @@ position = Vector2(488, -16)
 
 [node name="Candle4" parent="Room5" unique_id=1571823261 instance=ExtResource("13_1ylvr")]
 position = Vector2(720, 80)
+
+[node name="Cauldron" parent="Room5" unique_id=1817912339 instance=ExtResource("16_ccqkv")]
+position = Vector2(440, -16)
 
 [node name="Room6" type="Area2D" parent="." unique_id=1113429198 node_paths=PackedStringArray("lockables")]
 position = Vector2(-512, 512)
