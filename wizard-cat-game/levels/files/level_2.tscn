@@ -45,7 +45,7 @@ position = Vector2(576, 576)
 position = Vector2(576, 320)
 collision_mask = 2
 script = ExtResource("3_v5uil")
-lockables = [NodePath("Door"), NodePath("Door2"), NodePath("Door3"), NodePath(""), NodePath("Chest2"), NodePath("Chest3"), NodePath("Chest4")]
+lockables = [NodePath("Door"), NodePath("Door2"), NodePath("Door3"), NodePath("Cauldron"), NodePath("Chest2"), NodePath("Chest3"), NodePath("Chest4")]
 visible_on_enter = true
 connected_rooms = [NodePath("../Room2"), NodePath("../Room3")]
 metadata/_custom_type_script = "uid://r7m3l5eq4nij"
@@ -201,7 +201,7 @@ position = Vector2(400, 304)
 position = Vector2(384, -128)
 collision_mask = 2
 script = ExtResource("3_v5uil")
-lockables = [NodePath("../Room1/Door3"), NodePath("Chest"), NodePath(""), NodePath("Chest3"), NodePath("Door")]
+lockables = [NodePath("../Room1/Door3"), NodePath("Chest"), NodePath("Cauldron"), NodePath("Chest3"), NodePath("Door")]
 connected_rooms = [NodePath("../Room4")]
 metadata/_custom_type_script = "uid://r7m3l5eq4nij"
 

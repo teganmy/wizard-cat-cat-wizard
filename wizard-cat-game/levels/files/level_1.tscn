@@ -198,7 +198,7 @@ position = Vector2(0, 128)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_3sk1a")
-lockables = [NodePath("Door"), NodePath("Chest"), NodePath("Chest2"), NodePath(""), NodePath("Door2")]
+lockables = [NodePath("Door"), NodePath("Chest"), NodePath("Chest2"), NodePath("Cauldron"), NodePath("Door2")]
 connected_rooms = [NodePath("../Room6")]
 metadata/_custom_type_script = "uid://r7m3l5eq4nij"
 
@@ -352,7 +352,7 @@ position = Vector2(-512, -448)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_3sk1a")
-lockables = [NodePath("../Room4/Door2"), NodePath("Chest"), NodePath("Chest2"), NodePath("Chest3"), NodePath(""), NodePath("Door")]
+lockables = [NodePath("../Room4/Door2"), NodePath("Chest"), NodePath("Chest2"), NodePath("Chest3"), NodePath("Cauldron"), NodePath("Door")]
 connected_rooms = [NodePath("../Room7")]
 metadata/_custom_type_script = "uid://r7m3l5eq4nij"
 
