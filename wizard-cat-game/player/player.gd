@@ -108,6 +108,7 @@ func _dodge() -> void:
 	_change_hit_state(HIT_STATE.INVINCIBLE)
 	dodge_dir = last_dir
 	get_tree().create_timer(dodge_time).timeout.connect(_end_dodge)
+	_flash(dodge_time * 2)
 	camera.shake(dodge_shake)
 
 func _end_dodge() -> void:
@@ -165,4 +166,3 @@ func _flash(time: float, repeats:int = 1, color: Color = Color.WHITE) -> void:
 		await get_tree().create_timer(time / 2).timeout
 		sprite_material.set_shader_parameter("on", false)
 		await get_tree().create_timer(time / 2).timeout
-		print("repeat")

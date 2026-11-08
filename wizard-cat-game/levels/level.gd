@@ -44,6 +44,7 @@ func _ready() -> void:
 		exit_portal.lock.unlocked.connect(_on_exit_portal_unlocked)
 	enter()
 
+
 func respawn_player() -> void:
 	Save.load_current()
 	get_tree().reload_current_scene.call_deferred()

@@ -7,6 +7,7 @@ extends Control
 
 var hint_tween: Tween
 
+
 func _ready() -> void:
 	show()
 	PlayerState.currency_changed.connect(_on_currency_changed)
@@ -20,7 +21,7 @@ func _ready() -> void:
 		get_tree().current_scene.enter()
 	hint_label.hide()
 	hint_label.modulate.a = 0.0
-	
+
 func _on_currency_changed(new: int) -> void:
 	money_label.text = "$%s" % new
 
