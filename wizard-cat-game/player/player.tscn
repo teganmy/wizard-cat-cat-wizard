@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://6t34451gxrtm"]
 
 [ext_resource type="Script" uid="uid://cbd2g1myqnniy" path="res://player/player.gd" id="1_onrkg"]
+[ext_resource type="Shader" uid="uid://c2tg8am0uwq6d" path="res://player/flash.gdshader" id="2_2ieo8"]
 [ext_resource type="Texture2D" uid="uid://cdhwe1jm0yer6" path="res://assets/wizard-cat.png" id="2_dw050"]
 [ext_resource type="Script" uid="uid://bcc0owr08yuq5" path="res://components/health.gd" id="3_i3pqv"]
 [ext_resource type="Script" uid="uid://c88tvlaqfqme2" path="res://components/hurtbox.gd" id="4_hqtel"]
@@ -8,7 +9,13 @@
 [ext_resource type="Resource" uid="uid://d4lh65x68250r" path="res://shooting/bullet_types/player_default.tres" id="7_dw050"]
 [ext_resource type="Resource" uid="uid://c6r0w1nogygho" path="res://shooting/firing_patterns/player_default.tres" id="8_b26j0"]
 [ext_resource type="PackedScene" uid="uid://dvdc0giywjqia" path="res://shooting/area_bullet.tscn" id="8_dw050"]
+[ext_resource type="Script" uid="uid://c5cxwb8ugyefc" path="res://player/camera.gd" id="9_8t03j"]
 [ext_resource type="Script" uid="uid://cnhbys2pob6vi" path="res://components/pickup_area.gd" id="9_b26j0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8t03j"]
+shader = ExtResource("2_2ieo8")
+shader_parameter/on = false
+shader_parameter/solid_color = Color(1, 1, 1, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_llefe"]
 radius = 11.0
@@ -25,14 +32,19 @@ collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_onrkg")
 speed = 250.0
-dodge_speed = 700.0
-i_frames = 1.0
+dodge_speed = 900.0
+dodge_time = 0.15
+i_frames = 3.0
+hit_shake = 15.0
+dodge_shake = 6.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1903219605]
 texture_filter = 1
+material = SubResource("ShaderMaterial_8t03j")
 texture = ExtResource("2_dw050")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1265038457]
+visible = false
 shape = SubResource("CapsuleShape2D_llefe")
 
 [node name="Health" type="Node" parent="." unique_id=1166352412]
@@ -41,6 +53,7 @@ max_health = 6
 metadata/_custom_type_script = "uid://bcc0owr08yuq5"
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=299813101 node_paths=PackedStringArray("health")]
+visible = false
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("4_hqtel")
@@ -63,11 +76,13 @@ zoom = Vector2(1.2, 1.2)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+script = ExtResource("9_8t03j")
 
 [node name="DodgeCooldown" type="Timer" parent="." unique_id=204651733]
 one_shot = true
 
 [node name="PickupArea" type="Area2D" parent="." unique_id=983108859 node_paths=PackedStringArray("health", "secondary_shooter")]
+visible = false
 collision_layer = 0
 collision_mask = 32
 script = ExtResource("9_b26j0")

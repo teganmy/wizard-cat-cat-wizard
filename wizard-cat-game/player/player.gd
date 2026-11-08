@@ -6,6 +6,7 @@ const FEET_OFFSET := Vector2(0, 8)
 @export var water_speed_multiplier: float = 0.5
 @export var speed: float = 100
 @export var dodge_speed: float = 500
+@export var dodge_time: float = 0.2
 @export var i_frames: float = 0.1
 @onready var shooter := $AreaShooter
 @onready var sprite := $Sprite2D
@@ -14,6 +15,10 @@ const FEET_OFFSET := Vector2(0, 8)
 @onready var hurtbox := $Hurtbox
 @onready var secondary_shooter: AreaShooter = $SecondaryShooter
 @onready var pickup_area: PickupArea = $PickupArea
+@onready var camera: Camera2D = $Camera2D
+@export_group("Visuals")
+@export var hit_shake: float = 100.0
+@export var dodge_shake: float = 20.0
 
 var last_dir: Vector2 = Vector2.ZERO
 var dodge_dir: Vector2 = Vector2.ZERO
@@ -102,7 +107,8 @@ func _change_hit_state(new_state: HIT_STATE) -> void:
 func _dodge() -> void:
 	_change_hit_state(HIT_STATE.INVINCIBLE)
 	dodge_dir = last_dir
-	get_tree().create_timer(0.1).timeout.connect(_end_dodge)
+	get_tree().create_timer(dodge_time).timeout.connect(_end_dodge)
+	camera.shake(dodge_shake)
 
 func _end_dodge() -> void:
 	velocity = Vector2.ZERO
@@ -117,8 +123,8 @@ func _on_pickup_area_picked_up(value: int) -> void:
 
 func _on_hurtbox_hurt() -> void:
 	_change_hit_state(HIT_STATE.INVINCIBLE)
-	modulate = Color.DARK_GRAY
-	create_tween().tween_property(self, "modulate", Color.WHITE, i_frames)
+	_flash(i_frames / 5, 5)
+	camera.shake(hit_shake)
 	
 func _use_potion() -> void:
 	var potion: LootType = PlayerState.selected()
@@ -150,3 +156,13 @@ func _get_surface() -> String:
 	if data == null:
 		return ""
 	return str(data.get_custom_data("surface"))
+
+func _flash(time: float, repeats:int = 1, color: Color = Color.WHITE) -> void:
+	var sprite_material: ShaderMaterial = sprite.material
+	sprite_material.set_shader_parameter("solid_color", color)
+	for _i in range(repeats):
+		sprite_material.set_shader_parameter("on", true)
+		await get_tree().create_timer(time / 2).timeout
+		sprite_material.set_shader_parameter("on", false)
+		await get_tree().create_timer(time / 2).timeout
+		print("repeat")
