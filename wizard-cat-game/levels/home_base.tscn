@@ -27,6 +27,7 @@ position = Vector2(608, 384)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1670196449]
 
 [node name="HUD" parent="CanvasLayer" unique_id=1381849764 instance=ExtResource("2_sancg")]
+visible = false
 metadata/_edit_lock_ = true
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/HUD" unique_id=1700893273]
