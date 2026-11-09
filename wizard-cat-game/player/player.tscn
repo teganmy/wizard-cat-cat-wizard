@@ -27,7 +27,7 @@ size = Vector2(22, 32)
 [sub_resource type="CircleShape2D" id="CircleShape2D_gpvk7"]
 radius = 56.142673
 
-[node name="Player" type="CharacterBody2D" unique_id=705305627 groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=705305627 node_paths=PackedStringArray("shooter", "sprite", "health", "hurtbox", "secondary_shooter", "pickup_area", "camera", "dust", "dodge_cooldown") groups=["Player"]]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_onrkg")
@@ -37,6 +37,15 @@ dodge_time = 0.15
 i_frames = 3.0
 hit_shake = 15.0
 dodge_shake = 6.0
+shooter = NodePath("AreaShooter")
+sprite = NodePath("Sprite2D")
+health = NodePath("Health")
+hurtbox = NodePath("Hurtbox")
+secondary_shooter = NodePath("SecondaryShooter")
+pickup_area = NodePath("PickupArea")
+camera = NodePath("Camera2D")
+dust = NodePath("DustEmitter")
+dodge_cooldown = NodePath("DodgeCooldown")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1903219605]
 texture_filter = 1
@@ -97,6 +106,8 @@ shape = SubResource("CircleShape2D_gpvk7")
 script = ExtResource("7_1jxqw")
 bullet_scene = ExtResource("8_dw050")
 metadata/_custom_type_script = "uid://ds8lqx0juuem6"
+
+[node name="DustEmitter" type="GPUParticles2D" parent="." unique_id=1974190854]
 
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
 [connection signal="picked_up" from="PickupArea" to="." method="_on_pickup_area_picked_up"]

@@ -8,17 +8,29 @@ const FEET_OFFSET := Vector2(0, 8)
 @export var dodge_speed: float = 500
 @export var dodge_time: float = 0.2
 @export var i_frames: float = 0.1
-@onready var shooter := $AreaShooter
-@onready var sprite := $Sprite2D
-@onready var health := $Health
-@onready var dodge_cooldown := $DodgeCooldown
-@onready var hurtbox := $Hurtbox
-@onready var secondary_shooter: AreaShooter = $SecondaryShooter
-@onready var pickup_area: PickupArea = $PickupArea
-@onready var camera: Camera2D = $Camera2D
+#@onready var shooter := $AreaShooter
+#@onready var sprite := $Sprite2D
+#@onready var health := $Health
+#@onready var dodge_cooldown := $DodgeCooldown
+#@onready var hurtbox := $Hurtbox
+#@onready var secondary_shooter: AreaShooter = $SecondaryShooter
+#@onready var pickup_area: PickupArea = $PickupArea
+#@onready var camera: Camera2D = $Camera2D
+#@onready var dust: GPUParticles2D = $DustEmitter
 @export_group("Visuals")
 @export var hit_shake: float = 100.0
 @export var dodge_shake: float = 20.0
+@export_group("Wiring")
+@export var shooter: AreaShooter
+@export var sprite: Sprite2D
+@export var health: Health
+@export var hurtbox: Hurtbox
+@export var secondary_shooter: AreaShooter
+@export var pickup_area: PickupArea
+@export var camera: Camera2D
+@export var dust: GPUParticles2D
+@export var dodge_cooldown: Timer
+
 
 var last_dir: Vector2 = Vector2.ZERO
 var dodge_dir: Vector2 = Vector2.ZERO
