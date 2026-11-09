@@ -50,17 +50,17 @@ position = Vector2(442, 214)
 
 [node name="ShopLayer" type="CanvasLayer" parent="." unique_id=857428770]
 
-[node name="Shop" parent="ShopLayer" unique_id=812727718 instance=ExtResource("9_24ckt")]
-anchors_preset = -1
-anchor_left = 0.44500002
-anchor_top = 0.48700002
-anchor_right = 0.44500002
-anchor_bottom = 0.48700002
-offset_left = -272.64
-offset_top = -130.57602
-offset_right = -272.64
-offset_bottom = -130.57602
+[node name="CenterContainer" type="CenterContainer" parent="ShopLayer" unique_id=1700893273]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shop" parent="ShopLayer/CenterContainer" unique_id=812727718 instance=ExtResource("9_24ckt")]
+visible = false
+layout_mode = 2
 
 [node name="Shopkeeper" parent="." unique_id=1160917847 node_paths=PackedStringArray("shop") instance=ExtResource("10_x5qsl")]
 position = Vector2(923, 241)
-shop = NodePath("../ShopLayer/Shop")
+shop = NodePath("../ShopLayer/CenterContainer/Shop")

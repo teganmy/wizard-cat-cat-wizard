@@ -21,12 +21,12 @@ anchors_preset = 0
 theme = ExtResource("1_bv5vx")
 script = ExtResource("1_r2p71")
 items = Array[ExtResource("2_ljlg5")]([ExtResource("3_bv5vx"), ExtResource("4_mmyc1"), ExtResource("5_orod7"), ExtResource("6_cd0xb"), ExtResource("7_yrv44"), ExtResource("8_pafut")])
-grid = NodePath("Margin/VBox/Grid")
-coins_label = NodePath("Margin/VBox/Header/CoinLabel")
-name_label = NodePath("Margin/VBox/NameLabel")
-description_label = NodePath("Margin/VBox/DescriptionLabel")
-buy_button = NodePath("Margin/VBox/Buttons/BuyButton")
-close_button = NodePath("Margin/VBox/Buttons/CloseButton")
+grid = NodePath("Panel/Margin/VBox/Grid")
+coins_label = NodePath("Panel/Margin/VBox/Header/CoinLabel")
+name_label = NodePath("Panel/Margin/VBox/NameLabel")
+description_label = NodePath("Panel/Margin/VBox/DescriptionLabel")
+buy_button = NodePath("Panel/Margin/VBox/Buttons/BuyButton")
+close_button = NodePath("Panel/Margin/VBox/Buttons/CloseButton")
 
 [node name="Dim" type="ColorRect" parent="." unique_id=328777528]
 layout_mode = 1
@@ -52,59 +52,59 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_bv5vx")
 
-[node name="Margin" type="MarginContainer" parent="." unique_id=1552753210]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="VBox" type="VBoxContainer" parent="Margin" unique_id=508529531]
+[node name="Margin" type="MarginContainer" parent="Panel" unique_id=1552753210]
 layout_mode = 2
 
-[node name="Header" type="HBoxContainer" parent="Margin/VBox" unique_id=2074679706]
+[node name="VBox" type="VBoxContainer" parent="Panel/Margin" unique_id=508529531]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Margin/VBox/Header" unique_id=705685091]
+[node name="Header" type="HBoxContainer" parent="Panel/Margin/VBox" unique_id=2074679706]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/Margin/VBox/Header" unique_id=705685091]
 layout_mode = 2
 text = "Shop"
+horizontal_alignment = 1
 
-[node name="Spacer" type="Control" parent="Margin/VBox/Header" unique_id=1541580071]
+[node name="Spacer" type="Control" parent="Panel/Margin/VBox/Header" unique_id=1541580071]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CoinIcon" type="TextureRect" parent="Margin/VBox/Header" unique_id=659889314]
+[node name="CoinIcon" type="TextureRect" parent="Panel/Margin/VBox/Header" unique_id=659889314]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("2_sxvro")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="CoinLabel" type="Label" parent="Margin/VBox/Header" unique_id=920814822]
+[node name="CoinLabel" type="Label" parent="Panel/Margin/VBox/Header" unique_id=920814822]
 layout_mode = 2
+horizontal_alignment = 1
 
-[node name="Grid" type="GridContainer" parent="Margin/VBox" unique_id=482171359]
+[node name="Grid" type="GridContainer" parent="Panel/Margin/VBox" unique_id=482171359]
 layout_mode = 2
-columns = 4
+columns = 6
 
-[node name="NameLabel" type="Label" parent="Margin/VBox" unique_id=819493626]
+[node name="NameLabel" type="Label" parent="Panel/Margin/VBox" unique_id=819493626]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_sxvro")
 
-[node name="DescriptionLabel" type="Label" parent="Margin/VBox" unique_id=324723837]
+[node name="DescriptionLabel" type="Label" parent="Panel/Margin/VBox" unique_id=324723837]
 custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
 label_settings = SubResource("LabelSettings_r2p71")
 autowrap_mode = 3
 
-[node name="Buttons" type="HBoxContainer" parent="Margin/VBox" unique_id=239229885]
+[node name="Buttons" type="HBoxContainer" parent="Panel/Margin/VBox" unique_id=239229885]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="BuyButton" type="Button" parent="Margin/VBox/Buttons" unique_id=906442858]
+[node name="BuyButton" type="Button" parent="Panel/Margin/VBox/Buttons" unique_id=906442858]
 custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CloseButton" type="Button" parent="Margin/VBox/Buttons" unique_id=899293685]
+[node name="CloseButton" type="Button" parent="Panel/Margin/VBox/Buttons" unique_id=899293685]
 custom_minimum_size = Vector2(129, 40)
 layout_mode = 2
 size_flags_horizontal = 3
