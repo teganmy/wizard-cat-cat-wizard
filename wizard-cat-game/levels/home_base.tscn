@@ -29,6 +29,18 @@ position = Vector2(608, 384)
 [node name="HUD" parent="CanvasLayer" unique_id=1381849764 instance=ExtResource("2_sancg")]
 metadata/_edit_lock_ = true
 
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/HUD" unique_id=1700893273]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shop" parent="CanvasLayer/HUD/CenterContainer" unique_id=812727718 instance=ExtResource("9_24ckt")]
+visible = false
+layout_mode = 2
+
 [node name="LevelSelectMenu" parent="CanvasLayer/HUD" unique_id=975190331 instance=ExtResource("5_cas1r")]
 visible = false
 layout_mode = 1
@@ -48,19 +60,6 @@ position = Vector2(665, 211)
 [node name="Candle" parent="." unique_id=753880452 instance=ExtResource("3_wmka8")]
 position = Vector2(442, 214)
 
-[node name="ShopLayer" type="CanvasLayer" parent="." unique_id=857428770]
-
-[node name="CenterContainer" type="CenterContainer" parent="ShopLayer" unique_id=1700893273]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Shop" parent="ShopLayer/CenterContainer" unique_id=812727718 instance=ExtResource("9_24ckt")]
-visible = false
-layout_mode = 2
-
 [node name="Shopkeeper" parent="." unique_id=1160917847 node_paths=PackedStringArray("shop") instance=ExtResource("10_x5qsl")]
 position = Vector2(923, 241)
-shop = NodePath("../ShopLayer/CenterContainer/Shop")
+shop = NodePath("../CanvasLayer/HUD/CenterContainer/Shop")
