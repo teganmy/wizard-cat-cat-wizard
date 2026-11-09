@@ -7,7 +7,7 @@
 script = ExtResource("1_3i5np")
 sprite = ExtResource("2_ct557")
 modulate = Color(0, 0.32673138, 0.4695506, 1)
-particle_modulate = Color(0.95291597, 0.7002139, 0.149802, 1)
+particle_modulate = Color(0.9529412, 0.7019608, 0.14901961, 1)
 lifetime = 1.5
 collision_layer = null
 collision_mask = 1

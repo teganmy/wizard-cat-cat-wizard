@@ -2,21 +2,14 @@ extends CharacterBody2D
 
 const GROUND_RESPONSE := 0.1
 const FEET_OFFSET := Vector2(0, 8)
+@export_group("Movement")
 @export var ice_slide_time: float = 1.0
 @export var water_speed_multiplier: float = 0.5
 @export var speed: float = 100
 @export var dodge_speed: float = 500
 @export var dodge_time: float = 0.2
+@export_group("Behavior")
 @export var i_frames: float = 0.1
-#@onready var shooter := $AreaShooter
-#@onready var sprite := $Sprite2D
-#@onready var health := $Health
-#@onready var dodge_cooldown := $DodgeCooldown
-#@onready var hurtbox := $Hurtbox
-#@onready var secondary_shooter: AreaShooter = $SecondaryShooter
-#@onready var pickup_area: PickupArea = $PickupArea
-#@onready var camera: Camera2D = $Camera2D
-#@onready var dust: GPUParticles2D = $DustEmitter
 @export_group("Visuals")
 @export var hit_shake: float = 100.0
 @export var dodge_shake: float = 20.0
@@ -55,6 +48,7 @@ func _ready() -> void:
 	iframe_timer.timeout.connect(_change_hit_state.bind(HIT_STATE.NORMAL))
 	add_child(iframe_timer)
 	_surface_layer = get_tree().get_first_node_in_group("surface_layer")
+	dust.emitting = false
 
 func _process(_delta: float) -> void:
 	if get_global_mouse_position().x < global_position.x:
@@ -121,6 +115,8 @@ func _dodge() -> void:
 	dodge_dir = last_dir
 	get_tree().create_timer(dodge_time).timeout.connect(_end_dodge)
 	_flash(dodge_time * 2)
+	dust.process_material.direction = Vector3(-dodge_dir.x, -dodge_dir.y, 0)
+	dust.restart()
 	camera.shake(dodge_shake)
 
 func _end_dodge() -> void:
@@ -128,6 +124,7 @@ func _end_dodge() -> void:
 	dodge_cooldown.start()
 	_change_hit_state(HIT_STATE.NORMAL)
 	_change_state(STATE.IDLE)
+	dust.emitting = false
 	last_dir = Vector2.ZERO
 
 
