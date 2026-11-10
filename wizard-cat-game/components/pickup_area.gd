@@ -35,13 +35,12 @@ func apply_effect(type: LootType) -> bool:
 	if type.heal_amount > 0:
 		health.heal(type.heal_amount)
 	elif type.attack:
-		PlayerState.set_secondary(type)
+		PlayerState.set_secondary(type.attack)
 	elif type.fire_rate_multiplier != 1.0:
 		PlayerState.apply_fire_rate_boost(type.fire_rate_multiplier, type.fire_rate_duration)
 	else:
 		return false
 	return true
 
-func _configure_secondary(type: LootType) -> void:
-	if type and type.attack:
-		secondary_shooter.configure(type.attack.bullet_type, type.attack.firing_pattern)
+func _configure_secondary(type: SecondaryAttack) -> void:
+	secondary_shooter.configure(type.bullet_type, type.firing_pattern)

@@ -8,11 +8,11 @@ var max_potions: int:
 		return BASE_POTIONS + upgrade_level("potion_slots")
 var upgrades: Dictionary = {}
 var potions: Array[LootType] = []
-var secondary: LootType
+var secondary: SecondaryAttack
 
 signal potions_changed
 signal upgrades_changed
-signal secondary_changed(type: LootType)
+signal secondary_changed(type: SecondaryAttack)
 
 var current_health: int:
 	set(new):
@@ -112,7 +112,7 @@ func cycle_potion() -> void:
 		potions.push_back(potions.pop_front())
 		potions_changed.emit()
 
-func set_secondary(type: LootType) -> void:
+func set_secondary(type: SecondaryAttack) -> void:
 	secondary = type
 	secondary_changed.emit(type)
 	

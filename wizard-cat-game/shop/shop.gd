@@ -103,6 +103,6 @@ func _on_buy_pressed() -> void:
 		ShopItem.Kind.POTION:
 			PlayerState.add_potion(_selected.loot)
 		ShopItem.Kind.SECONDARY:
-			PlayerState.set_secondary(_selected.loot)
+			PlayerState.set_secondary(_selected.loot.attack)
 		ShopItem.Kind.UPGRADE:
 			PlayerState.add_upgrade(_selected.upgrade_id)

@@ -3,9 +3,11 @@
 [ext_resource type="Resource" uid="uid://dhpiibg4jam7c" path="res://shooting/bullet_types/player_shotgun.tres" id="1_chiud"]
 [ext_resource type="Script" uid="uid://c5b021votofrj" path="res://shooting/secondary_attack.gd" id="1_jon5o"]
 [ext_resource type="Resource" uid="uid://chn81rhrxewky" path="res://shooting/firing_patterns/player_shotgun.tres" id="2_chiud"]
+[ext_resource type="Texture2D" uid="uid://c0bw0dmkdcswa" path="res://assets/snake.png" id="3_q124r"]
 
 [resource]
 script = ExtResource("1_jon5o")
+icon = ExtResource("3_q124r")
 bullet_type = ExtResource("1_chiud")
 firing_pattern = ExtResource("2_chiud")
 metadata/_custom_type_script = "uid://c5b021votofrj"
