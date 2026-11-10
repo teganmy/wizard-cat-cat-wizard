@@ -68,7 +68,6 @@ func clear_fire_rate_boost() -> void:
 	fire_rate_boost_changed.emit(1.0)
 	
 func reset() -> void:
-	print("PlayerState being reset")
 	current_health = 0
 	max_health = 0
 	currency = 0
@@ -85,7 +84,7 @@ func save() -> Dictionary:
 		"current_health": current_health,
 		"max_health": max_health,
 		"currency": currency,
-		"potions": potions.map(func(p: LootType): return p.resource_path),
+		#"potions": potions.map(func(p: LootType): return p.resource_path),
 		"player_is_new": player_is_new,
 		"secondary_path": secondary_path,
 		"potion_paths": potion_paths,
