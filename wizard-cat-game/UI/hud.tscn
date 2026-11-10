@@ -119,12 +119,12 @@ size_flags_vertical = 8
 theme_override_constants/outline_size = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_m63w8")
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=678058507]
+[node name="PotionPanel" type="PanelContainer" parent="MarginContainer" unique_id=678058507]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 
-[node name="PotionContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer" unique_id=2079544909]
+[node name="PotionContainer" type="HBoxContainer" parent="MarginContainer/PotionPanel" unique_id=2079544909]
 layout_mode = 2
 alignment = 1
 script = ExtResource("8_pf7ph")

@@ -1,6 +1,7 @@
 extends HBoxContainer
 
-const SLOT_SIZE := Vector2(40, 40)
+const SLOT_SIZE := Vector2(30, 30)
+
 
 func _ready() -> void:
 	PlayerState.potions_changed.connect(_refresh)

@@ -1,4 +1,3 @@
-class_name Shop
 extends Control
 
 @export var items: Array[ShopItem]
@@ -8,6 +7,8 @@ extends Control
 @export var description_label: Label
 @export var buy_button: Button
 @export var close_button: Button
+@export var button_tween: ButtonTween
+
 
 var _selected: ShopItem
 
@@ -35,6 +36,7 @@ func _ready() -> void:
 		icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		button.add_child(icon)
 		grid.add_child(button)
+		button_tween.add_button(button)
 
 func open() -> void:
 	show()
