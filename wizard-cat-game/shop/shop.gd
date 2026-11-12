@@ -63,7 +63,7 @@ func _select(item: ShopItem) -> void:
 func _on_currency_changed(_new: int) -> void:
 	_refresh.call_deferred() # CHANGED: see below
 
-func _on_secondary_changed(_type: LootType) -> void:
+func _on_secondary_changed(_type: SecondaryAttack) -> void:
 	_refresh()
 
 func _blocked_reason(item: ShopItem) -> String:

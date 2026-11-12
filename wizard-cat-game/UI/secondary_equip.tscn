@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://cvcceifa00rdn"]
+
+[ext_resource type="Script" uid="uid://dbe2kem31w4nr" path="res://UI/secondary_equip.gd" id="1_3rpu3"]
+[ext_resource type="Script" uid="uid://drea3dqv2qfyv" path="res://UI/secondary_list.gd" id="1_53k3k"]
+[ext_resource type="Script" uid="uid://drvg3uhl6rs8x" path="res://UI/draggable_secondary.gd" id="1_ugnjn"]
+[ext_resource type="Script" uid="uid://d2od71sjc1aqs" path="res://UI/secondary_slot.gd" id="4_3rpu3"]
+
+[node name="SecondaryEquip" type="Control" unique_id=592885288 node_paths=PackedStringArray("secondary_list")]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3rpu3")
+secondary_list = NodePath("CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/SecondaryList")
+
+[node name="PauseRect" type="ColorRect" parent="." unique_id=487670313]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.80784315)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1392040412]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=2000695834]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=1105995615]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=519131639]
+layout_mode = 2
+text = "Secondary Equip"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=546054666]
+layout_mode = 2
+
+[node name="SecondaryList" type="GridContainer" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=227030291]
+layout_mode = 2
+script = ExtResource("1_53k3k")
+child_script = ExtResource("1_ugnjn")
+
+[node name="Spacer" type="Control" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1785942752]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SecondarySlot" type="PanelContainer" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1833132320 node_paths=PackedStringArray("texture_rect")]
+layout_mode = 2
+script = ExtResource("4_3rpu3")
+texture_rect = NodePath("TextureRect")
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/SecondarySlot" unique_id=101685242]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/SecondarySlot" unique_id=1186872231]
+layout_mode = 2
+stretch_mode = 3
+
+[node name="CloseButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=752003856]
+layout_mode = 2
+text = "Close"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/CloseButton" to="." method="close"]

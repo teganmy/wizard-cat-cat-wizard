@@ -112,13 +112,12 @@ script = ExtResource("9_8t03j")
 [node name="DodgeCooldown" type="Timer" parent="." unique_id=204651733]
 one_shot = true
 
-[node name="PickupArea" type="Area2D" parent="." unique_id=983108859 node_paths=PackedStringArray("health", "secondary_shooter")]
+[node name="PickupArea" type="Area2D" parent="." unique_id=983108859 node_paths=PackedStringArray("health")]
 visible = false
 collision_layer = 0
 collision_mask = 32
 script = ExtResource("9_b26j0")
 health = NodePath("../Health")
-secondary_shooter = NodePath("../SecondaryShooter")
 metadata/_custom_type_script = "uid://cnhbys2pob6vi"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" unique_id=209260760]

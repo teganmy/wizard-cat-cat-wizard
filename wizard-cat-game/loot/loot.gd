@@ -1,10 +1,9 @@
 class_name Loot
 extends RigidBody2D
 
-signal picked_up(value: int)
+signal picked_up(type: LootType)
 
 @export var type: LootType
-var value: int = 1
 @onready var sprite := $Sprite2D
 enum STATE {IDLE, GRABBED}
 var state: STATE = STATE.IDLE
@@ -26,7 +25,6 @@ func is_grabbed() -> bool:
 	return state == STATE.GRABBED
 
 func _ready() -> void:
-	value = type.value
 	sprite.texture = type.sprite
 	sprite.modulate = type.tint
 
@@ -37,7 +35,7 @@ func _physics_process(delta: float) -> void:
 				_pull_speed = minf(_pull_speed + pull_accel * delta, pull_max_speed)
 				linear_velocity = global_position.direction_to(follow.global_position) * _pull_speed
 				if follow.global_position.distance_to(global_position) < 20:
-					picked_up.emit(value)
+					picked_up.emit(type)
 					queue_free()
 
 func _change_state(new_state: STATE) -> void:

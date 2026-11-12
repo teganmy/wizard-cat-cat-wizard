@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://b8ojfjr3irnrg"]
+
+[ext_resource type="Script" uid="uid://olkjutnnoue0" path="res://props/secondary_wardrobe.gd" id="1_5dpia"]
+[ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="2_1mkjd"]
+[ext_resource type="Script" uid="uid://dxddfl5g0sgtd" path="res://components/interaction_area.gd" id="3_n3ars"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpvk7"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2w8te"]
+size = Vector2(48, 88)
+
+[node name="SecondaryWardrobe" type="StaticBody2D" unique_id=1829944150]
+script = ExtResource("1_5dpia")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=486185347]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_1mkjd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=890904039]
+shape = SubResource("RectangleShape2D_gpvk7")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1923608738]
+collision_mask = 2
+script = ExtResource("3_n3ars")
+hint = "E to equip secondary"
+metadata/_custom_type_script = "uid://dxddfl5g0sgtd"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=24615415]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_2w8te")
+
+[connection signal="interact" from="InteractionArea" to="." method="open"]

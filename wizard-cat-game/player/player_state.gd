@@ -8,7 +8,8 @@ var max_potions: int:
 		return BASE_POTIONS + upgrade_level("potion_slots")
 var upgrades: Dictionary = {}
 var potions: Array[LootType] = []
-var secondary: SecondaryAttack
+var equipped_secondary: int = -1
+var secondaries: Array[SecondaryAttack] = []
 
 signal potions_changed
 signal upgrades_changed
@@ -31,11 +32,13 @@ var currency: int = 0:
 		currency_changed.emit(new)
 		currency = new
 var player_is_new: bool = true
-var secondary_path: String:
+var secondary_paths: Array:
 	get:
-		return secondary.resource_path if secondary else ""
-	set(path):
-		set_secondary(load(path) if path != "" else null)
+		return secondaries.map(func(s: SecondaryAttack): return s.resource_path)
+	set(paths):
+		secondary_paths = paths
+		for path in paths:
+			secondaries.push_back(load(path))
 
 var potion_paths: Array:
 	get:
@@ -45,7 +48,7 @@ var potion_paths: Array:
 		for path in paths:
 			potions.append(load(path))
 		potions_changed.emit()
-		
+
 signal current_health_changed(new: int)
 signal max_health_changed(new: int)
 signal currency_changed(new: int)
@@ -74,7 +77,8 @@ func reset() -> void:
 	clear_fire_rate_boost()
 	player_is_new = true
 	potions.clear()
-	secondary = null
+	equipped_secondary = -1
+	secondaries = []
 
 func save() -> Dictionary:
 	return {
@@ -86,7 +90,8 @@ func save() -> Dictionary:
 		"currency": currency,
 		#"potions": potions.map(func(p: LootType): return p.resource_path),
 		"player_is_new": player_is_new,
-		"secondary_path": secondary_path,
+		"secondary_paths": secondary_paths,
+		"equipped_secondary": equipped_secondary,
 		"potion_paths": potion_paths,
 		"upgrades": upgrades,
 	}
@@ -112,9 +117,21 @@ func cycle_potion() -> void:
 		potions.push_back(potions.pop_front())
 		potions_changed.emit()
 
-func set_secondary(type: SecondaryAttack) -> void:
-	secondary = type
-	secondary_changed.emit(type)
+func set_equipped_secondary_type(type: SecondaryAttack) -> void:
+	equipped_secondary = secondaries.find(type)
+	if equipped_secondary != -1:
+		secondary_changed.emit(type)
+
+func set_equipped_secondary(index: int) -> void:
+	if index < secondaries.size() and index >= 0:
+		equipped_secondary = index
+		secondary_changed.emit(secondaries[index])
+
+func add_secondary(type: SecondaryAttack) -> void:
+	if type not in secondaries:
+		secondaries.push_back(type)
+		if equipped_secondary == -1:
+			set_equipped_secondary(0)
 	
 func upgrade_level(id: String) -> int:
 	return int(upgrades.get(id, 0))

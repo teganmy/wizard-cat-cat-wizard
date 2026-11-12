@@ -49,6 +49,7 @@ func _ready() -> void:
 	add_child(iframe_timer)
 	_surface_layer = get_tree().get_first_node_in_group("surface_layer")
 	dust.emitting = false
+	PlayerState.secondary_changed.connect(_on_secondary_changed)
 
 func _process(_delta: float) -> void:
 	if get_global_mouse_position().x < global_position.x:
@@ -128,8 +129,10 @@ func _end_dodge() -> void:
 	last_dir = Vector2.ZERO
 
 
-func _on_pickup_area_picked_up(value: int) -> void:
-	PlayerState.currency += value
+func _on_pickup_area_picked_up(type: LootType) -> void:
+	if type.attack:
+		PlayerState.add_secondary(type.attack)
+	PlayerState.currency += type.value
 
 func _on_hurtbox_hurt() -> void:
 	_change_hit_state(HIT_STATE.INVINCIBLE)
@@ -175,3 +178,6 @@ func _flash(time: float, repeats:int = 1, color: Color = Color.WHITE) -> void:
 		await get_tree().create_timer(time / 2).timeout
 		sprite_material.set_shader_parameter("on", false)
 		await get_tree().create_timer(time / 2).timeout
+
+func _on_secondary_changed(type: SecondaryAttack) -> void:
+	secondary_shooter.configure(type.bullet_type, type.firing_pattern)

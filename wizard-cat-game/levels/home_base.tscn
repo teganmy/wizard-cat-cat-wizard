@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://hpag36semn3u" path="res://props/portal.tscn" id="5_boaak"]
 [ext_resource type="PackedScene" uid="uid://b7abfpxug6kt" path="res://UI/level_select_menu.tscn" id="5_cas1r"]
 [ext_resource type="PackedScene" uid="uid://u300mn1dprv" path="res://props/level_selector.tscn" id="7_m63w8"]
+[ext_resource type="PackedScene" uid="uid://cvcceifa00rdn" path="res://UI/secondary_equip.tscn" id="7_omxh7"]
 [ext_resource type="PackedScene" uid="uid://cm51ht3rkb1e6" path="res://shop/shop.tscn" id="9_24ckt"]
 [ext_resource type="PackedScene" uid="uid://c7pn22x2stlpn" path="res://shop/shopkeeper.tscn" id="10_x5qsl"]
+[ext_resource type="PackedScene" uid="uid://b8ojfjr3irnrg" path="res://props/secondary_wardrobe.tscn" id="11_7dcqm"]
 
 [node name="HomeBase" type="Node2D" unique_id=1618752609 node_paths=PackedStringArray("hud")]
 script = ExtResource("1_xolgs")
@@ -38,6 +40,9 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
+[node name="SecondaryEquip" parent="CanvasLayer/HUD" unique_id=592885288 instance=ExtResource("7_omxh7")]
+layout_mode = 1
+
 [node name="Portal" parent="." unique_id=1944338752 instance=ExtResource("5_boaak")]
 position = Vector2(608, 224)
 locked_hint = "Select level to unlock"
@@ -56,3 +61,7 @@ position = Vector2(442, 214)
 [node name="Shopkeeper" parent="." unique_id=1160917847 node_paths=PackedStringArray("shop") instance=ExtResource("10_x5qsl")]
 position = Vector2(923, 241)
 shop = NodePath("../CanvasLayer/HUD/Shop")
+
+[node name="SecondaryWardrobe" parent="." unique_id=1829944150 node_paths=PackedStringArray("equip_menu") instance=ExtResource("11_7dcqm")]
+position = Vector2(400, 216)
+equip_menu = NodePath("../CanvasLayer/HUD/SecondaryEquip")
