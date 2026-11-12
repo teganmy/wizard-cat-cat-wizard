@@ -1,3 +1,5 @@
+# Sprint 1 Feedback
+
 | Suggestion | Choice | Reason |
 | ---------- | ------ | ------ |
 | More visibility in pop ups | Adopt | Players need to be able to figure out what they're supposed to do |
@@ -19,24 +21,19 @@
 | Add player upgrades | Adopt | This will help create a sense of game progression, which is good for retaining player interest | 
 | More sprites | Adopt | Having a larger variety of sprites will make the rooms feel more dynamic and help to avoid the sense of playing the same level over and over | 
 
-
-
-
-- [ ] More visibility in pop ups
-- [ ] Remove left click to shoot
-- [ ] Add chest opening animation
-- [ ] Grace period/delay before enemy spawn
-- [ ] Add stuff to buy
-- [ ] Fix wall blocking mechanics
-- [ ] Slow down movement
-- [ ] Add indicators of wave number
-- [ ] Enemy pot-breaking mechanic
-- [ ] Slow down bullet rate
-- [ ] Give more warning before enemies spawn
-- [ ] Add win + restart conditions
-- [ ] Fix dodge
-- [ ] Add consumable secondary effect
-- [ ] Fix the bug where players get stuck in the wall
-- [ ] Add a boss fight
-- [ ] Add player upgrades
-- [ ] More sprites
+# Sprint 2 Feedback
+| Suggestion | Choice | Reason |
+| ---------- | ------ | ------ |
+| Cooldown bar for attacks | Adapt | Helps with differentiating between primary and secondary attack cooldown |
+| Reset wealth upon death | Adapt | Stops players from wealth mining by dying a lot | 
+| More power scaling before level 1 boss | Decline | Game is designed to scale up each level |
+| Loss of progress upon death | Adopt | Fixes wealth mining issue mentioned above |
+| More variety in weapon drops | Adopt | This will give the player more options and add a sense of progression |
+| Control guide in pause menu | Adopt | Our game has a lot of controls and this would help make it easier for the player to remember |
+| Fewer buttons | Adapt | We may move some of the buttons to be more accessible |
+| Hold shoot to continuously shoot | Adopt | Means player won't have to spam the space bar |
+| Make frog shoot faster | Adopt | This will make the frog as powerful as he appears to be |
+| Lilypad upgrade | Adopt | We are hoping to add several more secondary attack options | 
+| Bring a mouse next time | Adopt | Hopefully we'll remember! |
+| Respawn where you died | Decline | Levels are small enough that dying shouldn't reset too much progress |
+| Bosses drop new secondaries | Adopt | See above reasons for adding new player weapons |
