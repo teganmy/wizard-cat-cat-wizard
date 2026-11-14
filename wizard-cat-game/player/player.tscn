@@ -49,13 +49,29 @@ scale_min = 0.0
 scale_max = 8.0
 scale_curve = SubResource("CurveTexture_2ieo8")
 
-[node name="Player" type="CharacterBody2D" unique_id=705305627 node_paths=PackedStringArray("shooter", "sprite", "health", "hurtbox", "secondary_shooter", "pickup_area", "camera", "dust", "dodge_cooldown") groups=["Player"]]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ieo8"]
+shader = ExtResource("2_2ieo8")
+shader_parameter/on = true
+shader_parameter/solid_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Curve" id="Curve_ebec5"]
+_data = [Vector2(0, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ebec5"]
+curve = SubResource("Curve_ebec5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ebec5"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_ebec5")
+
+[node name="Player" type="CharacterBody2D" unique_id=705305627 node_paths=PackedStringArray("shooter", "sprite", "health", "hurtbox", "secondary_shooter", "pickup_area", "camera", "trail", "dodge_cooldown") groups=["Player"]]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_onrkg")
 speed = 250.0
 dodge_speed = 900.0
-dodge_time = 0.15
 i_frames = 3.0
 hit_shake = 15.0
 dodge_shake = 6.0
@@ -66,7 +82,7 @@ hurtbox = NodePath("Hurtbox")
 secondary_shooter = NodePath("SecondaryShooter")
 pickup_area = NodePath("PickupArea")
 camera = NodePath("Camera2D")
-dust = NodePath("DustEmitter")
+trail = NodePath("TrailEmitter")
 dodge_cooldown = NodePath("DodgeCooldown")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1903219605]
@@ -135,6 +151,14 @@ amount = 20
 lifetime = 0.5
 explosiveness = 0.75
 process_material = SubResource("ParticleProcessMaterial_2ieo8")
+
+[node name="TrailEmitter" type="GPUParticles2D" parent="." unique_id=1060175274]
+texture_filter = 1
+material = SubResource("ShaderMaterial_2ieo8")
+amount = 500
+texture = ExtResource("2_dw050")
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_ebec5")
 
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
 [connection signal="picked_up" from="PickupArea" to="." method="_on_pickup_area_picked_up"]

@@ -21,7 +21,7 @@ const FEET_OFFSET := Vector2(0, 8)
 @export var secondary_shooter: AreaShooter
 @export var pickup_area: PickupArea
 @export var camera: Camera2D
-@export var dust: GPUParticles2D
+@export var trail: GPUParticles2D
 @export var dodge_cooldown: Timer
 
 
@@ -48,8 +48,10 @@ func _ready() -> void:
 	iframe_timer.timeout.connect(_change_hit_state.bind(HIT_STATE.NORMAL))
 	add_child(iframe_timer)
 	_surface_layer = get_tree().get_first_node_in_group("surface_layer")
-	dust.emitting = false
+	trail.emitting = false
 	PlayerState.secondary_changed.connect(_on_secondary_changed)
+	if PlayerState.equipped_secondary != -1:
+		_on_secondary_changed(PlayerState.secondaries[PlayerState.equipped_secondary])
 
 func _process(_delta: float) -> void:
 	if get_global_mouse_position().x < global_position.x:
@@ -114,10 +116,11 @@ func _change_hit_state(new_state: HIT_STATE) -> void:
 func _dodge() -> void:
 	_change_hit_state(HIT_STATE.INVINCIBLE)
 	dodge_dir = last_dir
+	trail.emitting = true
 	get_tree().create_timer(dodge_time).timeout.connect(_end_dodge)
 	_flash(dodge_time * 2)
-	dust.process_material.direction = Vector3(-dodge_dir.x, -dodge_dir.y, 0)
-	dust.restart()
+	#dust.process_material.direction = Vector3(-dodge_dir.x, -dodge_dir.y, 0)
+	#trail.restart()
 	camera.shake(dodge_shake)
 
 func _end_dodge() -> void:
@@ -125,7 +128,7 @@ func _end_dodge() -> void:
 	dodge_cooldown.start()
 	_change_hit_state(HIT_STATE.NORMAL)
 	_change_state(STATE.IDLE)
-	dust.emitting = false
+	trail.emitting = false
 	last_dir = Vector2.ZERO
 
 

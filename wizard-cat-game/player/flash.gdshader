@@ -7,8 +7,8 @@ void fragment() {
 	// Called for every pixel the material is visible on.
 	if (on) {
 		vec4 texture_color = texture(TEXTURE, UV);
-		COLOR = vec4(mix(texture_color.rgb, solid_color.rgb, solid_color.a), texture_color.a);
-	}
+		COLOR = vec4(mix(texture_color.rgb, solid_color.rgb, solid_color.a), COLOR.a);
+	};
 }
 
 //void light() {
