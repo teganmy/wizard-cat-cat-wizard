@@ -4,14 +4,18 @@
 [ext_resource type="Script" uid="uid://dnqcg6lff1m84" path="res://shooting/bullet_types/bullet_type.gd" id="1_7d6tv"]
 [ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="2_ak564"]
 
+[sub_resource type="Curve" id="Curve_1t3gb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.58510643, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [resource]
 script = ExtResource("1_7d6tv")
 sprite = ExtResource("2_ak564")
 modulate = Color(0.62352943, 0.91764706, 0, 1)
 particle_modulate = Color(0.62352943, 0.91764706, 0, 1)
 payload = ExtResource("1_1t3gb")
-speed = 100.0
-lifetime = 10.0
+lifetime = 2.0
+speed_curve = SubResource("Curve_1t3gb")
 damage = 0
 collision_layer = null
 collision_mask = 17

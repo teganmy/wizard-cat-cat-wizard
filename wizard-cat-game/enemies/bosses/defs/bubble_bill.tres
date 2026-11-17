@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="BossDef" format=3 uid="uid://cwujha3hhjr3h"]
+
+[ext_resource type="Script" uid="uid://bof80j5oc6jsp" path="res://enemies/bosses/attacks/boss_attack.gd" id="1_osckg"]
+[ext_resource type="Script" uid="uid://qiyo0f705gt" path="res://loot/loot_type.gd" id="2_gw5gc"]
+[ext_resource type="Resource" uid="uid://lga52yncdreq" path="res://shooting/bullet_types/enemy_popping_bubble.tres" id="2_pbp4f"]
+[ext_resource type="Resource" uid="uid://ddw0mphcallna" path="res://shooting/firing_patterns/enemy_popping_bubble.tres" id="3_pxmdj"]
+[ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="3_qio33"]
+[ext_resource type="Script" uid="uid://cmna1iq5h5oq7" path="res://enemies/bosses/defs/boss_def.gd" id="4_pbp4f"]
+[ext_resource type="Script" uid="uid://b4l4u22a0kvsv" path="res://shooting/firing_patterns/firing_pattern.gd" id="4_pxmdj"]
+[ext_resource type="Texture2D" uid="uid://b7iihk17s3fy6" path="res://assets/frog.png" id="5_gw5gc"]
+[ext_resource type="Resource" uid="uid://f71ew0eynfiq" path="res://loot/loot_types/popping_secondary.tres" id="6_i0pog"]
+[ext_resource type="Resource" uid="uid://ld6uwxcbxknh" path="res://loot/loot_types/gem.tres" id="8_i5j0n"]
+[ext_resource type="Resource" uid="uid://bysyxfwpc5ro3" path="res://loot/loot_types/coin.tres" id="9_pm5hj"]
+
+[sub_resource type="Resource" id="Resource_ljdxk"]
+script = ExtResource("1_osckg")
+bullet = ExtResource("2_pbp4f")
+pattern = ExtResource("3_pxmdj")
+metadata/_custom_type_script = "uid://bof80j5oc6jsp"
+
+[sub_resource type="Resource" id="Resource_i0pog"]
+script = ExtResource("4_pxmdj")
+count = 2
+spread = 3.141592653589793
+metadata/_custom_type_script = "uid://b4l4u22a0kvsv"
+
+[sub_resource type="Resource" id="Resource_ebec5"]
+script = ExtResource("1_osckg")
+bullet = ExtResource("2_pbp4f")
+pattern = SubResource("Resource_i0pog")
+metadata/_custom_type_script = "uid://bof80j5oc6jsp"
+
+[sub_resource type="Resource" id="Resource_fttbv"]
+script = ExtResource("3_qio33")
+type = ExtResource("8_i5j0n")
+weight = 0.5
+metadata/_custom_type_script = "uid://drq0y0x2llhhg"
+
+[sub_resource type="Resource" id="Resource_i5j0n"]
+script = ExtResource("3_qio33")
+type = ExtResource("9_pm5hj")
+weight = 0.5
+metadata/_custom_type_script = "uid://drq0y0x2llhhg"
+
+[resource]
+script = ExtResource("4_pbp4f")
+name = "Bubble Bill"
+sprite = ExtResource("5_gw5gc")
+attack_timing = 1.5
+attacks = Array[ExtResource("1_osckg")]([SubResource("Resource_ljdxk"), SubResource("Resource_ebec5")])
+move_speed = 75.0
+min_target_distance = 50.0
+max_target_distance = 100.0
+distance_tolerance = 15.0
+max_health = 20
+loot_table = Array[ExtResource("3_qio33")]([SubResource("Resource_fttbv"), SubResource("Resource_i5j0n")])
+max_loot = 20
+min_loot = 15
+guaranteed_loot = Array[ExtResource("2_gw5gc")]([ExtResource("6_i0pog")])
+metadata/_custom_type_script = "uid://cmna1iq5h5oq7"

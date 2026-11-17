@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="BulletType" format=3 uid="uid://5pybndvweiqm"]
+
+[ext_resource type="PackedScene" uid="uid://d21sbo3ste1d1" path="res://shooting/bubble_pop.tscn" id="1_w2s2q"]
+[ext_resource type="Script" uid="uid://dnqcg6lff1m84" path="res://shooting/bullet_types/bullet_type.gd" id="2_meysu"]
+[ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="3_fe3i3"]
+
+[sub_resource type="Curve" id="Curve_jibsd"]
+_data = [Vector2(0.010638304, 1), 0.0, 0.0, 0, 0, Vector2(0.6755319, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.022471905), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[resource]
+script = ExtResource("2_meysu")
+sprite = ExtResource("3_fe3i3")
+modulate = Color(0, 0.3254902, 0.47058824, 1)
+particle_modulate = Color(0.9529412, 0.7019608, 0.14901961, 1)
+payload = ExtResource("1_w2s2q")
+speed = 150.0
+speed_curve = SubResource("Curve_jibsd")
+damage = 2
+collision_layer = null
+collision_mask = 1
+hitbox_layer = null
+hitbox_mask = 16
+scale = Vector2(1.5, 1.5)
+metadata/_custom_type_script = "uid://dnqcg6lff1m84"

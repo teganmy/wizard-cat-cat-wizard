@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SecondaryAttack" format=3 uid="uid://bfuy1gamn0iwa"]
+
+[ext_resource type="Script" uid="uid://c5b021votofrj" path="res://shooting/secondary_attack.gd" id="1_b8ntu"]
+[ext_resource type="Resource" uid="uid://5pybndvweiqm" path="res://shooting/bullet_types/player_popping_bubble.tres" id="1_h8yfo"]
+[ext_resource type="Resource" uid="uid://c12mi5prk52ku" path="res://shooting/firing_patterns/player_popping_bubble.tres" id="2_2da5v"]
+[ext_resource type="Texture2D" uid="uid://b7iihk17s3fy6" path="res://assets/frog.png" id="3_hhyku"]
+
+[resource]
+script = ExtResource("1_b8ntu")
+display_name = "Popping Bubble"
+icon = ExtResource("3_hhyku")
+bullet_type = ExtResource("1_h8yfo")
+firing_pattern = ExtResource("2_2da5v")
+metadata/_custom_type_script = "uid://c5b021votofrj"

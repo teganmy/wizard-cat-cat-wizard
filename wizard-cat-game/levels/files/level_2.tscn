@@ -21,7 +21,7 @@
 [ext_resource type="Script" uid="uid://b5qmnxsgil7fy" path="res://components/boss_room.gd" id="16_lf5r6"]
 [ext_resource type="PackedScene" uid="uid://bva015hvaya2e" path="res://props/vase.tscn" id="16_wr4gd"]
 [ext_resource type="PackedScene" uid="uid://5fb3r7077xy0" path="res://enemies/bosses/boss.tscn" id="17_1msb5"]
-[ext_resource type="Resource" uid="uid://cejo5p0ftn6mn" path="res://enemies/bosses/defs/machinegun_boss.tres" id="19_1msb5"]
+[ext_resource type="Resource" uid="uid://cwujha3hhjr3h" path="res://enemies/bosses/defs/bubble_bill.tres" id="19_kv63o"]
 [ext_resource type="AudioStream" uid="uid://dl5jku8tak8s8" path="res://assets/audio/Half Mystery.mp3" id="22_t8jds"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpvk7"]
@@ -165,7 +165,7 @@ metadata/_custom_type_script = "uid://d087k21va4dnw"
 position = Vector2(640, 256)
 script = ExtResource("6_ep78u")
 enemy_scene = ExtResource("7_dfjjl")
-waves = Array[ExtResource("8_at1ld")]([null, ExtResource("9_hbb88")])
+waves = Array[ExtResource("8_at1ld")]([null, ExtResource("10_kv63o")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="EnemySpawner4" type="Marker2D" parent="Room2" unique_id=1660505093]
@@ -179,7 +179,7 @@ metadata/_custom_type_script = "uid://d087k21va4dnw"
 position = Vector2(400, -8)
 script = ExtResource("6_ep78u")
 enemy_scene = ExtResource("7_dfjjl")
-waves = Array[ExtResource("8_at1ld")]([null, null, ExtResource("11_5orea")])
+waves = Array[ExtResource("8_at1ld")]([null, ExtResource("10_kv63o"), ExtResource("11_5orea")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="Door" parent="Room2" unique_id=381431899 instance=ExtResource("5_ilhis")]
@@ -257,7 +257,7 @@ position = Vector2(384, 0)
 script = ExtResource("6_ep78u")
 radius = 40.0
 enemy_scene = ExtResource("7_dfjjl")
-waves = Array[ExtResource("8_at1ld")]([ExtResource("9_hbb88"), ExtResource("9_hbb88")])
+waves = Array[ExtResource("8_at1ld")]([ExtResource("10_kv63o"), ExtResource("10_kv63o")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="Vase" parent="Room3" unique_id=1727434916 instance=ExtResource("16_wr4gd")]
@@ -314,7 +314,7 @@ position = Vector2(128, 256)
 script = ExtResource("6_ep78u")
 radius = 60.0
 enemy_scene = ExtResource("7_dfjjl")
-waves = Array[ExtResource("8_at1ld")]([ExtResource("9_hbb88"), ExtResource("9_hbb88"), ExtResource("10_wcjpl")])
+waves = Array[ExtResource("8_at1ld")]([ExtResource("10_kv63o"), ExtResource("9_hbb88"), ExtResource("10_wcjpl")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="EnemySpawner2" type="Marker2D" parent="Room4" unique_id=277685909]
@@ -330,7 +330,7 @@ position = Vector2(64, 64)
 script = ExtResource("6_ep78u")
 radius = 100.0
 enemy_scene = ExtResource("7_dfjjl")
-waves = Array[ExtResource("8_at1ld")]([ExtResource("10_wcjpl"), ExtResource("11_5orea"), ExtResource("11_5orea")])
+waves = Array[ExtResource("8_at1ld")]([ExtResource("10_wcjpl"), ExtResource("11_5orea"), ExtResource("10_kv63o")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="Chest" parent="Room4" unique_id=609652113 instance=ExtResource("13_5orea")]
@@ -373,7 +373,7 @@ position = Vector2(216, 336)
 position = Vector2(1280, -256)
 collision_mask = 2
 script = ExtResource("16_lf5r6")
-boss_def = ExtResource("19_1msb5")
+boss_def = ExtResource("19_kv63o")
 boss_scene = ExtResource("17_1msb5")
 boss_spawner = NodePath("Marker2D")
 lockables = [NodePath("Portal"), NodePath("Door"), NodePath("../Room4/Door"), NodePath("Chest"), NodePath("Chest2"), NodePath("Chest3"), NodePath("Chest4"), NodePath("Chest5")]

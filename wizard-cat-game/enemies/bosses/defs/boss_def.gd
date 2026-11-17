@@ -8,7 +8,7 @@ extends Resource
 @export_group("Attacking")
 @export var attack_timing: float
 @export var attacks: Array[BossAttack] = []
-@export var attack_distance: float
+@export var attack_distance: float = 400
 
 @export_group("Moving")
 @export var target_group: String = &"player"

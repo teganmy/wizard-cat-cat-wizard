@@ -55,6 +55,7 @@ func _ready() -> void:
 		_on_secondary_changed(PlayerState.secondaries[PlayerState.equipped_secondary])
 	PlayerState.set_secondary_shooter(secondary_shooter)
 	PlayerState.set_primary_shooter(shooter)
+	sprite.material.set_shader_parameter("on", false)
 
 func _process(_delta: float) -> void:
 	if get_global_mouse_position().x < global_position.x:
