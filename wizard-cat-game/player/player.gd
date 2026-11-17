@@ -23,11 +23,10 @@ const FEET_OFFSET := Vector2(0, 8)
 @export var camera: Camera2D
 @export var trail: GPUParticles2D
 @export var dodge_cooldown: Timer
-
+@export var step_sounds: Array[AudioStream]
 
 var last_dir: Vector2 = Vector2.ZERO
 var dodge_dir: Vector2 = Vector2.ZERO
-var _surface_layer: TileMapLayer
 
 enum STATE {IDLE, MOVE, DODGE}
 enum HIT_STATE {NORMAL, INVINCIBLE}
@@ -47,7 +46,6 @@ func _ready() -> void:
 	iframe_timer.one_shot = true
 	iframe_timer.timeout.connect(_change_hit_state.bind(HIT_STATE.NORMAL))
 	add_child(iframe_timer)
-	_surface_layer = get_tree().get_first_node_in_group("surface_layer")
 	trail.emitting = false
 	trail.lifetime = dodge_time
 	PlayerState.secondary_changed.connect(_on_secondary_changed)
@@ -166,13 +164,17 @@ func _update_velocity(dir: Vector2, delta: float) -> void:
 		velocity = velocity.move_toward(Vector2.ZERO, speed / stop_time * delta)
 
 func _get_surface() -> String:
-	if _surface_layer == null:
-		return ""
-	var cell := _surface_layer.local_to_map(_surface_layer.to_local(global_position + FEET_OFFSET))
-	var data := _surface_layer.get_cell_tile_data(cell)
-	if data == null:
-		return ""
-	return str(data.get_custom_data("surface"))
+	var point := global_position + FEET_OFFSET
+	for layer: TileMapLayer in get_tree().get_nodes_in_group("surface_layer"):
+		if layer.tile_set == null or not layer.tile_set.has_custom_data_layer_by_name("surface"):
+			continue
+		var data := layer.get_cell_tile_data(layer.local_to_map(layer.to_local(point)))
+		if data == null:
+			continue
+		var surface := str(data.get_custom_data("surface"))
+		if surface != "":
+			return surface
+	return ""
 
 func _flash(time: float, repeats:int = 1, color: Color = Color.WHITE) -> void:
 	var sprite_material: ShaderMaterial = sprite.material
