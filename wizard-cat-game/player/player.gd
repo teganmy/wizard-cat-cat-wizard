@@ -49,6 +49,7 @@ func _ready() -> void:
 	add_child(iframe_timer)
 	_surface_layer = get_tree().get_first_node_in_group("surface_layer")
 	trail.emitting = false
+	trail.lifetime = dodge_time
 	PlayerState.secondary_changed.connect(_on_secondary_changed)
 	if PlayerState.equipped_secondary != -1:
 		_on_secondary_changed(PlayerState.secondaries[PlayerState.equipped_secondary])
@@ -61,10 +62,10 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	var dir := Input.get_vector("player_left", "player_right", "player_up", "player_down")
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_pressed("fire"):
 		for bullet in shooter.fire(get_global_mouse_position()):
 			add_sibling(bullet)
-	if Input.is_action_just_pressed("secondary_fire"):
+	if Input.is_action_pressed("secondary_fire"):
 		for bullet in secondary_shooter.fire(get_global_mouse_position()):
 			add_sibling(bullet)
 	if Input.is_action_just_pressed("use_potion"):
