@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d21sbo3ste1d1"]
+
+[ext_resource type="Script" uid="uid://xpsa8mne47t1" path="res://shooting/bubble_pop.gd" id="1_ywckb"]
+[ext_resource type="Script" uid="uid://ds8lqx0juuem6" path="res://components/area_shooter.gd" id="2_crj34"]
+[ext_resource type="PackedScene" uid="uid://dvdc0giywjqia" path="res://shooting/area_bullet.tscn" id="3_ncwkp"]
+[ext_resource type="Resource" uid="uid://pyti7q1i6aej" path="res://shooting/bullet_types/bubble.tres" id="4_xtfvr"]
+[ext_resource type="Resource" uid="uid://cfj31png01r0w" path="res://shooting/firing_patterns/bubble.tres" id="5_xtfvr"]
+
+[node name="BubblePop" type="Node2D" unique_id=1720512997 node_paths=PackedStringArray("shooter")]
+script = ExtResource("1_ywckb")
+shooter = NodePath("AreaShooter")
+
+[node name="AreaShooter" type="Node2D" parent="." unique_id=1104972188]
+script = ExtResource("2_crj34")
+bullet_scene = ExtResource("3_ncwkp")
+bullet_type = ExtResource("4_xtfvr")
+firing_pattern = ExtResource("5_xtfvr")
+metadata/_custom_type_script = "uid://ds8lqx0juuem6"

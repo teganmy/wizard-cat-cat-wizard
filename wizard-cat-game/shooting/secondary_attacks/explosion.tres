@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c5b021votofrj" path="res://shooting/secondary_attack.gd" id="1_1wytg"]
 [ext_resource type="Resource" uid="uid://c538giufpxxvo" path="res://shooting/bullet_types/player_grenade.tres" id="1_sojvk"]
-[ext_resource type="Resource" uid="uid://c6r0w1nogygho" path="res://shooting/firing_patterns/player_default.tres" id="2_sm5kr"]
+[ext_resource type="Resource" uid="uid://c8bo4x1n6bfsy" path="res://shooting/firing_patterns/player_grenade.tres" id="2_sojvk"]
 [ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="3_86jwf"]
 
 [resource]
@@ -10,5 +10,5 @@ script = ExtResource("1_1wytg")
 display_name = "Explosion"
 icon = ExtResource("3_86jwf")
 bullet_type = ExtResource("1_sojvk")
-firing_pattern = ExtResource("2_sm5kr")
+firing_pattern = ExtResource("2_sojvk")
 metadata/_custom_type_script = "uid://c5b021votofrj"

@@ -45,7 +45,8 @@ func fire(target: Vector2) -> Array[Area2D]:
 			_change_state(STATE.COOLDOWN)
 			var rate: float = PlayerState.fire_rate_multiplier if use_player_boost else 1.0
 			var cooldown = firing_pattern.cooldown / maxf(rate, 0.01)
-			cooldown_timer.start(cooldown)
+			if cooldown > 0:
+				cooldown_timer.start(cooldown)
 			fired.emit(cooldown)
 	return bullets
 
@@ -63,6 +64,7 @@ func setup_pattern():
 		cooldown_timer.timeout.connect(_change_state.bind(STATE.READY))
 		add_child(cooldown_timer)
 	cooldown_timer.stop()
-	cooldown_timer.wait_time = firing_pattern.cooldown
+	if firing_pattern.cooldown > 0:
+		cooldown_timer.wait_time = firing_pattern.cooldown
 	ready_to_fire.emit()
 	_change_state(STATE.READY)

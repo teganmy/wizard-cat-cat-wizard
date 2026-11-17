@@ -57,6 +57,7 @@ func _activate_payload() -> void:
 		var node = payload.instantiate()
 		node.global_position = self.global_position
 		node.set("collision_mask_override", hitbox.collision_mask)
+		node.set("direction", dir)
 		get_tree().current_scene.add_child.call_deferred(node)
 
 func _clean_up() -> void:

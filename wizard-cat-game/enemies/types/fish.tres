@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyType" format=3 uid="uid://c3bbggg2p1gux"]
+
+[ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="1_f2m7d"]
+[ext_resource type="Resource" uid="uid://lga52yncdreq" path="res://shooting/bullet_types/enemy_popping_bubble.tres" id="1_mhpdf"]
+[ext_resource type="Resource" uid="uid://ddw0mphcallna" path="res://shooting/firing_patterns/enemy_popping_bubble.tres" id="2_m1sgc"]
+[ext_resource type="Script" uid="uid://26e5cw4g2wa2" path="res://enemies/enemy_type.gd" id="2_qebgh"]
+[ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="3_qebgh"]
+
+[resource]
+script = ExtResource("2_qebgh")
+sprite = ExtResource("3_qebgh")
+max_health = 4
+bullet_type = ExtResource("1_mhpdf")
+firing_pattern = ExtResource("2_m1sgc")
+move_speed = 100.0
+preferred_distance = 175.0
+metadata/_custom_type_script = "uid://26e5cw4g2wa2"
