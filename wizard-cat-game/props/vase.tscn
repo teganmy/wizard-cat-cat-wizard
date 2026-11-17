@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="4_7ktlj"]
 [ext_resource type="Script" uid="uid://c88tvlaqfqme2" path="res://components/hurtbox.gd" id="4_e2luj"]
 [ext_resource type="Resource" uid="uid://bysyxfwpc5ro3" path="res://loot/loot_types/coin.tres" id="5_wjor6"]
+[ext_resource type="AudioStream" uid="uid://doptvvh7vj2pr" path="res://assets/audio/kenney_rpg-audio/Audio/metalPot1.ogg" id="8_3al1o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpvk7"]
 size = Vector2(28, 32)
@@ -61,6 +62,10 @@ damping_curve = SubResource("CurveTexture_xft04")
 scale_max = 8.0
 scale_curve = SubResource("CurveTexture_5m5ta")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jwmm1"]
+streams_count = 1
+stream_0/stream = ExtResource("8_3al1o")
+
 [node name="Vase" type="StaticBody2D" unique_id=900897999]
 script = ExtResource("1_4l7f1")
 
@@ -100,5 +105,8 @@ lifetime = 3.0
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_gpvk7")
+
+[node name="Shatter" type="AudioStreamPlayer2D" parent="." unique_id=4922405]
+stream = SubResource("AudioStreamRandomizer_jwmm1")
 
 [connection signal="died" from="Health" to="." method="_on_health_died"]

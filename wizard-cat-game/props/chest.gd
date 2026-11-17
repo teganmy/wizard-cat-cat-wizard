@@ -12,11 +12,12 @@ var opened: bool = false
 @export var spawn_marker: Marker2D
 @export var label: Label
 @export var interaction_area: InteractionArea
-
+@export var footstep_player: AudioStreamPlayer
 func _on_interaction_area_interact() -> void:
 	if not opened and not lock.is_locked():
 		lootable.generate_loot(spawn_marker.position)
 		opened = true
+		$Open.play()
 		sprite.texture = open_texture
 		sprite.modulate = Color.WHITE
 		interaction_area.hint = ""

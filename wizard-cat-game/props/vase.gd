@@ -7,5 +7,6 @@ func _on_health_died() -> void:
 	$Hurtbox.queue_free()
 	var part := $GPUParticles2D
 	part.emitting = true
+	$Shatter.play()
 	await part.finished
 	queue_free()
