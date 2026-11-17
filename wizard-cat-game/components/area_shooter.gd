@@ -10,7 +10,7 @@ var spread: float = 0
 enum STATE {READY, COOLDOWN}
 var state: STATE = STATE.READY
 var cooldown_timer: Timer
-signal fired
+signal fired(cooldown: float)
 signal ready_to_fire
 
 func _ready() -> void:
@@ -44,8 +44,9 @@ func fire(target: Vector2) -> Array[Area2D]:
 				bullets.append(new_bullet)
 			_change_state(STATE.COOLDOWN)
 			var rate: float = PlayerState.fire_rate_multiplier if use_player_boost else 1.0
-			cooldown_timer.start(firing_pattern.cooldown / maxf(rate, 0.01))
-			fired.emit()
+			var cooldown = firing_pattern.cooldown / maxf(rate, 0.01)
+			cooldown_timer.start(cooldown)
+			fired.emit(cooldown)
 	return bullets
 
 func _change_state(new_state: STATE) -> void:

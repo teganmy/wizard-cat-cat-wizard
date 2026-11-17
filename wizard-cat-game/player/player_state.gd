@@ -14,6 +14,8 @@ var secondaries: Array[SecondaryAttack] = []
 signal potions_changed
 signal upgrades_changed
 signal secondary_changed(type: SecondaryAttack)
+signal primary_cooldown(time: float)
+signal secondary_cooldown(time: float)
 
 var current_health: int:
 	set(new):
@@ -142,3 +144,8 @@ func add_upgrade(id: String) -> void:
 		max_health += 1
 	upgrades_changed.emit()
 	
+func set_secondary_shooter(shooter: AreaShooter) -> void:
+	shooter.fired.connect(secondary_cooldown.emit)
+
+func set_primary_shooter(shooter: AreaShooter) -> void:
+	shooter.fired.connect(primary_cooldown.emit)

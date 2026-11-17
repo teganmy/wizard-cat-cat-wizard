@@ -53,6 +53,8 @@ func _ready() -> void:
 	PlayerState.secondary_changed.connect(_on_secondary_changed)
 	if PlayerState.equipped_secondary != -1:
 		_on_secondary_changed(PlayerState.secondaries[PlayerState.equipped_secondary])
+	PlayerState.set_secondary_shooter(secondary_shooter)
+	PlayerState.set_primary_shooter(shooter)
 
 func _process(_delta: float) -> void:
 	if get_global_mouse_position().x < global_position.x:
