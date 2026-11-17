@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dvdc0giywjqia" path="res://shooting/area_bullet.tscn" id="8_dw050"]
 [ext_resource type="Script" uid="uid://c5cxwb8ugyefc" path="res://player/camera.gd" id="9_8t03j"]
 [ext_resource type="Script" uid="uid://cnhbys2pob6vi" path="res://components/pickup_area.gd" id="9_b26j0"]
+[ext_resource type="AudioStream" uid="uid://bp4sn7blcwvvb" path="res://assets/audio/kenney_impact-sounds/Audio/footstep_wood_001.ogg" id="12_ebec5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8t03j"]
 shader = ExtResource("2_2ieo8")
@@ -66,7 +67,11 @@ particle_flag_disable_z = true
 gravity = Vector3(0, 0, 0)
 alpha_curve = SubResource("CurveTexture_ebec5")
 
-[node name="Player" type="CharacterBody2D" unique_id=705305627 node_paths=PackedStringArray("shooter", "sprite", "health", "hurtbox", "secondary_shooter", "pickup_area", "camera", "trail", "dodge_cooldown") groups=["Player"]]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_s72tx"]
+streams_count = 1
+stream_0/stream = ExtResource("12_ebec5")
+
+[node name="Player" type="CharacterBody2D" unique_id=705305627 node_paths=PackedStringArray("shooter", "sprite", "health", "hurtbox", "secondary_shooter", "pickup_area", "camera", "trail", "dodge_cooldown", "footstep_player") groups=["Player"]]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_onrkg")
@@ -84,6 +89,7 @@ pickup_area = NodePath("PickupArea")
 camera = NodePath("Camera2D")
 trail = NodePath("TrailEmitter")
 dodge_cooldown = NodePath("DodgeCooldown")
+footstep_player = NodePath("Footsteps")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1903219605]
 texture_filter = 1
@@ -159,6 +165,10 @@ amount = 500
 texture = ExtResource("2_dw050")
 lifetime = 0.5
 process_material = SubResource("ParticleProcessMaterial_ebec5")
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="." unique_id=206088975]
+stream = SubResource("AudioStreamRandomizer_s72tx")
+max_polyphony = 2
 
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
 [connection signal="picked_up" from="PickupArea" to="." method="_on_pickup_area_picked_up"]

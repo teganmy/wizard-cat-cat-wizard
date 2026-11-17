@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 const GROUND_RESPONSE := 0.1
 const FEET_OFFSET := Vector2(0, 8)
+const STEP_DISTANCE := 75.0
+var _step_distance: float = 0.0
 @export_group("Movement")
 @export var ice_slide_time: float = 1.0
 @export var water_speed_multiplier: float = 0.5
@@ -23,7 +25,7 @@ const FEET_OFFSET := Vector2(0, 8)
 @export var camera: Camera2D
 @export var trail: GPUParticles2D
 @export var dodge_cooldown: Timer
-@export var step_sounds: Array[AudioStream]
+@export var footstep_player: AudioStreamPlayer
 
 var last_dir: Vector2 = Vector2.ZERO
 var dodge_dir: Vector2 = Vector2.ZERO
@@ -87,6 +89,14 @@ func _physics_process(delta: float) -> void:
 	if state != STATE.DODGE:
 		_update_velocity(dir, delta)
 	move_and_slide()
+	var moved := get_real_velocity().length()
+	if state != STATE.DODGE and moved > 20.0:
+		_step_distance += moved * delta
+		if _step_distance >= STEP_DISTANCE:
+			_step_distance = 0.0
+			footstep_player.play()
+	else:
+		_step_distance = STEP_DISTANCE * 0.5
 
 func _change_state(new_state: STATE) -> void:
 	state = new_state
@@ -187,3 +197,4 @@ func _flash(time: float, repeats:int = 1, color: Color = Color.WHITE) -> void:
 
 func _on_secondary_changed(type: SecondaryAttack) -> void:
 	secondary_shooter.configure(type.bullet_type, type.firing_pattern)
+	
