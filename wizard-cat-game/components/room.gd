@@ -4,6 +4,7 @@ extends Area2D
 @export var lockables: Array[StaticBody2D] = []
 @export var visible_on_enter: bool = false
 @export var connected_rooms: Array[Room] = []
+@onready var tile_map_layer: TileMapLayer = $TileMapLayer
 
 enum STATE {UNEXPLORED, REVEALED, ACTIVE, DEFEATED}
 var state: STATE
@@ -29,6 +30,8 @@ func _change_state(new_state: STATE) -> void:
 	state = new_state
 
 func activate() -> void:
+	if tile_map_layer:
+		get_tree().current_scene.set("current_tile_layer", tile_map_layer)
 	if state == STATE.REVEALED:
 		activated.emit()
 		_change_state(STATE.ACTIVE)

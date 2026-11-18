@@ -42,7 +42,6 @@ name = "Shotgun Steve"
 sprite = ExtResource("10_dqjqt")
 attack_timing = 2.0
 attacks = Array[ExtResource("1_scu07")]([SubResource("Resource_rrejq"), SubResource("Resource_twj2v")])
-attack_distance = 400.0
 move_speed = 100.0
 min_target_distance = 50.0
 max_target_distance = 100.0

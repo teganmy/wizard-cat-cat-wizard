@@ -15,6 +15,8 @@ signal room_defeated
 signal boss_spawned(name: String, health: Health)
 signal boss_defeated
 
+var current_tile_layer: TileMapLayer
+
 enum STATE {ACTIVE, INACTIVE, COMPLETED}
 var pausable: bool = false
 var state: STATE = STATE.INACTIVE

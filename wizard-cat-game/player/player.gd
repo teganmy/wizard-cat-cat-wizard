@@ -178,15 +178,18 @@ func _update_velocity(dir: Vector2, delta: float) -> void:
 
 func _get_surface() -> String:
 	var point := global_position + FEET_OFFSET
-	for layer: TileMapLayer in get_tree().get_nodes_in_group("surface_layer"):
-		if layer.tile_set == null or not layer.tile_set.has_custom_data_layer_by_name("surface"):
-			continue
-		var data := layer.get_cell_tile_data(layer.local_to_map(layer.to_local(point)))
-		if data == null:
-			continue
-		var surface := str(data.get_custom_data("surface"))
-		if surface != "":
-			return surface
+	#for layer: TileMapLayer in get_tree().get_nodes_in_group("surface_layer"):
+	var layer: TileMapLayer = get_tree().current_scene.get("current_tile_layer")
+	if layer == null:
+		return ""
+	if layer.tile_set == null or not layer.tile_set.has_custom_data_layer_by_name("surface"):
+		return ""
+	var data := layer.get_cell_tile_data(layer.local_to_map(layer.to_local(point)))
+	if data == null:
+		return ""
+	var surface := str(data.get_custom_data("surface"))
+	if surface != "":
+		return surface
 	return ""
 
 func _flash(time: float, repeats:int = 1, color: Color = Color.WHITE) -> void:
