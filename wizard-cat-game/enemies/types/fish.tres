@@ -5,6 +5,20 @@
 [ext_resource type="Resource" uid="uid://ddw0mphcallna" path="res://shooting/firing_patterns/enemy_popping_bubble.tres" id="2_m1sgc"]
 [ext_resource type="Script" uid="uid://26e5cw4g2wa2" path="res://enemies/enemy_type.gd" id="2_qebgh"]
 [ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="3_qebgh"]
+[ext_resource type="Resource" uid="uid://bysyxfwpc5ro3" path="res://loot/loot_types/coin.tres" id="4_dn5km"]
+[ext_resource type="Resource" uid="uid://ld6uwxcbxknh" path="res://loot/loot_types/gem.tres" id="5_nl5e6"]
+
+[sub_resource type="Resource" id="Resource_kv63o"]
+script = ExtResource("1_f2m7d")
+type = ExtResource("4_dn5km")
+weight = 0.7
+metadata/_custom_type_script = "uid://drq0y0x2llhhg"
+
+[sub_resource type="Resource" id="Resource_t174s"]
+script = ExtResource("1_f2m7d")
+type = ExtResource("5_nl5e6")
+weight = 0.3
+metadata/_custom_type_script = "uid://drq0y0x2llhhg"
 
 [resource]
 script = ExtResource("2_qebgh")
@@ -14,4 +28,7 @@ bullet_type = ExtResource("1_mhpdf")
 firing_pattern = ExtResource("2_m1sgc")
 move_speed = 100.0
 preferred_distance = 175.0
+loot_table = Array[ExtResource("1_f2m7d")]([SubResource("Resource_kv63o"), SubResource("Resource_t174s")])
+max_loot = 8
+min_loot = 4
 metadata/_custom_type_script = "uid://26e5cw4g2wa2"
