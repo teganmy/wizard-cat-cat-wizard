@@ -178,7 +178,6 @@ func _update_velocity(dir: Vector2, delta: float) -> void:
 
 func _get_surface() -> String:
 	var point := global_position + FEET_OFFSET
-	#for layer: TileMapLayer in get_tree().get_nodes_in_group("surface_layer"):
 	var layer: TileMapLayer = get_tree().current_scene.get("current_tile_layer")
 	if layer == null:
 		return ""
@@ -188,9 +187,7 @@ func _get_surface() -> String:
 	if data == null:
 		return ""
 	var surface := str(data.get_custom_data("surface"))
-	if surface != "":
-		return surface
-	return ""
+	return surface
 
 func _flash(time: float, repeats:int = 1, color: Color = Color.WHITE) -> void:
 	var sprite_material: ShaderMaterial = sprite.material
