@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://j25v4o25k36i"
+path="res://.godot/imported/Danger Storm.mp3-19e991392efaface9947f2b3c63622c7.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Danger Storm.mp3"
+dest_files=["res://.godot/imported/Danger Storm.mp3-19e991392efaface9947f2b3c63622c7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
