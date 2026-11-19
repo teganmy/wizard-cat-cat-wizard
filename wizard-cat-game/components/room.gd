@@ -24,7 +24,7 @@ func _ready() -> void:
 	for room in connected_rooms:
 		defeated.connect(room.reveal)
 	if visible_on_enter:
-		get_tree().current_scene.entered.connect(reveal)
+		reveal()
 
 func _change_state(new_state: STATE) -> void:
 	state = new_state
