@@ -16,6 +16,8 @@ func _ready() -> void:
 			spawners.append(child)
 			total_waves = max(total_waves, child.waves.size())
 	for lockable in lockables:
+		if lockable == null:
+			continue
 		if lockable.lock.has_method("lock"):
 			revealed.connect(lockable.lock.unlock)
 			defeated.connect(lockable.lock.unlock)

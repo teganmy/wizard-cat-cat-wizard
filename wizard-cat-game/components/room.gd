@@ -17,6 +17,8 @@ func _ready() -> void:
 	hide()
 	body_entered.connect(activate.unbind(1))
 	for lockable in lockables:
+		if lockable == null:
+			continue
 		if lockable.lock.has_method("lock"):
 			revealed.connect(lockable.lock.unlock)
 			defeated.connect(lockable.lock.unlock)
