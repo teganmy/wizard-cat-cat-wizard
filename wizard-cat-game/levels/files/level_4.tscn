@@ -27,7 +27,7 @@
 [ext_resource type="AudioStream" uid="uid://dl5jku8tak8s8" path="res://assets/audio/Half Mystery.mp3" id="23_ji1qt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwmm1"]
-size = Vector2(479, 288)
+size = Vector2(432, 248)
 
 [node name="Level4" type="Node2D" unique_id=93842371 node_paths=PackedStringArray("exit_portal", "hud")]
 script = ExtResource("1_8tggs")
@@ -99,7 +99,8 @@ position = Vector2(81, 240)
 scale = Vector2(1, 3)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room1" unique_id=4307647]
-polygon = PackedVector2Array(-63, -33, -64, 286, 62, 286, 61, 32, 225, 32, 225, -322, 96, -320, 97, -34)
+visible = false
+polygon = PackedVector2Array(-48, -16, -48, 272, 48, 272, 48, 16, 208, 16, 208, -304, 112, -304, 112, -16)
 
 [node name="Laser" parent="Room1" unique_id=1521026883 instance=ExtResource("16_0w61h")]
 position = Vector2(205, -121)
@@ -149,7 +150,7 @@ position = Vector2(433, -79)
 scale = Vector2(1, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room2" unique_id=1204997354]
-position = Vector2(176.5, 15)
+position = Vector2(168, 20)
 shape = SubResource("RectangleShape2D_jwmm1")
 
 [node name="Vase" parent="Room2" unique_id=900897999 instance=ExtResource("17_ri0ma")]
@@ -230,7 +231,7 @@ waves = Array[ExtResource("9_qquu4")]([ExtResource("13_kn8wu"), ExtResource("12_
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room3" unique_id=1045751475]
-polygon = PackedVector2Array(1345, -63, 1345, 32, 1728, 32, 1730, 192, 1787, 192, 1825, 191, 1824, -63)
+polygon = PackedVector2Array(1360, -48, 1360, 16, 1744, 16, 1744, 176, 1808, 176, 1808, -48)
 
 [node name="Cauldron" parent="Room3" unique_id=2082585703 instance=ExtResource("16_7gg6n")]
 position = Vector2(1799, -39)
@@ -254,7 +255,7 @@ position = Vector2(1530, 558)
 scale = Vector2(1, 3)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room4" unique_id=706004494]
-polygon = PackedVector2Array(673, 512, 673, 831, 1183, 831, 1184, 609, 1535, 609, 1535, 510)
+polygon = PackedVector2Array(688, 528, 688, 816, 1168, 816, 1168, 592, 1496, 592, 1496, 528)
 
 [node name="EnemySpawner" type="Marker2D" parent="Room4" unique_id=1956824860]
 position = Vector2(1191, 564)
@@ -293,7 +294,7 @@ tile_map_data = PackedByteArray("AAAvAA4ABAAAAAAAAAAvAA0ABAAAAAAAAAAvAAwABAAAAAA
 tile_set = ExtResource("5_um6gq")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BossRoom" unique_id=1350605524]
-polygon = PackedVector2Array(1666, 224, 1666, 348, 1537, 353, 1537, 735, 1663, 735, 1665, 863, 1920, 865, 1922, 223, 1826, 223)
+polygon = PackedVector2Array(1680, 240, 1680, 368, 1552, 368, 1552, 720, 1680, 720, 1680, 840, 1904, 840, 1904, 240)
 
 [node name="Portal" parent="BossRoom" unique_id=1944338752 instance=ExtResource("21_vpcij")]
 position = Vector2(1885, 832)
