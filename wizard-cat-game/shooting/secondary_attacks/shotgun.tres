@@ -7,6 +7,7 @@
 
 [resource]
 script = ExtResource("1_jon5o")
+display_name = "Shotgun"
 icon = ExtResource("3_q124r")
 bullet_type = ExtResource("1_chiud")
 firing_pattern = ExtResource("2_chiud")
