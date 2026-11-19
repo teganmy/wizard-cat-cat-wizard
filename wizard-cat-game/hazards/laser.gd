@@ -8,7 +8,7 @@ const WARNING_TIME := 0.6
 @export var off_time: float = 1.6
 
 @onready var hitbox: Hitbox = $Hitbox
-@onready var beam: ColorRect = $Beam
+@onready var beam: ColorRect = $Core
 
 var _cycle: Tween
 

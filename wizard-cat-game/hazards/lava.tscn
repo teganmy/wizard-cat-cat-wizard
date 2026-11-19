@@ -1,10 +1,21 @@
 [gd_scene format=3 uid="uid://ducj1bwmlk7v5"]
 
-[ext_resource type="Script" uid="uid://vp43d5d3xw71" path="res://hazards/lava.gd" id="1_rjaih"]
 [ext_resource type="Script" uid="uid://un6ien2ktj74" path="res://components/hitbox.gd" id="2_rfr1e"]
 
+[sub_resource type="GDScript" id="GDScript_rjaih"]
+script/source = "extends Polygon2D
+
+@export var damage: int = 1
+
+@onready var hitbox: Hitbox = $Hitbox
+
+func _ready() -> void:
+	hitbox.damage = damage
+	$Hitbox/CollisionPolygon2D.polygon = polygon
+"
+
 [node name="Lava" type="Area2D" unique_id=672746770]
-script = ExtResource("1_rjaih")
+script = SubResource("GDScript_rjaih")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1729547289]
 collision_layer = 0
