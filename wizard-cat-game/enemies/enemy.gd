@@ -19,6 +19,7 @@ var target: Node2D
 @onready var sprite := $Sprite2D
 @onready var particles := $GPUParticles2D
 @onready var lootable := $Lootable
+@export var hitbox: Hitbox
 
 func _ready() -> void:
 	health.changed.connect(_on_health_changed)
@@ -40,6 +41,7 @@ func _ready() -> void:
 	lootable.loot_table = type.loot_table
 	lootable.max_amount = type.max_loot
 	lootable.min_amount = type.min_loot
+	hitbox.damage = type.contact_damage
 	var wait_timer = Timer.new()
 	wait_timer.wait_time = wait_time
 	wait_timer.autostart = true
