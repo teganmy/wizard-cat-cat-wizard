@@ -7,10 +7,10 @@ extends Resource
 @export var contact_damage: int = 1
 @export_group("Combat")
 @export var detection_range: float = 400.0
+@export var wait_time: float = 1.0
 @export_subgroup("Shooting")
 @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var shooter: bool = true
 @export var bullet_type: BulletType
-@export var wait_time: float = 1.0
 @export var firing_pattern: FiringPattern
 @export var target_group: StringName = &"player"
 @export_subgroup("Charging")

@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://c5cxwb8ugyefc" path="res://player/camera.gd" id="9_8t03j"]
 [ext_resource type="Script" uid="uid://cnhbys2pob6vi" path="res://components/pickup_area.gd" id="9_b26j0"]
 [ext_resource type="AudioStream" uid="uid://bp4sn7blcwvvb" path="res://assets/audio/kenney_impact-sounds/Audio/footstep_wood_001.ogg" id="12_ebec5"]
+[ext_resource type="Material" uid="uid://y7fsokqaewdv" path="res://assets/trail_particles.tres" id="12_yllr7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8t03j"]
 shader = ExtResource("2_2ieo8")
@@ -54,18 +55,6 @@ scale_curve = SubResource("CurveTexture_2ieo8")
 shader = ExtResource("2_2ieo8")
 shader_parameter/on = true
 shader_parameter/solid_color = Color(1, 1, 1, 1)
-
-[sub_resource type="Curve" id="Curve_ebec5"]
-_data = [Vector2(0, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_ebec5"]
-curve = SubResource("Curve_ebec5")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ebec5"]
-particle_flag_disable_z = true
-gravity = Vector3(0, 0, 0)
-alpha_curve = SubResource("CurveTexture_ebec5")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_s72tx"]
 streams_count = 1
@@ -165,7 +154,7 @@ emitting = false
 amount = 500
 texture = ExtResource("2_dw050")
 lifetime = 0.5
-process_material = SubResource("ParticleProcessMaterial_ebec5")
+process_material = ExtResource("12_yllr7")
 
 [node name="Footsteps" type="AudioStreamPlayer" parent="." unique_id=206088975]
 stream = SubResource("AudioStreamRandomizer_s72tx")
