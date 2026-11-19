@@ -58,6 +58,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_iyljo")
 lockables = [NodePath("../Room2/Door"), NodePath("Chest"), NodePath("Door3")]
+visible_on_enter = true
 connected_rooms = [NodePath("../Room3"), NodePath("../Room2")]
 metadata/_custom_type_script = "uid://r7m3l5eq4nij"
 
