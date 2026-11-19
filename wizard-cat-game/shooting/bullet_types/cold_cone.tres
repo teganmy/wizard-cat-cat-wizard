@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BulletType" format=3 uid="uid://rgu3da2tsg6y"]
+
+[ext_resource type="PackedScene" uid="uid://dyefh03wem41k" path="res://shooting/cone_bullet.tscn" id="1_d16sj"]
+[ext_resource type="Script" uid="uid://dnqcg6lff1m84" path="res://shooting/bullet_types/bullet_type.gd" id="1_yob5c"]
+
+[resource]
+script = ExtResource("1_yob5c")
+particle_modulate = Color(0.3293894, 0.76001143, 0.9999998, 1)
+lifetime = 3.0
+collision_layer = null
+collision_mask = null
+hitbox_layer = null
+hitbox_mask = 16
+custom_bullet_scene = ExtResource("1_d16sj")
+metadata/_custom_type_script = "uid://dnqcg6lff1m84"

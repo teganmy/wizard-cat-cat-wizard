@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dyefh03wem41k"]
+
+[ext_resource type="Script" uid="uid://bx2dm3k3toydw" path="res://shooting/cone_bullet.gd" id="1_kvlhh"]
+[ext_resource type="Script" uid="uid://un6ien2ktj74" path="res://components/hitbox.gd" id="2_o8fv4"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d16sj"]
+particle_flag_disable_z = true
+inherit_velocity_ratio = 1.0
+direction = Vector3(0, 1, 0)
+spread = 30.0
+initial_velocity_min = 100.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 0, 0)
+scale_max = 8.0
+
+[node name="ConeBullet" type="Node2D" unique_id=563688651 node_paths=PackedStringArray("hitbox", "particles", "life_timer")]
+script = ExtResource("1_kvlhh")
+hitbox = NodePath("Hitbox")
+particles = NodePath("Particles")
+life_timer = NodePath("LifeTimer")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1996817310]
+script = ExtResource("2_o8fv4")
+metadata/_custom_type_script = "uid://un6ien2ktj74"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox" unique_id=372731869]
+polygon = PackedVector2Array(-64, 128, 64, 128, 0, 0)
+
+[node name="Particles" type="GPUParticles2D" parent="." unique_id=1234598839]
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_d16sj")
+
+[node name="LifeTimer" type="Timer" parent="." unique_id=1660539804]
+one_shot = true
+
+[connection signal="area_exited" from="Hitbox" to="Hitbox" method="_on_area_exited"]
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
