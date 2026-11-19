@@ -1,12 +1,12 @@
 extends Control
 
 @export var def: SecondaryAttack
-var rect: TextureRect
+@export var label: Label
+@export var rect: TextureRect
 
 func _ready() -> void:
-	rect = TextureRect.new()
 	rect.texture = def.icon
-	add_child(rect)
+	label.text = def.display_name
 
 func _get_drag_data(_at_position: Vector2) -> Variant:
 	if not def:

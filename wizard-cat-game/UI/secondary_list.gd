@@ -1,13 +1,12 @@
 extends GridContainer
 
 
-@export var child_script: GDScript
+@export var draggable_scene: PackedScene
 
 func reload() -> void:
 	var secondaries = PlayerState.secondaries
 	get_children().map(func(n: Node): n.queue_free())
 	for secondary in secondaries:
-		var panel = PanelContainer.new()
-		panel.set_script(child_script)
+		var panel = draggable_scene.instantiate()
 		panel.set("def", secondary)
 		add_child(panel)

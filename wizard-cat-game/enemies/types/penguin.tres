@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="EnemyType" format=3 uid="uid://cl2qmywqwleb2"]
+
+[ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="1_i77v4"]
+[ext_resource type="Resource" uid="uid://ld6uwxcbxknh" path="res://loot/loot_types/gem.tres" id="2_hq2kt"]
+[ext_resource type="Script" uid="uid://26e5cw4g2wa2" path="res://enemies/enemy_type.gd" id="2_qcern"]
+[ext_resource type="Resource" uid="uid://bysyxfwpc5ro3" path="res://loot/loot_types/coin.tres" id="3_874wx"]
+[ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="3_qcern"]
+
+[sub_resource type="Resource" id="Resource_ymuxt"]
+script = ExtResource("1_i77v4")
+type = ExtResource("2_hq2kt")
+weight = 0.4
+metadata/_custom_type_script = "uid://drq0y0x2llhhg"
+
+[sub_resource type="Resource" id="Resource_2dcpb"]
+script = ExtResource("1_i77v4")
+type = ExtResource("3_874wx")
+weight = 0.6
+metadata/_custom_type_script = "uid://drq0y0x2llhhg"
+
+[resource]
+script = ExtResource("2_qcern")
+sprite = ExtResource("3_qcern")
+max_health = 3
+contact_damage = 2
+wait_time = 2.0
+shooter = false
+charger = true
+charge_speed = 700.0
+charge_time = 0.25
+move_speed = 120.0
+preferred_distance = 75.0
+distance_tolerance = 15.0
+loot_table = Array[ExtResource("1_i77v4")]([SubResource("Resource_ymuxt"), SubResource("Resource_2dcpb")])
+metadata/_custom_type_script = "uid://26e5cw4g2wa2"

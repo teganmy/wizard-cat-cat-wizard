@@ -2,9 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dbe2kem31w4nr" path="res://UI/secondary_equip.gd" id="1_3rpu3"]
 [ext_resource type="Script" uid="uid://drea3dqv2qfyv" path="res://UI/secondary_list.gd" id="1_53k3k"]
-[ext_resource type="Script" uid="uid://drvg3uhl6rs8x" path="res://UI/draggable_secondary.gd" id="1_ugnjn"]
+[ext_resource type="PackedScene" uid="uid://dsybf3g16p56t" path="res://UI/draggable_secondary.tscn" id="3_jxmhy"]
 [ext_resource type="Script" uid="uid://d2od71sjc1aqs" path="res://UI/secondary_slot.gd" id="4_3rpu3"]
 [ext_resource type="Script" uid="uid://dq2js0a13n6oc" path="res://components/button_tween.gd" id="5_jxmhy"]
+[ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="5_s0odp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s0odp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2cycy"]
 
 [node name="SecondaryEquip" type="Control" unique_id=592885288 node_paths=PackedStringArray("secondary_list")]
 process_mode = 3
@@ -43,6 +48,8 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=519131639]
 layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_styles/normal = SubResource("StyleBoxEmpty_s0odp")
 text = "Secondary Equip"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=546054666]
@@ -50,26 +57,48 @@ layout_mode = 2
 
 [node name="SecondaryList" type="GridContainer" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=227030291]
 layout_mode = 2
+columns = 3
 script = ExtResource("1_53k3k")
-child_script = ExtResource("1_ugnjn")
+draggable_scene = ExtResource("3_jxmhy")
 
 [node name="Spacer" type="Control" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1785942752]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SecondarySlot" type="PanelContainer" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1833132320 node_paths=PackedStringArray("texture_rect")]
+[node name="SecondarySlot" type="PanelContainer" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1833132320 node_paths=PackedStringArray("texture_rect", "label")]
 layout_mode = 2
 script = ExtResource("4_3rpu3")
-texture_rect = NodePath("TextureRect")
+texture_rect = NodePath("VBoxContainer/CenterContainer/TextureRect")
+label = NodePath("VBoxContainer/Label")
 
-[node name="ColorRect" type="ColorRect" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/SecondarySlot" unique_id=101685242]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/SecondarySlot" unique_id=365676904]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/SecondarySlot/VBoxContainer" unique_id=1270534678]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/SecondarySlot/VBoxContainer/CenterContainer" unique_id=101685242]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+color = Color(0, 0, 0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/SecondarySlot/VBoxContainer/CenterContainer" unique_id=1186872231]
 custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
-color = Color(1, 1, 1, 0)
+texture = ExtResource("5_s0odp")
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/SecondarySlot" unique_id=1186872231]
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/SecondarySlot/VBoxContainer" unique_id=1395499949]
 layout_mode = 2
-stretch_mode = 3
+theme_override_font_sizes/font_size = 20
+text = "None"
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1592117659]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2cycy")
+text = "Drag to equip"
 
 [node name="CloseButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=752003856]
 layout_mode = 2
