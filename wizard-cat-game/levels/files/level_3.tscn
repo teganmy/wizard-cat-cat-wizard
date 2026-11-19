@@ -205,11 +205,12 @@ enemy_scene = ExtResource("13_jrgrr")
 waves = Array[ExtResource("14_7m7ls")]([null, ExtResource("16_r3rqs"), ExtResource("19_8efbt")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
-[node name="Room3" type="Area2D" parent="." unique_id=1704481687 node_paths=PackedStringArray("lockables")]
+[node name="Room3" type="Area2D" parent="." unique_id=1704481687 node_paths=PackedStringArray("lockables", "connected_rooms")]
 position = Vector2(576, -192)
 collision_mask = 2
 script = ExtResource("4_q6mjr")
 lockables = [NodePath("../Room2/Door"), NodePath("Door"), NodePath("Cauldron"), NodePath("Chest"), NodePath("Chest2"), NodePath("Chest3"), NodePath("Chest4")]
+connected_rooms = [NodePath("../Room4")]
 metadata/_custom_type_script = "uid://r7m3l5eq4nij"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Room3" unique_id=40168414]
