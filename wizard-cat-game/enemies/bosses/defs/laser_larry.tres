@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bof80j5oc6jsp" path="res://enemies/bosses/attacks/boss_attack.gd" id="1_84jbg"]
 [ext_resource type="Resource" uid="uid://lga52yncdreq" path="res://shooting/bullet_types/enemy_popping_bubble.tres" id="2_fv4sq"]
-[ext_resource type="Resource" uid="uid://cufcent255w3x" path="res://shooting/bullet_types/laser_bullet.tres" id="2_gx023"]
+[ext_resource type="Resource" uid="uid://dmu6rjpetmd8l" path="res://shooting/bullet_types/enemy_laser.tres" id="2_gx023"]
 [ext_resource type="Resource" uid="uid://c1g5yel8sppi3" path="res://shooting/firing_patterns/laser.tres" id="3_fv4sq"]
 [ext_resource type="Script" uid="uid://b4l4u22a0kvsv" path="res://shooting/firing_patterns/firing_pattern.gd" id="4_r5kgq"]
 [ext_resource type="Script" uid="uid://qiyo0f705gt" path="res://loot/loot_type.gd" id="5_kxhh7"]

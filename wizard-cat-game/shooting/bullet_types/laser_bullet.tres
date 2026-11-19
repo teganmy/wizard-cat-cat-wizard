@@ -9,6 +9,6 @@ lifetime = 5.0
 collision_layer = null
 collision_mask = null
 hitbox_layer = null
-hitbox_mask = 9
+hitbox_mask = 17
 custom_bullet_scene = ExtResource("1_etl3b")
 metadata/_custom_type_script = "uid://dnqcg6lff1m84"

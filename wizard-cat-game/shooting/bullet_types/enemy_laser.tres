@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BulletType" format=3 uid="uid://dmu6rjpetmd8l"]
+
+[ext_resource type="PackedScene" uid="uid://hg8mjeac85ot" path="res://shooting/laser_bullet.tscn" id="1_7r6um"]
+[ext_resource type="Script" uid="uid://dnqcg6lff1m84" path="res://shooting/bullet_types/bullet_type.gd" id="2_2plhd"]
+
+[resource]
+script = ExtResource("2_2plhd")
+lifetime = 5.0
+collision_layer = null
+collision_mask = null
+hitbox_layer = null
+hitbox_mask = 9
+custom_bullet_scene = ExtResource("1_7r6um")
+metadata/_custom_type_script = "uid://dnqcg6lff1m84"
