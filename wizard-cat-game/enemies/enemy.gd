@@ -142,9 +142,9 @@ func _change_state(new: STATE) -> void:
 		STATE.NORMAL:
 			if wait_timer.is_stopped():
 				wait_timer.start()
-			sprite.material.set_shader_parameter("on", false)
+			sprite.set_instance_shader_parameter("instance_on", false)
 			trail_particles.emitting = false
 		STATE.CHARGING:
 			wait_timer.stop()
-			sprite.material.set_shader_parameter("on", true)
+			sprite.set_instance_shader_parameter("instance_on", true)
 			trail_particles.emitting = true

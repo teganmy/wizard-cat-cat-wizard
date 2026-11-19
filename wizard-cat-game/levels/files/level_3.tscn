@@ -14,9 +14,6 @@
 [ext_resource type="Script" uid="uid://d087k21va4dnw" path="res://components/enemy_spawn.gd" id="12_2ovsm"]
 [ext_resource type="PackedScene" uid="uid://ccs35van3ohn0" path="res://enemies/enemy.tscn" id="13_jrgrr"]
 [ext_resource type="Script" uid="uid://26e5cw4g2wa2" path="res://enemies/enemy_type.gd" id="14_7m7ls"]
-[ext_resource type="Resource" uid="uid://c3bbggg2p1gux" path="res://enemies/types/fish.tres" id="15_pqtfg"]
-[ext_resource type="Resource" uid="uid://blk0w5rkukd5e" path="res://enemies/types/snake.tres" id="16_r3rqs"]
-[ext_resource type="Resource" uid="uid://dua1rcwkq8gmb" path="res://enemies/types/frog.tres" id="17_bnst5"]
 [ext_resource type="Resource" uid="uid://cl2qmywqwleb2" path="res://enemies/types/penguin.tres" id="18_sa2fs"]
 [ext_resource type="Resource" uid="uid://csnqy0o3a70kb" path="res://enemies/types/snail.tres" id="19_8efbt"]
 
@@ -108,15 +105,7 @@ position = Vector2(40, -104)
 script = ExtResource("12_2ovsm")
 radius = 32.0
 enemy_scene = ExtResource("13_jrgrr")
-waves = Array[ExtResource("14_7m7ls")]([null, ExtResource("15_pqtfg")])
-metadata/_custom_type_script = "uid://d087k21va4dnw"
-
-[node name="EnemySpawner4" type="Marker2D" parent="Room1" unique_id=676880672]
-position = Vector2(40, 0)
-script = ExtResource("12_2ovsm")
-radius = 32.0
-enemy_scene = ExtResource("13_jrgrr")
-waves = Array[ExtResource("14_7m7ls")]([ExtResource("16_r3rqs"), ExtResource("17_bnst5")])
+waves = Array[ExtResource("14_7m7ls")]([null, ExtResource("19_8efbt")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="EnemySpawner2" type="Marker2D" parent="Room1" unique_id=1752726788]
@@ -125,14 +114,6 @@ script = ExtResource("12_2ovsm")
 radius = 32.0
 enemy_scene = ExtResource("13_jrgrr")
 waves = Array[ExtResource("14_7m7ls")]([ExtResource("18_sa2fs"), ExtResource("18_sa2fs")])
-metadata/_custom_type_script = "uid://d087k21va4dnw"
-
-[node name="EnemySpawner3" type="Marker2D" parent="Room1" unique_id=317470877]
-position = Vector2(-48, 0)
-script = ExtResource("12_2ovsm")
-radius = 32.0
-enemy_scene = ExtResource("13_jrgrr")
-waves = Array[ExtResource("14_7m7ls")]([ExtResource("19_8efbt"), ExtResource("19_8efbt")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="Room2" type="Area2D" parent="." unique_id=707991976]

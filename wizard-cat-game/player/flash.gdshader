@@ -1,11 +1,12 @@
 shader_type canvas_item;
 
+instance uniform bool instance_on;
 uniform bool on;
 uniform vec4 solid_color : source_color = vec4(1.0);
 
 void fragment() {
 	// Called for every pixel the material is visible on.
-	if (on) {
+	if (on || instance_on) {
 		vec4 texture_color = texture(TEXTURE, UV);
 		COLOR = vec4(mix(texture_color.rgb, solid_color.rgb, solid_color.a), COLOR.a);
 	};
