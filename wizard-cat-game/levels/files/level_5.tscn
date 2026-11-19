@@ -88,7 +88,7 @@ waves = Array[ExtResource("10_pw5bp")]([ExtResource("13_2uni3"), ExtResource("13
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="EnemySpawner2" type="Marker2D" parent="Room1" unique_id=767843410]
-position = Vector2(-128, -129)
+position = Vector2(-175, -196)
 script = ExtResource("8_lkq6d")
 radius = 50.0
 enemy_scene = ExtResource("9_pasty")
@@ -283,7 +283,7 @@ position = Vector2(-16, -128)
 shape = SubResource("RectangleShape2D_i7aio")
 
 [node name="Marker2D" type="Marker2D" parent="Room4" unique_id=764760634]
-position = Vector2(-16, -128)
+position = Vector2(-26, -67)
 
 [node name="Chest" parent="Room4" unique_id=1887054985 instance=ExtResource("7_sto1e")]
 position = Vector2(-84, -205)
