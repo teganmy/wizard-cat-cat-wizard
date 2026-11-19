@@ -22,9 +22,9 @@
 [ext_resource type="Resource" uid="uid://dihn34p35tm8j" path="res://enemies/types/lava_frog.tres" id="18_xpb4t"]
 [ext_resource type="Script" uid="uid://b5qmnxsgil7fy" path="res://components/boss_room.gd" id="20_0og4r"]
 [ext_resource type="Resource" uid="uid://c3bbggg2p1gux" path="res://enemies/types/fish.tres" id="20_4u264"]
-[ext_resource type="Resource" uid="uid://c8hdbgylp83qg" path="res://enemies/bosses/defs/shotgun_boss.tres" id="21_0115m"]
 [ext_resource type="PackedScene" uid="uid://5fb3r7077xy0" path="res://enemies/bosses/boss.tscn" id="22_hdwx7"]
 [ext_resource type="PackedScene" uid="uid://bbhvbmlbu1ne7" path="res://UI/hud.tscn" id="23_ag2c1"]
+[ext_resource type="Resource" uid="uid://cq1n65rtmk2mj" path="res://enemies/bosses/defs/grenade_grenda.tres" id="23_iyljo"]
 [ext_resource type="AudioStream" uid="uid://ds1kd5shjoa56" path="res://assets/audio/Spellbound.mp3" id="24_2uni3"]
 [ext_resource type="PackedScene" uid="uid://hpag36semn3u" path="res://props/portal.tscn" id="25_iyljo"]
 
@@ -264,7 +264,7 @@ position = Vector2(192, -576)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("20_0og4r")
-boss_def = ExtResource("21_0115m")
+boss_def = ExtResource("23_iyljo")
 boss_scene = ExtResource("22_hdwx7")
 boss_spawner = NodePath("Marker2D")
 lockables = [NodePath("../Room3/Door"), NodePath("Chest"), NodePath("Chest2"), NodePath("Chest3"), NodePath("Chest4"), NodePath("Chest5"), NodePath("Chest6")]
