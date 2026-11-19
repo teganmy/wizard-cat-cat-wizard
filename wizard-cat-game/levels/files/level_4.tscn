@@ -82,14 +82,14 @@ waves = Array[ExtResource("9_qquu4")]([null, ExtResource("12_56udv")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="Chest2" parent="Room1" unique_id=809555720 instance=ExtResource("14_dq2bf")]
-position = Vector2(113, -122)
+position = Vector2(120, -312)
 
 [node name="Chest4" parent="Room1" unique_id=2103776211 instance=ExtResource("14_dq2bf")]
 position = Vector2(196, -312)
 
 [node name="Candle3" parent="Room1" unique_id=1055703294 instance=ExtResource("15_xgjcv")]
 modulate = Color(1, 0, 1, 1)
-position = Vector2(112, -304)
+position = Vector2(208, -208)
 
 [node name="Cauldron" parent="Room1" unique_id=1010634097 instance=ExtResource("16_7gg6n")]
 position = Vector2(200, 14)
