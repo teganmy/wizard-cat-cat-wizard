@@ -20,6 +20,7 @@ particles = NodePath("Particles")
 life_timer = NodePath("LifeTimer")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1996817310]
+collision_layer = 0
 script = ExtResource("2_o8fv4")
 metadata/_custom_type_script = "uid://un6ien2ktj74"
 

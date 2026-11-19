@@ -44,7 +44,7 @@ func get_speed() -> float:
 
 func _on_body_entered(_body: Node2D) -> void:
 	_clean_up.call_deferred()
-	
+
 
 func _on_hitbox_landed() -> void:
 	_clean_up.call_deferred()
