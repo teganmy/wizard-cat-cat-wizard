@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://hg8mjeac85ot"]
 
-[ext_resource type="Shader" uid="uid://b2oifnqiqms38" path="res://shooting/laser_bullet.gdshader" id="1_k7knh"]
 [ext_resource type="Script" uid="uid://vsrmu16o4vbr" path="res://shooting/laser_bullet.gd" id="1_kib5u"]
+[ext_resource type="Shader" uid="uid://dwolic71w7hva" path="res://shooting/laser_secondary.gdshader" id="2_k7knh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gpvk7"]
-shader = ExtResource("1_k7knh")
+shader = ExtResource("2_k7knh")
 shader_parameter/beams = 1
 shader_parameter/energy = 0.3
 shader_parameter/roughness = 3

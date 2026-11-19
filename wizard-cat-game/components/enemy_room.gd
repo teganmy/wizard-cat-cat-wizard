@@ -22,6 +22,8 @@ func _ready() -> void:
 			activated.connect(lockable.lock.lock)
 	for room in connected_rooms:
 		defeated.connect(room.reveal)
+	collision_layer = 0
+	collision_mask = 2
 	if visible_on_enter:
 		reveal()
 

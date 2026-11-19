@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_u47hb")
-cooldown = 7.0
+cooldown = 11.0
 metadata/_custom_type_script = "uid://b4l4u22a0kvsv"
