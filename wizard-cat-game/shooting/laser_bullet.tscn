@@ -28,6 +28,7 @@ target_position = Vector2(0, 64)
 collision_mask = 17
 collide_with_areas = true
 script = ExtResource("1_kib5u")
+hit_delay = 0.75
 life_timer = NodePath("LifeTimer")
 color_rect = NodePath("ColorRect")
 
