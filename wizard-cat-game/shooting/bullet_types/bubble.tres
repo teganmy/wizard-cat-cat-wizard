@@ -13,6 +13,6 @@ lifetime = 2.0
 collision_layer = null
 collision_mask = 1
 hitbox_layer = null
-hitbox_mask = 8
+hitbox_mask = 0
 scale = Vector2(0.75, 0.75)
 metadata/_custom_type_script = "uid://dnqcg6lff1m84"

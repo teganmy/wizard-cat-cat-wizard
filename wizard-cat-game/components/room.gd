@@ -27,6 +27,8 @@ func _ready() -> void:
 		defeated.connect(room.reveal)
 	if visible_on_enter:
 		reveal()
+	collision_layer = 0
+	collision_mask = 2
 
 func _change_state(new_state: STATE) -> void:
 	state = new_state
