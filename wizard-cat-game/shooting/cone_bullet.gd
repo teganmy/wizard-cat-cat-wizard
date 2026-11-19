@@ -17,10 +17,11 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if is_instance_valid(follow):
 		global_position = follow.global_position
-	var target_global: Vector2 = seek_target.call()
-	var direction: Vector2 = target_global - global_position
-	if not direction.is_zero_approx():
-		global_rotation = direction.angle() - cone_direction.angle()
+	if seek_target:
+		var target_global: Vector2 = seek_target.call()
+		var direction: Vector2 = target_global - global_position
+		if not direction.is_zero_approx():
+			global_rotation = direction.angle() - cone_direction.angle()
 
 
 

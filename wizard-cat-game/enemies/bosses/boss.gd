@@ -91,6 +91,8 @@ func _attack() -> void:
 				for bullet in shooter.fire(target.global_position):
 					add_sibling(bullet)
 					bullet.global_position = shooter.global_position
+					bullet.set("follow", self)
+					bullet.set("seek_target", func(): return target.global_position)
 
 
 func _on_health_died() -> void:

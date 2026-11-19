@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="BossDef" format=3 uid="uid://c8dcy74pqtsba"]
+
+[ext_resource type="Script" uid="uid://bof80j5oc6jsp" path="res://enemies/bosses/attacks/boss_attack.gd" id="1_rad08"]
+[ext_resource type="Script" uid="uid://qiyo0f705gt" path="res://loot/loot_type.gd" id="2_f8pq2"]
+[ext_resource type="Resource" uid="uid://rgu3da2tsg6y" path="res://shooting/bullet_types/cold_cone.tres" id="2_tqs7b"]
+[ext_resource type="Script" uid="uid://drq0y0x2llhhg" path="res://loot/weighted_loot.gd" id="3_gfyy8"]
+[ext_resource type="Resource" uid="uid://8ou32872hvt4" path="res://shooting/firing_patterns/enemy_default.tres" id="3_of4go"]
+[ext_resource type="Script" uid="uid://cmna1iq5h5oq7" path="res://enemies/bosses/defs/boss_def.gd" id="4_tqs7b"]
+[ext_resource type="Texture2D" uid="uid://c5k2tuulh4ajs" path="res://assets/penguin.png" id="5_f8pq2"]
+[ext_resource type="Resource" uid="uid://7kjg1gelmgpv" path="res://loot/loot_types/ice_secondary.tres" id="5_of4go"]
+[ext_resource type="Resource" uid="uid://ld6uwxcbxknh" path="res://loot/loot_types/gem.tres" id="7_wsbyc"]
+
+[sub_resource type="Resource" id="Resource_f8pq2"]
+script = ExtResource("1_rad08")
+bullet = ExtResource("2_tqs7b")
+pattern = ExtResource("3_of4go")
+metadata/_custom_type_script = "uid://bof80j5oc6jsp"
+
+[sub_resource type="Resource" id="Resource_wsbyc"]
+script = ExtResource("3_gfyy8")
+type = ExtResource("7_wsbyc")
+weight = 1.0
+metadata/_custom_type_script = "uid://drq0y0x2llhhg"
+
+[resource]
+script = ExtResource("4_tqs7b")
+name = "Phrozen Phil"
+sprite = ExtResource("5_f8pq2")
+attack_timing = 3.0
+attacks = Array[ExtResource("1_rad08")]([SubResource("Resource_f8pq2")])
+move_speed = 75.0
+min_target_distance = 50.0
+max_target_distance = 100.0
+distance_tolerance = 15.0
+max_health = 15
+loot_table = Array[ExtResource("3_gfyy8")]([SubResource("Resource_wsbyc")])
+max_loot = 30
+min_loot = 30
+guaranteed_loot = Array[ExtResource("2_f8pq2")]([ExtResource("5_of4go")])
+metadata/_custom_type_script = "uid://cmna1iq5h5oq7"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="LootType" format=3 uid="uid://7kjg1gelmgpv"]
+
+[ext_resource type="Resource" uid="uid://oel1y5ab1cjo" path="res://shooting/secondary_attacks/cold_cone.tres" id="1_7ppkf"]
+[ext_resource type="Script" uid="uid://qiyo0f705gt" path="res://loot/loot_type.gd" id="1_782h4"]
+[ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="2_2egn4"]
+
+[resource]
+script = ExtResource("1_782h4")
+name = "Cold Cone"
+sprite = ExtResource("2_2egn4")
+value = 0
+attack = ExtResource("1_7ppkf")
+metadata/_custom_type_script = "uid://qiyo0f705gt"
