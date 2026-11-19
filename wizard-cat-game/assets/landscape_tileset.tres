@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://drrjxdxgq3igp" path="res://assets/stone_.png" id="2_ysfff"]
 [ext_resource type="Texture2D" uid="uid://dv203q7uqcfty" path="res://assets/leaf-stone.png" id="3_lnq11"]
 [ext_resource type="Texture2D" uid="uid://7v462moxgxfc" path="res://assets/carpet.png" id="4_l8qr2"]
-[ext_resource type="Shader" uid="uid://do52uw3dyegjm" path="res://assets/lava.gdshader" id="8_3a1hh"]
 [ext_resource type="Texture2D" uid="uid://b7gtotwdjb1yg" path="res://assets/lava.png" id="8_nyi0q"]
 [ext_resource type="Texture2D" uid="uid://c2c30umf773nj" path="res://assets/lavarock_.png" id="9_i2ee2"]
 [ext_resource type="Texture2D" uid="uid://doegom8sddvf5" path="res://assets/lava_stone.png" id="10_3a1hh"]
@@ -89,16 +88,10 @@ texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_l8qr2")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7wq80"]
-shader = ExtResource("8_3a1hh")
-shader_parameter/glow_color = Color(0, 1, 1, 1)
-shader_parameter/glow_strength = 2.0
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jqg4s"]
 texture = ExtResource("8_nyi0q")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/material = SubResource("ShaderMaterial_7wq80")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_csf84"]
 texture = ExtResource("9_i2ee2")
