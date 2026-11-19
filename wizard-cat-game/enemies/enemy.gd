@@ -110,6 +110,8 @@ func shoot() -> void:
 	for bullet in shooter.fire(target.global_position):
 		add_sibling(bullet)
 		bullet.global_position = shooter.global_position
+		bullet.set("follow", self)
+		bullet.set("seek_target", func(): return get_tree().get_first_node_in_group("player").global_position)
 
 func charge() -> void:
 	_change_state(STATE.CHARGING)
