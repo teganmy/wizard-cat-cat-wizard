@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dbalu0lgixhwy" path="res://assets/ice.png" id="2_lnq11"]
 [ext_resource type="Texture2D" uid="uid://drrjxdxgq3igp" path="res://assets/stone_.png" id="2_ysfff"]
 [ext_resource type="Texture2D" uid="uid://dv203q7uqcfty" path="res://assets/leaf-stone.png" id="3_lnq11"]
+[ext_resource type="Texture2D" uid="uid://7v462moxgxfc" path="res://assets/carpet.png" id="4_l8qr2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t8jds"]
 shader = ExtResource("1_2molj")
@@ -72,6 +73,11 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ysfff")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nyi0q"]
+texture = ExtResource("4_l8qr2")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
 [resource]
 tile_size = Vector2i(32, 32)
 occlusion_layer_0/light_mask = 1
@@ -85,3 +91,4 @@ sources/4 = SubResource("TileSetAtlasSource_ysfff")
 sources/5 = SubResource("TileSetAtlasSource_lnq11")
 sources/0 = SubResource("TileSetAtlasSource_2molj")
 sources/1 = SubResource("TileSetAtlasSource_l8qr2")
+sources/6 = SubResource("TileSetAtlasSource_nyi0q")
