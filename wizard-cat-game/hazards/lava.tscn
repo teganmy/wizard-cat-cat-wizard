@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ducj1bwmlk7v5"]
+
+[ext_resource type="Script" uid="uid://vp43d5d3xw71" path="res://hazards/lava.gd" id="1_rjaih"]
+[ext_resource type="Script" uid="uid://un6ien2ktj74" path="res://components/hitbox.gd" id="2_rfr1e"]
+
+[node name="Lava" type="Area2D" unique_id=672746770]
+script = ExtResource("1_rjaih")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1729547289]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("2_rfr1e")
+metadata/_custom_type_script = "uid://un6ien2ktj74"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox" unique_id=1519258371]
