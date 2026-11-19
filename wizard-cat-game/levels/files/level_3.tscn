@@ -23,6 +23,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpvk7"]
 size = Vector2(344, 346)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2w8te"]
+size = Vector2(728, 288)
+
 [node name="Level3" type="Node2D" unique_id=2058421573 node_paths=PackedStringArray("hud")]
 script = ExtResource("1_66l8o")
 player_scene = ExtResource("2_0ubf2")
@@ -137,6 +140,7 @@ tile_set = ExtResource("5_o27xx")
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room2" unique_id=768129594]
+visible = false
 polygon = PackedVector2Array(-16, 128, 72, 128, 72, -216, 568, -216, 568, 136, 648, 136, 648, -304, -16, -304)
 
 [node name="Door" parent="Room2" unique_id=1475041593 instance=ExtResource("6_s54sy")]
@@ -257,3 +261,110 @@ position = Vector2(-24, -336)
 visible = false
 position = Vector2(4, -163)
 shape = SubResource("RectangleShape2D_gpvk7")
+
+[node name="Room4" type="Area2D" parent="." unique_id=1268122456 node_paths=PackedStringArray("lockables")]
+position = Vector2(192, -512)
+collision_mask = 2
+script = ExtResource("4_q6mjr")
+lockables = [NodePath("../Room3/Door"), NodePath("Cauldron"), NodePath("Cauldron2"), NodePath("Chest"), NodePath("Chest3"), NodePath("Chest5"), NodePath("Chest6"), NodePath("Chest4"), NodePath("Chest2")]
+metadata/_custom_type_script = "uid://r7m3l5eq4nij"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Room4" unique_id=1727737430]
+tile_map_data = PackedByteArray("AADs//f/BAAAAAAAAADs//j/BAAAAAAAAADs//n/BAAAAAAAAADs//r/BAAAAAAAAADs//v/BAAAAAAAAADs//z/AQAAAAAAAADs//3/AQAAAAAAAADs//7/BAAAAAAAAADs////BAAAAAAAAADs/wAABAAAAAAAAADs/wEABAAAAAAAAADs/wIABAAAAAAAAADt//f/BAAAAAAAAADt//j/AQAAAAAAAADt//n/AQAAAAAAAADt//r/AQAAAAAAAADt//v/AQAAAAAAAADt//z/AQAAAAAAAADt//3/AQAAAAAAAADt//7/AQAAAAAAAADt////AQAAAAAAAADt/wAAAQAAAAAAAADt/wEAAQAAAAAAAADt/wIABAAAAAAAAADu//f/BAAAAAAAAADu//j/AQAAAAAAAADu//n/AQAAAAAAAADu//r/AQAAAAAAAADu//v/AQAAAAAAAADu//z/AQAAAAAAAADu//3/AQAAAAAAAADu//7/AQAAAAAAAADu////AQAAAAAAAADu/wAAAQAAAAAAAADu/wEAAQAAAAAAAADu/wIABAAAAAAAAADv//f/BAAAAAAAAADv//j/AQAAAAAAAADv//n/AQAAAAAAAADv//r/AQAAAAAAAADv//v/AQAAAAAAAADv//z/AQAAAAAAAADv//3/AQAAAAAAAADv//7/AQAAAAAAAADv////AQAAAAAAAADv/wAAAQAAAAAAAADv/wEAAQAAAAAAAADv/wIABAAAAAAAAADw//f/BAAAAAAAAADw//j/AQAAAAAAAADw//n/AQAAAAAAAADw//r/AQAAAAAAAADw//v/AQAAAAAAAADw//z/AQAAAAAAAADw//3/AQAAAAAAAADw//7/AQAAAAAAAADw////AQAAAAAAAADw/wAAAQAAAAAAAADw/wEAAQAAAAAAAADw/wIABAAAAAAAAADx//f/BAAAAAAAAADx//j/AQAAAAAAAADx//n/AQAAAAAAAADx//r/AQAAAAAAAADx//v/AQAAAAAAAADx//z/AQAAAAAAAADx//3/AQAAAAAAAADx//7/AQAAAAAAAADx////AQAAAAAAAADx/wAAAQAAAAAAAADx/wEAAQAAAAAAAADx/wIABAAAAAAAAADy//f/BAAAAAAAAADy//j/AQAAAAAAAADy//n/AQAAAAAAAADy//r/AQAAAAAAAADy//v/AQAAAAAAAADy//z/AQAAAAAAAADy//3/AQAAAAAAAADy//7/AQAAAAAAAADy////AQAAAAAAAADy/wAAAQAAAAAAAADy/wEAAQAAAAAAAADy/wIABAAAAAAAAADz//f/BAAAAAAAAADz//j/AQAAAAAAAADz//n/AQAAAAAAAADz//r/AQAAAAAAAADz//v/AQAAAAAAAADz//z/AQAAAAAAAADz//3/AQAAAAAAAADz//7/AQAAAAAAAADz////AQAAAAAAAADz/wAAAQAAAAAAAADz/wEAAQAAAAAAAADz/wIABAAAAAAAAAD0//f/BAAAAAAAAAD0//j/AQAAAAAAAAD0//n/AQAAAAAAAAD0//r/AQAAAAAAAAD0//v/AQAAAAAAAAD0//z/AQAAAAAAAAD0//3/AQAAAAAAAAD0//7/AQAAAAAAAAD0////AQAAAAAAAAD0/wAAAQAAAAAAAAD0/wEAAQAAAAAAAAD0/wIABAAAAAAAAAD1//f/BAAAAAAAAAD1//j/BAAAAAAAAAD1//n/BAAAAAAAAAD1//r/BAAAAAAAAAD1//v/BAAAAAAAAAD1//z/AQAAAAAAAAD1//3/AQAAAAAAAAD1//7/BAAAAAAAAAD1////BAAAAAAAAAD1/wAABAAAAAAAAAD1/wEABAAAAAAAAAD1/wIABAAAAAAAAAD2//f/BAAAAAAAAAD2//j/BAAAAAAAAAD2//n/BAAAAAAAAAD2//r/BAAAAAAAAAD2//v/BAAAAAAAAAD2//z/AQAAAAAAAAD2//3/AQAAAAAAAAD2//7/BAAAAAAAAAD2////BAAAAAAAAAD2/wAABAAAAAAAAAD2/wEABAAAAAAAAAD2/wIABAAAAAAAAAD3//f/BAAAAAAAAAD3//j/BAAAAAAAAAD3//n/BAAAAAAAAAD3//r/BAAAAAAAAAD3//v/BAAAAAAAAAD3//z/AQAAAAAAAAD3//3/AQAAAAAAAAD3//7/BAAAAAAAAAD3////BAAAAAAAAAD3/wAABAAAAAAAAAD3/wEABAAAAAAAAAD3/wIABAAAAAAAAAD4//f/BAAAAAAAAAD4//j/AQAAAAAAAAD4//n/AQAAAAAAAAD4//r/AQAAAAAAAAD4//v/AQAAAAAAAAD4//z/AQAAAAAAAAD4//3/AQAAAAAAAAD4//7/AQAAAAAAAAD4////AQAAAAAAAAD4/wAAAQAAAAAAAAD4/wEAAQAAAAAAAAD4/wIABAAAAAAAAAD5//f/BAAAAAAAAAD5//j/AQAAAAAAAAD5//n/AQAAAAAAAAD5//r/AQAAAAAAAAD5//v/AQAAAAAAAAD5//z/AQAAAAAAAAD5//3/AQAAAAAAAAD5//7/AQAAAAAAAAD5////AQAAAAAAAAD5/wAAAQAAAAAAAAD5/wEAAQAAAAAAAAD5/wIABAAAAAAAAAD6//f/BAAAAAAAAAD6//j/AQAAAAAAAAD6//n/AQAAAAAAAAD6//r/AQAAAAAAAAD6//v/AQAAAAAAAAD6//z/AQAAAAAAAAD6//3/AQAAAAAAAAD6//7/AQAAAAAAAAD6////AQAAAAAAAAD6/wAAAQAAAAAAAAD6/wEAAQAAAAAAAAD6/wIABAAAAAAAAAD7//f/BAAAAAAAAAD7//j/AQAAAAAAAAD7//n/AQAAAAAAAAD7//r/AQAAAAAAAAD7//v/AQAAAAAAAAD7//z/AQAAAAAAAAD7//3/AQAAAAAAAAD7//7/AQAAAAAAAAD7////AQAAAAAAAAD7/wAAAQAAAAAAAAD7/wEAAQAAAAAAAAD7/wIABAAAAAAAAAD8//f/BAAAAAAAAAD8//j/AQAAAAAAAAD8//n/AQAAAAAAAAD8//r/AQAAAAAAAAD8//v/AQAAAAAAAAD8//z/AQAAAAAAAAD8//3/AQAAAAAAAAD8//7/AQAAAAAAAAD8////AQAAAAAAAAD8/wAAAQAAAAAAAAD8/wEAAQAAAAAAAAD8/wIABAAAAAAAAAD9//f/BAAAAAAAAAD9//j/AQAAAAAAAAD9//n/AQAAAAAAAAD9//r/AQAAAAAAAAD9//v/AQAAAAAAAAD9//z/AQAAAAAAAAD9//3/AQAAAAAAAAD9//7/AQAAAAAAAAD9////AQAAAAAAAAD9/wAAAQAAAAAAAAD9/wEAAQAAAAAAAAD9/wIABAAAAAAAAAD+//f/BAAAAAAAAAD+//j/AQAAAAAAAAD+//n/AQAAAAAAAAD+//r/AQAAAAAAAAD+//v/AQAAAAAAAAD+//z/AQAAAAAAAAD+//3/AQAAAAAAAAD+//7/AQAAAAAAAAD+////AQAAAAAAAAD+/wAAAQAAAAAAAAD+/wEAAQAAAAAAAAD+/wIABAAAAAAAAAD///f/BAAAAAAAAAD///j/AQAAAAAAAAD///n/AQAAAAAAAAD///r/AQAAAAAAAAD///v/AQAAAAAAAAD///z/AQAAAAAAAAD///3/AQAAAAAAAAD///7/AQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAD//wEAAQAAAAAAAAD//wIABAAAAAAAAAAAAPf/BAAAAAAAAAAAAPj/AQAAAAAAAAAAAPn/AQAAAAAAAAAAAPr/AQAAAAAAAAAAAPv/AQAAAAAAAAAAAPz/AQAAAAAAAAAAAP3/AQAAAAAAAAAAAP7/AQAAAAAAAAAAAP//AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIABAAAAAAAAAABAPf/BAAAAAAAAAABAPj/AQAAAAAAAAABAPn/AQAAAAAAAAABAPr/AQAAAAAAAAABAPv/AQAAAAAAAAABAPz/AQAAAAAAAAABAP3/AQAAAAAAAAABAP7/AQAAAAAAAAABAP//AQAAAAAAAAABAAAAAQAAAAAAAAABAAEAAQAAAAAAAAABAAIABAAAAAAAAAACAPf/BAAAAAAAAAACAPj/AQAAAAAAAAACAPn/AQAAAAAAAAACAPr/AQAAAAAAAAACAPv/AQAAAAAAAAACAPz/AQAAAAAAAAACAP3/AQAAAAAAAAACAP7/AQAAAAAAAAACAP//AQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAACAAIABAAAAAAAAAADAPf/BAAAAAAAAAADAPj/AQAAAAAAAAADAPn/AQAAAAAAAAADAPr/AQAAAAAAAAADAPv/AQAAAAAAAAADAPz/AQAAAAAAAAADAP3/AQAAAAAAAAADAP7/AQAAAAAAAAADAP//AQAAAAAAAAADAAAAAQAAAAAAAAADAAEAAQAAAAAAAAADAAIABAAAAAAAAAAEAPf/BAAAAAAAAAAEAPj/AQAAAAAAAAAEAPn/AQAAAAAAAAAEAPr/AQAAAAAAAAAEAPv/AQAAAAAAAAAEAPz/AQAAAAAAAAAEAP3/AQAAAAAAAAAEAP7/AQAAAAAAAAAEAP//AQAAAAAAAAAEAAAAAQAAAAAAAAAEAAEAAQAAAAAAAAAEAAIABAAAAAAAAAAFAPf/BAAAAAAAAAAFAPj/BAAAAAAAAAAFAPn/BAAAAAAAAAAFAPr/BAAAAAAAAAAFAPv/BAAAAAAAAAAFAPz/BAAAAAAAAAAFAP3/BAAAAAAAAAA=")
+tile_set = ExtResource("5_o27xx")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room4" unique_id=2051959283]
+visible = false
+position = Vector2(-220, -96)
+shape = SubResource("RectangleShape2D_2w8te")
+
+[node name="Vase" parent="Room4" unique_id=1274655409 instance=ExtResource("9_4yutu")]
+position = Vector2(-272, -112)
+
+[node name="Vase7" parent="Room4" unique_id=13345942 instance=ExtResource("9_4yutu")]
+position = Vector2(-272, -112)
+
+[node name="Vase2" parent="Room4" unique_id=1784850754 instance=ExtResource("9_4yutu")]
+position = Vector2(-272, -80)
+
+[node name="Vase3" parent="Room4" unique_id=17291819 instance=ExtResource("9_4yutu")]
+position = Vector2(-304, -80)
+
+[node name="Vase4" parent="Room4" unique_id=176229630 instance=ExtResource("9_4yutu")]
+position = Vector2(-304, -112)
+
+[node name="Vase5" parent="Room4" unique_id=674661580 instance=ExtResource("9_4yutu")]
+position = Vector2(-336, -112)
+
+[node name="Vase6" parent="Room4" unique_id=2088485909 instance=ExtResource("9_4yutu")]
+position = Vector2(-336, -80)
+
+[node name="EnemySpawner" type="Marker2D" parent="Room4" unique_id=1246408547]
+position = Vector2(-400, -112)
+script = ExtResource("12_2ovsm")
+radius = 25.0
+enemy_scene = ExtResource("13_jrgrr")
+waves = Array[ExtResource("14_7m7ls")]([ExtResource("18_sa2fs"), null, ExtResource("15_pqtfg")])
+metadata/_custom_type_script = "uid://d087k21va4dnw"
+
+[node name="EnemySpawner2" type="Marker2D" parent="Room4" unique_id=546763535]
+position = Vector2(-400, -80)
+script = ExtResource("12_2ovsm")
+radius = 25.0
+enemy_scene = ExtResource("13_jrgrr")
+waves = Array[ExtResource("14_7m7ls")]([ExtResource("18_sa2fs"), null, ExtResource("19_8efbt")])
+metadata/_custom_type_script = "uid://d087k21va4dnw"
+
+[node name="EnemySpawner3" type="Marker2D" parent="Room4" unique_id=1635868388]
+position = Vector2(-224, -200)
+script = ExtResource("12_2ovsm")
+radius = 25.0
+enemy_scene = ExtResource("13_jrgrr")
+waves = Array[ExtResource("14_7m7ls")]([null, ExtResource("16_r3rqs"), ExtResource("18_sa2fs")])
+metadata/_custom_type_script = "uid://d087k21va4dnw"
+
+[node name="EnemySpawner4" type="Marker2D" parent="Room4" unique_id=242642553]
+position = Vector2(128, -200)
+script = ExtResource("12_2ovsm")
+radius = 25.0
+enemy_scene = ExtResource("13_jrgrr")
+waves = Array[ExtResource("14_7m7ls")]([null, ExtResource("15_pqtfg"), ExtResource("19_8efbt")])
+metadata/_custom_type_script = "uid://d087k21va4dnw"
+
+[node name="EnemySpawner5" type="Marker2D" parent="Room4" unique_id=1861181725]
+position = Vector2(-232, 32)
+script = ExtResource("12_2ovsm")
+radius = 25.0
+enemy_scene = ExtResource("13_jrgrr")
+waves = Array[ExtResource("14_7m7ls")]([null, ExtResource("17_bnst5"), ExtResource("17_bnst5")])
+metadata/_custom_type_script = "uid://d087k21va4dnw"
+
+[node name="Door" parent="Room4" unique_id=267455968 instance=ExtResource("6_s54sy")]
+position = Vector2(-624, -96)
+rotation = 1.5707964
+scale = Vector2(2, 1)
+
+[node name="Cauldron" parent="Room4" unique_id=1891991714 instance=ExtResource("11_8pbhg")]
+position = Vector2(-448, -240)
+
+[node name="Cauldron2" parent="Room4" unique_id=1295988917 instance=ExtResource("11_8pbhg")]
+position = Vector2(-512, -240)
+
+[node name="Chest" parent="Room4" unique_id=1839413208 instance=ExtResource("10_bsffi")]
+position = Vector2(-384, -240)
+
+[node name="Chest3" parent="Room4" unique_id=1772186791 instance=ExtResource("10_bsffi")]
+position = Vector2(-224, -240)
+
+[node name="Chest5" parent="Room4" unique_id=926246541 instance=ExtResource("10_bsffi")]
+position = Vector2(-160, -240)
+
+[node name="Chest6" parent="Room4" unique_id=1227118890 instance=ExtResource("10_bsffi")]
+position = Vector2(64, -240)
+
+[node name="Chest4" parent="Room4" unique_id=1304828793 instance=ExtResource("10_bsffi")]
+position = Vector2(128, -240)
+
+[node name="Chest2" parent="Room4" unique_id=557000774 instance=ExtResource("10_bsffi")]
+position = Vector2(-576, -240)
