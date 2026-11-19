@@ -68,4 +68,5 @@ func _clean_up() -> void:
 		sprite.hide()
 		particles.amount_ratio = 0.0
 		hitbox.monitoring = false
-		particles.finished.connect(queue_free)
+		await get_tree().create_timer(3.0).timeout
+		queue_free()

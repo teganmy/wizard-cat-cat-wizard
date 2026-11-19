@@ -6,9 +6,9 @@
 [ext_resource type="Script" uid="uid://bcc0owr08yuq5" path="res://components/health.gd" id="3_i3pqv"]
 [ext_resource type="Script" uid="uid://c88tvlaqfqme2" path="res://components/hurtbox.gd" id="4_hqtel"]
 [ext_resource type="Script" uid="uid://ds8lqx0juuem6" path="res://components/area_shooter.gd" id="7_1jxqw"]
-[ext_resource type="Resource" uid="uid://d4lh65x68250r" path="res://shooting/bullet_types/player_default.tres" id="7_dw050"]
 [ext_resource type="Resource" uid="uid://c6r0w1nogygho" path="res://shooting/firing_patterns/player_default.tres" id="8_b26j0"]
 [ext_resource type="PackedScene" uid="uid://dvdc0giywjqia" path="res://shooting/area_bullet.tscn" id="8_dw050"]
+[ext_resource type="Resource" uid="uid://cufcent255w3x" path="res://shooting/bullet_types/laser_bullet.tres" id="8_ebec5"]
 [ext_resource type="Script" uid="uid://c5cxwb8ugyefc" path="res://player/camera.gd" id="9_8t03j"]
 [ext_resource type="Script" uid="uid://cnhbys2pob6vi" path="res://components/pickup_area.gd" id="9_b26j0"]
 [ext_resource type="AudioStream" uid="uid://bp4sn7blcwvvb" path="res://assets/audio/kenney_impact-sounds/Audio/footstep_wood_001.ogg" id="12_ebec5"]
@@ -119,7 +119,7 @@ shape = SubResource("RectangleShape2D_2w8te")
 [node name="AreaShooter" type="Node2D" parent="." unique_id=27940226]
 script = ExtResource("7_1jxqw")
 bullet_scene = ExtResource("8_dw050")
-bullet_type = ExtResource("7_dw050")
+bullet_type = ExtResource("8_ebec5")
 firing_pattern = ExtResource("8_b26j0")
 use_player_boost = true
 metadata/_custom_type_script = "uid://ds8lqx0juuem6"

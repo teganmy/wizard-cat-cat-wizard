@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SecondaryAttack" format=3 uid="uid://bktoofq06ajhu"]
+
+[ext_resource type="Script" uid="uid://c5b021votofrj" path="res://shooting/secondary_attack.gd" id="1_bpt03"]
+[ext_resource type="Resource" uid="uid://cufcent255w3x" path="res://shooting/bullet_types/laser_bullet.tres" id="1_dpsrn"]
+[ext_resource type="Resource" uid="uid://c1g5yel8sppi3" path="res://shooting/firing_patterns/laser.tres" id="2_6l5wx"]
+[ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="3_w84d7"]
+
+[resource]
+script = ExtResource("1_bpt03")
+display_name = "Laser"
+icon = ExtResource("3_w84d7")
+bullet_type = ExtResource("1_dpsrn")
+firing_pattern = ExtResource("2_6l5wx")
+metadata/_custom_type_script = "uid://c5b021votofrj"

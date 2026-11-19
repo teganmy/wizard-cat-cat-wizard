@@ -27,8 +27,8 @@ func configure(new_type: BulletType, new_pattern: FiringPattern) -> void:
 		bullet_scene = _default_bullet_scene
 	setup_pattern()
 	
-func fire(target: Vector2) -> Array[Area2D]:
-	var bullets: Array[Area2D] = []
+func fire(target: Vector2) -> Array[Node2D]:
+	var bullets: Array[Node2D] = []
 	if firing_pattern == null or bullet_scene == null:
 		return bullets
 	match state:
@@ -39,8 +39,8 @@ func fire(target: Vector2) -> Array[Area2D]:
 					angle = i * (spread / (count - 1)) - spread / 2
 				var new_bullet = bullet_scene.instantiate()
 				new_bullet.global_position = global_position
-				new_bullet.dir = new_bullet.global_position.direction_to(target).rotated(angle)
-				new_bullet.type = bullet_type
+				new_bullet.set("dir", new_bullet.global_position.direction_to(target).rotated(angle))
+				new_bullet.set("type", bullet_type)
 				bullets.append(new_bullet)
 			_change_state(STATE.COOLDOWN)
 			var rate: float = PlayerState.fire_rate_multiplier if use_player_boost else 1.0

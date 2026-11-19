@@ -68,9 +68,15 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("fire"):
 		for bullet in shooter.fire(get_global_mouse_position()):
 			add_sibling(bullet)
+			bullet.global_position = global_position
+			bullet.set("follow", self)
+			bullet.set("seek_target", func(): return get_global_mouse_position())
 	if Input.is_action_pressed("secondary_fire"):
 		for bullet in secondary_shooter.fire(get_global_mouse_position()):
 			add_sibling(bullet)
+			bullet.global_position = global_position
+			bullet.set("follow", self)
+			bullet.set("seek_target", func(): return get_global_mouse_position())
 	if Input.is_action_just_pressed("use_potion"):
 		_use_potion()
 	if Input.is_action_just_pressed("cycle_potion"):
