@@ -1,4 +1,11 @@
-# Working title: Wizard Cat: Cat Wizard
+# Wizard Cat: Cat Wizard
+
+## itch.io game link
+https://teganmy.itch.io/wizard-cat
+
+## itch.io password
+bartholomew
+
 Team Members: Sophie Avery, Tegan Myers
 
 Target aesthetics: Challenge, discovery
