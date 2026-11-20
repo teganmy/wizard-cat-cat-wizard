@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b8ojfjr3irnrg"]
 
 [ext_resource type="Script" uid="uid://olkjutnnoue0" path="res://props/secondary_wardrobe.gd" id="1_5dpia"]
-[ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="2_1mkjd"]
+[ext_resource type="Texture2D" uid="uid://chhng3jhfdet3" path="res://assets/_chest_open.png" id="2_n3ars"]
 [ext_resource type="Script" uid="uid://dxddfl5g0sgtd" path="res://components/interaction_area.gd" id="3_n3ars"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpvk7"]
@@ -16,7 +16,7 @@ script = ExtResource("1_5dpia")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=486185347]
 texture_filter = 1
 scale = Vector2(2, 2)
-texture = ExtResource("2_1mkjd")
+texture = ExtResource("2_n3ars")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=890904039]
 shape = SubResource("RectangleShape2D_gpvk7")

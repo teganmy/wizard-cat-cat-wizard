@@ -3,12 +3,12 @@
 [ext_resource type="Resource" uid="uid://rgu3da2tsg6y" path="res://shooting/bullet_types/cold_cone.tres" id="1_0nxpb"]
 [ext_resource type="Script" uid="uid://c5b021votofrj" path="res://shooting/secondary_attack.gd" id="1_yrfxf"]
 [ext_resource type="Resource" uid="uid://c40sr0qbbkjxb" path="res://shooting/firing_patterns/cold_cone.tres" id="2_ewiqr"]
-[ext_resource type="Texture2D" uid="uid://1x47pqeyrbca" path="res://assets/bullet_default.png" id="3_4kwdr"]
+[ext_resource type="Texture2D" uid="uid://c5k2tuulh4ajs" path="res://assets/penguin.png" id="3_0nxpb"]
 
 [resource]
 script = ExtResource("1_yrfxf")
 display_name = "Cold Cone"
-icon = ExtResource("3_4kwdr")
+icon = ExtResource("3_0nxpb")
 bullet_type = ExtResource("1_0nxpb")
 firing_pattern = ExtResource("2_ewiqr")
 metadata/_custom_type_script = "uid://c5b021votofrj"
