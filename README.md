@@ -6,6 +6,9 @@ https://teganmy.itch.io/wizard-cat
 ## itch.io password
 bartholomew
 
+## Content lock statement
+From this point (11/19) forward, we will focus on minor fixes and polishing our game rather than attempting to add new content last minute.
+
 ## Game info
 Team Members: Sophie Avery, Tegan Myers
 
