@@ -6,6 +6,7 @@ https://teganmy.itch.io/wizard-cat
 ## itch.io password
 bartholomew
 
+## Game info
 Team Members: Sophie Avery, Tegan Myers
 
 Target aesthetics: Challenge, discovery
