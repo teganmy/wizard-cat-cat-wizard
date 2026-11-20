@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dccidf4auyy7s"
+path="res://.godot/imported/Deliberate Thought.mp3-a82bbc63d6c70f0ab0c1dfa6ea52f2f5.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Deliberate Thought.mp3"
+dest_files=["res://.godot/imported/Deliberate Thought.mp3-a82bbc63d6c70f0ab0c1dfa6ea52f2f5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
