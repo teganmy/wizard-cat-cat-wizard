@@ -162,17 +162,10 @@ waves = Array[ExtResource("8_at1ld")]([ExtResource("10_wcjpl"), null, ExtResourc
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="EnemySpawner3" type="Marker2D" parent="Room2" unique_id=1719151666]
-position = Vector2(640, 256)
+position = Vector2(640, 272)
 script = ExtResource("6_ep78u")
 enemy_scene = ExtResource("7_dfjjl")
 waves = Array[ExtResource("8_at1ld")]([null, ExtResource("10_kv63o")])
-metadata/_custom_type_script = "uid://d087k21va4dnw"
-
-[node name="EnemySpawner4" type="Marker2D" parent="Room2" unique_id=1660505093]
-position = Vector2(640, 296)
-script = ExtResource("6_ep78u")
-enemy_scene = ExtResource("7_dfjjl")
-waves = Array[ExtResource("8_at1ld")]([null, ExtResource("11_5orea")])
 metadata/_custom_type_script = "uid://d087k21va4dnw"
 
 [node name="EnemySpawner5" type="Marker2D" parent="Room2" unique_id=1419527175]
@@ -198,6 +191,9 @@ position = Vector2(368, 304)
 
 [node name="Vase4" parent="Room2" unique_id=1967005115 instance=ExtResource("16_wr4gd")]
 position = Vector2(400, 304)
+
+[node name="Cauldron" parent="Room2" unique_id=309821539 instance=ExtResource("15_kv63o")]
+position = Vector2(360, -48)
 
 [node name="Room3" type="Area2D" parent="." unique_id=1920012729 node_paths=PackedStringArray("lockables", "connected_rooms")]
 position = Vector2(384, -128)
@@ -368,6 +364,9 @@ position = Vector2(-16, 160)
 
 [node name="Candle3" parent="Room4" unique_id=569630068 instance=ExtResource("14_t8jds")]
 position = Vector2(216, 336)
+
+[node name="Cauldron" parent="Room4" unique_id=1653908361 instance=ExtResource("15_kv63o")]
+position = Vector2(-200, -80)
 
 [node name="Room5" type="Area2D" parent="." unique_id=171162208 node_paths=PackedStringArray("boss_spawner", "lockables")]
 position = Vector2(1280, -256)
