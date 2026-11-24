@@ -43,9 +43,10 @@ size = Vector2(784, 104)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7aio"]
 size = Vector2(384, 352)
 
-[node name="Level5" type="Node2D" unique_id=1118981851 node_paths=PackedStringArray("hud")]
+[node name="Level5" type="Node2D" unique_id=1118981851 node_paths=PackedStringArray("exit_portal", "hud")]
 script = ExtResource("1_2uni3")
 player_scene = ExtResource("2_xpb4t")
+exit_portal = NodePath("Room4/Portal")
 hud = NodePath("HUDLayer/HUD")
 level_def = ExtResource("3_2uni3")
 
