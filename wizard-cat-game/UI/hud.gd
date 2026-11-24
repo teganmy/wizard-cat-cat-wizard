@@ -4,12 +4,15 @@ extends Control
 @export var tutorial_popup: Popup
 @export var pause_rect: ColorRect
 @export var hint_label: Label
+@export var loading_rect: ColorRect
+
 
 var hint_tween: Tween
 
 
 func _ready() -> void:
 	show()
+	loading_rect.show()
 	PlayerState.currency_changed.connect(_on_currency_changed)
 	_on_currency_changed(PlayerState.currency)
 	if PlayerState.player_is_new:
@@ -50,3 +53,16 @@ func timed_hint(text: String, time: float) -> void:
 	show_hint(text)
 	await get_tree().create_timer(time).timeout
 	hide_hint()
+
+func show_loading_screen() -> void:
+	loading_rect.modulate.a = 0
+	loading_rect.show()
+	var tween = create_tween()
+	tween.tween_property(loading_rect, "modulate:a", 1.0, 0.75)
+	await tween.finished
+
+func hide_loading_screen() -> void:
+	var tween = create_tween()
+	tween.tween_property(loading_rect, "modulate:a", 0.0, 0.75)
+	await tween.finished
+	loading_rect.hide()

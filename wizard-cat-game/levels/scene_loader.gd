@@ -28,15 +28,14 @@ func change_to_file(file: String) -> void:
 	var tree := get_tree()
 	tree.set_deferred("paused", false)
 	var current := get_tree().current_scene
+	if current.has_method("show_loading_screen"):
+		current.call("show_loading_screen")
 	if current is Level and current.level_def:
-		#var kept_potions: Array = PlayerState.potion_paths
 		Save.load_current()
-		#PlayerState.potion_paths = kept_potions
-		#Save.save_current()
 	elif current is Level:
 		Save.save_current()
-	if tree.current_scene.has_method("exit"):
-		tree.current_scene.exit()
+	if current.has_method("exit"):
+		current.call("exit")
 	var basename: String = file.get_file().get_basename()
 	if basename == "main":
 		tree.change_scene_to_packed(main_menu)

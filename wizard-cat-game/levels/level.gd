@@ -67,6 +67,8 @@ func enter() -> void:
 	if state == STATE.INACTIVE:
 		entered.emit()
 		_change_state(STATE.ACTIVE)
+		if is_instance_valid(hud) and hud.has_method("hide_loading_screen"):
+			hud.hide_loading_screen()
 
 func _change_state(new_state: STATE) -> void:
 	state = new_state
@@ -93,3 +95,7 @@ func _on_boss_defeated() -> void:
 	portal_enabled = true
 	if exit_portal:
 		exit_portal.lock.unlock()
+
+func show_loading_screen() -> void:
+	if is_instance_valid(hud) and hud.has_method("show_loading_screen"):
+		await hud.show_loading_screen()
