@@ -29,7 +29,6 @@
 | More power scaling before level 1 boss | Decline | Game is designed to scale up each level |
 | Loss of progress upon death | Adopt | Fixes wealth mining issue mentioned above |
 | More variety in weapon drops | Adopt | This will give the player more options and add a sense of progression |
-| Control guide in pause menu | Adopt | Our game has a lot of controls and this would help make it easier for the player to remember |
 | Fewer buttons | Adapt | We may move some of the buttons to be more accessible |
 | Hold shoot to continuously shoot | Adopt | Means player won't have to spam the space bar |
 | Make frog shoot faster | Adopt | This will make the frog as powerful as he appears to be |
@@ -37,3 +36,13 @@
 | Bring a mouse next time | Adopt | Hopefully we'll remember! |
 | Respawn where you died | Decline | Levels are small enough that dying shouldn't reset too much progress |
 | Bosses drop new secondaries | Adopt | See above reasons for adding new player weapons |
+
+# Sprint 3 Feedback
+| Suggestion | Choice | Reason |
+| ---------- | ------ | ------ |
+| Scale back enemy difficulty | Adopt | Level 2 in particular seems to be unnecessarily difficult |
+| Fix water shaders | Adopt | They don't look very good right now | 
+| Change colors/contrast of enemies | Adopt | Fish in water, spiders, etc are really hard to see right now |
+| Increase contrast + add movement to shop cat? | Adopt | We want to make it clear that he's a friend |
+| Add difficulty modes| Decline | Each level is intended to function as a training ground so you can beat the next |
+| Control guide in pause menu | Adopt | Our game has a lot of controls and this would help make it easier for the player to remember |
